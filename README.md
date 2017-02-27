@@ -4,4 +4,4 @@ Qt Enviroment
 
 ###How you like me now???
 
-#######(>*.*)>
+#(>0.0)>
