@@ -13,6 +13,10 @@ Bullet::Bullet(QGraphicsItem *parent)
     QTimer * move_timer = new QTimer(this);
     connect(move_timer, SIGNAL(timeout()),this,SLOT(move()));
     move_timer->start(50);
+
+    //initialize values
+    maxRange =100;
+    distanceTravelled = 0;
 }
 
 void Bullet::move()
@@ -26,4 +30,20 @@ void Bullet::move()
     setPos(x()+dx, y()+dy);
 
 
+}
+
+double Bullet::getMaxRange(){
+    return maxRange;
+}
+
+double Bullet::getDistanceTravelled(){
+    return distanceTravelled;
+}
+
+void Bullet::setMaxRange(double rng){
+    maxRange = rng;
+}
+
+void Bullet::setDistanceTravelled(double dist){
+    distanceTravelled = dist;
 }

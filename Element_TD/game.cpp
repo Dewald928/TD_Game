@@ -1,27 +1,29 @@
 #include "game.h"
 #include <QGraphicsScene>
-#include <tower.h>
+//#include <tower.h>
+#include <arrowtower.h>
+#include <canontower.h>
 #include <bullet.h>
 #include <enemy.h>
+#include <buildarrowtowericon.h>
+#include <buildcanontowericon.h>
 
 Game::Game()
 {
     //create a scene
     scene = new QGraphicsScene(this);
-    scene->setSceneRect(0,0,800,600);
+    scene->setSceneRect(0,0,1920,1080);
 
     //set the scene
     setScene(scene);
 
-    //create a tower
-    Tower *t = new Tower();
-    t->setPos(250,250);
-
-    //add tower to scene
-    scene->addItem(t);
+    //set cursor
+    cursor = nullptr;
+    building = nullptr;
+    setMouseTracking(true);
 
     //alter window
-    setMinimumSize(800,600);
+    setMinimumSize(1920,1080);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
@@ -29,14 +31,56 @@ Game::Game()
     Enemy *enemy = new Enemy();
     scene->addItem(enemy);
 
+    //test code
+    BuildArrowTowerIcon * at = new BuildArrowTowerIcon();
+    BuildCanonTowerIcon * ct = new BuildCanonTowerIcon();
+    ct->setPos(x(),y()+100);
 
+    scene->addItem(at);
+    scene->addItem(ct);
+
+
+}
+
+void Game::setCursor(QString filename)
+{
+    if (cursor) {
+        scene->removeItem(cursor);
+        //delete cursor; //remove die?
+    }
+    cursor = new QGraphicsPixmapItem();
+    cursor->setPixmap(QPixmap(filename));
+    scene->addItem(cursor);
+}
+
+void Game::mouseMoveEvent(QMouseEvent *event)
+{
+    if (cursor) {
+        cursor->setPos(event->pos());
+    }
 }
 
 void Game::mousePressEvent(QMouseEvent *event)
 {
-    //create a bullet
-    Bullet * bullet = new Bullet();
-    bullet->setPos(event->pos());
-    bullet->setRotation(40);
-    scene->addItem(bullet);
+    //if we are building
+    if (building) {
+        // return if the cursor is colliding with a tower
+        QList<QGraphicsItem *> items = cursor->collidingItems();
+        for (size_t i = 0, n = items.size(); i < n; i++){
+            if (dynamic_cast<Tower*>(items[i])){
+                return;
+            }
+        }
+
+        // otherwise, build at the clicked location
+        scene->addItem(building);
+        building->setPos(event->pos());
+        delete cursor;
+        cursor = nullptr;
+        building = nullptr;
+    }
+    else
+    {
+        QGraphicsView::mousePressEvent(event);
+    }
 }

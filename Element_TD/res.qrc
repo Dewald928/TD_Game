@@ -3,5 +3,13 @@
         <file>images/Tower_Arrow.png</file>
         <file>images/Projectile_Arrow.png</file>
         <file>images/Enemy_Eye.png</file>
+        <file>images/Projectile_Canon.png</file>
+        <file>images/Projectile_Fire.png</file>
+        <file>images/Projectile_Light.png</file>
+        <file>images/Projectile_Slime.png</file>
+        <file>images/Tower_Canon.png</file>
+        <file>images/Tower_Fire.png</file>
+        <file>images/Tower_Light.png</file>
+        <file>images/Tower_Slime.png</file>
     </qresource>
 </RCC>

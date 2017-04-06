@@ -34,6 +34,9 @@ void Enemy::move_forward()
     if ((ln.length() <5))
     {
         point_index++;
+        if (point_index >= points.size()){
+            return;
+        }
         dest = points[point_index];
         rotateToPoint(dest);
     }

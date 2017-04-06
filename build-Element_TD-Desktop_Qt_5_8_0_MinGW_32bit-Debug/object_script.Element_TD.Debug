@@ -5,9 +5,15 @@ INPUT(
 ./debug\game.o
 ./debug\bullet.o
 ./debug\enemy.o
+./debug\buildarrowtowericon.o
+./debug\arrowtower.o
+./debug\canontower.o
+./debug\buildcanontowericon.o
 ./debug\qrc_res.o
 ./debug\moc_mainwindow.o
 ./debug\moc_tower.o
 ./debug\moc_bullet.o
 ./debug\moc_enemy.o
+./debug\moc_arrowtower.o
+./debug\moc_canontower.o
 );

@@ -32,11 +32,11 @@ struct qt_meta_stringdata_Tower_t {
 static const qt_meta_stringdata_Tower_t qt_meta_stringdata_Tower = {
     {
 QT_MOC_LITERAL(0, 0, 5), // "Tower"
-QT_MOC_LITERAL(1, 6, 13), // "attack_target"
+QT_MOC_LITERAL(1, 6, 13), // "aquire_target"
 QT_MOC_LITERAL(2, 20, 0) // ""
 
     },
-    "Tower\0attack_target\0"
+    "Tower\0aquire_target\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,7 +68,7 @@ void Tower::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void 
         Tower *_t = static_cast<Tower *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->attack_target(); break;
+        case 0: _t->aquire_target(); break;
         default: ;
         }
     }

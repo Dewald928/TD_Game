@@ -5,9 +5,15 @@ INPUT(
 ./release\game.o
 ./release\bullet.o
 ./release\enemy.o
+./release\buildarrowtowericon.o
+./release\arrowtower.o
+./release\canontower.o
+./release\buildcanontowericon.o
 ./release\qrc_res.o
 ./release\moc_mainwindow.o
 ./release\moc_tower.o
 ./release\moc_bullet.o
 ./release\moc_enemy.o
+./release\moc_arrowtower.o
+./release\moc_canontower.o
 );

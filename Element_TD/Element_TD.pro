@@ -28,13 +28,21 @@ SOURCES += main.cpp\
     tower.cpp \
     game.cpp \
     bullet.cpp \
-    enemy.cpp
+    enemy.cpp \
+    buildarrowtowericon.cpp \
+    arrowtower.cpp \
+    canontower.cpp \
+    buildcanontowericon.cpp
 
 HEADERS  += mainwindow.h \
     tower.h \
     game.h \
     bullet.h \
-    enemy.h
+    enemy.h \
+    buildarrowtowericon.h \
+    arrowtower.h \
+    canontower.h \
+    buildcanontowericon.h
 
 RESOURCES += \
     res.qrc
