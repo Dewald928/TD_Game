@@ -9,6 +9,8 @@ INPUT(
 ./debug\arrowtower.o
 ./debug\canontower.o
 ./debug\buildcanontowericon.o
+./debug\firetower.o
+./debug\buildfiretowericon.o
 ./debug\qrc_res.o
 ./debug\moc_mainwindow.o
 ./debug\moc_tower.o
@@ -16,4 +18,5 @@ INPUT(
 ./debug\moc_enemy.o
 ./debug\moc_arrowtower.o
 ./debug\moc_canontower.o
+./debug\moc_firetower.o
 );

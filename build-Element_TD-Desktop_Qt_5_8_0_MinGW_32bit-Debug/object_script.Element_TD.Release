@@ -9,6 +9,8 @@ INPUT(
 ./release\arrowtower.o
 ./release\canontower.o
 ./release\buildcanontowericon.o
+./release\firetower.o
+./release\buildfiretowericon.o
 ./release\qrc_res.o
 ./release\moc_mainwindow.o
 ./release\moc_tower.o
@@ -16,4 +18,5 @@ INPUT(
 ./release\moc_enemy.o
 ./release\moc_arrowtower.o
 ./release\moc_canontower.o
+./release\moc_firetower.o
 );

@@ -32,7 +32,9 @@ SOURCES += main.cpp\
     buildarrowtowericon.cpp \
     arrowtower.cpp \
     canontower.cpp \
-    buildcanontowericon.cpp
+    buildcanontowericon.cpp \
+    firetower.cpp \
+    buildfiretowericon.cpp
 
 HEADERS  += mainwindow.h \
     tower.h \
@@ -42,7 +44,9 @@ HEADERS  += mainwindow.h \
     buildarrowtowericon.h \
     arrowtower.h \
     canontower.h \
-    buildcanontowericon.h
+    buildcanontowericon.h \
+    firetower.h \
+    buildfiretowericon.h
 
 RESOURCES += \
     res.qrc

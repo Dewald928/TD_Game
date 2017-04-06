@@ -3,10 +3,12 @@
 //#include <tower.h>
 #include <arrowtower.h>
 #include <canontower.h>
+#include <firetower.h>
 #include <bullet.h>
 #include <enemy.h>
 #include <buildarrowtowericon.h>
 #include <buildcanontowericon.h>
+#include <buildfiretowericon.h>
 
 Game::Game()
 {
@@ -34,11 +36,13 @@ Game::Game()
     //test code
     BuildArrowTowerIcon * at = new BuildArrowTowerIcon();
     BuildCanonTowerIcon * ct = new BuildCanonTowerIcon();
+    BuildFireTowerIcon * ft = new BuildFireTowerIcon();
     ct->setPos(x(),y()+100);
+    ft->setPos(x(),y()+200);
 
     scene->addItem(at);
     scene->addItem(ct);
-
+    scene->addItem(ft);
 
 }
 
