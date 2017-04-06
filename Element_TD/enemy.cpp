@@ -9,7 +9,7 @@ Enemy::Enemy(QGraphicsItem *parent)
     setPixmap(QPixmap(":/images/images/Enemy_Eye.png"));
 
     //set points
-    points << QPointF(200,200) << QPoint(400,200);
+    points << QPointF(200,200) << QPoint(1000,500);
     point_index = 0;
     dest = points[0];
     rotateToPoint(dest);
