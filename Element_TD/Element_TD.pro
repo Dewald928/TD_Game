@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2017-02-27T17:42:08
+# Project created by QtCreator 2017-04-05T14:50:42
 #
 #-------------------------------------------------
 
@@ -24,8 +24,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    tower.cpp \
+    game.cpp \
+    bullet.cpp \
+    enemy.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    tower.h \
+    game.h \
+    bullet.h \
+    enemy.h
 
-FORMS    += mainwindow.ui
+RESOURCES += \
+    res.qrc

@@ -196,6 +196,7 @@ Makefile: ../Element_TD/Element_TD.pro D:/Programming/Qt/5.8/mingw53_32/mkspecs/
 		D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/qt_config.prf \
 		D:/Programming/Qt/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf \
 		D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf \
 		D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/toolchain.prf \
 		D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/default_pre.prf \
@@ -362,6 +363,7 @@ D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/qt_functions.prf:
 D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/qt_config.prf:
 D:/Programming/Qt/5.8/mingw53_32/mkspecs/win32-g++/qmake.conf:
 D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/exclusive_builds.prf:
 D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/toolchain.prf:
 D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/default_pre.prf:

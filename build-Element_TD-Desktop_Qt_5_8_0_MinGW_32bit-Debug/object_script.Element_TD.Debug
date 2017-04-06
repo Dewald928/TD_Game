@@ -1,0 +1,13 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\tower.o
+./debug\game.o
+./debug\bullet.o
+./debug\enemy.o
+./debug\qrc_res.o
+./debug\moc_mainwindow.o
+./debug\moc_tower.o
+./debug\moc_bullet.o
+./debug\moc_enemy.o
+);
