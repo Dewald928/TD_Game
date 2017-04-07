@@ -33,12 +33,16 @@ Game::Game()
     Enemy *enemy = new Enemy();
     scene->addItem(enemy);
 
-    //test code
+    //add building icons
     BuildArrowTowerIcon * at = new BuildArrowTowerIcon();
     BuildCanonTowerIcon * ct = new BuildCanonTowerIcon();
     BuildFireTowerIcon * ft = new BuildFireTowerIcon();
     ct->setPos(x(),y()+100);
     ft->setPos(x(),y()+200);
+
+    at->setScale(0.5);
+    ct->setScale(0.5);
+    ft->setScale(0.5);
 
     scene->addItem(at);
     scene->addItem(ct);
@@ -54,6 +58,7 @@ void Game::setCursor(QString filename)
     }
     cursor = new QGraphicsPixmapItem();
     cursor->setPixmap(QPixmap(filename));
+    cursor->setScale(0.5);
     scene->addItem(cursor);
 }
 
@@ -79,6 +84,8 @@ void Game::mousePressEvent(QMouseEvent *event)
         // otherwise, build at the clicked location
         scene->addItem(building);
         building->setPos(event->pos());
+        building->setScale(0.5);
+
         delete cursor;
         cursor = nullptr;
         building = nullptr;

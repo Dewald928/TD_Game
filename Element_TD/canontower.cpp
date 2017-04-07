@@ -24,6 +24,7 @@ void CanonTower::fire()
 
     //set the graphics
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Canon.png"));
+    bullet->setScale(0.5);
 
     bullet->setPos(x()+pixmap().width()/2, y()+pixmap().height()/2);
 

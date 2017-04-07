@@ -9,6 +9,7 @@ Bullet::Bullet(QGraphicsItem *parent)
     //set graphics
     setPixmap(QPixmap(":/images/images/Projectile_Arrow.png"));
 
+
     //connect timer to move
     QTimer * move_timer = new QTimer(this);
     connect(move_timer, SIGNAL(timeout()),this,SLOT(move()));

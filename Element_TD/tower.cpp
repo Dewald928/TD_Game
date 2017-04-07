@@ -9,6 +9,8 @@
 #include <QTimer>
 #include <QGraphicsRectItem>
 #include <enemy.h>
+#include <QPainter>
+#include <QLabel>
 
 extern Game *game;
 
@@ -17,6 +19,13 @@ Tower::Tower(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
     //set the graphics
     setPixmap(QPixmap(":/images/images/Tower_Arrow.png"));
+
+    //test code
+//    QPixmap bgPixmap(":/images/images/Tower_Arrow.png");
+//    QPixmap scaled = bgPixmap.scaled(QSize(64, 64));
+
+//    QPainter painter(scene);
+//    painter.drawPixmap(0, 0, scaled);
 
     //create points vector
     QVector<QPointF> points;

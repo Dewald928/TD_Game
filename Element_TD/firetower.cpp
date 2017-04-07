@@ -11,6 +11,7 @@ FireTower::FireTower(QGraphicsItem *parent)
     //set graphics
     setPixmap(QPixmap(":/images/images/Tower_Fire.png"));//nodig?
 
+
     //connect timer to aaquire target
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(aquire_target()));
@@ -24,6 +25,7 @@ void FireTower::fire()
 
     //set the graphics
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Fire.png"));
+    bullet->setScale(0.5);
 
     bullet->setPos(x()+pixmap().width()/2, y()+pixmap().height()/2);
 

@@ -11,6 +11,7 @@ ArrowTower::ArrowTower(QGraphicsItem *parent)
     //set the graphics
     setPixmap(QPixmap(":/images/images/Tower_Arrow.png"));
 
+
     //connect timer to aaquire target
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(aquire_target()));
@@ -20,6 +21,11 @@ ArrowTower::ArrowTower(QGraphicsItem *parent)
 void ArrowTower::fire()
 {
     Bullet *bullet = new Bullet();
+
+    //set the graphics
+    bullet->setPixmap(QPixmap(":/images/images/Projectile_Arrow.png"));
+    bullet->setScale(0.5);
+
     bullet->setPos(x()+pixmap().width()/2, y()+pixmap().height()/2);
 
     QLineF ln(QPointF(x()+pixmap().width()/2, y()+pixmap().height()/2),attack_dest);
