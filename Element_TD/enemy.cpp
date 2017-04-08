@@ -3,13 +3,13 @@
 #include <QTimer>
 #include <qmath.h>
 
-Enemy::Enemy(QGraphicsItem *parent)
+Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
 {
     //set the graphics
     setPixmap(QPixmap(":/images/images/Enemy_Eye.png"));
 
     //set points
-    points << QPointF(200,200) << QPoint(1000,500);
+    points << pointsToFollow;
     point_index = 0;
     dest = points[0];
     rotateToPoint(dest);

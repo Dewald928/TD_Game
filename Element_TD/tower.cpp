@@ -20,13 +20,6 @@ Tower::Tower(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
     //set the graphics
     setPixmap(QPixmap(":/images/images/Tower_Arrow.png"));
 
-    //test code
-//    QPixmap bgPixmap(":/images/images/Tower_Arrow.png");
-//    QPixmap scaled = bgPixmap.scaled(QSize(64, 64));
-
-//    QPainter painter(scene);
-//    painter.drawPixmap(0, 0, scaled);
-
     //create points vector
     QVector<QPointF> points;
     points << QPoint(1,0) << QPoint(2,0) << QPoint(3,1) << QPoint(3,2) << QPoint(2,3) << QPoint(1,3)
@@ -98,7 +91,7 @@ void Tower::aquire_target()
 
         //see if distance is closer
         if (enemy) {
-            double this_dist = distanceTo(enemy);
+            double this_dist = distanceTo(colliding_items[i]);
             if (this_dist < closest_dist) {
                 closest_dist = this_dist;
                 closest_pt = colliding_items[i]->pos();

@@ -14,15 +14,15 @@ public:
     Tower(QGraphicsItem *parent = 0);
     double distanceTo(QGraphicsItem * item);
     virtual void fire();
-    QPointF attack_dest;
+
 
 public slots:
     void aquire_target();
 
-private:
+protected:
     QGraphicsPolygonItem *attack_area;
-    //QPointF attack_dest;
     bool has_target;
+    QPointF attack_dest;
 };
 
 #endif // TOWER_H

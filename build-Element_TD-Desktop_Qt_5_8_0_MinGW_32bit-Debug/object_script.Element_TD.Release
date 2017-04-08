@@ -14,6 +14,7 @@ INPUT(
 ./release\qrc_res.o
 ./release\moc_mainwindow.o
 ./release\moc_tower.o
+./release\moc_game.o
 ./release\moc_bullet.o
 ./release\moc_enemy.o
 ./release\moc_arrowtower.o

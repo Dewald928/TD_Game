@@ -25,7 +25,7 @@ void FireTower::fire()
 
     //set the graphics
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Fire.png"));
-    bullet->setScale(0.5);
+    bullet->setScale(game->scalingfactor_icons);
 
     bullet->setPos(x()+pixmap().width()/2, y()+pixmap().height()/2);
 

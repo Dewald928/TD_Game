@@ -9,6 +9,7 @@
 #include <buildarrowtowericon.h>
 #include <buildcanontowericon.h>
 #include <buildfiretowericon.h>
+#include <QTimer>
 
 Game::Game()
 {
@@ -29,9 +30,14 @@ Game::Game()
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    //create enemy
-    Enemy *enemy = new Enemy();
-    scene->addItem(enemy);
+    //create enemy initialize
+    spawntimer = new QTimer(this);
+    enemiesSpawned = 0;
+    maxNumberOfEnemies = 0;
+    pointsToFollow <<  QPointF(1000,500);
+
+    createEnemies(5);
+
 
     //add building icons
     BuildArrowTowerIcon * at = new BuildArrowTowerIcon();
@@ -40,9 +46,9 @@ Game::Game()
     ct->setPos(x(),y()+100);
     ft->setPos(x(),y()+200);
 
-    at->setScale(0.5);
-    ct->setScale(0.5);
-    ft->setScale(0.5);
+    at->setScale(scalingfactor_icons);
+    ct->setScale(scalingfactor_icons);
+    ft->setScale(scalingfactor_icons);
 
     scene->addItem(at);
     scene->addItem(ct);
@@ -52,20 +58,23 @@ Game::Game()
 
 void Game::setCursor(QString filename)
 {
+    //creates the building before placing
     if (cursor) {
         scene->removeItem(cursor);
         //delete cursor; //remove die?
     }
     cursor = new QGraphicsPixmapItem();
     cursor->setPixmap(QPixmap(filename));
-    cursor->setScale(0.5);
+    cursor->setScale(scalingfactor_towers);
     scene->addItem(cursor);
 }
 
 void Game::mouseMoveEvent(QMouseEvent *event)
 {
     if (cursor) {
-        cursor->setPos(event->pos());
+        int pos_mouse_x = event->pos().x()- cursor->pixmap().width()*scalingfactor_towers/2;
+        int pos_mouse_y = event->pos().y()- cursor->pixmap().height()*scalingfactor_towers/2;
+        cursor->setPos(pos_mouse_x,pos_mouse_y);
     }
 }
 
@@ -83,8 +92,10 @@ void Game::mousePressEvent(QMouseEvent *event)
 
         // otherwise, build at the clicked location
         scene->addItem(building);
-        building->setPos(event->pos());
-        building->setScale(0.5);
+        int pos_mouse_x = event->pos().x()- cursor->pixmap().width()*scalingfactor_towers/2;
+        int pos_mouse_y = event->pos().y()- cursor->pixmap().height()*scalingfactor_towers/2;
+        building->setPos(pos_mouse_x,pos_mouse_y);
+        building->setScale(scalingfactor_towers);
 
         delete cursor;
         cursor = nullptr;
@@ -93,5 +104,26 @@ void Game::mousePressEvent(QMouseEvent *event)
     else
     {
         QGraphicsView::mousePressEvent(event);
+    }
+}
+
+void Game::createEnemies(int numberOfEnemies)
+{
+    enemiesSpawned = 0;
+    maxNumberOfEnemies = numberOfEnemies;
+    connect(spawntimer, SIGNAL(timeout()), this, SLOT(spawnEnemy()));
+    spawntimer->start(1000);
+}
+
+void Game::spawnEnemy()
+{
+    //spawn and enemy
+    Enemy *enemy = new Enemy(pointsToFollow);
+    enemy->setPos(pointsToFollow[0]);
+    scene->addItem(enemy);
+    enemiesSpawned += 1;
+
+    if (enemiesSpawned >= maxNumberOfEnemies) {
+        spawntimer->disconnect();
     }
 }
