@@ -2,6 +2,7 @@
 #define ENEMY_H
 
 #include <QGraphicsPathItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QList> //list << element baie nice
 #include <QPointF>

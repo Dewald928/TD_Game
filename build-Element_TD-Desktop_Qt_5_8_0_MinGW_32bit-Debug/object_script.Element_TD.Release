@@ -11,6 +11,8 @@ INPUT(
 ./release\buildcanontowericon.o
 ./release\firetower.o
 ./release\buildfiretowericon.o
+./release\node.o
+./release\map.o
 ./release\qrc_res.o
 ./release\moc_mainwindow.o
 ./release\moc_tower.o

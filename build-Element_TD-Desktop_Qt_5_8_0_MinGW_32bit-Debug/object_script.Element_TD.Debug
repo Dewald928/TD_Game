@@ -11,6 +11,8 @@ INPUT(
 ./debug\buildcanontowericon.o
 ./debug\firetower.o
 ./debug\buildfiretowericon.o
+./debug\node.o
+./debug\map.o
 ./debug\qrc_res.o
 ./debug\moc_mainwindow.o
 ./debug\moc_tower.o

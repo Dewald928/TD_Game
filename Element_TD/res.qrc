@@ -11,5 +11,17 @@
         <file>images/Tower_Fire.png</file>
         <file>images/Tower_Light.png</file>
         <file>images/Tower_Slime.png</file>
+        <file>images/grass.png</file>
+        <file>images/mapTile_006.png</file>
+        <file>images/mapTile_007.png</file>
+        <file>images/mapTile_008.png</file>
+        <file>images/mapTile_021.png</file>
+        <file>images/mapTile_023.png</file>
+        <file>images/mapTile_051.png</file>
+        <file>images/mapTile_052.png</file>
+        <file>images/mapTile_053.png</file>
+        <file>images/obstruction.png</file>
+        <file>images/path.png</file>
+        <file>images/portal.png</file>
     </qresource>
 </RCC>

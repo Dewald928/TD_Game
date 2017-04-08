@@ -94,7 +94,7 @@ void Tower::aquire_target()
             double this_dist = distanceTo(colliding_items[i]);
             if (this_dist < closest_dist) {
                 closest_dist = this_dist;
-                closest_pt = colliding_items[i]->pos();
+                closest_pt = colliding_items[i]->pos();//speel met die pos om center van enemy te kry
                 has_target = true;
             }
         }

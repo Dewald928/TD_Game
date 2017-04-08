@@ -34,7 +34,9 @@ SOURCES += main.cpp\
     canontower.cpp \
     buildcanontowericon.cpp \
     firetower.cpp \
-    buildfiretowericon.cpp
+    buildfiretowericon.cpp \
+    node.cpp \
+    map.cpp
 
 HEADERS  += mainwindow.h \
     tower.h \
@@ -46,7 +48,9 @@ HEADERS  += mainwindow.h \
     canontower.h \
     buildcanontowericon.h \
     firetower.h \
-    buildfiretowericon.h
+    buildfiretowericon.h \
+    node.h \
+    map.h
 
 RESOURCES += \
     res.qrc

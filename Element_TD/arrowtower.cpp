@@ -26,7 +26,9 @@ void ArrowTower::fire()
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Arrow.png"));
     bullet->setScale(game->scalingfactor_icons);
 
-    bullet->setPos(x()+pixmap().width()/2, y()+pixmap().height()/2);
+    int x_pos = pixmap().width()*game->scalingfactor_bullets/2;
+    int y_pos = pixmap().height()*game->scalingfactor_bullets/2; //dink hieroor
+    bullet->setPos(x()+x_pos, y()+y_pos);
 
     QLineF ln(QPointF(x()+pixmap().width()/2, y()+pixmap().height()/2),attack_dest);
     int angle = -1*ln.angle();

@@ -10,6 +10,7 @@
 #include <buildcanontowericon.h>
 #include <buildfiretowericon.h>
 #include <QTimer>
+#include <map.h>
 
 Game::Game()
 {
@@ -30,14 +31,17 @@ Game::Game()
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+    //create map
+    Map *map = new Map();
+    map->printMap();
+
     //create enemy initialize
     spawntimer = new QTimer(this);
     enemiesSpawned = 0;
     maxNumberOfEnemies = 0;
-    pointsToFollow <<  QPointF(1000,500);
+    pointsToFollow <<  QPointF(0,0) << QPointF(1000,500);
 
     createEnemies(5);
-
 
     //add building icons
     BuildArrowTowerIcon * at = new BuildArrowTowerIcon();
