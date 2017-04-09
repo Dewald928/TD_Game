@@ -2,18 +2,21 @@
 #define NODE_H
 
 #include <QLabel>
+#include <QGraphicsPixmapItem>
+#include <QPointF>
 
 enum TileType
 {
     Obstruction =1,
     Path = 2,
-    Grass=3
+    Grass=3,
+    Portal = 4
 };
 
-class Node
+class Node: public QGraphicsPixmapItem
 {
 public:
-    Node();
+    Node(QGraphicsItem * parent = 0);
     QLabel *label;
     TileType tile;
     int cost;
@@ -24,6 +27,7 @@ public:
     int h;
     Node *parent;
     bool path;
+    QPointF point;
 };
 
 #endif // NODE_H

@@ -4,6 +4,7 @@
 #include <QLabel>
 #include <time.h>
 #include <iostream>
+#include <node.h>
 using namespace std;
 
 extern Game *game;
@@ -31,22 +32,74 @@ Map::Map()
             t->path = false;
             t->tile = Grass;
             map[x][y] = t;
+
+        }
+    }
+
+    //EDGES
+    /*top row*/
+    for (int x  = 0; x < mapX; ++x) {
+        for (int y = 0; y < 1; ++y) {
+            Node *t = new Node;
+            t->tile = Obstruction;
+            map[x][y] = t;
+            t->setPixmap(QPixmap(":/images/images/mapTile_007.png"));
+        }
+    }
+    /*bottom row*/
+    for (int x  = 0; x < mapX; ++x) {
+        for (int y = mapY-1; y < mapY; ++y) {
+            Node *t = new Node;
+            t->tile = Obstruction;
+            map[x][y] = t;
+            t->setPixmap(QPixmap(":/images/images/mapTile_052.png"));
+        }
+    }
+
+    /*left coloum*/
+    for (int x  = 0; x < 1; ++x) {
+        for (int y = 0; y < mapY; ++y) {
+            Node *t = new Node;
+            t->tile = Obstruction;
+            map[x][y] = t;
+            t->setPixmap(QPixmap(":/images/images/mapTile_021.png"));
+        }
+    }
+
+    /*right coloum*/
+    for (int x  = mapX-1; x < mapX; ++x) {
+        for (int y = 0; y < mapY; ++y) {
+            Node *t = new Node;
+            t->tile = Obstruction;
+            map[x][y] = t;
+            t->setPixmap(QPixmap(":/images/images/mapTile_023.png"));
         }
     }
 
 
 
-
-    //edges
-
     //portals
+    /*Top portal*/
+    for (int x  = mapX/2; x < mapX/2+1; ++x) {
+        for (int y = 0; y < 1; ++y) {
+            Node *t = new Node;
+            t->tile = Grass;
+            map[x][y] = t;
+            t->setPixmap(QPixmap(":/images/images/portal.png"));
+        }
+    }
 
-    //grass
+    /*Bottom portal*/
+    for (int x  = mapX/2; x < mapX/2+1; ++x) {
+        for (int y = mapY-1; y < mapY; ++y) {
+            Node *t = new Node;
+            t->tile = Grass;
+            map[x][y] = t;
+            t->setPixmap(QPixmap(":/images/images/portal.png"));
+        }
+    }
 
     //obstructions
 }
 
-void Map::printMap()
-{
 
-}

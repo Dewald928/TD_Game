@@ -5,7 +5,6 @@
 #include <QGraphicsPixmapItem>
 #include <QList>
 #include <node.h>
-#include <game.h>
 
 class Map: public Node
 {
@@ -14,14 +13,13 @@ public:
     int calcH(Node *a, Node *b);
     Node* smallestF();
     void calcNeighbours(Node* n);
-    void printMap();
 
 
-private:
+    //maak privite dalk?
     static const int mapX = 20;
-    static const int mapY = 20;
+    static const int mapY = 14;
     static const int tileX = 64;
-    static const int tileY = 32;
+    static const int tileY = 64;
     Node *map[mapX][mapY];
     QPixmap *obstruction, *path, *grass, *portal;
     Node *start;

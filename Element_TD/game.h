@@ -5,6 +5,8 @@
 #include <QMouseEvent>
 #include <QGraphicsPixmapItem>
 #include <tower.h>
+#include <map.h>
+
 
 class Game: public QGraphicsView
 {
@@ -25,6 +27,10 @@ public:
     int enemiesSpawned;
     int maxNumberOfEnemies;
     QList<QPointF> pointsToFollow;
+
+    //map
+    Map *map;
+    void printmap();
 
 
     //game constants

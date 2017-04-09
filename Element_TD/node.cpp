@@ -1,6 +1,8 @@
 #include "node.h"
 
-Node::Node()
-{
 
+
+Node::Node(QGraphicsItem *parent)
+{
+    setPixmap(QPixmap(":/images/images/grass.png"));
 }

@@ -11,6 +11,7 @@
 #include <buildfiretowericon.h>
 #include <QTimer>
 #include <map.h>
+#include <node.h>
 
 Game::Game()
 {
@@ -32,8 +33,15 @@ Game::Game()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //create map
-    Map *map = new Map();
-    map->printMap();
+    map = new Map();
+    printmap();
+
+    //die werk maar nie in map class nie
+//    Node *l = new Node();
+//    l->setPixmap(*map->grass);
+//    scene->addItem(l);
+//    l->setPos(100,100);
+
 
     //create enemy initialize
     spawntimer = new QTimer(this);
@@ -117,6 +125,81 @@ void Game::createEnemies(int numberOfEnemies)
     maxNumberOfEnemies = numberOfEnemies;
     connect(spawntimer, SIGNAL(timeout()), this, SLOT(spawnEnemy()));
     spawntimer->start(1000);
+}
+
+void Game::printmap()
+{
+    for (int i = 0; i < map->mapX; ++i)
+    {
+        for (int j = map->mapY -1; j >= 0; --j)
+        {
+            Node *l = new Node();
+            switch(map->map[i][j]->tile)
+            {
+            case Grass://or portal
+                if (((i==map->mapX/2)&&(j==0))||((i==map->mapX/2)&&(j==map->mapY-1))) {
+                    l->setPixmap(*map->portal);
+                }
+                else
+                {
+                l->setPixmap(*map->grass);
+                }
+                break;
+            case Path:
+                l->setPixmap(*map->path);
+                break;
+            case Obstruction://or edges
+                //if top edge
+                if ((i>0)&&(i<map->mapX-1)&&(j==0)) {
+                    l->setPixmap(QPixmap(":/images/images/mapTile_007.png"));
+                }
+                //if bottom edge
+                else if ((i>0)&&(i<map->mapX-1)&&(j==map->mapY-1)) {
+                    l->setPixmap(QPixmap(":/images/images/mapTile_052.png"));
+                }
+                //if left edge
+                else if ((i==0)&&(j>0)&&(j<map->mapY-1)) {
+                    l->setPixmap(QPixmap(":/images/images/mapTile_021.png"));
+                }
+                //if right edge
+                else if ((i==map->mapX-1)&&(j>0)&&(j<map->mapY-1)) {
+                    l->setPixmap(QPixmap(":/images/images/mapTile_023.png"));
+                }
+                //if top left corner
+                else if ((i==0)&&(j==0))
+                {
+                    l->setPixmap(QPixmap(":/images/images/mapTile_006.png"));
+                }
+                //if top right corner
+                else if ((i==map->mapX-1)&&(j==0))
+                {
+                    l->setPixmap(QPixmap(":/images/images/mapTile_008.png"));
+                }
+
+                //if bottom left corner
+                else if ((i==0)&&(j==map->mapY-1))
+                {
+                    l->setPixmap(QPixmap(":/images/images/mapTile_051.png"));
+                }
+
+                //if bottom right corner
+                else if ((i==map->mapX-1)&&(j==map->mapY-1))
+                {
+                    l->setPixmap(QPixmap(":/images/images/mapTile_053.png"));
+                }
+                else
+                {
+                l->setPixmap(*map->obstruction);
+                }
+                break;
+            }
+            int x = i * map->tileX;
+            int y = j * map->tileY;
+            scene->addItem(l);
+            l->setPos(x,y);
+
+        }
+    }
 }
 
 void Game::spawnEnemy()
