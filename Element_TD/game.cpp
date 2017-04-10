@@ -32,16 +32,9 @@ Game::Game()
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    //create map
+//    //create map //kannie map hier create nie want game nog nie contructed nie
     map = new Map();
     printmap();
-
-    //die werk maar nie in map class nie
-//    Node *l = new Node();
-//    l->setPixmap(*map->grass);
-//    scene->addItem(l);
-//    l->setPos(100,100);
-
 
     //create enemy initialize
     spawntimer = new QTimer(this);
@@ -102,13 +95,19 @@ void Game::mousePressEvent(QMouseEvent *event)
             }
         }
 
+        //run a star pathfinding when building is placed
+        //if there is a valid path, then place building
+        a_star();
+        printmap();
+
         // otherwise, build at the clicked location
         scene->addItem(building);
         int pos_mouse_x = event->pos().x()- cursor->pixmap().width()*scalingfactor_towers/2;
         int pos_mouse_y = event->pos().y()- cursor->pixmap().height()*scalingfactor_towers/2;
         building->setPos(pos_mouse_x,pos_mouse_y);
-        building->setScale(scalingfactor_towers);
+        building->setScale(scalingfactor_towers);        
 
+        //re initialize variables
         delete cursor;
         cursor = nullptr;
         building = nullptr;
@@ -129,6 +128,7 @@ void Game::createEnemies(int numberOfEnemies)
 
 void Game::printmap()
 {
+    //print map
     for (int i = 0; i < map->mapX; ++i)
     {
         for (int j = map->mapY -1; j >= 0; --j)
@@ -138,7 +138,7 @@ void Game::printmap()
             {
             case Grass://or portal
                 if (((i==map->mapX/2)&&(j==0))||((i==map->mapX/2)&&(j==map->mapY-1))) {
-                    l->setPixmap(*map->portal);
+                    l->setPixmap(*map->portal);                    
                 }
                 else
                 {
@@ -197,8 +197,33 @@ void Game::printmap()
             int y = j * map->tileY;
             scene->addItem(l);
             l->setPos(x,y);
+            l->setZValue(-1);
+
 
         }
+    }
+}
+
+void Game::a_star()
+{
+    map->calcNeighbours(map->start);
+
+    while (map->openList.length() > 0)
+    {
+        Node *t = map->smallestF();
+        map->closedList.append(t);
+        if (t == map->finish)
+        {
+            while (t->parent)
+            {
+                t->path = true;
+                t = t->parent;
+                t->tile = Path;
+                pointsToFollow << t->point;
+            }
+
+        }
+        map->calcNeighbours(t);
     }
 }
 

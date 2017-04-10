@@ -1,11 +1,11 @@
 #include "map.h"
-#include <game.h>
 #include <QGraphicsPixmapItem>
 #include <QLabel>
 #include <time.h>
-#include <iostream>
+//#include <iostream>
 #include <node.h>
-using namespace std;
+//using namespace std;
+#include "game.h"
 
 extern Game *game;
 
@@ -18,7 +18,7 @@ Map::Map()
     portal = new QPixmap(":/images/images/portal.png");
 
     //populate map
-    cout << "Start: " << clock() << " "  << endl;
+    //cout << "Start: " << clock() << " "  << endl;
     for (int x  = 0; x < mapX; ++x) {
         for (int y = 0; y < mapY; ++y) {
             Node *t = new Node;
@@ -32,7 +32,9 @@ Map::Map()
             t->path = false;
             t->tile = Grass;
             map[x][y] = t;
-
+            int x_pos = x*pixmap().width() + pixmap().width()/2;
+            int y_pos = y*pixmap().height() + pixmap().height()/2;
+            point = QPointF(x_pos,y_pos);
         }
     }
 
@@ -83,6 +85,14 @@ Map::Map()
     for (int x  = mapX/2; x < mapX/2+1; ++x) {
         for (int y = 0; y < 1; ++y) {
             Node *t = new Node;
+            t->cost = 1;
+            t->x = x;
+            t->y = y;
+            t->f = 0;
+            t->g = 0;
+            t->h = 0;
+            t->parent = 0;
+            t->path = false;
             t->tile = Grass;
             map[x][y] = t;
             t->setPixmap(QPixmap(":/images/images/portal.png"));
@@ -93,13 +103,107 @@ Map::Map()
     for (int x  = mapX/2; x < mapX/2+1; ++x) {
         for (int y = mapY-1; y < mapY; ++y) {
             Node *t = new Node;
+            t->cost = 1;
+            t->x = x;
+            t->y = y;
+            t->f = 0;
+            t->g = 0;
+            t->h = 0;
+            t->parent = 0;
+            t->path = false;
             t->tile = Grass;
             map[x][y] = t;
             t->setPixmap(QPixmap(":/images/images/portal.png"));
         }
     }
 
-    //obstructions
+    //set beginning and en points
+    start = map[mapX/2][1];
+    finish = map[mapX/2][mapY-1];
+
+    //sets start node to closed list and calculate neighbors
+    closedList.append(start);
+    calcNeighbours(start);
+
+    //start A*
+    //cout << "InitMap" << clock() << endl;
+
+//    while (openList.length() > 0)
+//    {
+//        Node *t = smallestF();
+//        closedList.append(t);
+//        if (t == finish)
+//        {
+//            while (t->parent)
+//            {
+//                t->path = true;
+//                t = t->parent;
+//                t->tile = Path;
+//                game->pointsToFollow << point;
+//            }
+
+//        }
+//        calcNeighbours(t);
+//    }
+
+    //cout << "Path found: " << clock() << endl;
+
+    //cout << " Map printed: " << clock() << endl;
+
+
 }
+
+int Map::calcH(Node *a, Node *b)
+{
+    int x, y;
+    a->x - b->x >= 0 ? x = a->x - b->x : x = b->x; //weti of kla
+    a->y - b->y >= 0 ? y = a->y - b->y : y = b->y; //weti of kla
+    return x >= y ? x * 10 : y * 10;
+}
+
+Node *Map::smallestF()
+{
+    Node *r = openList.first();
+    QListIterator<Node*> i(openList);
+    while (i.hasNext())
+    {
+        Node *t = i.next();
+        if (t->f < r->f)
+            r = t;
+    }
+    openList.removeOne(r);
+    return r;
+}
+
+void Map::calcNeighbours(Node *n)
+{
+    for (int dy = -1; dy <= 1; ++dy)
+    {
+        for (int dx = -1; dx <= 1; ++dx)
+        {
+            int x = dx + n->x;
+            int y = dy + n->y;
+            if ((x>=0) && (x < mapX) && (y>=0) && (y < mapY) &&
+                (!openList.contains(map[x][y])) && (!closedList.contains(map[x][y])) &&
+                (map[x][y]->cost < 100) && ((dx*dx) || (dy*dy))) //nie die actual node nie.
+            {
+                map[x][y]->parent = n;
+                if ((dx*dx) && (dy*dy))
+                {
+                    map[x][y]->g = n->g + 14;
+                }
+                else
+                {
+                    map[x][y]->g = n->g + 10;
+                }
+                map[x][y]->h = calcH(map[x][y], finish);
+                map[x][y]->f = map[x][y]->g + map[x][y]->h;
+                openList.append(map[x][y]);
+            }
+        }
+    }
+}
+
+
 
 

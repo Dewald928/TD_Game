@@ -514,6 +514,11 @@ release/moc_game.cpp: D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphi
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QObject \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h \
 		../Element_TD/game.h \
 		release/moc_predefs.h \
 		D:/Programming/Qt/5.8/mingw53_32/bin/moc.exe
@@ -1148,7 +1153,12 @@ release/main.o: ../Element_TD/main.cpp ../Element_TD/mainwindow.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPolygonItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QObject
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QObject \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\main.o ..\Element_TD\main.cpp
 
 release/mainwindow.o: ../Element_TD/mainwindow.cpp ../Element_TD/mainwindow.h \
@@ -1381,16 +1391,18 @@ release/tower.o: ../Element_TD/tower.cpp ../Element_TD/tower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsRectItem \
 		../Element_TD/enemy.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QPainter \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QPainter
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\tower.o ..\Element_TD\tower.cpp
 
 release/game.o: ../Element_TD/game.cpp ../Element_TD/game.h \
@@ -1511,6 +1523,11 @@ release/game.o: ../Element_TD/game.cpp ../Element_TD/game.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QObject \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsScene \
 		../Element_TD/arrowtower.h \
 		../Element_TD/canontower.h \
@@ -1518,7 +1535,6 @@ release/game.o: ../Element_TD/game.cpp ../Element_TD/game.h \
 		../Element_TD/bullet.h \
 		../Element_TD/enemy.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
 		../Element_TD/buildarrowtowericon.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
@@ -1526,11 +1542,7 @@ release/game.o: ../Element_TD/game.cpp ../Element_TD/game.h \
 		../Element_TD/buildfiretowericon.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
-		../Element_TD/map.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
-		../Element_TD/node.h
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\game.o ..\Element_TD\game.cpp
 
 release/bullet.o: ../Element_TD/bullet.cpp ../Element_TD/bullet.h \
@@ -1856,6 +1868,11 @@ release/buildarrowtowericon.o: ../Element_TD/buildarrowtowericon.cpp ../Element_
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QObject \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h \
 		../Element_TD/arrowtower.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\buildarrowtowericon.o ..\Element_TD\buildarrowtowericon.cpp
 
@@ -1981,7 +1998,12 @@ release/arrowtower.o: ../Element_TD/arrowtower.cpp ../Element_TD/arrowtower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qvector2d.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\arrowtower.o ..\Element_TD\arrowtower.cpp
 
 release/canontower.o: ../Element_TD/canontower.cpp ../Element_TD/canontower.h \
@@ -2106,7 +2128,12 @@ release/canontower.o: ../Element_TD/canontower.cpp ../Element_TD/canontower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qvector2d.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\canontower.o ..\Element_TD\canontower.cpp
 
 release/buildcanontowericon.o: ../Element_TD/buildcanontowericon.cpp ../Element_TD/buildcanontowericon.h \
@@ -2230,6 +2257,11 @@ release/buildcanontowericon.o: ../Element_TD/buildcanontowericon.cpp ../Element_
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QObject \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h \
 		../Element_TD/canontower.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\buildcanontowericon.o ..\Element_TD\buildcanontowericon.cpp
 
@@ -2355,7 +2387,12 @@ release/firetower.o: ../Element_TD/firetower.cpp ../Element_TD/firetower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qvector2d.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\firetower.o ..\Element_TD\firetower.cpp
 
 release/buildfiretowericon.o: ../Element_TD/buildfiretowericon.cpp ../Element_TD/buildfiretowericon.h \
@@ -2479,6 +2516,11 @@ release/buildfiretowericon.o: ../Element_TD/buildfiretowericon.cpp ../Element_TD
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QObject \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		../Element_TD/node.h \
 		../Element_TD/firetower.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\buildfiretowericon.o ..\Element_TD\buildfiretowericon.cpp
 
@@ -2585,7 +2627,10 @@ release/node.o: ../Element_TD/node.cpp ../Element_TD/node.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qfile.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qfiledevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qvector2d.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPixmapItem \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsitem.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\node.o ..\Element_TD\node.cpp
 
 release/map.o: ../Element_TD/map.cpp ../Element_TD/map.h \
@@ -2696,6 +2741,7 @@ release/map.o: ../Element_TD/map.cpp ../Element_TD/map.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsitem.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
 		../Element_TD/node.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
 		../Element_TD/game.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsView \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsview.h \
@@ -2709,7 +2755,6 @@ release/map.o: ../Element_TD/map.cpp ../Element_TD/map.h \
 		../Element_TD/tower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPolygonItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsItem \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QObject
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\map.o ..\Element_TD\map.cpp
 

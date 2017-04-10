@@ -19,6 +19,7 @@ public:
     void mousePressEvent(QMouseEvent *event);
     void createEnemies(int numberOfEnemies);
 
+
     //member attributes
     QGraphicsScene *scene;
     QGraphicsPixmapItem * cursor;
@@ -31,6 +32,7 @@ public:
     //map
     Map *map;
     void printmap();
+    void a_star();
 
 
     //game constants

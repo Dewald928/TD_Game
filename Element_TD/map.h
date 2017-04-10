@@ -11,12 +11,12 @@ class Map: public Node
 public:
     Map();
     int calcH(Node *a, Node *b);
-    Node* smallestF();
+    Node *smallestF();
     void calcNeighbours(Node* n);
 
 
     //maak privite dalk?
-    static const int mapX = 20;
+    static const int mapX = 20; //moet ewe getalle wees
     static const int mapY = 14;
     static const int tileX = 64;
     static const int tileY = 64;
