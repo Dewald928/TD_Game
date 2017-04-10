@@ -49,4 +49,6 @@ void Enemy::move_forward()
     double dx = STEP_SIZE * qCos(qDegreesToRadians(theta));
 
     setPos(x()+dx, y()+dy);
+
+    //if position at end node deconstruct enemy and take life
 }

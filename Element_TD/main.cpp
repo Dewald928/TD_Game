@@ -13,5 +13,7 @@ int main(int argc, char *argv[])
     game = new Game();
     game->show();
 
+    game->createEnemies(3);
+
     return a.exec();
 }

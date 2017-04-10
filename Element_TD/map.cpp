@@ -31,10 +31,11 @@ Map::Map()
             t->parent = 0;
             t->path = false;
             t->tile = Grass;
-            map[x][y] = t;
             int x_pos = x*pixmap().width() + pixmap().width()/2;
             int y_pos = y*pixmap().height() + pixmap().height()/2;
-            point = QPointF(x_pos,y_pos);
+            t->point = QPointF(x_pos,y_pos);
+            map[x][y] = t;
+
         }
     }
 

@@ -32,15 +32,17 @@ Game::Game()
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-//    //create map //kannie map hier create nie want game nog nie contructed nie
+    //create map
     map = new Map();
+    a_star();
     printmap();
+
 
     //create enemy initialize
     spawntimer = new QTimer(this);
     enemiesSpawned = 0;
     maxNumberOfEnemies = 0;
-    pointsToFollow <<  QPointF(0,0) << QPointF(1000,500);
+    pointsToFollow <<  QPointF(0,0);
 
     createEnemies(5);
 
@@ -219,7 +221,7 @@ void Game::a_star()
                 t->path = true;
                 t = t->parent;
                 t->tile = Path;
-                pointsToFollow << t->point;
+                pointsToFollow.prepend(t->point);
             }
 
         }
