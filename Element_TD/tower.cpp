@@ -64,11 +64,11 @@ double Tower::distanceTo(QGraphicsItem *item)
 void Tower::fire()
 {
     Bullet *bullet = new Bullet();
-    //bullet->setPos(x()+pixmap().width()/2, y()+pixmap().height()/2);
-    bullet->setPos(x(), y());
+    int y_pos = pixmap().height()*game->scalingfactor_towers/1.25;
 
-    //QLineF ln(QPointF(x()+pixmap().width()/2, y()+pixmap().height()/2),attack_dest);
-    QLineF ln(QPointF(x(), y()),attack_dest);
+    bullet->setPos(x(), y()-y_pos);
+
+    QLineF ln(QPointF(x(), y()-y_pos),attack_dest);
     int angle = -1*ln.angle();
 
     bullet->setRotation(angle);

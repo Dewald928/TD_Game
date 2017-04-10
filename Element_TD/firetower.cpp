@@ -28,11 +28,13 @@ void FireTower::fire()
 
     //set the graphics
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Fire.png"));
-    bullet->setScale(game->scalingfactor_icons);
+    bullet->setScale(game->scalingfactor_bullets);
 
-    bullet->setPos(x(), y());
+    int y_pos = pixmap().height()*game->scalingfactor_towers/1.25; //make it shoot from top of tower
 
-    QLineF ln(QPointF(x(), y()),attack_dest);
+    bullet->setPos(x(), y()-y_pos);
+
+    QLineF ln(QPointF(x(), y()-y_pos),attack_dest);
     int angle = -1*ln.angle();
 
     bullet->setRotation(angle);

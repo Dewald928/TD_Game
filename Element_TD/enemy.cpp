@@ -7,7 +7,9 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
 {
     //set the graphics
     setPixmap(QPixmap(":/images/images/Enemy_Eye.png"));
-    setTransformOriginPoint(pixmap().width()/2, pixmap().height()/2);
+    int w = pixmap().width();
+    int h = pixmap().height();
+    setOffset(-w/2,-h/2);
 
     //set points
     points << pointsToFollow;

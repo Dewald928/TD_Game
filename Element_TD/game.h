@@ -36,8 +36,8 @@ public:
 
 
     //game constants
-    const double scalingfactor_towers = 0.5;
-    const double scalingfactor_bullets = 0.5;
+    const double scalingfactor_towers = 0.3;
+    const double scalingfactor_bullets = 0.2;
     const double scalingfactor_icons = 0.5;
 
 public slots:

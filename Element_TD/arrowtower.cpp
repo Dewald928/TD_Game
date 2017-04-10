@@ -30,17 +30,13 @@ void ArrowTower::fire()
 
     //set the graphics
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Arrow.png"));
-    bullet->setScale(game->scalingfactor_icons);
+    bullet->setScale(game->scalingfactor_bullets);
 
-    //int x_pos = pixmap().width()*game->scalingfactor_bullets/2;
-    //int y_pos = pixmap().height()*game->scalingfactor_bullets/2; //dink hieroor
-    //int x_pos = pixmap().width()/2;
-    //int y_pos = pixmap().height()/2;
-    //bullet->setPos(x()+x_pos, y()+y_pos);
-    bullet->setPos(x(), y());
+    int y_pos = pixmap().height()*game->scalingfactor_towers/1.25;
 
-    //QLineF ln(QPointF(x()+pixmap().width()/2, y()+pixmap().height()/2),attack_dest);
-    QLineF ln(QPointF(x(), y()),attack_dest);
+    bullet->setPos(x(), y()-y_pos);
+
+    QLineF ln(QPointF(x(), y()-y_pos),attack_dest);
     int angle = -1*ln.angle();
 
     bullet->setRotation(angle);
