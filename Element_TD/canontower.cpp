@@ -9,7 +9,10 @@ extern Game *game;
 CanonTower::CanonTower(QGraphicsItem *parent)
 {
     //set graphics
-    setPixmap(QPixmap(":/images/images/Tower_Canon.png"));//nodig?
+    setPixmap(QPixmap(":/images/images/Tower_Canon.png"));
+    int w = pixmap().width();
+    int h = pixmap().height();
+    setOffset(-w/2,-h/1.25);
 
     //connect timer to aaquire target
     QTimer * timer = new QTimer();
@@ -26,9 +29,9 @@ void CanonTower::fire()
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Canon.png"));
     bullet->setScale(game->scalingfactor_icons);
 
-    bullet->setPos(x()+pixmap().width()/2, y()+pixmap().height()/2);
+    bullet->setPos(x(), y());
 
-    QLineF ln(QPointF(x()+pixmap().width()/2, y()+pixmap().height()/2),attack_dest);
+    QLineF ln(QPointF(x(), y()),attack_dest);
     int angle = -1*ln.angle();
 
     bullet->setRotation(angle);

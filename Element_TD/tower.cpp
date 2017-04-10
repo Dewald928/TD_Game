@@ -19,6 +19,9 @@ Tower::Tower(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
 {
     //set the graphics
     setPixmap(QPixmap(":/images/images/Tower_Arrow.png"));
+    int w = pixmap().width();
+    int h = pixmap().height();
+    setOffset(-w/2,-h/1.25);
 
     //create points vector
     QVector<QPointF> points;
@@ -43,7 +46,7 @@ Tower::Tower(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
     QPointF poly_center(1.5,1.5);
     poly_center *= SCALE_FACTOR;
     poly_center = mapToScene(poly_center);
-    QPointF tower_center(x()+pixmap().width()/2,y()+pixmap().height()/2);
+    QPointF tower_center(x(),y());
     QLineF ln(poly_center,tower_center);
     attack_area->setPos(x()+ln.dx(),y()+ln.dy());
 
@@ -61,9 +64,11 @@ double Tower::distanceTo(QGraphicsItem *item)
 void Tower::fire()
 {
     Bullet *bullet = new Bullet();
-    bullet->setPos(x()+pixmap().width()/2, y()+pixmap().height()/2);
+    //bullet->setPos(x()+pixmap().width()/2, y()+pixmap().height()/2);
+    bullet->setPos(x(), y());
 
-    QLineF ln(QPointF(x()+pixmap().width()/2, y()+pixmap().height()/2),attack_dest);
+    //QLineF ln(QPointF(x()+pixmap().width()/2, y()+pixmap().height()/2),attack_dest);
+    QLineF ln(QPointF(x(), y()),attack_dest);
     int angle = -1*ln.angle();
 
     bullet->setRotation(angle);

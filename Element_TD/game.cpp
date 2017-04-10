@@ -72,6 +72,11 @@ void Game::setCursor(QString filename)
     }
     cursor = new QGraphicsPixmapItem();
     cursor->setPixmap(QPixmap(filename));
+    int w = cursor->pixmap().width();
+    int h = cursor->pixmap().height();
+    cursor->setOffset(-w/2,-h/1.25);
+
+    //cursor->setTransformOriginPoint(cursor->pixmap().width()/2,cursor->pixmap().height()/2);
     cursor->setScale(scalingfactor_towers);
     scene->addItem(cursor);
 }
@@ -79,8 +84,10 @@ void Game::setCursor(QString filename)
 void Game::mouseMoveEvent(QMouseEvent *event)
 {
     if (cursor) {
-        int pos_mouse_x = event->pos().x()- cursor->pixmap().width()*scalingfactor_towers/2;
-        int pos_mouse_y = event->pos().y()- cursor->pixmap().height()*scalingfactor_towers/2;
+        //int pos_mouse_x = event->pos().x()- cursor->pixmap().width()*scalingfactor_towers/2;
+        //int pos_mouse_y = event->pos().y()- cursor->pixmap().height()*scalingfactor_towers/2;
+        int pos_mouse_x = event->pos().x();
+        int pos_mouse_y = event->pos().y();
         cursor->setPos(pos_mouse_x,pos_mouse_y);
     }
 }
@@ -104,10 +111,12 @@ void Game::mousePressEvent(QMouseEvent *event)
 
         // otherwise, build at the clicked location
         scene->addItem(building);
-        int pos_mouse_x = event->pos().x()- cursor->pixmap().width()*scalingfactor_towers/2;
-        int pos_mouse_y = event->pos().y()- cursor->pixmap().height()*scalingfactor_towers/2;
+        //int pos_mouse_x = event->pos().x()- cursor->pixmap().width()*scalingfactor_towers/2;
+        //int pos_mouse_y = event->pos().y()- cursor->pixmap().height()*scalingfactor_towers/2;
+        int pos_mouse_x = event->pos().x();
+        int pos_mouse_y = event->pos().y();
         building->setPos(pos_mouse_x,pos_mouse_y);
-        building->setScale(scalingfactor_towers);        
+        building->setScale(scalingfactor_towers);
 
         //re initialize variables
         delete cursor;
