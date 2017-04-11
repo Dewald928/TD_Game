@@ -36,7 +36,8 @@ SOURCES += main.cpp\
     firetower.cpp \
     buildfiretowericon.cpp \
     node.cpp \
-    map.cpp
+    map.cpp \
+    spawneyeicon.cpp
 
 HEADERS  += mainwindow.h \
     tower.h \
@@ -50,7 +51,8 @@ HEADERS  += mainwindow.h \
     firetower.h \
     buildfiretowericon.h \
     node.h \
-    map.h
+    map.h \
+    spawneyeicon.h
 
 RESOURCES += \
     res.qrc

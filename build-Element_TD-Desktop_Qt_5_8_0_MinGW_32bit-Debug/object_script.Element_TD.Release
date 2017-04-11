@@ -13,6 +13,7 @@ INPUT(
 ./release\buildfiretowericon.o
 ./release\node.o
 ./release\map.o
+./release\spawneyeicon.o
 ./release\qrc_res.o
 ./release\moc_mainwindow.o
 ./release\moc_tower.o

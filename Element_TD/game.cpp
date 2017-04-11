@@ -13,6 +13,7 @@
 #include <map.h>
 #include <node.h>
 #include <QLineF>
+#include <spawneyeicon.h>
 
 Game::Game()
 {
@@ -62,6 +63,11 @@ Game::Game()
     scene->addItem(at);
     scene->addItem(ct);
     scene->addItem(ft);
+
+    //add evenmy icons
+    SpawnEyeIcon *eyeIcon = new SpawnEyeIcon;
+    eyeIcon->setPos(x()+1500,y());
+    scene->addItem(eyeIcon);
 
 }
 
