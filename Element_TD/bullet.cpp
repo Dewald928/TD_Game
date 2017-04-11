@@ -16,7 +16,7 @@ Bullet::Bullet(QGraphicsItem *parent)
     move_timer->start(50);
 
     //initialize values
-    maxRange =100;
+    maxRange =300;
     distanceTravelled = 0;
 }
 
@@ -29,6 +29,12 @@ void Bullet::move()
     double dx = STEP_SIZE * qCos(qDegreesToRadians(theta));
 
     setPos(x()+dx, y()+dy);
+
+    distanceTravelled += STEP_SIZE;
+
+    if (distanceTravelled >= maxRange) {
+        deleteLater();
+    }
 
 
 }

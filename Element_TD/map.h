@@ -18,7 +18,7 @@ public:
 
     QList <QPointF> nodepoints;
 
-    static const int mapX = 20; //moet ewe getalle wees
+    static const int mapX = 11; //moet ewe getalle wees?
     static const int mapY = 14;
     static const int tileX = 64;
     static const int tileY = 64;
