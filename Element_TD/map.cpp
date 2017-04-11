@@ -41,12 +41,13 @@ Map::Map()
         }
     }
 
-    //EDGES
+    //EDGES //add die cost
     /*top row*/
     for (int x  = 0; x < mapX; ++x) {
         for (int y = 0; y < 1; ++y) {
             Node *t = new Node;
             t->tile = Obstruction;
+            t->cost = 100;
             map[x][y] = t;
             t->setPixmap(QPixmap(":/images/images/mapTile_007.png"));
         }
@@ -56,6 +57,7 @@ Map::Map()
         for (int y = mapY-1; y < mapY; ++y) {
             Node *t = new Node;
             t->tile = Obstruction;
+            t->cost = 100;
             map[x][y] = t;
             t->setPixmap(QPixmap(":/images/images/mapTile_052.png"));
         }
@@ -66,6 +68,7 @@ Map::Map()
         for (int y = 0; y < mapY; ++y) {
             Node *t = new Node;
             t->tile = Obstruction;
+            t->cost = 100;
             map[x][y] = t;
             t->setPixmap(QPixmap(":/images/images/mapTile_021.png"));
         }
@@ -76,6 +79,7 @@ Map::Map()
         for (int y = 0; y < mapY; ++y) {
             Node *t = new Node;
             t->tile = Obstruction;
+            t->cost = 100;
             map[x][y] = t;
             t->setPixmap(QPixmap(":/images/images/mapTile_023.png"));
         }
@@ -119,6 +123,10 @@ Map::Map()
             t->setPixmap(QPixmap(":/images/images/portal.png"));
         }
     }
+
+    //test code (set random node)
+    map[10][7]->cost = 100;
+    map[10][7]->tile = Obstruction;
 
     //set beginning and en points
     start = map[mapX/2][1];

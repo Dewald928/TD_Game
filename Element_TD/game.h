@@ -39,7 +39,8 @@ public:
     Map *map;
     void printmap();
     void a_star();
-    bool validplacement;
+    void clearPath();
+    bool validplacement = false;
     Node *clickedNode;
 
 

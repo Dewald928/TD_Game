@@ -4,8 +4,6 @@
 #include <QLabel>
 #include <QGraphicsPixmapItem>
 #include <QPointF>
-#include <QGraphicsSceneMouseEvent>
-#include <QMouseEvent>
 
 enum TileType
 {
@@ -31,9 +29,6 @@ public:
     bool path;
     QPointF point;
 
-    //when clicked
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
-//    void mouseTest(QGraphicsSceneMouseEvent * event);
 
 };
 

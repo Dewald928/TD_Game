@@ -97,6 +97,7 @@ void Game::mousePressEvent(QMouseEvent *event)
     //if we are building
     if (building) {
 
+        clearPath();
         closestNode(event->pos().x(),event->pos().y());
         snapToGrid();
 
@@ -104,6 +105,7 @@ void Game::mousePressEvent(QMouseEvent *event)
         delete cursor;
         cursor = nullptr;
         building = nullptr;
+        validplacement = false;
 
     }
     else
@@ -144,6 +146,11 @@ QPointF Game::closestNode(int x, int y)
 
 void Game::snapToGrid()
 {
+    //test code
+    //map = new Map();
+    validplacement = false;
+
+    //clicked node
     int x_map = (closestNodePos.x() -map->tileX/2)/map->tileX;
     int y_map = (closestNodePos.y() -map->tileY/2)/map->tileY;
     clickedNode = new Node();
@@ -156,19 +163,24 @@ void Game::snapToGrid()
     else
     {
         clickedNode->tile = Obstruction;
+        //set map node here
+        map->map[x_map][y_map]->tile = Obstruction;
+        map->map[x_map][y_map]->cost = 100;
+
         //run pathfinding
         a_star();
-        if (validplacement == false) {
-            return;
-        }
-        else
-        {
+        if (validplacement == true) {
+            a_star();
             printmap();
 
             // otherwise, build at the clicked location
             scene->addItem(building);
             building->setPos(closestNodePos);
             building->setScale(scalingfactor_towers);
+        }
+        else
+        {
+            return;
 
         }
     }
@@ -256,6 +268,10 @@ void Game::printmap()
 
 void Game::a_star()
 {
+    map->openList.clear();
+    map->closedList.clear();
+
+    map->closedList.append(map->start);
     map->calcNeighbours(map->start);
 
     while (map->openList.length() > 0)
@@ -275,6 +291,24 @@ void Game::a_star()
 
         }
         map->calcNeighbours(t);
+    }
+}
+
+void Game::clearPath()
+{
+    for (int i = 0; i < map->mapX; ++i) {
+        for (int j = map->mapY -1; j >= 0; --j) {
+            map->map[i][j]->x = i;
+            map->map[i][j]->y = j;
+            map->map[i][j]->f = 0;
+            map->map[i][j]->g = 0;
+            map->map[i][j]->h = 0;
+            map->map[i][j]->parent = 0;
+            if (map->map[i][j]->tile == Path) {
+                map->map[i][j]->tile = Grass;
+            }
+            map->map[i][j]->path = false;
+        }
     }
 }
 
