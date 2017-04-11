@@ -75,6 +75,26 @@ void Tower::fire()
     game->scene->addItem(bullet);
 }
 
+bool Tower::getIsPlaced()
+{
+    return isPlaced;
+}
+
+QString Tower::getOwner()
+{
+    return owner;
+}
+
+void Tower::setIsPlaced(bool b)
+{
+    isPlaced = b;
+}
+
+void Tower::setOwner(QString player)
+{
+    owner = player;
+}
+
 void Tower::aquire_target()
 {
     // get a list of all enemies that collide with attack_area, find the closest one

@@ -12,6 +12,7 @@
 #include <QTimer>
 #include <map.h>
 #include <node.h>
+#include <QLineF>
 
 Game::Game()
 {
@@ -34,6 +35,7 @@ Game::Game()
 
     //create map
     map = new Map();
+    validplacement = false;
     a_star();
     printmap();
 
@@ -94,30 +96,15 @@ void Game::mousePressEvent(QMouseEvent *event)
 {
     //if we are building
     if (building) {
-        // return if the cursor is colliding with a tower
-        QList<QGraphicsItem *> items = cursor->collidingItems();
-        for (size_t i = 0, n = items.size(); i < n; i++){
-            if (dynamic_cast<Tower*>(items[i])){
-                return;
-            }
-        }
 
-        //run a star pathfinding when building is placed
-        //if there is a valid path, then place building
-        a_star();
-        printmap();
-
-        // otherwise, build at the clicked location
-        scene->addItem(building);
-        int pos_mouse_x = event->pos().x();
-        int pos_mouse_y = event->pos().y();
-        building->setPos(pos_mouse_x,pos_mouse_y);
-        building->setScale(scalingfactor_towers);
+        closestNode(event->pos().x(),event->pos().y());
+        snapToGrid();
 
         //re initialize variables
         delete cursor;
         cursor = nullptr;
         building = nullptr;
+
     }
     else
     {
@@ -132,6 +119,62 @@ void Game::createEnemies(int numberOfEnemies)
     connect(spawntimer, SIGNAL(timeout()), this, SLOT(spawnEnemy()));
     spawntimer->start(1000);
 }
+
+QPointF Game::closestNode(int x, int y)
+{
+    QList<QPointF> nodelist = map->nodepoints;
+    double distance_old = 10000;
+    QPointF closestPoint;
+
+    QListIterator<QPointF> i(nodelist);
+    while (i.hasNext()) {
+        QPointF nextpoint = i.next();
+        QLineF ln(QPointF(x,y),nextpoint);
+        double distance_new = ln.length();
+        if (distance_new<=distance_old) {
+            distance_old = distance_new;
+            closestNodePos = nextpoint;
+
+        }
+    }
+    return closestPoint;
+}
+
+
+
+void Game::snapToGrid()
+{
+    int x_map = (closestNodePos.x() -map->tileX/2)/map->tileX;
+    int y_map = (closestNodePos.y() -map->tileY/2)/map->tileY;
+    clickedNode = new Node();
+    clickedNode = map->getNode(x_map,y_map);
+
+    //if it is already a obstruction return
+    if (clickedNode->tile == Obstruction) {
+        return;
+    }
+    else
+    {
+        clickedNode->tile = Obstruction;
+        //run pathfinding
+        a_star();
+        if (validplacement == false) {
+            return;
+        }
+        else
+        {
+            printmap();
+
+            // otherwise, build at the clicked location
+            scene->addItem(building);
+            building->setPos(closestNodePos);
+            building->setScale(scalingfactor_towers);
+
+        }
+    }
+}
+
+
 
 void Game::printmap()
 {
@@ -227,12 +270,14 @@ void Game::a_star()
                 t = t->parent;
                 t->tile = Path;
                 pointsToFollow.prepend(t->point);
+                validplacement = true;
             }
 
         }
         map->calcNeighbours(t);
     }
 }
+
 
 void Game::spawnEnemy()
 {

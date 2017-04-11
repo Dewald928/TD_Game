@@ -507,6 +507,8 @@ debug/moc_game.cpp: D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphics
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPixmapItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsitem.h \
 		../Element_TD/tower.h \
@@ -1147,6 +1149,8 @@ debug/main.o: ../Element_TD/main.cpp ../Element_TD/mainwindow.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qframe.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPixmapItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsitem.h \
 		../Element_TD/tower.h \
@@ -1391,6 +1395,8 @@ debug/tower.o: ../Element_TD/tower.cpp ../Element_TD/tower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		../Element_TD/map.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
@@ -1516,6 +1522,8 @@ debug/game.o: ../Element_TD/game.cpp ../Element_TD/game.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPixmapItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsitem.h \
 		../Element_TD/tower.h \
@@ -1536,8 +1544,6 @@ debug/game.o: ../Element_TD/game.cpp ../Element_TD/game.h \
 		../Element_TD/enemy.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
 		../Element_TD/buildarrowtowericon.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		../Element_TD/buildcanontowericon.h \
 		../Element_TD/buildfiretowericon.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
@@ -1999,6 +2005,8 @@ debug/arrowtower.o: ../Element_TD/arrowtower.cpp ../Element_TD/arrowtower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		../Element_TD/map.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
@@ -2129,6 +2137,8 @@ debug/canontower.o: ../Element_TD/canontower.cpp ../Element_TD/canontower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		../Element_TD/map.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
@@ -2388,6 +2398,8 @@ debug/firetower.o: ../Element_TD/firetower.cpp ../Element_TD/firetower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
 		../Element_TD/map.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
@@ -2630,7 +2642,25 @@ debug/node.o: ../Element_TD/node.cpp ../Element_TD/node.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPixmapItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsitem.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		../Element_TD/game.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsView \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsview.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qpainter.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtextoption.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qpen.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qscrollarea.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
+		../Element_TD/tower.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPolygonItem \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsItem \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QObject \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\node.o ..\Element_TD\node.cpp
 
 debug/map.o: ../Element_TD/map.cpp ../Element_TD/map.h \
@@ -2742,6 +2772,9 @@ debug/map.o: ../Element_TD/map.cpp ../Element_TD/map.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
 		../Element_TD/node.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
 		../Element_TD/game.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsView \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsview.h \
@@ -2751,7 +2784,6 @@ debug/map.o: ../Element_TD/map.cpp ../Element_TD/map.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qscrollarea.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
 		../Element_TD/tower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPolygonItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsItem \

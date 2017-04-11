@@ -14,5 +14,6 @@ void BuildArrowTowerIcon::mousePressEvent(QGraphicsSceneMouseEvent *event)
     if (!game->building) {
         game->building = new ArrowTower();
         game->setCursor(QString(":/images/images/Tower_Arrow.png"));
+        game->building->grabMouse();
     }
 }

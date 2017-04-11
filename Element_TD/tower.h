@@ -15,11 +15,25 @@ public:
     double distanceTo(QGraphicsItem * item);
     virtual void fire();
 
+    //getters
+    bool getIsPlaced();
+    QString getOwner();
+
+    //setters
+    void setIsPlaced(bool b);
+    void setOwner(QString player);
+
 
 public slots:
     void aquire_target();
 
 protected:
+    //placements
+    bool isPlaced = false;
+    QString owner;
+
+
+    //attacking
     QGraphicsPolygonItem *attack_area;
     bool has_target;
     QPointF attack_dest;

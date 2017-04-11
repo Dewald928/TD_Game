@@ -4,6 +4,8 @@
 #include <QLabel>
 #include <QGraphicsPixmapItem>
 #include <QPointF>
+#include <QGraphicsSceneMouseEvent>
+#include <QMouseEvent>
 
 enum TileType
 {
@@ -28,6 +30,11 @@ public:
     Node *parent;
     bool path;
     QPointF point;
+
+    //when clicked
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+//    void mouseTest(QGraphicsSceneMouseEvent * event);
+
 };
 
 #endif // NODE_H

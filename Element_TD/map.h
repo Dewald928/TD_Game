@@ -13,9 +13,11 @@ public:
     int calcH(Node *a, Node *b);
     Node *smallestF();
     void calcNeighbours(Node* n);
+    Node *getNode(int x, int y);
 
 
-    //maak privite dalk?
+    QList <QPointF> nodepoints;
+
     static const int mapX = 20; //moet ewe getalle wees
     static const int mapY = 14;
     static const int tileX = 64;

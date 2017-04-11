@@ -6,6 +6,7 @@
 #include <QGraphicsPixmapItem>
 #include <tower.h>
 #include <map.h>
+#include <node.h>
 
 
 class Game: public QGraphicsView
@@ -18,6 +19,11 @@ public:
     void mouseMoveEvent(QMouseEvent * event);
     void mousePressEvent(QMouseEvent *event);
     void createEnemies(int numberOfEnemies);
+
+    //snapping to grid
+    QPointF closestNode(int x, int y);
+    QPointF closestNodePos;
+    void snapToGrid();
 
 
     //member attributes
@@ -33,6 +39,8 @@ public:
     Map *map;
     void printmap();
     void a_star();
+    bool validplacement;
+    Node *clickedNode;
 
 
     //game constants

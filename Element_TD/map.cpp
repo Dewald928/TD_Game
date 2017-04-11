@@ -35,6 +35,8 @@ Map::Map()
             int y_pos = y*pixmap().height() + pixmap().height()/2;
             t->point = QPointF(x_pos,y_pos);
             map[x][y] = t;
+            map[x][y]->setPos(x,y);
+            nodepoints << QPointF(x_pos, y_pos);
 
         }
     }
@@ -203,6 +205,11 @@ void Map::calcNeighbours(Node *n)
             }
         }
     }
+}
+
+Node *Map::getNode(int x, int y)
+{
+    return map[x][y];
 }
 
 
