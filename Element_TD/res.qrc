@@ -24,5 +24,7 @@
         <file>images/path.png</file>
         <file>images/portal.png</file>
         <file>myappico.ico</file>
+        <file>images/main.jpg</file>
+        <file>images/test.png</file>
     </qresource>
 </RCC>

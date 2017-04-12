@@ -42,10 +42,18 @@ Game::Game()
 
 void Game::displayMainMenu()
 {
+    //create brackground
+    QGraphicsPixmapItem *backgroundImage = new QGraphicsPixmapItem;
+    backgroundImage->setPixmap(QString(":/images/images/test.png"));
+    backgroundImage->setScale(1);
+    backgroundImage->setPos(-375,-200);
+    scene->addItem(backgroundImage);
+
     //create the title text
     QGraphicsTextItem *titleText = new QGraphicsTextItem(QString("Element Tower Defense"));
     QFont titleFont("Pixel Emulator", 40);
     titleText->setFont(titleFont);
+    titleText->setDefaultTextColor(QColor("white"));
     int txpos = this->width()/2 - titleText->boundingRect().width()/2;
     int typos = 200;
     titleText->setPos(txpos,typos);
@@ -54,7 +62,7 @@ void Game::displayMainMenu()
     //create play button
     Button *playbutton = new Button(QString("Play"));
     int bxPos = this->width()/2 - playbutton->boundingRect().width()/2;
-    int byPos = 400;
+    int byPos = 500;
     playbutton->setPos(bxPos,byPos);
     connect(playbutton,SIGNAL(clicked()), this, SLOT(startGame()));
     scene->addItem(playbutton);
