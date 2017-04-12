@@ -20,13 +20,13 @@ Game::Game()
 {
     //create a scene
     scene = new QGraphicsScene(this);
-    scene->setSceneRect(0,0,1200,1000);
+    scene->setSceneRect(0,0,screenWidth,screenHeight);
 
     //set the scene
     setScene(scene);
 
     //alter window
-    setMinimumSize(1000,1000);
+    setMinimumSize(screenWidth,screenHeight);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
@@ -364,13 +364,90 @@ void Game::startGame()
     enemiesSpawned = 0;
     maxNumberOfEnemies = 0;
 
+    //add stats bar
+    statsFrame = new QGraphicsPixmapItem();
+    statsFrame->setPixmap(QString(":/images/images/frame3.png"));
+    double framescale = 0.7;
+    statsFrame->setScale(framescale);
+    statsFrame->setPos(map->mapX*map->tileX+15,50);
+    statsFrame->setZValue(-1);
+    scene->addItem(statsFrame);
+
+    /*add stats*/
+    //gold frame
+    QGraphicsPixmapItem *goldIcon = new QGraphicsPixmapItem();
+    goldIcon->setPixmap(QString(":/images/images/gold.png"));
+    int xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
+    int ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1) +10;
+    double goldscale = 0.55;
+    goldIcon->setPos(xgoldPos,ygoldPos);
+    goldIcon->setScale(goldscale);
+    goldIcon->setZValue(0);
+    scene->addItem(goldIcon);
+    //add text info
+    goldText = new QGraphicsTextItem(QString::number(player1->getGold()));
+    QFont goldFont("Pixel Emulator", 14);
+    goldText->setFont(goldFont);
+    goldText->setDefaultTextColor(QColor("white"));
+    int txgpos = xgoldPos + goldIcon->pixmap().width()/3*goldscale + 5;
+    int tygpos = ygoldPos +10;
+    goldText->setPos(txgpos,tygpos);
+    scene->addItem(goldText);
+
+
+    //lives
+    QGraphicsPixmapItem *livesIcon = new QGraphicsPixmapItem();
+    livesIcon->setPixmap(QString(":/images/images/lives.png"));
+    xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
+    ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1)*2 +10;
+    livesIcon->setPos(xgoldPos,ygoldPos);
+    livesIcon->setScale(0.46);
+    livesIcon->setZValue(0);
+    scene->addItem(livesIcon);
+
+    //wave timers
+    QGraphicsPixmapItem *timerIcon = new QGraphicsPixmapItem();
+    timerIcon->setPixmap(QString(":/images/images/timer.png"));
+    xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
+    ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1)*3 +10;
+    timerIcon->setPos(xgoldPos,ygoldPos);
+    timerIcon->setScale(0.45);
+    timerIcon->setZValue(0);
+    scene->addItem(timerIcon);
+
+    //income
+    QGraphicsPixmapItem *incomeIcon = new QGraphicsPixmapItem();
+    incomeIcon->setPixmap(QString(":/images/images/income.png"));
+    xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
+    ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1)*4 +10;
+    incomeIcon->setPos(xgoldPos,ygoldPos);
+    incomeIcon->setScale(0.42);
+    incomeIcon->setZValue(0);
+    scene->addItem(incomeIcon);
+
+
+
+    ///*add building frame*/
+    QGraphicsPixmapItem *buildingsFrame = new QGraphicsPixmapItem();
+    buildingsFrame->setPixmap(QString(":/images/images/buildings.png"));
+    int ybfrPos = statsFrame->pixmap().height()*framescale;
+    buildingsFrame->setPos(map->mapX*map->tileX + map->tileX/2 , ybfrPos +50);
+    buildingsFrame->setScale(0.7);
+    buildingsFrame->setZValue(-1);
+    scene->addItem(buildingsFrame);
+
 
     //add building icons
     BuildArrowTowerIcon * at = new BuildArrowTowerIcon();
     BuildCanonTowerIcon * ct = new BuildCanonTowerIcon();
     BuildFireTowerIcon * ft = new BuildFireTowerIcon();
-    ct->setPos(x(),y()+100);
-    ft->setPos(x(),y()+200);
+    int xIconPos = map->mapX*map->tileX + statsFrame->pixmap().width()/2*framescale + 15;
+    int yIconPos = (screenHeight -150 - statsFrame->pixmap().height()*framescale)/numberOfTowers;
+    int offset = statsFrame->pixmap().height()*framescale;
+
+    at->setPos(xIconPos,yIconPos + offset);
+    ct->setPos(xIconPos,(yIconPos*2 + offset)*0.9);
+    ft->setPos(xIconPos,(yIconPos*3 + offset)*0.9);
 
     at->setScale(scalingfactor_icons);
     ct->setScale(scalingfactor_icons);
@@ -385,5 +462,4 @@ void Game::startGame()
     eyeIcon->setPos(x(),y()+map->mapY*map->tileY);
     scene->addItem(eyeIcon);
 
-    //add stats bar
 }

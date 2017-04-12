@@ -7,6 +7,9 @@ extern Game * game;
 BuildArrowTowerIcon::BuildArrowTowerIcon(QGraphicsItem *parent): QGraphicsPixmapItem(parent)
 {
     setPixmap(QPixmap(":/images/images/Projectile_Arrow.png"));
+    int w = pixmap().width();
+    int h = pixmap().height();
+    setOffset(-w/2,-h/2);
 }
 
 void BuildArrowTowerIcon::mousePressEvent(QGraphicsSceneMouseEvent *event)

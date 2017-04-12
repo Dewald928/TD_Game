@@ -24,7 +24,12 @@
         <file>images/path.png</file>
         <file>images/portal.png</file>
         <file>myappico.ico</file>
-        <file>images/main.jpg</file>
         <file>images/test.png</file>
+        <file>images/frame3.png</file>
+        <file>images/buildings.png</file>
+        <file>images/gold.png</file>
+        <file>images/income.png</file>
+        <file>images/lives.png</file>
+        <file>images/timer.png</file>
     </qresource>
 </RCC>

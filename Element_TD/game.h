@@ -8,6 +8,7 @@
 #include <map.h>
 #include <node.h>
 #include <player1.h>
+#include <QGraphicsTextItem>
 
 
 class Game: public QGraphicsView
@@ -36,6 +37,7 @@ public:
     int enemiesSpawned;
     int maxNumberOfEnemies;
     QList<QPointF> pointsToFollow;
+    QGraphicsPixmapItem *statsFrame;
 
     //map
     Map *map;
@@ -48,8 +50,18 @@ public:
     //player1
     Player1 *player1;
 
+    //player stats
+    QGraphicsTextItem *goldText;
+    QGraphicsTextItem *livesText;
+    QGraphicsTextItem *timerText;
+    QGraphicsTextItem *incomeText;
+
 
     //game constants
+    int screenWidth = 1200;
+    int screenHeight = 1000;
+    int numberOfTowers = 3;
+    int numberOfStats = 4;
     const double scalingfactor_towers = 0.3;
     const double scalingfactor_bullets = 0.2;
     const double scalingfactor_icons = 0.5;
