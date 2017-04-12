@@ -18,6 +18,7 @@ Bullet::Bullet(QGraphicsItem *parent)
     //initialize values
     maxRange =300;
     distanceTravelled = 0;
+    damage = 1;
 }
 
 void Bullet::move()
@@ -31,6 +32,9 @@ void Bullet::move()
     setPos(x()+dx, y()+dy);
 
     distanceTravelled += STEP_SIZE;
+
+
+
 
     if (distanceTravelled >= maxRange) {
         deleteLater();

@@ -9,6 +9,7 @@ class ArrowTower: public Tower
 public:
     ArrowTower(QGraphicsItem * parent =0);
     void fire();
+    int costOfTower;
 public slots:
     void aquire_target();
 

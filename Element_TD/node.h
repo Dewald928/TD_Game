@@ -9,8 +9,7 @@ enum TileType
 {
     Obstruction =1,
     Path = 2,
-    Grass=3,
-    Portal = 4
+    Grass=3
 };
 
 class Node: public QGraphicsPixmapItem

@@ -14,6 +14,5 @@ void BuildFireTowerIcon::mousePressEvent(QGraphicsSceneMouseEvent *event)
     if (!game->building) {
         game->building = new FireTower();
         game->setCursor(QString(":/images/images/Tower_Fire.png"));
-        game->building->grabMouse();
     }
 }

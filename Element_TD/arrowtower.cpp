@@ -14,9 +14,8 @@ ArrowTower::ArrowTower(QGraphicsItem *parent)
     int h = pixmap().height();
     setOffset(-w/2,-h/1.25);
 
-    //setTransformOriginPoint(pixmap().width()/2,pixmap().height()/2);
-    //setScale(game->scalingfactor_towers);
-    //pixmap().scaled(game->scalingfactor_towers,Qt::KeepAspectRatio);
+    //set tower stats
+    costOfTower = 100;
 
     //connect timer to aaquire target
     QTimer * timer = new QTimer();
@@ -32,7 +31,10 @@ void ArrowTower::fire()
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Arrow.png"));
     bullet->setScale(game->scalingfactor_bullets);
 
-    int y_pos = pixmap().height()*game->scalingfactor_towers/1.25;
+    //set the damage
+    bullet->damage = 10;
+
+    int y_pos = pixmap().height()*game->scalingfactor_towers/1.25; //top of tower
 
     bullet->setPos(x(), y()-y_pos);
 

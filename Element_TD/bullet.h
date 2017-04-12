@@ -9,6 +9,9 @@ class Bullet: public QObject, public QGraphicsPixmapItem
 { Q_OBJECT
 public:
     Bullet(QGraphicsItem *parent =0);
+    int damage;
+
+
 public slots:
     void move();
     double getMaxRange();

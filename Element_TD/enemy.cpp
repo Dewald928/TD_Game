@@ -22,6 +22,10 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
     connect(timer, SIGNAL(timeout()), this, SLOT(move_forward()));
     timer->start(150);
 
+    //enemy default stats
+    health = 100;
+    loot = 10;
+
 }
 
 void Enemy::rotateToPoint(QPointF p)

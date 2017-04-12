@@ -37,7 +37,9 @@ SOURCES += main.cpp\
     buildfiretowericon.cpp \
     node.cpp \
     map.cpp \
-    spawneyeicon.cpp
+    spawneyeicon.cpp \
+    player1.cpp \
+    button.cpp
 
 HEADERS  += mainwindow.h \
     tower.h \
@@ -52,7 +54,12 @@ HEADERS  += mainwindow.h \
     buildfiretowericon.h \
     node.h \
     map.h \
-    spawneyeicon.h
+    spawneyeicon.h \
+    player1.h \
+    button.h
+
 
 RESOURCES += \
     res.qrc
+
+RC_ICONS = myappico.ico

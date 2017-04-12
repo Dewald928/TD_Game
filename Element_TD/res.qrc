@@ -23,5 +23,6 @@
         <file>images/obstruction.png</file>
         <file>images/path.png</file>
         <file>images/portal.png</file>
+        <file>myappico.ico</file>
     </qresource>
 </RCC>

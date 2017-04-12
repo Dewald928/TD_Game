@@ -13,6 +13,9 @@ class Enemy: public QObject, public QGraphicsPixmapItem
 public:
     Enemy(QList<QPointF> pointsToFollow, QGraphicsItem * parent=0);
     void rotateToPoint(QPointF p);
+    int health;
+    int loot;
+
 public slots:
     void move_forward();
 

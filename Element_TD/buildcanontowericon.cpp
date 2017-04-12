@@ -14,6 +14,5 @@ void BuildCanonTowerIcon::mousePressEvent(QGraphicsSceneMouseEvent *event)
     if (!game->building) {
         game->building = new CanonTower();
         game->setCursor(QString(":/images/images/Tower_Canon.png"));
-        game->building->grabMouse();
     }
 }

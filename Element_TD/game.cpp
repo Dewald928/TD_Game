@@ -1,6 +1,5 @@
 #include "game.h"
 #include <QGraphicsScene>
-//#include <tower.h>
 #include <arrowtower.h>
 #include <canontower.h>
 #include <firetower.h>
@@ -14,60 +13,59 @@
 #include <node.h>
 #include <QLineF>
 #include <spawneyeicon.h>
+#include <button.h>
+#include <QGraphicsTextItem>
 
 Game::Game()
 {
     //create a scene
     scene = new QGraphicsScene(this);
-    scene->setSceneRect(0,0,1920,1080);
+    scene->setSceneRect(0,0,1200,1000);
 
     //set the scene
     setScene(scene);
+
+    //alter window
+    setMinimumSize(1000,1000);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //set cursor
     cursor = nullptr;
     building = nullptr;
     setMouseTracking(true);
 
-    //alter window
-    setMinimumSize(1920,1080);
-    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
     //create map
     map = new Map();
-    validplacement = false;
-    a_star();
-    printmap();
 
+}
 
-    //create enemy initialize
-    spawntimer = new QTimer(this);
-    enemiesSpawned = 0;
-    maxNumberOfEnemies = 0;
-    pointsToFollow <<  QPointF(0,0);
+void Game::displayMainMenu()
+{
+    //create the title text
+    QGraphicsTextItem *titleText = new QGraphicsTextItem(QString("Element Tower Defense"));
+    QFont titleFont("Pixel Emulator", 40);
+    titleText->setFont(titleFont);
+    int txpos = this->width()/2 - titleText->boundingRect().width()/2;
+    int typos = 200;
+    titleText->setPos(txpos,typos);
+    scene->addItem(titleText);
 
-    createEnemies(5);
+    //create play button
+    Button *playbutton = new Button(QString("Play"));
+    int bxPos = this->width()/2 - playbutton->boundingRect().width()/2;
+    int byPos = 400;
+    playbutton->setPos(bxPos,byPos);
+    connect(playbutton,SIGNAL(clicked()), this, SLOT(startGame()));
+    scene->addItem(playbutton);
 
-    //add building icons
-    BuildArrowTowerIcon * at = new BuildArrowTowerIcon();
-    BuildCanonTowerIcon * ct = new BuildCanonTowerIcon();
-    BuildFireTowerIcon * ft = new BuildFireTowerIcon();
-    ct->setPos(x(),y()+100);
-    ft->setPos(x(),y()+200);
-
-    at->setScale(scalingfactor_icons);
-    ct->setScale(scalingfactor_icons);
-    ft->setScale(scalingfactor_icons);
-
-    scene->addItem(at);
-    scene->addItem(ct);
-    scene->addItem(ft);
-
-    //add evenmy icons
-    SpawnEyeIcon *eyeIcon = new SpawnEyeIcon;
-    eyeIcon->setPos(x()+1500,y());
-    scene->addItem(eyeIcon);
+    //create quit button
+    Button *quitbutton = new Button(QString("Quit"));
+    int qxPos = this->width()/2 - quitbutton->boundingRect().width()/2;
+    int qyPos = 600;
+    quitbutton->setPos(qxPos,qyPos);
+    connect(quitbutton, SIGNAL(clicked()), this, SLOT(close()));
+    scene->addItem(quitbutton);
 
 }
 
@@ -330,4 +328,54 @@ void Game::spawnEnemy()
     if (enemiesSpawned >= maxNumberOfEnemies) {
         spawntimer->disconnect();
     }
+}
+
+void Game::startGame()
+{
+    //clear the screen
+    scene->clear();
+
+    /*create game instance*/
+    //set cursor
+    cursor = nullptr;
+    building = nullptr;
+    setMouseTracking(true);
+
+    //create map
+    map = new Map();
+    validplacement = false;
+    a_star();
+    printmap();
+
+    //initialize player1
+    player1 = new Player1;
+
+
+    //create enemy initialize
+    spawntimer = new QTimer(this);
+    enemiesSpawned = 0;
+    maxNumberOfEnemies = 0;
+
+
+    //add building icons
+    BuildArrowTowerIcon * at = new BuildArrowTowerIcon();
+    BuildCanonTowerIcon * ct = new BuildCanonTowerIcon();
+    BuildFireTowerIcon * ft = new BuildFireTowerIcon();
+    ct->setPos(x(),y()+100);
+    ft->setPos(x(),y()+200);
+
+    at->setScale(scalingfactor_icons);
+    ct->setScale(scalingfactor_icons);
+    ft->setScale(scalingfactor_icons);
+
+    scene->addItem(at);
+    scene->addItem(ct);
+    scene->addItem(ft);
+
+    //add evenmy icons
+    SpawnEyeIcon *eyeIcon = new SpawnEyeIcon;
+    eyeIcon->setPos(x(),y()+map->mapY*map->tileY);
+    scene->addItem(eyeIcon);
+
+    //add stats bar
 }
