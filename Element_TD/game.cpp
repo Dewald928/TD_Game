@@ -21,6 +21,7 @@ Game::Game()
     //create a scene
     scene = new QGraphicsScene(this);
     scene->setSceneRect(0,0,screenWidth,screenHeight);
+    scene->setBackgroundBrush(QColor(213,173,81));
 
     //set the scene
     setScene(scene);
@@ -375,11 +376,11 @@ void Game::startGame()
 
     /*add stats*/
     //gold frame
-    QGraphicsPixmapItem *goldIcon = new QGraphicsPixmapItem();
+    goldIcon = new QGraphicsPixmapItem();
     goldIcon->setPixmap(QString(":/images/images/gold.png"));
     int xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
     int ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1) +10;
-    double goldscale = 0.55;
+    double goldscale = 0.45;
     goldIcon->setPos(xgoldPos,ygoldPos);
     goldIcon->setScale(goldscale);
     goldIcon->setZValue(0);
@@ -396,7 +397,7 @@ void Game::startGame()
 
 
     //lives
-    QGraphicsPixmapItem *livesIcon = new QGraphicsPixmapItem();
+    livesIcon = new QGraphicsPixmapItem();
     livesIcon->setPixmap(QString(":/images/images/lives.png"));
     xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
     ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1)*2 +10;
@@ -404,9 +405,23 @@ void Game::startGame()
     livesIcon->setScale(0.46);
     livesIcon->setZValue(0);
     scene->addItem(livesIcon);
+    //add lives info
+    livesText = new QGraphicsTextItem(QString::number(player1->getLives()));
+    QFont livesFont("Pixel Emulator", 14);
+    livesText->setFont(livesFont);
+    livesText->setDefaultTextColor(QColor("white"));
+    int txlpos = xgoldPos + livesIcon->pixmap().width()/3*0.55 + 5;
+    int tylpos = ygoldPos +10;
+    livesText->setPos(txlpos,tylpos);
+    scene->addItem(livesText);
+
+    //start timer
+    waveTimer = new QTimer(this);
+    connect(waveTimer, SIGNAL(timeout()), this, SLOT(updateTimer()));
+    waveTimer->start(1000);
 
     //wave timers
-    QGraphicsPixmapItem *timerIcon = new QGraphicsPixmapItem();
+    timerIcon = new QGraphicsPixmapItem();
     timerIcon->setPixmap(QString(":/images/images/timer.png"));
     xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
     ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1)*3 +10;
@@ -414,16 +429,36 @@ void Game::startGame()
     timerIcon->setScale(0.45);
     timerIcon->setZValue(0);
     scene->addItem(timerIcon);
+    //add timer info
+    timerValue = 60;
+    timerText = new QGraphicsTextItem(QString::number(timerValue));
+    QFont timerFont("Pixel Emulator", 14);
+    timerText->setFont(timerFont);
+    timerText->setDefaultTextColor(QColor("white"));
+    int txtpos = xgoldPos + timerIcon->pixmap().width()*0.6*0.55 + 5;
+    int tytpos = ygoldPos +10;
+    timerText->setPos(txtpos,tytpos);
+    scene->addItem(timerText);
 
     //income
-    QGraphicsPixmapItem *incomeIcon = new QGraphicsPixmapItem();
+    incomeIcon = new QGraphicsPixmapItem();
     incomeIcon->setPixmap(QString(":/images/images/income.png"));
     xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
     ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1)*4 +10;
     incomeIcon->setPos(xgoldPos,ygoldPos);
-    incomeIcon->setScale(0.42);
+    double incomeScale = 0.42;
+    incomeIcon->setScale(incomeScale);
     incomeIcon->setZValue(0);
     scene->addItem(incomeIcon);
+    //add income info
+    incomeText = new QGraphicsTextItem(QString::number(player1->getIncome()));
+    QFont incomeFont("Pixel Emulator", 14);
+    incomeText->setFont(incomeFont);
+    incomeText->setDefaultTextColor(QColor("white"));
+    int txipos = xgoldPos + incomeIcon->pixmap().width()*0.7*incomeScale + 5;
+    int tyipos = ygoldPos +10;
+    incomeText->setPos(txipos,tyipos);
+    scene->addItem(incomeText);
 
 
 
@@ -462,4 +497,27 @@ void Game::startGame()
     eyeIcon->setPos(x(),y()+map->mapY*map->tileY);
     scene->addItem(eyeIcon);
 
+
+}
+
+void Game::updateTimer()
+{
+    timerValue -= 1;
+
+    timerText->deleteLater();
+    timerText = new QGraphicsTextItem(QString::number(timerValue));
+    QFont timerFont("Pixel Emulator", 14);
+    timerText->setFont(timerFont);
+    timerText->setDefaultTextColor(QColor("white"));
+    int xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
+    int ygoldPos = statsFrame->pixmap().height()*0.7/(numberOfStats+1)*3 +10;
+    int txtpos = xgoldPos + timerIcon->pixmap().width()*0.6*0.55 + 5;
+    int tytpos = ygoldPos +10;
+    timerText->setPos(txtpos,tytpos);
+    scene->addItem(timerText);
+
+    if (timerValue <= 0) {
+        timerValue = 60;
+        //emit soos 'n signal hier?
+    }
 }

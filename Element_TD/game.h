@@ -9,6 +9,7 @@
 #include <node.h>
 #include <player1.h>
 #include <QGraphicsTextItem>
+#include <QTimer>
 
 
 class Game: public QGraphicsView
@@ -55,6 +56,17 @@ public:
     QGraphicsTextItem *livesText;
     QGraphicsTextItem *timerText;
     QGraphicsTextItem *incomeText;
+    QGraphicsPixmapItem *goldIcon;
+    QGraphicsPixmapItem *livesIcon;
+    QGraphicsPixmapItem *timerIcon;
+    QGraphicsPixmapItem *incomeIcon;
+    void updateGold();
+    void updateLives();
+    void updateIncome();
+
+    //waves
+    QTimer *waveTimer;
+    int timerValue;
 
 
     //game constants
@@ -69,6 +81,7 @@ public:
 public slots:
     void spawnEnemy();
     void startGame();
+    void updateTimer();
 
 
 };
