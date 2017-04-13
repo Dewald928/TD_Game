@@ -14,8 +14,6 @@ ArrowTower::ArrowTower(QGraphicsItem *parent)
     int h = pixmap().height();
     setOffset(-w/2,-h/1.25);
 
-    //set tower stats
-    costOfTower = 100;
 
     //connect timer to aaquire target
     QTimer * timer = new QTimer();
@@ -44,6 +42,11 @@ void ArrowTower::fire()
     bullet->setRotation(angle);
     game->scene->addItem(bullet);
 
+}
+
+int ArrowTower::getCostOfTower()
+{
+    return costOfTower;
 }
 
 void ArrowTower::aquire_target()

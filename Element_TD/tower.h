@@ -14,6 +14,9 @@ public:
     Tower(QGraphicsItem *parent = 0);
     double distanceTo(QGraphicsItem * item);
     virtual void fire();
+    virtual int getCostOfTower();
+    int costOfTower;
+
 
     //getters
     bool getIsPlaced();

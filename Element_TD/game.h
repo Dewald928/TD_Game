@@ -10,6 +10,7 @@
 #include <player1.h>
 #include <QGraphicsTextItem>
 #include <QTimer>
+#include <enemy.h>
 
 
 class Game: public QGraphicsView
@@ -35,6 +36,7 @@ public:
     QGraphicsPixmapItem * cursor;
     Tower *building;
     QTimer *spawntimer;
+    QList<Enemy*> listOfEnemies;
     int enemiesSpawned;
     int maxNumberOfEnemies;
     QList<QPointF> pointsToFollow;

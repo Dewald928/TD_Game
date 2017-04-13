@@ -17,7 +17,7 @@ CanonTower::CanonTower(QGraphicsItem *parent)
     //connect timer to aaquire target
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(aquire_target()));
-    timer->start(1000);
+    timer->start(2000);
 }
 
 void CanonTower::fire()
@@ -28,6 +28,9 @@ void CanonTower::fire()
     //set the graphics
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Canon.png"));
     bullet->setScale(game->scalingfactor_bullets);
+
+    //set the damage
+    bullet->damage = 30;
 
     int y_pos = pixmap().height()*game->scalingfactor_towers/1.25;
 

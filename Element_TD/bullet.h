@@ -10,6 +10,7 @@ class Bullet: public QObject, public QGraphicsPixmapItem
 public:
     Bullet(QGraphicsItem *parent =0);
     int damage;
+    int getDamage();
 
 
 public slots:

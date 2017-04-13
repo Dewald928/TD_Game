@@ -9,7 +9,8 @@ class ArrowTower: public Tower
 public:
     ArrowTower(QGraphicsItem * parent =0);
     void fire();
-    int costOfTower;
+    int getCostOfTower();
+    const int costOfTower = 100;
 public slots:
     void aquire_target();
 

@@ -34,6 +34,11 @@ void Enemy::rotateToPoint(QPointF p)
     setRotation(-1 * ln.angle());
 }
 
+void Enemy::addDamage(int dam)
+{
+    health += -dam;
+}
+
 void Enemy::move_forward()
 {
     //if close to dest, rotate to next dest

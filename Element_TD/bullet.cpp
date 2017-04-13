@@ -2,6 +2,12 @@
 #include <QPixmap>
 #include <QTimer>
 #include <qmath.h>
+#include <enemy.h>
+#include <QDebug>
+#include <typeinfo>
+#include <game.h>
+
+extern Game *game;
 
 
 Bullet::Bullet(QGraphicsItem *parent)
@@ -21,6 +27,11 @@ Bullet::Bullet(QGraphicsItem *parent)
     damage = 1;
 }
 
+int Bullet::getDamage()
+{
+    return damage;
+}
+
 void Bullet::move()
 {
     int STEP_SIZE = 30;
@@ -33,9 +44,25 @@ void Bullet::move()
 
     distanceTravelled += STEP_SIZE;
 
+    //if collides with enemy
+    QList<QGraphicsItem*> colliding_items = collidingItems();
+        for(int i=0, n=colliding_items.size(); i<n; i++){
+            if(typeid(*(colliding_items[i]))==typeid(Enemy))
+            {
+             Enemy* asEnemy = dynamic_cast<Enemy*>(colliding_items[i]);
+             asEnemy->addDamage(damage); // CREATE addDamage function in Enemy
+
+             if (asEnemy->health <= 0) {
+             scene()->removeItem(asEnemy);
+             qDebug() << "Hit!";
+             delete this;
+             return;
+           }
+        }
+        }
 
 
-
+    //if over max range
     if (distanceTravelled >= maxRange) {
         deleteLater();
     }

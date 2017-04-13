@@ -15,6 +15,7 @@ public:
     void rotateToPoint(QPointF p);
     int health;
     int loot;
+    void addDamage(int dam);
 
 public slots:
     void move_forward();

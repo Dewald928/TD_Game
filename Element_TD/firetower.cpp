@@ -19,6 +19,7 @@ FireTower::FireTower(QGraphicsItem *parent)
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(aquire_target()));
     timer->start(1000);
+
 }
 
 void FireTower::fire()
@@ -29,6 +30,9 @@ void FireTower::fire()
     //set the graphics
     bullet->setPixmap(QPixmap(":/images/images/Projectile_Fire.png"));
     bullet->setScale(game->scalingfactor_bullets);
+
+    //set the damage
+    bullet->damage = 40;
 
     int y_pos = pixmap().height()*game->scalingfactor_towers/1.25; //make it shoot from top of tower
 
