@@ -16,6 +16,8 @@
 #include <button.h>
 #include <QGraphicsTextItem>
 #include <QDebug>
+#include <waves.h>
+
 
 Game::Game()
 {
@@ -39,6 +41,7 @@ Game::Game()
 
     //create map
     map = new Map();
+    wave = new Waves();
 
 }
 
@@ -137,7 +140,13 @@ void Game::createEnemies(int numberOfEnemies)
 }
 
 void Game::GAMEOVER()
-{
+{  
+    //disconnects timer
+    waveTimer->disconnect();
+
+    //clears list of enemies
+    qDeleteAll(listOfEnemies.begin(), listOfEnemies.end());
+    listOfEnemies.clear();
     qDebug() << "wup wup wup!";
 }
 
@@ -165,8 +174,7 @@ QPointF Game::closestNode(int x, int y)
 
 void Game::snapToGrid()
 {
-    //test code
-    //map = new Map();
+
     validplacement = false;
 
     //clicked node
@@ -216,7 +224,8 @@ void Game::snapToGrid()
         }
         else
         {
-            player1->Gold += building->costOfTower;
+            player1->Gold += building->getCostOfTower();
+            updateGold();
             return;
         }
     }
@@ -360,7 +369,7 @@ void Game::updateGold()
     goldText->setFont(goldFont);
     goldText->setDefaultTextColor(QColor("white"));
     int xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
-    int ygoldPos = statsFrame->pixmap().height()*0.7/(numberOfStats+1)*1 +10;
+    int ygoldPos = statsFrame->pixmap().height()*0.72/(numberOfStats+1)*1 +10;
     int txgpos = xgoldPos + goldIcon->pixmap().width()/3*0.55 + 5;
     int tygpos = ygoldPos +10;
     goldText->setPos(txgpos,tygpos);
@@ -376,7 +385,7 @@ void Game::updateLives()
     livesText->setFont(livesFont);
     livesText->setDefaultTextColor(QColor("white"));
     int xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
-    int ygoldPos = statsFrame->pixmap().height()*0.7/(numberOfStats+1)*2 +10;
+    int ygoldPos = statsFrame->pixmap().height()*0.72/(numberOfStats+1)*2 +10;
     int txlpos = xgoldPos + livesIcon->pixmap().width()/3*0.55 + 5;
     int tylpos = ygoldPos +10;
     livesText->setPos(txlpos,tylpos);
@@ -393,11 +402,28 @@ void Game::updateIncome()
     incomeText->setDefaultTextColor(QColor("white"));
     double incomeScale = 0.42;
     int xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
-    int ygoldPos = statsFrame->pixmap().height()*0.7/(numberOfStats+1)*4 +10;
-    int txipos = xgoldPos + incomeIcon->pixmap().width()*0.7*incomeScale + 5;
-    int tyipos = ygoldPos +10;
+    int ygoldPos = statsFrame->pixmap().height()*0.72/(numberOfStats+1)*4 +10;
+    int txipos = xgoldPos + incomeIcon->pixmap().width()*0.72*incomeScale + 5;
+    int tyipos = ygoldPos +12;
     incomeText->setPos(txipos,tyipos);
     scene->addItem(incomeText);
+}
+
+void Game::updateWave()
+{
+    //wave update
+    waveText->deleteLater();
+    waveText = new QGraphicsTextItem(QString::number(wave->waveLevel));
+    QFont waveFont("Pixel Emulator", 14);
+    waveText->setFont(waveFont);
+    waveText->setDefaultTextColor(QColor("white"));
+    double incomeScale = 0.42;
+    int xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
+    int ygoldPos = statsFrame->pixmap().height()*0.7/(numberOfStats+1)*5 +10;
+    int txwpos = xgoldPos + waveIcon->pixmap().width()*0.72*incomeScale + 10;
+    int tywpos = ygoldPos + 15;
+    waveText->setPos(txwpos,tywpos);
+    scene->addItem(waveText);
 }
 
 
@@ -444,7 +470,7 @@ void Game::startGame()
     //add stats bar
     statsFrame = new QGraphicsPixmapItem();
     statsFrame->setPixmap(QString(":/images/images/frame3.png"));
-    double framescale = 0.7;
+    double framescale = 0.72;
     statsFrame->setScale(framescale);
     statsFrame->setPos(map->mapX*map->tileX+15,50);
     statsFrame->setZValue(-1);
@@ -478,7 +504,7 @@ void Game::startGame()
     xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
     ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1)*2 +10;
     livesIcon->setPos(xgoldPos,ygoldPos);
-    livesIcon->setScale(0.46);
+    livesIcon->setScale(0.45);
     livesIcon->setZValue(0);
     scene->addItem(livesIcon);
     //add lives info
@@ -531,10 +557,31 @@ void Game::startGame()
     QFont incomeFont("Pixel Emulator", 14);
     incomeText->setFont(incomeFont);
     incomeText->setDefaultTextColor(QColor("white"));
-    int txipos = xgoldPos + incomeIcon->pixmap().width()*0.7*incomeScale + 5;
-    int tyipos = ygoldPos +10;
+    int txipos = xgoldPos + incomeIcon->pixmap().width()*framescale*incomeScale ;
+    int tyipos = ygoldPos +7;
     incomeText->setPos(txipos,tyipos);
     scene->addItem(incomeText);
+
+    //wave
+    waveIcon = new QGraphicsPixmapItem();
+    waveIcon->setPixmap(QString(":/images/images/wave.png"));
+    xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
+    ygoldPos = statsFrame->pixmap().height()*framescale/(numberOfStats+1)*5 +10;
+    waveIcon->setPos(xgoldPos,ygoldPos);
+    incomeScale = 0.42;
+    waveIcon->setScale(incomeScale);
+    waveIcon->setZValue(0);
+    scene->addItem(waveIcon);
+    //wave info
+    waveText = new QGraphicsTextItem(QString::number(wave->waveLevel));
+    QFont waveFont("Pixel Emulator", 14);
+    waveText->setFont(waveFont);
+    waveText->setDefaultTextColor(QColor("white"));
+    int txwpos = xgoldPos + waveIcon->pixmap().width()*framescale*incomeScale + 7;
+    int tywpos = ygoldPos + 7;
+    waveText->setPos(txwpos,tywpos);
+    scene->addItem(waveText);
+
 
 
 
@@ -586,14 +633,21 @@ void Game::updateTimer()
     timerText->setFont(timerFont);
     timerText->setDefaultTextColor(QColor("white"));
     int xgoldPos = map->mapX*map->tileX + map->tileX+ 15;
-    int ygoldPos = statsFrame->pixmap().height()*0.7/(numberOfStats+1)*3 +10;
+    int ygoldPos = statsFrame->pixmap().height()*0.72/(numberOfStats+1)*3 +10;
     int txtpos = xgoldPos + timerIcon->pixmap().width()*0.6*0.55 + 5;
     int tytpos = ygoldPos +10;
     timerText->setPos(txtpos,tytpos);
     scene->addItem(timerText);
 
     if (timerValue <= 0) {
-        timerValue = 60;
-        //emit soos 'n signal hier?
+        timerValue = 30;
+        //send next wave and update info
+        wave->nextWave();
+        wave->waveLevel +1;
+        updateWave();
+
+        //get income
+        player1->Gold += player1->Income;
+        updateGold();
     }
 }

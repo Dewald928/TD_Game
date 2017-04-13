@@ -39,7 +39,8 @@ SOURCES += main.cpp\
     map.cpp \
     spawneyeicon.cpp \
     player1.cpp \
-    button.cpp
+    button.cpp \
+    waves.cpp
 
 HEADERS  += mainwindow.h \
     tower.h \
@@ -56,7 +57,8 @@ HEADERS  += mainwindow.h \
     map.h \
     spawneyeicon.h \
     player1.h \
-    button.h
+    button.h \
+    waves.h
 
 
 RESOURCES += \

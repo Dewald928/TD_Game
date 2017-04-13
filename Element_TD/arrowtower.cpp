@@ -18,7 +18,7 @@ ArrowTower::ArrowTower(QGraphicsItem *parent)
     //connect timer to aaquire target
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(aquire_target()));
-    timer->start(1000);
+    timer->start(1500);
 }
 
 void ArrowTower::fire()

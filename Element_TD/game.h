@@ -11,6 +11,7 @@
 #include <QGraphicsTextItem>
 #include <QTimer>
 #include <enemy.h>
+#include <waves.h>
 
 
 class Game: public QGraphicsView
@@ -59,15 +60,19 @@ public:
     QGraphicsTextItem *livesText;
     QGraphicsTextItem *timerText;
     QGraphicsTextItem *incomeText;
+    QGraphicsTextItem *waveText;
     QGraphicsPixmapItem *goldIcon;
     QGraphicsPixmapItem *livesIcon;
     QGraphicsPixmapItem *timerIcon;
     QGraphicsPixmapItem *incomeIcon;
+    QGraphicsPixmapItem *waveIcon;
     void updateGold();
     void updateLives();
     void updateIncome();
+    void updateWave();
 
     //waves
+    Waves *wave;
     QTimer *waveTimer;
     int timerValue;
 
@@ -76,7 +81,7 @@ public:
     int screenWidth = 1200;
     int screenHeight = 1000;
     int numberOfTowers = 3;
-    int numberOfStats = 4;
+    int numberOfStats = 5; //gold, lives, times, income, level
     const double scalingfactor_towers = 0.3;
     const double scalingfactor_bullets = 0.2;
     const double scalingfactor_icons = 0.5;

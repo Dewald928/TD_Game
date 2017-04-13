@@ -53,11 +53,12 @@ void Bullet::move()
              asEnemy->addDamage(damage); // CREATE addDamage function in Enemy
 
              if (asEnemy->health <= 0) {
-             scene()->removeItem(asEnemy);
+             //scene()->removeItem(asEnemy);
              game->player1->Gold += asEnemy->loot;
              game->updateGold();
              qDebug() << "You be dead son!";
-             delete this;
+             deleteLater();
+             delete asEnemy;
              return;
            }
         }

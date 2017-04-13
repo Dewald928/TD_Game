@@ -31,5 +31,6 @@
         <file>images/income.png</file>
         <file>images/lives.png</file>
         <file>images/timer.png</file>
+        <file>images/wave.png</file>
     </qresource>
 </RCC>

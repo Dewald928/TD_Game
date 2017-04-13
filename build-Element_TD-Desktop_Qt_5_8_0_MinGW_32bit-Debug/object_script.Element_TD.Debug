@@ -16,6 +16,7 @@ INPUT(
 ./debug\spawneyeicon.o
 ./debug\player1.o
 ./debug\button.o
+./debug\waves.o
 ./debug\qrc_res.o
 ./debug\moc_mainwindow.o
 ./debug\moc_tower.o

@@ -16,6 +16,7 @@ INPUT(
 ./release\spawneyeicon.o
 ./release\player1.o
 ./release\button.o
+./release\waves.o
 ./release\qrc_res.o
 ./release\moc_mainwindow.o
 ./release\moc_tower.o

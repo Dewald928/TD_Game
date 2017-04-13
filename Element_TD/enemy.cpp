@@ -28,8 +28,8 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
     timer->start(150);
 
     //enemy default stats
-    health = 1000;
-    loot = 100;
+    health = 2000;
+    loot = 50;
 
 }
 
