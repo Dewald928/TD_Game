@@ -22,7 +22,7 @@ Bullet::Bullet(QGraphicsItem *parent)
     move_timer->start(50);
 
     //initialize values
-    maxRange =300;
+    maxRange =250;
     distanceTravelled = 0;
     damage = 1;
 }
@@ -58,9 +58,12 @@ void Bullet::move()
              game->updateGold();
              qDebug() << "You be dead son!";
              deleteLater();
+             delete this;
              delete asEnemy;
              return;
            }
+//             deleteLater();
+//             delete this;
         }
         }
 
@@ -68,6 +71,7 @@ void Bullet::move()
     //if over max range
     if (distanceTravelled >= maxRange) {
         deleteLater();
+        delete this;
     }
 
 

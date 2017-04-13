@@ -532,7 +532,7 @@ void Game::startGame()
     timerIcon->setZValue(0);
     scene->addItem(timerIcon);
     //add timer info
-    timerValue = 60;
+    timerValue = 45;
     timerText = new QGraphicsTextItem(QString::number(timerValue));
     QFont timerFont("Pixel Emulator", 14);
     timerText->setFont(timerFont);
@@ -640,10 +640,9 @@ void Game::updateTimer()
     scene->addItem(timerText);
 
     if (timerValue <= 0) {
-        timerValue = 30;
+        timerValue = 45;
         //send next wave and update info
         wave->nextWave();
-        wave->waveLevel +1;
         updateWave();
 
         //get income

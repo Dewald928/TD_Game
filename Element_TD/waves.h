@@ -12,6 +12,7 @@ public:
     //attributes
     int waveLevel;
     int numberOfEnemies;
+    int healthIncrease;
 };
 
 #endif // WAVES_H
