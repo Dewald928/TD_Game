@@ -124,13 +124,15 @@ Map::Map()
         }
     }
 
-    //test code (set random node)
-    map[10][7]->cost = 100;
-    map[10][7]->tile = Obstruction;
+//    //test code (set random node)
+//    map[10][7]->cost = 100;
+//    map[10][7]->tile = Obstruction;
 
     //set beginning and en points
-    start = map[mapX/2][1];
+    start = map[mapX/2][0];
     finish = map[mapX/2][mapY-1];
+    start->point = QPointF(mapX*tileX/2, tileY/2);
+    finish->point = QPointF(mapX*tileX/2, mapY*tileY - tileY/2);
 
     //sets start node to closed list and calculate neighbors
     closedList.append(start);

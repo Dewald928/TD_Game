@@ -2,6 +2,11 @@
 #include <QPixmap>
 #include <QTimer>
 #include <qmath.h>
+#include <map.h>
+#include <game.h>
+
+extern Game *game;
+extern Map *map;
 
 Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
 {
@@ -24,7 +29,7 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
 
     //enemy default stats
     health = 1000;
-    loot = 10;
+    loot = 100;
 
 }
 
@@ -63,4 +68,19 @@ void Enemy::move_forward()
     setPos(x()+dx, y()+dy);
 
     //if position at end node deconstruct enemy and take life
+    if (y()>= map->mapY*map->tileY - map->tileY) {
+        //remove a live
+        game->player1->Lives += -1;
+        game->updateLives();
+
+        //if all lives are gone
+        if (game->player1->Lives <= 0) {
+            game->GAMEOVER();
+            return;
+        }
+
+        deleteLater();
+        delete this;
+        return;
+    }
 }

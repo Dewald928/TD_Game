@@ -47,6 +47,11 @@ void FireTower::fire()
 
 }
 
+int FireTower::getCostOfTower()
+{
+    return costOfTower;
+}
+
 void FireTower::aquire_target()
 {
     Tower::aquire_target();

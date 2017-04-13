@@ -15,7 +15,7 @@ public:
     double distanceTo(QGraphicsItem * item);
     virtual void fire();
     virtual int getCostOfTower();
-    int costOfTower;
+    const int costOfTower = 50;
 
 
     //getters

@@ -24,6 +24,7 @@ public:
     void mouseMoveEvent(QMouseEvent * event);
     void mousePressEvent(QMouseEvent *event);
     void createEnemies(int numberOfEnemies);
+    void GAMEOVER();
 
     //snapping to grid
     QPointF closestNode(int x, int y);

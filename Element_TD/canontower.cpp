@@ -45,6 +45,11 @@ void CanonTower::fire()
 
 }
 
+int CanonTower::getCostOfTower()
+{
+    return costOfTower;
+}
+
 void CanonTower::aquire_target()
 {
     Tower::aquire_target();

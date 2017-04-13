@@ -54,8 +54,6 @@ Tower::Tower(QGraphicsItem *parent):QObject(), QGraphicsPixmapItem(parent)
     attack_dest = QPointF(0,0);
     has_target = false;
 
-    //set defualt cost of tower
-    costOfTower = 100;
 }
 
 double Tower::distanceTo(QGraphicsItem *item)

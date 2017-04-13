@@ -54,7 +54,9 @@ void Bullet::move()
 
              if (asEnemy->health <= 0) {
              scene()->removeItem(asEnemy);
-             qDebug() << "Hit!";
+             game->player1->Gold += asEnemy->loot;
+             game->updateGold();
+             qDebug() << "You be dead son!";
              delete this;
              return;
            }

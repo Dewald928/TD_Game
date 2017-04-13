@@ -550,6 +550,8 @@ debug/moc_game.cpp: D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphics
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
 		../Element_TD/game.h \
 		debug/moc_predefs.h \
 		D:/Programming/Qt/5.8/mingw53_32/bin/moc.exe
@@ -1287,7 +1289,9 @@ debug/main.o: ../Element_TD/main.cpp ../Element_TD/mainwindow.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\main.o ..\Element_TD\main.cpp
 
 debug/mainwindow.o: ../Element_TD/mainwindow.cpp ../Element_TD/mainwindow.h \
@@ -1530,9 +1534,9 @@ debug/tower.o: ../Element_TD/tower.cpp ../Element_TD/tower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsRectItem \
 		../Element_TD/enemy.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsRectItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QPainter
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\tower.o ..\Element_TD\tower.cpp
 
@@ -1664,13 +1668,13 @@ debug/game.o: ../Element_TD/game.cpp ../Element_TD/game.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsScene \
 		../Element_TD/arrowtower.h \
 		../Element_TD/canontower.h \
 		../Element_TD/firetower.h \
 		../Element_TD/bullet.h \
-		../Element_TD/enemy.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
 		../Element_TD/buildarrowtowericon.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsSceneMouseEvent \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicssceneevent.h \
@@ -1775,7 +1779,47 @@ debug/bullet.o: ../Element_TD/bullet.cpp ../Element_TD/bullet.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qmath.h
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qmath.h \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qevent.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qkeysequence.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qurl.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qurlquery.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qfile.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qfiledevice.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qvector2d.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtouchdevice.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QPointF \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QDebug \
+		../Element_TD/game.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsView \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsview.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qpainter.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qtextoption.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qpen.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qbrush.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qfontinfo.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qfont.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qfontmetrics.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qscrollarea.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qabstractscrollarea.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qframe.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qwidget.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qpalette.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qsizepolicy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qcursor.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qgraphicsscene.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QMouseEvent \
+		../Element_TD/tower.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPolygonItem \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		../Element_TD/node.h \
+		../Element_TD/player1.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\bullet.o ..\Element_TD\bullet.cpp
 
 debug/enemy.o: ../Element_TD/enemy.cpp ../Element_TD/enemy.h \
@@ -1881,7 +1925,20 @@ debug/enemy.o: ../Element_TD/enemy.cpp ../Element_TD/enemy.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qmath.h
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qmath.h \
+		../Element_TD/map.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QLabel \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qlabel.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qframe.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qwidget.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qpalette.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qbrush.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qfont.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qfontmetrics.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qfontinfo.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/qsizepolicy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/qcursor.h \
+		../Element_TD/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\enemy.o ..\Element_TD\enemy.cpp
 
 debug/buildarrowtowericon.o: ../Element_TD/buildarrowtowericon.cpp ../Element_TD/buildarrowtowericon.h \
@@ -2015,6 +2072,8 @@ debug/buildarrowtowericon.o: ../Element_TD/buildarrowtowericon.cpp ../Element_TD
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
 		../Element_TD/arrowtower.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\buildarrowtowericon.o ..\Element_TD\buildarrowtowericon.cpp
 
@@ -2147,7 +2206,9 @@ debug/arrowtower.o: ../Element_TD/arrowtower.cpp ../Element_TD/arrowtower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
 		../Element_TD/node.h \
 		../Element_TD/player1.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\arrowtower.o ..\Element_TD\arrowtower.cpp
 
 debug/canontower.o: ../Element_TD/canontower.cpp ../Element_TD/canontower.h \
@@ -2279,7 +2340,9 @@ debug/canontower.o: ../Element_TD/canontower.cpp ../Element_TD/canontower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
 		../Element_TD/node.h \
 		../Element_TD/player1.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\canontower.o ..\Element_TD\canontower.cpp
 
 debug/buildcanontowericon.o: ../Element_TD/buildcanontowericon.cpp ../Element_TD/buildcanontowericon.h \
@@ -2413,6 +2476,8 @@ debug/buildcanontowericon.o: ../Element_TD/buildcanontowericon.cpp ../Element_TD
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
 		../Element_TD/canontower.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\buildcanontowericon.o ..\Element_TD\buildcanontowericon.cpp
 
@@ -2545,7 +2610,9 @@ debug/firetower.o: ../Element_TD/firetower.cpp ../Element_TD/firetower.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtGui/QList \
 		../Element_TD/node.h \
 		../Element_TD/player1.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\firetower.o ..\Element_TD\firetower.cpp
 
 debug/buildfiretowericon.o: ../Element_TD/buildfiretowericon.cpp ../Element_TD/buildfiretowericon.h \
@@ -2679,6 +2746,8 @@ debug/buildfiretowericon.o: ../Element_TD/buildfiretowericon.cpp ../Element_TD/b
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem \
 		../Element_TD/firetower.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\buildfiretowericon.o ..\Element_TD\buildfiretowericon.cpp
 
@@ -2918,7 +2987,9 @@ debug/map.o: ../Element_TD/map.cpp ../Element_TD/map.h \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\map.o ..\Element_TD\map.cpp
 
 debug/spawneyeicon.o: ../Element_TD/spawneyeicon.cpp ../Element_TD/spawneyeicon.h \
@@ -3051,7 +3122,9 @@ debug/spawneyeicon.o: ../Element_TD/spawneyeicon.cpp ../Element_TD/spawneyeicon.
 		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsTextItem \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/QTimer \
 		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qtimer.h \
-		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h
+		D:/Programming/Qt/5.8/mingw53_32/include/QtCore/qbasictimer.h \
+		../Element_TD/enemy.h \
+		D:/Programming/Qt/5.8/mingw53_32/include/QtWidgets/QGraphicsPathItem
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\spawneyeicon.o ..\Element_TD\spawneyeicon.cpp
 
 debug/player1.o: ../Element_TD/player1.cpp ../Element_TD/player1.h

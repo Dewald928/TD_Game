@@ -15,6 +15,7 @@
 #include <spawneyeicon.h>
 #include <button.h>
 #include <QGraphicsTextItem>
+#include <QDebug>
 
 Game::Game()
 {
@@ -133,6 +134,11 @@ void Game::createEnemies(int numberOfEnemies)
     maxNumberOfEnemies = numberOfEnemies;
     connect(spawntimer, SIGNAL(timeout()), this, SLOT(spawnEnemy()));
     spawntimer->start(1000);
+}
+
+void Game::GAMEOVER()
+{
+    qDebug() << "wup wup wup!";
 }
 
 QPointF Game::closestNode(int x, int y)
@@ -299,6 +305,7 @@ void Game::printmap()
 
 void Game::a_star()
 {
+    pointsToFollow.clear();
     map->openList.clear();
     map->closedList.clear();
 
@@ -317,6 +324,7 @@ void Game::a_star()
                 t = t->parent;
                 t->tile = Path;
                 pointsToFollow.prepend(t->point);
+                pointsToFollow.append(map->finish->point);
                 validplacement = true;
             }
 

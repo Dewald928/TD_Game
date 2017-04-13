@@ -9,6 +9,7 @@ class FireTower: public Tower
 public:
     FireTower(QGraphicsItem * parent =0);
     void fire();
+    int getCostOfTower();
     const int costOfTower = 300;
 public slots:
     void aquire_target();
