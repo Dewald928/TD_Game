@@ -41,6 +41,7 @@ public:
     QList<Enemy*> listOfEnemies;
     int enemiesSpawned;
     int maxNumberOfEnemies;
+    int enemyHealthIncrease = 0;
     QList<QPointF> pointsToFollow;
     QGraphicsPixmapItem *statsFrame;
 

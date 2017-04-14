@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Game_t {
-    QByteArrayData data[6];
-    char stringdata0[54];
+    QByteArrayData data[5];
+    char stringdata0[39];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -34,13 +34,11 @@ static const qt_meta_stringdata_Game_t qt_meta_stringdata_Game = {
 QT_MOC_LITERAL(0, 0, 4), // "Game"
 QT_MOC_LITERAL(1, 5, 10), // "spawnEnemy"
 QT_MOC_LITERAL(2, 16, 0), // ""
-QT_MOC_LITERAL(3, 17, 14), // "healthIncrease"
-QT_MOC_LITERAL(4, 32, 9), // "startGame"
-QT_MOC_LITERAL(5, 42, 11) // "updateTimer"
+QT_MOC_LITERAL(3, 17, 9), // "startGame"
+QT_MOC_LITERAL(4, 27, 11) // "updateTimer"
 
     },
-    "Game\0spawnEnemy\0\0healthIncrease\0"
-    "startGame\0updateTimer"
+    "Game\0spawnEnemy\0\0startGame\0updateTimer"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,12 +56,12 @@ static const uint qt_meta_data_Game[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   29,    2, 0x0a /* Public */,
-       4,    0,   32,    2, 0x0a /* Public */,
-       5,    0,   33,    2, 0x0a /* Public */,
+       1,    0,   29,    2, 0x0a /* Public */,
+       3,    0,   30,    2, 0x0a /* Public */,
+       4,    0,   31,    2, 0x0a /* Public */,
 
  // slots: parameters
-    QMetaType::Void, QMetaType::Int,    3,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -76,12 +74,13 @@ void Game::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         Game *_t = static_cast<Game *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->spawnEnemy((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 0: _t->spawnEnemy(); break;
         case 1: _t->startGame(); break;
         case 2: _t->updateTimer(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObject Game::staticMetaObject = {

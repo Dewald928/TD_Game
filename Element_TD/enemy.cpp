@@ -23,7 +23,7 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
     rotateToPoint(dest);
 
     //connect time to move
-    QTimer *timer = new QTimer(this);
+    timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(move_forward()));
     timer->start(150);
 
@@ -59,7 +59,7 @@ void Enemy::move_forward()
     }
 
     //move enemy at current angle
-    int STEP_SIZE = 5;
+    STEP_SIZE = 5;
     double theta = rotation(); //degrees
 
     double dy = STEP_SIZE * qSin(qDegreesToRadians(theta));

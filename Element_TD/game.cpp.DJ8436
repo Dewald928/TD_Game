@@ -17,7 +17,6 @@
 #include <QGraphicsTextItem>
 #include <QDebug>
 #include <waves.h>
-#include <QMessageBox>
 
 
 Game::Game()
@@ -145,39 +144,10 @@ void Game::GAMEOVER()
     //disconnects timer
     waveTimer->disconnect();
 
-    QListIterator<Enemy *> i(listOfEnemies);
-    while (i.hasNext()) {
-        Enemy *thisEnemy = i.next();
-        thisEnemy->timer->disconnect();
-    }
-
     //clears list of enemies
     //qDeleteAll(listOfEnemies.begin(), listOfEnemies.end());
     //listOfEnemies.clear();
-
     qDebug() << "wup wup wup!";
-    QMessageBox msgBox;
-     msgBox.setText("Defeat!");
-     msgBox.setInformativeText("Restart?");
-     msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Close);
-     msgBox.setDefaultButton(QMessageBox::Ok);
-     int ret = msgBox.exec();
-
-     switch (ret) {
-         case QMessageBox::Ok:
-             // restart clicked
-             displayMainMenu();
-             break;
-         case QMessageBox::Close:
-             // close clicked
-             close();
-             break;
-
-         default:
-             // should never be reached
-            close();
-            break;
-       }
 }
 
 QPointF Game::closestNode(int x, int y)

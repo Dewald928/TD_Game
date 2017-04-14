@@ -13,9 +13,8 @@ Waves::Waves()
 void Waves::nextWave()
 {
     game->createEnemies(numberOfEnemies);
+    game->enemyHealthIncrease += 200;
     numberOfEnemies += 1;
     waveLevel += 1;
-    if (waveLevel >= 5) {
 
-    }
 }

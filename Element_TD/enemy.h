@@ -6,6 +6,7 @@
 #include <QObject>
 #include <QList> //list << element baie nice
 #include <QPointF>
+#include <QTimer>
 
 class Enemy: public QObject, public QGraphicsPixmapItem
 {
@@ -16,6 +17,8 @@ public:
     int health;
     int loot;
     void addDamage(int dam);
+    int STEP_SIZE;
+    QTimer *timer;
 
 public slots:
     void move_forward();
