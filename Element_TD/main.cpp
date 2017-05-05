@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
     game->show();
     game->displayMainMenu();
 
-    //game->createEnemies(3);
 
     return a.exec();
 }

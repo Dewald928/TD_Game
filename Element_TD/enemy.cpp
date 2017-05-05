@@ -67,6 +67,10 @@ void Enemy::move_forward()
 
     setPos(x()+dx, y()+dy);
 
+    game->closestNode(x(),y());
+    int y_map = (game->closestNodePos.y() -map->tileY/2)/map->tileY;
+    setZValue(y_map);
+
     //if position at end node deconstruct enemy and take life
     if (y()>= map->mapY*map->tileY - map->tileY) {
         //remove a live

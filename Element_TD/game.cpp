@@ -148,7 +148,8 @@ void Game::GAMEOVER()
     QListIterator<Enemy *> i(listOfEnemies);
     while (i.hasNext()) {
         Enemy *thisEnemy = i.next();
-        thisEnemy->timer->disconnect();
+        thisEnemy->timer->disconnect(); //gee crash
+        thisEnemy->deleteLater();
     }
 
     //clears list of enemies
@@ -241,6 +242,7 @@ void Game::snapToGrid()
                 scene->addItem(building);
                 building->setPos(closestNodePos);
                 building->setScale(scalingfactor_towers);
+                building->setZValue(y_map);
             }
             else
             {

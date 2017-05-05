@@ -58,8 +58,10 @@ void Bullet::move()
              game->updateGold();
              qDebug() << "You be dead son!";
              deleteLater();
-             delete this;
-             delete asEnemy;
+             //delete this;
+             //delete asEnemy;
+             asEnemy->deleteLater();
+             game->listOfEnemies.removeOne(asEnemy);
              return;
            }
 //             deleteLater();
