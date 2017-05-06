@@ -17,6 +17,7 @@ INPUT(
 ./debug\player1.o
 ./debug\button.o
 ./debug\waves.o
+./debug\udpsocket.o
 ./debug\qrc_res.o
 ./debug\moc_mainwindow.o
 ./debug\moc_tower.o
@@ -27,4 +28,5 @@ INPUT(
 ./debug\moc_canontower.o
 ./debug\moc_firetower.o
 ./debug\moc_button.o
+./debug\moc_udpsocket.o
 );

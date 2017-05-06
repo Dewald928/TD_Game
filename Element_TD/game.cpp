@@ -654,6 +654,11 @@ void Game::startGame()
     scene->addItem(eyeIcon);
 
 
+    //setup network test code
+    Host = new UDPSocket(this);
+    Client = new UDPSocket(this);
+    //Client->send("spwn");
+
 }
 
 void Game::updateTimer()

@@ -224,6 +224,7 @@ Makefile: ../Element_TD/Element_TD.pro D:/Programming/Qt/5.8/mingw53_32/mkspecs/
 		D:/Programming/Qt/5.8/mingw53_32/lib/qtmaind.prl \
 		D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Widgets.prl \
 		D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Gui.prl \
+		D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Network.prl \
 		D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Core.prl
 	$(QMAKE) -o Makefile ..\Element_TD\Element_TD.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/spec_pre.prf:
@@ -391,6 +392,7 @@ D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/lex.prf:
 D:/Programming/Qt/5.8/mingw53_32/lib/qtmaind.prl:
 D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Widgets.prl:
 D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Gui.prl:
+D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Network.prl:
 D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Core.prl:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\Element_TD\Element_TD.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

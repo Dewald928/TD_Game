@@ -17,6 +17,7 @@ INPUT(
 ./release\player1.o
 ./release\button.o
 ./release\waves.o
+./release\udpsocket.o
 ./release\qrc_res.o
 ./release\moc_mainwindow.o
 ./release\moc_tower.o
@@ -27,4 +28,5 @@ INPUT(
 ./release\moc_canontower.o
 ./release\moc_firetower.o
 ./release\moc_button.o
+./release\moc_udpsocket.o
 );

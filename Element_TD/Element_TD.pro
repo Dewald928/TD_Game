@@ -4,7 +4,9 @@
 #
 #-------------------------------------------------
 
+QT += core network
 QT       += core gui
+
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -40,7 +42,8 @@ SOURCES += main.cpp\
     spawneyeicon.cpp \
     player1.cpp \
     button.cpp \
-    waves.cpp
+    waves.cpp \
+    udpsocket.cpp
 
 HEADERS  += mainwindow.h \
     tower.h \
@@ -58,7 +61,8 @@ HEADERS  += mainwindow.h \
     spawneyeicon.h \
     player1.h \
     button.h \
-    waves.h
+    waves.h \
+    udpsocket.h
 
 
 RESOURCES += \

@@ -12,6 +12,7 @@
 #include <QTimer>
 #include <enemy.h>
 #include <waves.h>
+#include <udpsocket.h>
 
 
 class Game: public QGraphicsView
@@ -76,6 +77,10 @@ public:
     Waves *wave;
     QTimer *waveTimer;
     int timerValue;
+
+    //networking parameters
+    UDPSocket *Host;
+    UDPSocket *Client;
 
 
     //game constants

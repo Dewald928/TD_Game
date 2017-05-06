@@ -10,5 +10,7 @@ SpawnEyeIcon::SpawnEyeIcon(QGraphicsItem *parent)
 
 void SpawnEyeIcon::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    game->createEnemies(1);
+    //game->createEnemies(1);
+    game->Client->send("spwn");
+
 }
