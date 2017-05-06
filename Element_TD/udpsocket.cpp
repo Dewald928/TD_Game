@@ -36,8 +36,17 @@ void UDPSocket::processTheDatagram(QNetworkDatagram datagram)
 
     if (sData == "spwn") {
         game->spawnEnemy();
-
     }
+
+    if (sData == "ACK") {
+        game->connected = true;
+    }
+
+}
+
+void UDPSocket::emitIP()
+{
+
 }
 
 QHostAddress UDPSocket::getHostAdress() const

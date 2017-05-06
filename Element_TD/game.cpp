@@ -18,6 +18,8 @@
 #include <QDebug>
 #include <waves.h>
 #include <QMessageBox>
+#include <QDialog>
+#include <QInputDialog>
 
 
 Game::Game()
@@ -73,13 +75,37 @@ void Game::displayMainMenu()
     connect(playbutton,SIGNAL(clicked()), this, SLOT(startGame()));
     scene->addItem(playbutton);
 
+    //create host button
+    Button *hostbutton = new Button(QString("Host"));
+    int hxPos = this->width()/3 - playbutton->boundingRect().width()/2;
+    int hyPos = 650;
+    hostbutton->setPos(hxPos,hyPos);
+    connect(hostbutton,SIGNAL(clicked()), this, SLOT(waitConnection()));
+    scene->addItem(hostbutton);
+
+    //create join button
+    Button *joinbutton = new Button(QString("Join"));
+    int jxPos = this->width()/3*2 - playbutton->boundingRect().width()/2;
+    int jyPos = 650;
+    joinbutton->setPos(jxPos,jyPos);
+    connect(joinbutton,SIGNAL(clicked()), this, SLOT(join()));
+    scene->addItem(joinbutton);
+
     //create quit button
     Button *quitbutton = new Button(QString("Quit"));
     int qxPos = this->width()/2 - quitbutton->boundingRect().width()/2;
-    int qyPos = 600;
+    int qyPos = 800;
     quitbutton->setPos(qxPos,qyPos);
     connect(quitbutton, SIGNAL(clicked()), this, SLOT(close()));
     scene->addItem(quitbutton);
+
+
+    //setup network test code
+    Host = new UDPSocket(this);
+    Client = new UDPSocket(this);
+    Client->setHostAdress(QHostAddress::LocalHost); //default is loopback address
+    Host->setHostAdress(QHostAddress::LocalHost); //default is loopback address
+
 
 }
 
@@ -460,6 +486,34 @@ void Game::updateWave()
     scene->addItem(waveText);
 }
 
+void Game::waitConnection()
+{
+    QTimer *conTimer = new QTimer(this);
+    connect(conTimer, SIGNAL(timeout()), this, SLOT(connectionEstablished()));
+    conTimer->start(100);
+}
+
+void Game::connectionEstablished()
+{
+    if (connected == true) {
+        startGame();
+    }
+}
+
+void Game::join()
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("Join"),
+                                          tr("Host IP Address: "), QLineEdit::Normal, "127.0.0.1" , &ok);
+    if (ok) {
+        Client->hostAdress = text;
+        //broadcast joiner IP
+        Client->send("ACK");
+        startGame();
+    }
+
+}
+
 
 void Game::spawnEnemy()
 {
@@ -656,11 +710,7 @@ void Game::startGame()
     scene->addItem(eyeIcon);
 
 
-    //setup network test code
-    Host = new UDPSocket(this);
-    Client = new UDPSocket(this);
-    Host->setHostAdress(QHostAddress("127.0.0.1"));
-    //Client->send("spwn");
+
 
 }
 

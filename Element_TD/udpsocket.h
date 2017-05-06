@@ -13,6 +13,7 @@ public:
     void sayHello();
     void send(QString str);
     void processTheDatagram(QNetworkDatagram datagram);
+    void emitIP();
 
     QHostAddress hostAdress;
 

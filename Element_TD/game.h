@@ -81,6 +81,8 @@ public:
     //networking parameters
     UDPSocket *Host;
     UDPSocket *Client;
+    bool connected = false;
+
 
 
     //game constants
@@ -96,7 +98,9 @@ public slots:
     void spawnEnemy();
     void startGame();
     void updateTimer();
-
+    void waitConnection();
+    void connectionEstablished();
+    void join();
 
 };
 
