@@ -39,6 +39,16 @@ void Enemy::rotateToPoint(QPointF p)
     setRotation(-1 * ln.angle());
 }
 
+int Enemy::getLoot() const
+{
+    return loot;
+}
+
+void Enemy::setLoot(int value)
+{
+    loot = value;
+}
+
 void Enemy::addDamage(int dam)
 {
     health += -dam;

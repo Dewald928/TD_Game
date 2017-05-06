@@ -145,6 +145,8 @@ void Game::GAMEOVER()
     //disconnects timer
     waveTimer->disconnect();
 
+
+
     QListIterator<Enemy *> i(listOfEnemies);
     while (i.hasNext()) {
         Enemy *thisEnemy = i.next();
@@ -657,6 +659,7 @@ void Game::startGame()
     //setup network test code
     Host = new UDPSocket(this);
     Client = new UDPSocket(this);
+    Host->setHostAdress(QHostAddress("127.0.0.1"));
     //Client->send("spwn");
 
 }

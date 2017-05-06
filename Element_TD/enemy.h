@@ -20,6 +20,9 @@ public:
     int STEP_SIZE;
     QTimer *timer;
 
+    int getLoot() const;
+    void setLoot(int value);
+
 public slots:
     void move_forward();
 

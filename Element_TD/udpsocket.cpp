@@ -12,7 +12,7 @@ UDPSocket::UDPSocket(QObject *parent) : QObject(parent)
     socket->bind(700);
 
     //default
-    hostAdress = "196.252.165.110";
+    hostAdress = "127.0.0.1"; //loopback adress
 }
 
 void UDPSocket::sayHello()
@@ -35,7 +35,7 @@ void UDPSocket::processTheDatagram(QNetworkDatagram datagram)
     sData = datagram.data();
 
     if (sData == "spwn") {
-        game->createEnemies(1);
+        game->spawnEnemy();
 
     }
 }
