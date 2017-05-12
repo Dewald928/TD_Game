@@ -40,6 +40,8 @@ void UDPSocket::processTheDatagram(QNetworkDatagram datagram)
 
     if (sData == "ACK") {
         game->connected = true;
+        hostAdress = datagram.senderAddress();
+        qDebug() << datagram.senderAddress();
     }
 
 }

@@ -32,5 +32,7 @@
         <file>images/lives.png</file>
         <file>images/timer.png</file>
         <file>images/wave.png</file>
+        <file>images/OuBill.png</file>
+        <file>images/reset.png</file>
     </qresource>
 </RCC>

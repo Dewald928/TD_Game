@@ -20,6 +20,7 @@
 #include <QMessageBox>
 #include <QDialog>
 #include <QInputDialog>
+#include <resetbutton.h>
 
 
 Game::Game()
@@ -45,6 +46,15 @@ Game::Game()
     //create map
     map = new Map();
     wave = new Waves();
+
+    //make game timer
+    gametimer = new QTimer(this);
+    gametimer->start(150);
+
+}
+
+Game::~Game()
+{
 
 }
 
@@ -170,43 +180,50 @@ void Game::GAMEOVER()
 {  
     //disconnects timer
     waveTimer->disconnect();
+    gametimer->disconnect();
 
 
 
     QListIterator<Enemy *> i(listOfEnemies);
     while (i.hasNext()) {
         Enemy *thisEnemy = i.next();
-        thisEnemy->timer->disconnect(); //gee crash
+        //thisEnemy->timer->disconnect(); //gee crash
         thisEnemy->deleteLater();
     }
 
-    //clears list of enemies
-    //qDeleteAll(listOfEnemies.begin(), listOfEnemies.end());
-    //listOfEnemies.clear();
+
+    //delete towers
+    QListIterator<Tower*> j(listOfTowers);
+    while (j.hasNext()) {
+        Tower *thisTower = j.next();
+        thisTower->deleteLater();
+    }
 
     qDebug() << "wup wup wup!";
     QMessageBox msgBox;
-     msgBox.setText("Defeat!");
-     msgBox.setInformativeText("Restart?");
-     msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Close);
-     msgBox.setDefaultButton(QMessageBox::Ok);
-     int ret = msgBox.exec();
+    msgBox.setText("Defeat!");
+    msgBox.setInformativeText("Restart?");
+    msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Close);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    int ret = msgBox.exec();
 
-     switch (ret) {
-         case QMessageBox::Ok:
-             // restart clicked
-             displayMainMenu();
-             break;
-         case QMessageBox::Close:
-             // close clicked
-             close();
-             break;
+    switch (ret) {
+    case QMessageBox::Ok:
+        // restart clicked
 
-         default:
-             // should never be reached
-            close();
-            break;
-       }
+
+        displayMainMenu();
+        break;
+    case QMessageBox::Close:
+        // close clicked
+        close();
+        break;
+
+    default:
+        // should never be reached
+        close();
+        break;
+    }
 }
 
 QPointF Game::closestNode(int x, int y)
@@ -268,6 +285,7 @@ void Game::snapToGrid()
                 a_star();
                 printmap();
                 scene->addItem(building);
+                listOfTowers.append(building);
                 building->setPos(closestNodePos);
                 building->setScale(scalingfactor_towers);
                 building->setZValue(y_map);
@@ -491,12 +509,16 @@ void Game::waitConnection()
     QTimer *conTimer = new QTimer(this);
     connect(conTimer, SIGNAL(timeout()), this, SLOT(connectionEstablished()));
     conTimer->start(100);
+    qDebug() << "Hosting";
 }
 
 void Game::connectionEstablished()
-{
+{  
     if (connected == true) {
+        qDebug() << Host->hostAdress;
         startGame();
+        //moet nog client se ip kry en host adress set, of broadcast?
+        //Host->setHostAdress(QHostAddress::Any);
     }
 }
 
@@ -504,7 +526,7 @@ void Game::join()
 {
     bool ok;
     QString text = QInputDialog::getText(this, tr("Join"),
-                                          tr("Host IP Address: "), QLineEdit::Normal, "127.0.0.1" , &ok);
+                                         tr("Host IP Address: "), QLineEdit::Normal, "127.0.0.1" , &ok);
     if (ok) {
         Client->hostAdress = text;
         //broadcast joiner IP
@@ -704,11 +726,18 @@ void Game::startGame()
     scene->addItem(ct);
     scene->addItem(ft);
 
+    //add reset button
+    ResetButton *rb = new ResetButton();
+    int rbx = screenWidth - rb->pixmap().width()*0.5;
+    int rby = screenHeight - rb->pixmap().height()*0.5;
+    rb->setScale(0.5);
+    rb->setPos(rbx-10, rby-20);
+    scene->addItem(rb);
+
     //add evenmy icons
-    SpawnEyeIcon *eyeIcon = new SpawnEyeIcon;
+    SpawnEyeIcon *eyeIcon = new SpawnEyeIcon();
     eyeIcon->setPos(x(),y()+map->mapY*map->tileY);
     scene->addItem(eyeIcon);
-
 
 
 

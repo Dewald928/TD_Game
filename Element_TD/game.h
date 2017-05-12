@@ -15,18 +15,22 @@
 #include <udpsocket.h>
 
 
+
 class Game: public QGraphicsView
 {
     Q_OBJECT
 public:
     //member functions
     Game();
+    ~Game();
     void displayMainMenu();
     void setCursor(QString filename);
     void mouseMoveEvent(QMouseEvent * event);
     void mousePressEvent(QMouseEvent *event);
     void createEnemies(int numberOfEnemies);
     void GAMEOVER();
+    bool GameOver = false;
+    QTimer *gametimer;
 
     //snapping to grid
     QPointF closestNode(int x, int y);
@@ -40,6 +44,7 @@ public:
     Tower *building;
     QTimer *spawntimer;
     QList<Enemy*> listOfEnemies;
+    QList<Tower*> listOfTowers;
     int enemiesSpawned;
     int maxNumberOfEnemies;
     int enemyHealthIncrease = 0;

@@ -3,7 +3,7 @@
 Player1::Player1()
 {
     Gold = 1000;
-    Lives = 30;
+    Lives = 2;
     Income = 100; //gold per turn
 }
 

@@ -22,9 +22,5 @@ int main(int argc, char *argv[])
     Client.sayHello();
 
 
-
-
-
-
     return a.exec();
 }

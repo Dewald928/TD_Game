@@ -43,7 +43,8 @@ SOURCES += main.cpp\
     player1.cpp \
     button.cpp \
     waves.cpp \
-    udpsocket.cpp
+    udpsocket.cpp \
+    resetbutton.cpp
 
 HEADERS  += mainwindow.h \
     tower.h \
@@ -62,7 +63,8 @@ HEADERS  += mainwindow.h \
     player1.h \
     button.h \
     waves.h \
-    udpsocket.h
+    udpsocket.h \
+    resetbutton.h
 
 
 RESOURCES += \

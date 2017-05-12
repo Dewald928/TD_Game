@@ -23,9 +23,9 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
     rotateToPoint(dest);
 
     //connect time to move
-    timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(move_forward()));
-    timer->start(150);
+    //timer = new QTimer(this);
+    connect(game->gametimer, SIGNAL(timeout()), this, SLOT(move_forward()));
+    //timer->start(150);
 
     //enemy default stats
     health = 2500;
@@ -94,7 +94,8 @@ void Enemy::move_forward()
         }
 
         deleteLater();
-        delete this;
+        game->listOfEnemies.removeOne(this);
+        //delete this;
         return;
     }
 }

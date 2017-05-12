@@ -9,6 +9,7 @@ public:
     Waves();
     void nextWave();
 
+
     //attributes
     int waveLevel;
     int numberOfEnemies;

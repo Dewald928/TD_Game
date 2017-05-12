@@ -18,6 +18,7 @@ INPUT(
 ./release\button.o
 ./release\waves.o
 ./release\udpsocket.o
+./release\resetbutton.o
 ./release\qrc_res.o
 ./release\moc_mainwindow.o
 ./release\moc_tower.o
