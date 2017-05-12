@@ -84,9 +84,10 @@ public:
     int timerValue;
 
     //networking parameters
-    UDPSocket *Host;
+    //UDPSocket *Host;
     UDPSocket *Client;
     bool connected = false;
+    QTimer *conTimer;
 
 
 

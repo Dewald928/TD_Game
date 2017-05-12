@@ -28,7 +28,7 @@ Game::Game()
     //create a scene
     scene = new QGraphicsScene(this);
     scene->setSceneRect(0,0,screenWidth,screenHeight);
-    scene->setBackgroundBrush(QColor(213,173,81));
+    scene->setBackgroundBrush(QBrush(QColor(213,173,81),Qt::Dense3Pattern));
 
     //set the scene
     setScene(scene);
@@ -111,10 +111,10 @@ void Game::displayMainMenu()
 
 
     //setup network test code
-    Host = new UDPSocket(this);
+    //Host = new UDPSocket(this);
     Client = new UDPSocket(this);
     Client->setHostAdress(QHostAddress::LocalHost); //default is loopback address
-    Host->setHostAdress(QHostAddress::LocalHost); //default is loopback address
+    //Host->setHostAdress(QHostAddress::LocalHost); //default is loopback address
 
 
 }
@@ -506,7 +506,7 @@ void Game::updateWave()
 
 void Game::waitConnection()
 {
-    QTimer *conTimer = new QTimer(this);
+    conTimer = new QTimer(this);
     connect(conTimer, SIGNAL(timeout()), this, SLOT(connectionEstablished()));
     conTimer->start(100);
     qDebug() << "Hosting";
@@ -515,8 +515,10 @@ void Game::waitConnection()
 void Game::connectionEstablished()
 {  
     if (connected == true) {
-        qDebug() << Host->hostAdress;
+        //qDebug() << Host->hostAdress;
         startGame();
+        connected = false;
+        conTimer->disconnect();
         //moet nog client se ip kry en host adress set, of broadcast?
         //Host->setHostAdress(QHostAddress::Any);
     }
@@ -528,7 +530,7 @@ void Game::join()
     QString text = QInputDialog::getText(this, tr("Join"),
                                          tr("Host IP Address: "), QLineEdit::Normal, "127.0.0.1" , &ok);
     if (ok) {
-        Client->hostAdress = text;
+        Client->hostAdress = QHostAddress(text);
         //broadcast joiner IP
         Client->send("ACK");
         startGame();
