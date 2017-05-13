@@ -509,8 +509,8 @@ void Game::waitConnection()
 {
     conTimer = new QTimer(this);
     connect(conTimer, SIGNAL(timeout()), this, SLOT(connectionEstablished()));
-    conTimer->start(100);
-    qDebug() << "Hosting";
+    conTimer->start(500);
+    qDebug() << "Hosting...";
 }
 
 void Game::connectionEstablished()
@@ -520,8 +520,6 @@ void Game::connectionEstablished()
         startGame();
         connected = false;
         conTimer->disconnect();
-        //moet nog client se ip kry en host adress set, of broadcast?
-        //Host->setHostAdress(QHostAddress::Any);
     }
 }
 
@@ -532,7 +530,6 @@ void Game::join()
                                          tr("Host IP Address: "), QLineEdit::Normal, "127.0.0.1" , &ok);
     if (ok) {
         Client->hostAdress = QHostAddress(text);
-        //broadcast joiner IP
         Client->send("ACK");
         startGame();
     }

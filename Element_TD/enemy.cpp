@@ -61,7 +61,7 @@ void Enemy::setLoot(int value)
 void Enemy::addDamage(int dam)
 {
     health += -dam;
-    healthwidth = health/50+game->wave->waveLevel;
+    //healthwidth = health/50+game->wave->waveLevel;
     healthbar->setRect(-w/4, -h/1.8, (health-dam)/healthwidth, 10);
 
 }
