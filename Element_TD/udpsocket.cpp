@@ -27,6 +27,11 @@ void UDPSocket::send(QString str)
     QByteArray Data;
     Data.append(str);
     socket->writeDatagram(Data, hostAdress, 700);
+
+    qDebug() << "Sent Datagram";
+    qDebug() << Data;
+    qDebug() << "700";
+    qDebug() << hostAdress;
 }
 
 void UDPSocket::processTheDatagram(QNetworkDatagram datagram)
@@ -39,7 +44,7 @@ void UDPSocket::processTheDatagram(QNetworkDatagram datagram)
     }
 
     if (sData == "ACK") {
-        hostAdress = datagram.senderAddress();
+        hostAdress = QHostAddress(datagram.senderAddress());
         game->connected = true;        
         qDebug() << datagram.senderAddress();
     }
@@ -67,8 +72,9 @@ void UDPSocket::readPendingDatagrams()
     {
         QNetworkDatagram datagram = socket->receiveDatagram();
         processTheDatagram(datagram);
+        qDebug() << "Received Datagram";
         qDebug() << datagram.data();
         qDebug() << datagram.senderPort();
-        qDebug() << datagram.senderAddress().toString();
+        qDebug() << datagram.senderAddress();
     }
 }
