@@ -32,9 +32,6 @@ private:
     QPointF dest;
     int point_index;
     QGraphicsRectItem *healthbar;
-    int w;
-    int h;
-    int healthwidth;
 
 };
 

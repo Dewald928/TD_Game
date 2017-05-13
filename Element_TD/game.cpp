@@ -43,6 +43,7 @@ Game::Game()
     building = nullptr;
     setMouseTracking(true);
 
+
     //create map
     map = new Map();
     wave = new Waves();

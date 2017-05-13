@@ -4,6 +4,7 @@
 #include <qmath.h>
 #include <map.h>
 #include <game.h>
+#include <QBrush>
 
 extern Game *game;
 extern Map *map;
@@ -12,8 +13,8 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
 {
     //set the graphics
     setPixmap(QPixmap(":/images/images/Enemy_Eye.png"));
-    int w = pixmap().width();
-    int h = pixmap().height();
+    w = pixmap().width();
+    h = pixmap().height();
     setOffset(-w/2,-h/2);
 
     //set points
@@ -23,13 +24,21 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, QGraphicsItem *parent)
     rotateToPoint(dest);
 
     //connect time to move
-    //timer = new QTimer(this);
     connect(game->gametimer, SIGNAL(timeout()), this, SLOT(move_forward()));
-    //timer->start(150);
 
     //enemy default stats
     health = 2500;
     loot = 50;
+
+    //make health bar
+    healthwidth = health/50+game->wave->waveLevel;
+    healthbar = new QGraphicsRectItem(this);
+    healthbar->setRect(-w/4,-h/1.8, healthwidth,10);
+    QBrush brush;
+    brush.setStyle(Qt::SolidPattern);
+    brush.setColor(QColor(255,50,20));
+    healthbar->setBrush(brush);
+
 
 }
 
@@ -52,6 +61,9 @@ void Enemy::setLoot(int value)
 void Enemy::addDamage(int dam)
 {
     health += -dam;
+    healthwidth = health/50+game->wave->waveLevel;
+    healthbar->setRect(-w/4, -h/1.8, (health-dam)/healthwidth, 10);
+
 }
 
 void Enemy::move_forward()
