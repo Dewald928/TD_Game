@@ -28,8 +28,8 @@ void FireTower::fire()
     Bullet *bullet = new Bullet();
 
     //set the graphics
-    bullet->setPixmap(QPixmap(":/images/images/Projectile_Fire.png"));
-    bullet->setScale(game->scalingfactor_bullets);
+    bullet->setPixmap(QPixmap(":/images/images/Projectile_Fire-min.png"));
+    //bullet->setScale(game->scalingfactor_bullets);
 
     //set the damage
     bullet->damage = 40;

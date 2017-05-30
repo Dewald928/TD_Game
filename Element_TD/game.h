@@ -29,8 +29,10 @@ public:
     void mousePressEvent(QMouseEvent *event);
     void createEnemies(int numberOfEnemies);
     void GAMEOVER();
+    void Victory();
     bool GameOver = false;
     QTimer *gametimer;
+    QTimer *bulletTimer;
 
     //snapping to grid
     QPointF closestNode(int x, int y);
@@ -101,6 +103,7 @@ public:
     const double scalingfactor_icons = 0.5;
 
 public slots:
+    void spawnEnemy(int enemyNum);
     void spawnEnemy();
     void startGame();
     void updateTimer();

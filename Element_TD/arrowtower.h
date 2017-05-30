@@ -2,6 +2,7 @@
 #define ARROWTOWER_H
 
 #include <tower.h>
+#include <QThread>
 
 class ArrowTower: public Tower
 {
@@ -13,6 +14,9 @@ public:
     const int costOfTower = 100;
 public slots:
     void aquire_target();
+
+private:
+    QThread workerThread;
 
 };
 

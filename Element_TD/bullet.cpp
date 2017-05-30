@@ -17,9 +17,9 @@ Bullet::Bullet(QGraphicsItem *parent)
 
 
     //connect timer to move
-    QTimer * move_timer = new QTimer(this);
-    connect(move_timer, SIGNAL(timeout()),this,SLOT(move()));
-    move_timer->start(50);
+    //QTimer * move_timer = new QTimer(this);
+    connect(game->bulletTimer, SIGNAL(timeout()),this,SLOT(move()));
+    //move_timer->start(50);
 
     //initialize values
     maxRange =250;
@@ -73,7 +73,7 @@ void Bullet::move()
     //if over max range
     if (distanceTravelled >= maxRange) {
         deleteLater();
-        delete this;
+        //delete this;
     }
 
 

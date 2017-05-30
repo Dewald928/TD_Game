@@ -25,9 +25,13 @@ void ArrowTower::fire()
 {
     Bullet *bullet = new Bullet();
 
+    //place in new thread
+//    bullet->moveToThread(&workerThread);
+//    workerThread.start();
+
     //set the graphics
-    bullet->setPixmap(QPixmap(":/images/images/Projectile_Arrow.png"));
-    bullet->setScale(game->scalingfactor_bullets);
+    bullet->setPixmap(QPixmap(":/images/images/Projectile_Arrow-min.png"));
+    //bullet->setScale(game->scalingfactor_bullets);
 
     //set the damage
     bullet->damage = 10;

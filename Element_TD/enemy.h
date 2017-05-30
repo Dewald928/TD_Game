@@ -13,7 +13,7 @@ class Enemy: public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
 public:
-    Enemy(QList<QPointF> pointsToFollow, QGraphicsItem * parent=0);
+    Enemy(QList<QPointF> pointsToFollow, int enemyNumber, QGraphicsItem * parent=0);
     void rotateToPoint(QPointF p);
     int health;
     int loot;
@@ -35,6 +35,10 @@ private:
     int w;
     int h;
     int healthwidth;
+    QList<QPixmap> sprites;
+    double scale;
+    int sprite_counter;
+    int enemyCounter;
 
 };
 

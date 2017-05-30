@@ -21,6 +21,7 @@
 #include <QDialog>
 #include <QInputDialog>
 #include <resetbutton.h>
+#include <QSound>
 
 
 Game::Game()
@@ -51,6 +52,10 @@ Game::Game()
     //make game timer
     gametimer = new QTimer(this);
     gametimer->start(150);
+
+    //make bullet timer
+    bulletTimer = new QTimer(this);
+    bulletTimer->start(50);
 
 }
 
@@ -179,6 +184,10 @@ void Game::createEnemies(int numberOfEnemies)
 
 void Game::GAMEOVER()
 {  
+    //stuur Game over oor netwerk
+    Client->send("GO");
+
+
     //disconnects timer
     waveTimer->disconnect();
     gametimer->disconnect();
@@ -226,6 +235,57 @@ void Game::GAMEOVER()
         break;
     }
 }
+
+void Game::Victory()
+{
+    //disconnects timer
+    waveTimer->disconnect();
+    gametimer->disconnect();
+
+
+
+    QListIterator<Enemy *> i(listOfEnemies);
+    while (i.hasNext()) {
+        Enemy *thisEnemy = i.next();
+        //thisEnemy->timer->disconnect(); //gee crash
+        thisEnemy->deleteLater();
+    }
+
+
+    //delete towers
+    QListIterator<Tower*> j(listOfTowers);
+    while (j.hasNext()) {
+        Tower *thisTower = j.next();
+        thisTower->deleteLater();
+    }
+
+    qDebug() << "You are real man!";
+    QMessageBox msgBox;
+    msgBox.setText("Victory!");
+    msgBox.setInformativeText("Restart?");
+    msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Close);
+    msgBox.setDefaultButton(QMessageBox::Ok);
+    int ret = msgBox.exec();
+
+    switch (ret) {
+    case QMessageBox::Ok:
+        // restart clicked
+
+
+        displayMainMenu();
+        break;
+    case QMessageBox::Close:
+        // close clicked
+        close();
+        break;
+
+    default:
+        // should never be reached
+        close();
+        break;
+    }
+}
+
 
 QPointF Game::closestNode(int x, int y)
 {
@@ -505,6 +565,7 @@ void Game::updateWave()
     scene->addItem(waveText);
 }
 
+
 void Game::waitConnection()
 {
     conTimer = new QTimer(this);
@@ -540,7 +601,7 @@ void Game::join()
 void Game::spawnEnemy()
 {
     //spawn and enemy
-    Enemy *enemy = new Enemy(pointsToFollow);
+    Enemy *enemy = new Enemy(pointsToFollow, 1);
     enemy->health += enemyHealthIncrease;
     listOfEnemies << enemy;
     enemy->setPos(pointsToFollow[0]);
@@ -551,6 +612,22 @@ void Game::spawnEnemy()
         spawntimer->disconnect();
     }
 }
+
+void Game::spawnEnemy(int enemyNum)
+{
+    //spawn and enemy
+    Enemy *enemy = new Enemy(pointsToFollow, enemyNum);
+    enemy->health += enemyHealthIncrease;
+    listOfEnemies << enemy;
+    enemy->setPos(pointsToFollow[0]);
+    scene->addItem(enemy);
+    enemiesSpawned += 1;
+
+    if (enemiesSpawned >= maxNumberOfEnemies) {
+        spawntimer->disconnect();
+    }
+}
+
 
 void Game::startGame()
 {
@@ -739,6 +816,44 @@ void Game::startGame()
     eyeIcon->setPos(x(),y()+map->mapY*map->tileY);
     scene->addItem(eyeIcon);
 
+
+    //play music
+//    QSound theme("Theme.mp3");
+//    theme.play();
+//    theme.setLoops(QSound::Infinite);
+
+    //QSound::play("Theme.wav");
+
+
+    //add arrowtower cost info
+    QGraphicsTextItem *atCost = new QGraphicsTextItem(QString::number(100) + "g");
+    QFont atFont("Pixel Emulator", 14);
+    atCost->setFont(atFont);
+    atCost->setDefaultTextColor(QColor("white"));
+    int attposx = at->pos().x() + at->pixmap().width()*scalingfactor_icons/2;
+    int attposy = at->pos().y() + at->pixmap().height()*scalingfactor_icons;
+    atCost->setPos(attposx,attposy);
+    scene->addItem(atCost);
+
+    //add canontower cost info
+    QGraphicsTextItem *ctCost = new QGraphicsTextItem(QString::number(200) + "g");
+    QFont ctFont("Pixel Emulator", 14);
+    ctCost->setFont(ctFont);
+    ctCost->setDefaultTextColor(QColor("white"));
+    int cttposx = ct->pos().x() + ct->pixmap().width()*scalingfactor_icons/2 + 10;
+    int cttposy = ct->pos().y() + ct->pixmap().height()*scalingfactor_icons/2;
+    ctCost->setPos(cttposx,cttposy);
+    scene->addItem(ctCost);
+
+    //add firetower cost info
+    QGraphicsTextItem *ftCost = new QGraphicsTextItem(QString::number(300) + "g");
+    QFont ftFont("Pixel Emulator", 14);
+    ftCost->setFont(ftFont);
+    ftCost->setDefaultTextColor(QColor("white"));
+    int fttposx = ft->pos().x() + ft->pixmap().width()*scalingfactor_icons/3;
+    int fttposy = ft->pos().y() + ft->pixmap().height()*scalingfactor_icons/2.5;
+    ftCost->setPos(fttposx,fttposy);
+    scene->addItem(ftCost);
 
 
 }

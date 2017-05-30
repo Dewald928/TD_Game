@@ -34,5 +34,10 @@
         <file>images/wave.png</file>
         <file>images/OuBill.png</file>
         <file>images/reset.png</file>
+        <file>images/Projectile_Arrow_small.png</file>
+        <file>images/Projectile_Arrow-min.png</file>
+        <file>images/Projectile_Canon-min.png</file>
+        <file>images/Projectile_Fire-min.png</file>
+        <file>images/sprites.png</file>
     </qresource>
 </RCC>

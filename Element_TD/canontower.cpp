@@ -26,8 +26,8 @@ void CanonTower::fire()
     Bullet *bullet = new Bullet();
 
     //set the graphics
-    bullet->setPixmap(QPixmap(":/images/images/Projectile_Canon.png"));
-    bullet->setScale(game->scalingfactor_bullets);
+    bullet->setPixmap(QPixmap(":/images/images/Projectile_Canon-min.png"));
+    //bullet->setScale(game->scalingfactor_bullets);
 
     //set the damage
     bullet->damage = 30;

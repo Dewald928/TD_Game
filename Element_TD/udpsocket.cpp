@@ -40,13 +40,17 @@ void UDPSocket::processTheDatagram(QNetworkDatagram datagram)
     sData = datagram.data();
 
     if (sData == "spwn") {
-        game->spawnEnemy();
+        game->spawnEnemy(1);
     }
 
     if (sData == "ACK") {
         hostAdress = QHostAddress(datagram.senderAddress());
         game->connected = true;        
         qDebug() << datagram.senderAddress();
+    }
+
+    if (sData == "GO") {
+        game->Victory();
     }
 
 }

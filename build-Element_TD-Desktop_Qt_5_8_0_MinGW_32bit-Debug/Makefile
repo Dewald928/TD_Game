@@ -222,6 +222,7 @@ Makefile: ../Element_TD/Element_TD.pro D:/Programming/Qt/5.8/mingw53_32/mkspecs/
 		D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/lex.prf \
 		../Element_TD/Element_TD.pro \
 		D:/Programming/Qt/5.8/mingw53_32/lib/qtmaind.prl \
+		D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Multimedia.prl \
 		D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Widgets.prl \
 		D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Gui.prl \
 		D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Network.prl \
@@ -390,6 +391,7 @@ D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/yacc.prf:
 D:/Programming/Qt/5.8/mingw53_32/mkspecs/features/lex.prf:
 ../Element_TD/Element_TD.pro:
 D:/Programming/Qt/5.8/mingw53_32/lib/qtmaind.prl:
+D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Multimedia.prl:
 D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Widgets.prl:
 D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Gui.prl:
 D:/Programming/Qt/5.8/mingw53_32/lib/Qt5Network.prl:
