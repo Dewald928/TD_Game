@@ -39,5 +39,11 @@
         <file>images/Projectile_Canon-min.png</file>
         <file>images/Projectile_Fire-min.png</file>
         <file>images/sprites.png</file>
+        <file>sounds/Marimba.wav</file>
+        <file>images/Tower_Arrow_2.png</file>
+        <file>images/Tower_Canon_2.png</file>
+        <file>images/Tower_Fire_2.png</file>
+        <file>images/sound.png</file>
+        <file>sounds/quack.wav</file>
     </qresource>
 </RCC>

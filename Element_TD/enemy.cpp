@@ -5,6 +5,7 @@
 #include <map.h>
 #include <game.h>
 #include <QBrush>
+#include <QSound>
 
 extern Game *game;
 extern Map *map;
@@ -19,9 +20,9 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, int enemyNumber, QGraphicsItem *pare
     sprites.append(ouBill);
 
     if (enemyNumber == 1) {
-        QPixmap eye1 = p.copy(234, 0, 39, 39);
+        QPixmap eye1 = p.copy(234, 0, 32, 32);
         sprites.append(eye1);
-        QPixmap eye2 = p.copy(273, 0, 39, 39);
+        QPixmap eye2 = p.copy(273, 0, 32, 32);
         sprites.append(eye2);
         scale = 3;
         sprite_counter = enemyNumber;
@@ -143,6 +144,10 @@ void Enemy::move_forward()
         //remove a live
         game->player1->Lives += -1;
         game->updateLives();
+
+        //play quack
+        QSound *quack = new QSound(":/images/sounds/quack.wav");
+        quack->play();
 
         //if all lives are gone
         if (game->player1->Lives <= 0) {

@@ -19,6 +19,8 @@ ArrowTower::ArrowTower(QGraphicsItem *parent)
     QTimer * timer = new QTimer();
     connect(timer,SIGNAL(timeout()),this,SLOT(aquire_target()));
     timer->start(1500);
+
+    towerDamage = 10;
 }
 
 void ArrowTower::fire()
@@ -34,7 +36,7 @@ void ArrowTower::fire()
     //bullet->setScale(game->scalingfactor_bullets);
 
     //set the damage
-    bullet->damage = 10;
+    bullet->damage = towerDamage;
 
     int y_pos = pixmap().height()*game->scalingfactor_towers/1.25; //top of tower
 
@@ -51,6 +53,46 @@ void ArrowTower::fire()
 int ArrowTower::getCostOfTower()
 {
     return costOfTower;
+}
+
+void ArrowTower::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+
+   qDebug() << "Clicked Tower";
+
+   //right mouse sell
+    if (event->button() == Qt::RightButton) {
+        sellTower();
+    }
+    else
+    {
+        //        QGraphicsView::mousePressEvent(event);
+        return;
+    }
+
+}
+
+void ArrowTower::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    //upgrade tower
+    setPixmap(QPixmap(":/images/images/Tower_Arrow_2.png"));
+    int w = pixmap().width();
+    int h = pixmap().height();
+    setOffset(-w/2,-h/1.25);
+
+    //upgrade damage
+    towerDamage = 20;
+
+    //update gold
+    game->player1->Gold += -costOfTower/2;
+    game->updateGold();
+
+}
+
+void ArrowTower::sellTower()
+{
+    qDebug() << "sold arrow";
+    //meh
 }
 
 void ArrowTower::aquire_target()

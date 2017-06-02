@@ -6,6 +6,7 @@
 #include <QGraphicsItem>
 #include <QPointF>
 #include <QObject>
+#include <QMouseEvent>
 
 class Tower:public QObject, public QGraphicsPixmapItem
 {
@@ -13,8 +14,10 @@ class Tower:public QObject, public QGraphicsPixmapItem
 public:
     Tower(QGraphicsItem *parent = 0);
     double distanceTo(QGraphicsItem * item);
+    virtual void mousePressEvent(QMouseEvent *event);
     virtual void fire();
     virtual int getCostOfTower();
+    virtual void sellTower();
     const int costOfTower = 50;
 
 

@@ -19,6 +19,7 @@ INPUT(
 ./debug\waves.o
 ./debug\udpsocket.o
 ./debug\resetbutton.o
+./debug\sound.o
 ./debug\qrc_res.o
 ./debug\moc_mainwindow.o
 ./debug\moc_tower.o

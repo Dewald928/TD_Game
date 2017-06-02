@@ -5,11 +5,11 @@
 #-------------------------------------------------
 
 QT += core network
-QT       += core gui
+QT += core gui
 QT += multimedia
 
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets multimedia
 
 TARGET = Element_TD
 TEMPLATE = app
@@ -45,7 +45,8 @@ SOURCES += main.cpp\
     button.cpp \
     waves.cpp \
     udpsocket.cpp \
-    resetbutton.cpp
+    resetbutton.cpp \
+    sound.cpp
 
 HEADERS  += mainwindow.h \
     tower.h \
@@ -65,7 +66,8 @@ HEADERS  += mainwindow.h \
     button.h \
     waves.h \
     udpsocket.h \
-    resetbutton.h
+    resetbutton.h \
+    sound.h
 
 
 RESOURCES += \

@@ -1,0 +1,47 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>images/Tower_Arrow.png</file>
+        <file>images/Projectile_Arrow.png</file>
+        <file>images/Enemy_Eye.png</file>
+        <file>images/Projectile_Canon.png</file>
+        <file>images/Projectile_Fire.png</file>
+        <file>images/Projectile_Light.png</file>
+        <file>images/Projectile_Slime.png</file>
+        <file>images/Tower_Canon.png</file>
+        <file>images/Tower_Fire.png</file>
+        <file>images/Tower_Light.png</file>
+        <file>images/Tower_Slime.png</file>
+        <file>images/grass.png</file>
+        <file>images/mapTile_006.png</file>
+        <file>images/mapTile_007.png</file>
+        <file>images/mapTile_008.png</file>
+        <file>images/mapTile_021.png</file>
+        <file>images/mapTile_023.png</file>
+        <file>images/mapTile_051.png</file>
+        <file>images/mapTile_052.png</file>
+        <file>images/mapTile_053.png</file>
+        <file>images/obstruction.png</file>
+        <file>images/path.png</file>
+        <file>images/portal.png</file>
+        <file>myappico.ico</file>
+        <file>images/test.png</file>
+        <file>images/frame3.png</file>
+        <file>images/buildings.png</file>
+        <file>images/gold.png</file>
+        <file>images/income.png</file>
+        <file>images/lives.png</file>
+        <file>images/timer.png</file>
+        <file>images/wave.png</file>
+        <file>images/OuBill.png</file>
+        <file>images/reset.png</file>
+        <file>images/Projectile_Arrow_small.png</file>
+        <file>images/Projectile_Arrow-min.png</file>
+        <file>images/Projectile_Canon-min.png</file>
+        <file>images/Projectile_Fire-min.png</file>
+        <file>images/sprites.png</file>
+        <file>sounds/Marimba.wav</file>
+        <file>images/Tower_Arrow_2.png</file>
+        <file>images/Tower_Canon_2.png</file>
+        <file>images/Tower_Fire_2.png</file>
+    </qresource>
+</RCC>

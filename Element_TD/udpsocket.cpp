@@ -49,7 +49,7 @@ void UDPSocket::processTheDatagram(QNetworkDatagram datagram)
         qDebug() << datagram.senderAddress();
     }
 
-    if (sData == "GO") {
+    if ((sData == "GO") && (hostAdress != QHostAddress("127.0.0.1"))) {
         game->Victory();
     }
 
@@ -80,5 +80,7 @@ void UDPSocket::readPendingDatagrams()
         qDebug() << datagram.data();
         qDebug() << datagram.senderPort();
         qDebug() << datagram.senderAddress();
+        qDebug() << "To";
+        qDebug() << datagram.destinationAddress();
     }
 }

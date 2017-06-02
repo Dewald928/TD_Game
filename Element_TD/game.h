@@ -13,6 +13,7 @@
 #include <enemy.h>
 #include <waves.h>
 #include <udpsocket.h>
+#include <QSound>
 
 
 
@@ -92,13 +93,12 @@ public:
     QTimer *conTimer;
 
 
-
     //game constants
     int screenWidth = 1200;
     int screenHeight = 1000;
     int numberOfTowers = 3;
     int numberOfStats = 5; //gold, lives, times, income, level
-    const double scalingfactor_towers = 0.3;
+    const double scalingfactor_towers = 0.28;
     const double scalingfactor_bullets = 0.2;
     const double scalingfactor_icons = 0.5;
 

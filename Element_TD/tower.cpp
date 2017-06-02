@@ -62,6 +62,19 @@ double Tower::distanceTo(QGraphicsItem *item)
     return ln.length();
 }
 
+void Tower::mousePressEvent(QMouseEvent *event)
+{
+    qDebug() << "Tower Clicked";
+    if (event->button() == Qt::RightButton) {
+        sellTower();
+    }
+    else
+    {
+//        QGraphicsView::mousePressEvent(event);
+        return;
+    }
+}
+
 void Tower::fire()
 {
     Bullet *bullet = new Bullet();
@@ -79,6 +92,12 @@ void Tower::fire()
 int Tower::getCostOfTower()
 {
     return costOfTower;
+}
+
+void Tower::sellTower()
+{
+    //sell hier?
+    qDebug() << "Sold!";
 }
 
 bool Tower::getIsPlaced()

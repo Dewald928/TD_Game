@@ -21,7 +21,8 @@
 #include <QDialog>
 #include <QInputDialog>
 #include <resetbutton.h>
-#include <QSound>
+#include <sound.h>
+
 
 
 Game::Game()
@@ -33,6 +34,7 @@ Game::Game()
 
     //set the scene
     setScene(scene);
+//    setDragMode(QGraphicsView::ScrollHandDrag);
 
     //alter window
     setMinimumSize(screenWidth,screenHeight);
@@ -357,6 +359,8 @@ void Game::snapToGrid()
                 //set map node here
                 map->map[x_map][y_map]->tile = Grass;
                 map->map[x_map][y_map]->cost = 1;
+                player1->Gold += building->getCostOfTower();
+                updateGold();
                 return;
 
             }
@@ -811,18 +815,21 @@ void Game::startGame()
     rb->setPos(rbx-10, rby-20);
     scene->addItem(rb);
 
+    //add sound mute
+    Sound *sb = new Sound();
+    int sbx = screenWidth - sb->pixmap().width()/3;
+    int sby = 10;
+    sb->setScale(0.25);
+    sb->setPos(sbx,sby);
+    scene->addItem(sb);
+
+
+
+
     //add evenmy icons
     SpawnEyeIcon *eyeIcon = new SpawnEyeIcon();
     eyeIcon->setPos(x(),y()+map->mapY*map->tileY);
     scene->addItem(eyeIcon);
-
-
-    //play music
-//    QSound theme("Theme.mp3");
-//    theme.play();
-//    theme.setLoops(QSound::Infinite);
-
-    //QSound::play("Theme.wav");
 
 
     //add arrowtower cost info

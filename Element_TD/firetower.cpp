@@ -56,3 +56,44 @@ void FireTower::aquire_target()
 {
     Tower::aquire_target();
 }
+
+
+void FireTower::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+
+   qDebug() << "Clicked Tower";
+
+   //right mouse sell
+    if (event->button() == Qt::RightButton) {
+        sellTower();
+    }
+    else
+    {
+        //        QGraphicsView::mousePressEvent(event);
+        return;
+    }
+
+}
+
+void FireTower::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    //upgrade tower
+    setPixmap(QPixmap(":/images/images/Tower_Fire_2.png"));
+    int w = pixmap().width();
+    int h = pixmap().height();
+    setOffset(-w/2,-h/1.25);
+
+    //upgrade damage
+    towerDamage = 70;
+
+    //update gold
+    game->player1->Gold += -costOfTower/2;
+    game->updateGold();
+
+}
+
+void FireTower::sellTower()
+{
+    qDebug() << "sold arrow";
+    //meh
+}

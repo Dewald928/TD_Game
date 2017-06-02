@@ -7,7 +7,7 @@
 class ResetButton: public QGraphicsPixmapItem
 {
 public:
-    ResetButton(QGraphicsItem *parent = 0);
+    ResetButton(QGraphicsItem *parent =0);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 

@@ -54,3 +54,43 @@ void CanonTower::aquire_target()
 {
     Tower::aquire_target();
 }
+
+void CanonTower::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+
+   qDebug() << "Clicked Tower";
+
+   //right mouse sell
+    if (event->button() == Qt::RightButton) {
+        sellTower();
+    }
+    else
+    {
+        //        QGraphicsView::mousePressEvent(event);
+        return;
+    }
+
+}
+
+void CanonTower::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *event)
+{
+    //upgrade tower
+    setPixmap(QPixmap(":/images/images/Tower_Canon_2.png"));
+    int w = pixmap().width();
+    int h = pixmap().height();
+    setOffset(-w/2,-h/1.25);
+
+    //upgrade damage
+    towerDamage = 60;
+
+    //update gold
+    game->player1->Gold += -costOfTower/2;
+    game->updateGold();
+
+}
+
+void CanonTower::sellTower()
+{
+    qDebug() << "sold arrow";
+    //meh
+}

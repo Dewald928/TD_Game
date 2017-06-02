@@ -198,7 +198,7 @@ void Map::calcNeighbours(Node *n)
             int y = dy + n->y;
             if ((x>=0) && (x < mapX) && (y>=0) && (y < mapY) &&
                 (!openList.contains(map[x][y])) && (!closedList.contains(map[x][y])) &&
-                (map[x][y]->cost < 100) && ((dx*dx) || (dy*dy))) //nie die actual node nie.
+                (map[x][y]->cost < 100) && ((dx*dx) || (dy*dy)) && ((dy*dy) != (dx*dx))) //haal laaste uit vir nei diag
             {
                 map[x][y]->parent = n;
                 if ((dx*dx) && (dy*dy))
