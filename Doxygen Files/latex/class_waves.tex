@@ -1,0 +1,111 @@
+\hypertarget{class_waves}{}\section{Waves Class Reference}
+\label{class_waves}\index{Waves@{Waves}}
+
+
+{\ttfamily \#include $<$waves.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_waves_a9e54eb4d496902fe0d6e9a11870df970}{Waves} ()
+\item 
+void \hyperlink{class_waves_a1f686101089cb63743c8f50047b28716}{next\+Wave} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_waves_abfdc18a5f2f185285173797c1c67c6f9}{wave\+Level}
+\item 
+int \hyperlink{class_waves_a5539b3131120a19665884a63b6e9c029}{number\+Of\+Enemies}
+\item 
+int \hyperlink{class_waves_abefbb124b85fea1246f41390b12a0f99}{health\+Increase}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 6 of file waves.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_waves_a9e54eb4d496902fe0d6e9a11870df970}\label{class_waves_a9e54eb4d496902fe0d6e9a11870df970}} 
+\index{Waves@{Waves}!Waves@{Waves}}
+\index{Waves@{Waves}!Waves@{Waves}}
+\subsubsection{\texorpdfstring{Waves()}{Waves()}}
+{\footnotesize\ttfamily Waves\+::\+Waves (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file waves.\+cpp.
+
+
+\begin{DoxyCode}
+8 \{
+9     \hyperlink{class_waves_abfdc18a5f2f185285173797c1c67c6f9}{waveLevel} = 1;
+10     \hyperlink{class_waves_a5539b3131120a19665884a63b6e9c029}{numberOfEnemies} = 1;
+11 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_waves_a1f686101089cb63743c8f50047b28716}\label{class_waves_a1f686101089cb63743c8f50047b28716}} 
+\index{Waves@{Waves}!next\+Wave@{next\+Wave}}
+\index{next\+Wave@{next\+Wave}!Waves@{Waves}}
+\subsubsection{\texorpdfstring{next\+Wave()}{nextWave()}}
+{\footnotesize\ttfamily void Waves\+::next\+Wave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file waves.\+cpp.
+
+
+\begin{DoxyCode}
+14 \{
+15     \hyperlink{waves_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a622303239641db82911ea67bde3ba1a0}{createEnemies}(\hyperlink{class_waves_a5539b3131120a19665884a63b6e9c029}{numberOfEnemies});
+16     \hyperlink{waves_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ac0038cbbcfbd5d8b32600cd9f42cd09b}{enemyHealthIncrease} += 300;
+17     \hyperlink{class_waves_a5539b3131120a19665884a63b6e9c029}{numberOfEnemies} += 1;
+18     \hyperlink{class_waves_abfdc18a5f2f185285173797c1c67c6f9}{waveLevel} += 1;
+19 
+20 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_waves_abefbb124b85fea1246f41390b12a0f99}\label{class_waves_abefbb124b85fea1246f41390b12a0f99}} 
+\index{Waves@{Waves}!health\+Increase@{health\+Increase}}
+\index{health\+Increase@{health\+Increase}!Waves@{Waves}}
+\subsubsection{\texorpdfstring{health\+Increase}{healthIncrease}}
+{\footnotesize\ttfamily int Waves\+::health\+Increase}
+
+
+
+Definition at line 16 of file waves.\+h.
+
+\mbox{\Hypertarget{class_waves_a5539b3131120a19665884a63b6e9c029}\label{class_waves_a5539b3131120a19665884a63b6e9c029}} 
+\index{Waves@{Waves}!number\+Of\+Enemies@{number\+Of\+Enemies}}
+\index{number\+Of\+Enemies@{number\+Of\+Enemies}!Waves@{Waves}}
+\subsubsection{\texorpdfstring{number\+Of\+Enemies}{numberOfEnemies}}
+{\footnotesize\ttfamily int Waves\+::number\+Of\+Enemies}
+
+
+
+Definition at line 15 of file waves.\+h.
+
+\mbox{\Hypertarget{class_waves_abfdc18a5f2f185285173797c1c67c6f9}\label{class_waves_abfdc18a5f2f185285173797c1c67c6f9}} 
+\index{Waves@{Waves}!wave\+Level@{wave\+Level}}
+\index{wave\+Level@{wave\+Level}!Waves@{Waves}}
+\subsubsection{\texorpdfstring{wave\+Level}{waveLevel}}
+{\footnotesize\ttfamily int Waves\+::wave\+Level}
+
+
+
+Definition at line 14 of file waves.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{waves_8h}{waves.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{waves_8cpp}{waves.\+cpp}\end{DoxyCompactItemize}

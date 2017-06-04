@@ -1,0 +1,255 @@
+\hypertarget{class_u_d_p_socket}{}\section{U\+D\+P\+Socket Class Reference}
+\label{class_u_d_p_socket}\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+
+
+{\ttfamily \#include $<$udpsocket.\+h$>$}
+
+Inheritance diagram for U\+D\+P\+Socket\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_u_d_p_socket}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_u_d_p_socket_a3d40509e1eb916df5ecbca4d3696c3d2}{U\+D\+P\+Socket} (Q\+Object $\ast$parent=0)
+\item 
+void \hyperlink{class_u_d_p_socket_a991e20366ed560c24402d7a6404daea7}{say\+Hello} ()
+\item 
+void \hyperlink{class_u_d_p_socket_a66a6c4663cc3084cb4d76583e8039083}{send} (Q\+String str)
+\item 
+void \hyperlink{class_u_d_p_socket_ad84c799182b7d7edafe956674ecb3faf}{process\+The\+Datagram} (Q\+Network\+Datagram datagram)
+\item 
+void \hyperlink{class_u_d_p_socket_a9cfc381ef8fe97d2adea9eb0d2c2c1f5}{emit\+IP} ()
+\item 
+Q\+Host\+Address \hyperlink{class_u_d_p_socket_a8d1b7ad860447197ac896f35949aa723}{get\+Host\+Adress} () const
+\item 
+void \hyperlink{class_u_d_p_socket_a5bdac3040e57d37c503fdd3293b6d053}{set\+Host\+Adress} (const Q\+Host\+Address \&value)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Host\+Address \hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{host\+Adress}
+\end{DoxyCompactItemize}
+\subsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_u_d_p_socket_a927f0446edc240955bea6e6e493e6621}{read\+Pending\+Datagrams} ()
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Udp\+Socket $\ast$ \hyperlink{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}{socket}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file udpsocket.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_u_d_p_socket_a3d40509e1eb916df5ecbca4d3696c3d2}\label{class_u_d_p_socket_a3d40509e1eb916df5ecbca4d3696c3d2}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{U\+D\+P\+Socket()}{UDPSocket()}}
+{\footnotesize\ttfamily U\+D\+P\+Socket\+::\+U\+D\+P\+Socket (\begin{DoxyParamCaption}\item[{Q\+Object $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 8 of file udpsocket.\+cpp.
+
+
+\begin{DoxyCode}
+8                                     : QObject(parent)
+9 \{
+10     \hyperlink{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}{socket} = \textcolor{keyword}{new} QUdpSocket(\textcolor{keyword}{this});
+11     connect(\hyperlink{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}{socket}, SIGNAL(readyRead()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_u_d_p_socket_a927f0446edc240955bea6e6e493e6621}{readPendingDatagrams}()));
+12     \hyperlink{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}{socket}->bind(700);
+13 
+14     \textcolor{comment}{//default}
+15     \hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{hostAdress} = \textcolor{stringliteral}{"127.0.0.1"}; \textcolor{comment}{//loopback adress}
+16 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_u_d_p_socket_a9cfc381ef8fe97d2adea9eb0d2c2c1f5}\label{class_u_d_p_socket_a9cfc381ef8fe97d2adea9eb0d2c2c1f5}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!emit\+IP@{emit\+IP}}
+\index{emit\+IP@{emit\+IP}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{emit\+I\+P()}{emitIP()}}
+{\footnotesize\ttfamily void U\+D\+P\+Socket\+::emit\+IP (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 58 of file udpsocket.\+cpp.
+
+
+\begin{DoxyCode}
+59 \{
+60 
+61 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_u_d_p_socket_a8d1b7ad860447197ac896f35949aa723}\label{class_u_d_p_socket_a8d1b7ad860447197ac896f35949aa723}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!get\+Host\+Adress@{get\+Host\+Adress}}
+\index{get\+Host\+Adress@{get\+Host\+Adress}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{get\+Host\+Adress()}{getHostAdress()}}
+{\footnotesize\ttfamily Q\+Host\+Address U\+D\+P\+Socket\+::get\+Host\+Adress (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 63 of file udpsocket.\+cpp.
+
+
+\begin{DoxyCode}
+64 \{
+65     \textcolor{keywordflow}{return} \hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{hostAdress};
+66 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_u_d_p_socket_ad84c799182b7d7edafe956674ecb3faf}\label{class_u_d_p_socket_ad84c799182b7d7edafe956674ecb3faf}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!process\+The\+Datagram@{process\+The\+Datagram}}
+\index{process\+The\+Datagram@{process\+The\+Datagram}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{process\+The\+Datagram()}{processTheDatagram()}}
+{\footnotesize\ttfamily void U\+D\+P\+Socket\+::process\+The\+Datagram (\begin{DoxyParamCaption}\item[{Q\+Network\+Datagram}]{datagram }\end{DoxyParamCaption})}
+
+
+
+Definition at line 37 of file udpsocket.\+cpp.
+
+
+\begin{DoxyCode}
+38 \{
+39     QString sData;
+40     sData = datagram.data();
+41 
+42     \textcolor{keywordflow}{if} (sData == \textcolor{stringliteral}{"spwn"}) \{
+43         \hyperlink{udpsocket_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a2c06f08e42cb8ef918596edd11ee00d1}{spawnEnemy}(0);
+44     \}
+45 
+46     \textcolor{keywordflow}{if} (sData == \textcolor{stringliteral}{"ACK"}) \{
+47         \hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{hostAdress} = QHostAddress(datagram.senderAddress());
+48         \hyperlink{udpsocket_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_aec6408b42da34f430bffb649653de96b}{connected} = \textcolor{keyword}{true};        
+49         qDebug() << datagram.senderAddress();
+50     \}
+51 
+52     \textcolor{keywordflow}{if} ((sData == \textcolor{stringliteral}{"GO"}) && (\hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{hostAdress} != QHostAddress(\textcolor{stringliteral}{"127.0.0.1"}))) \{
+53         \hyperlink{udpsocket_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_af310eb8cf154b512e2ae488267495c96}{Victory}();
+54     \}
+55 
+56 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_u_d_p_socket_a927f0446edc240955bea6e6e493e6621}\label{class_u_d_p_socket_a927f0446edc240955bea6e6e493e6621}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!read\+Pending\+Datagrams@{read\+Pending\+Datagrams}}
+\index{read\+Pending\+Datagrams@{read\+Pending\+Datagrams}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{read\+Pending\+Datagrams}{readPendingDatagrams}}
+{\footnotesize\ttfamily void U\+D\+P\+Socket\+::read\+Pending\+Datagrams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Definition at line 73 of file udpsocket.\+cpp.
+
+
+\begin{DoxyCode}
+74 \{
+75     \textcolor{keywordflow}{while} (\hyperlink{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}{socket}->hasPendingDatagrams())
+76     \{
+77         QNetworkDatagram datagram = \hyperlink{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}{socket}->receiveDatagram();
+78         \hyperlink{class_u_d_p_socket_ad84c799182b7d7edafe956674ecb3faf}{processTheDatagram}(datagram);
+79         qDebug() << \textcolor{stringliteral}{"Received Datagram"};
+80         qDebug() << datagram.data();
+81         qDebug() << datagram.senderPort();
+82         qDebug() << datagram.senderAddress();
+83         qDebug() << \textcolor{stringliteral}{"To"};
+84         qDebug() << datagram.destinationAddress();
+85     \}
+86 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_u_d_p_socket_a991e20366ed560c24402d7a6404daea7}\label{class_u_d_p_socket_a991e20366ed560c24402d7a6404daea7}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!say\+Hello@{say\+Hello}}
+\index{say\+Hello@{say\+Hello}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{say\+Hello()}{sayHello()}}
+{\footnotesize\ttfamily void U\+D\+P\+Socket\+::say\+Hello (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 18 of file udpsocket.\+cpp.
+
+
+\begin{DoxyCode}
+19 \{
+20     QByteArray Data;
+21     Data.append(\textcolor{stringliteral}{"Hello"});
+22     \hyperlink{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}{socket}->writeDatagram(Data, \hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{hostAdress}, 700);
+23 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_u_d_p_socket_a66a6c4663cc3084cb4d76583e8039083}\label{class_u_d_p_socket_a66a6c4663cc3084cb4d76583e8039083}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!send@{send}}
+\index{send@{send}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily void U\+D\+P\+Socket\+::send (\begin{DoxyParamCaption}\item[{Q\+String}]{str }\end{DoxyParamCaption})}
+
+
+
+Definition at line 25 of file udpsocket.\+cpp.
+
+
+\begin{DoxyCode}
+26 \{
+27     QByteArray Data;
+28     Data.append(str);
+29     \hyperlink{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}{socket}->writeDatagram(Data, \hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{hostAdress}, 700);
+30 
+31     qDebug() << \textcolor{stringliteral}{"Sent Datagram"};
+32     qDebug() << Data;
+33     qDebug() << \textcolor{stringliteral}{"700"};
+34     qDebug() << \hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{hostAdress};
+35 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_u_d_p_socket_a5bdac3040e57d37c503fdd3293b6d053}\label{class_u_d_p_socket_a5bdac3040e57d37c503fdd3293b6d053}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!set\+Host\+Adress@{set\+Host\+Adress}}
+\index{set\+Host\+Adress@{set\+Host\+Adress}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{set\+Host\+Adress()}{setHostAdress()}}
+{\footnotesize\ttfamily void U\+D\+P\+Socket\+::set\+Host\+Adress (\begin{DoxyParamCaption}\item[{const Q\+Host\+Address \&}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 68 of file udpsocket.\+cpp.
+
+
+\begin{DoxyCode}
+69 \{
+70     \hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{hostAdress} = value;
+71 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}\label{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!host\+Adress@{host\+Adress}}
+\index{host\+Adress@{host\+Adress}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{host\+Adress}{hostAdress}}
+{\footnotesize\ttfamily Q\+Host\+Address U\+D\+P\+Socket\+::host\+Adress}
+
+
+
+Definition at line 18 of file udpsocket.\+h.
+
+\mbox{\Hypertarget{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}\label{class_u_d_p_socket_a9d27cb09deee765dfec056cfc774c878}} 
+\index{U\+D\+P\+Socket@{U\+D\+P\+Socket}!socket@{socket}}
+\index{socket@{socket}!U\+D\+P\+Socket@{U\+D\+P\+Socket}}
+\subsubsection{\texorpdfstring{socket}{socket}}
+{\footnotesize\ttfamily Q\+Udp\+Socket$\ast$ U\+D\+P\+Socket\+::socket\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 28 of file udpsocket.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{udpsocket_8h}{udpsocket.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{udpsocket_8cpp}{udpsocket.\+cpp}\end{DoxyCompactItemize}

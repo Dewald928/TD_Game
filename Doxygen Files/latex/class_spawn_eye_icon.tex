@@ -1,0 +1,85 @@
+\hypertarget{class_spawn_eye_icon}{}\section{Spawn\+Eye\+Icon Class Reference}
+\label{class_spawn_eye_icon}\index{Spawn\+Eye\+Icon@{Spawn\+Eye\+Icon}}
+
+
+{\ttfamily \#include $<$spawneyeicon.\+h$>$}
+
+Inheritance diagram for Spawn\+Eye\+Icon\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_spawn_eye_icon}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_spawn_eye_icon_a89e2b8ca9ce46748cbc2e3d4ad2eddeb}{Spawn\+Eye\+Icon} (Q\+Graphics\+Item $\ast$parent=0)
+\item 
+void \hyperlink{class_spawn_eye_icon_a7fce32d9b81bdd2a5732372db0c928f0}{mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 7 of file spawneyeicon.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_spawn_eye_icon_a89e2b8ca9ce46748cbc2e3d4ad2eddeb}\label{class_spawn_eye_icon_a89e2b8ca9ce46748cbc2e3d4ad2eddeb}} 
+\index{Spawn\+Eye\+Icon@{Spawn\+Eye\+Icon}!Spawn\+Eye\+Icon@{Spawn\+Eye\+Icon}}
+\index{Spawn\+Eye\+Icon@{Spawn\+Eye\+Icon}!Spawn\+Eye\+Icon@{Spawn\+Eye\+Icon}}
+\subsubsection{\texorpdfstring{Spawn\+Eye\+Icon()}{SpawnEyeIcon()}}
+{\footnotesize\ttfamily Spawn\+Eye\+Icon\+::\+Spawn\+Eye\+Icon (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file spawneyeicon.\+cpp.
+
+
+\begin{DoxyCode}
+8 \{
+9     setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/Enemy\_Eye.png"}));
+10 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_spawn_eye_icon_a7fce32d9b81bdd2a5732372db0c928f0}\label{class_spawn_eye_icon_a7fce32d9b81bdd2a5732372db0c928f0}} 
+\index{Spawn\+Eye\+Icon@{Spawn\+Eye\+Icon}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Spawn\+Eye\+Icon@{Spawn\+Eye\+Icon}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Spawn\+Eye\+Icon\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file spawneyeicon.\+cpp.
+
+
+\begin{DoxyCode}
+13 \{
+14     \textcolor{comment}{//game->createEnemies(1);}
+15     \hyperlink{spawneyeicon_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} += -50;  \textcolor{comment}{//enemy loot value //test code}
+16 
+17     \textcolor{keywordflow}{if} (\hyperlink{spawneyeicon_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} >= 0) \{
+18         \hyperlink{spawneyeicon_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_aa7fd8508fad68c550129f2be61c37467}{Client}->\hyperlink{class_u_d_p_socket_a66a6c4663cc3084cb4d76583e8039083}{send}(\textcolor{stringliteral}{"spwn"});
+19         \hyperlink{spawneyeicon_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_a414fae948c79246f6a98554718f0cd99}{Income} += 5;
+20         \hyperlink{spawneyeicon_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a5a6924497d779286af09f339d4c7a598}{updateIncome}();
+21         \hyperlink{spawneyeicon_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a065998f7609f63e2987ede928359595a}{updateGold}();
+22     \}
+23     \textcolor{keywordflow}{else}
+24     \{
+25         \hyperlink{spawneyeicon_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} += 50;
+26         \textcolor{keywordflow}{return};
+27     \}
+28 
+29 
+30 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{spawneyeicon_8h}{spawneyeicon.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{spawneyeicon_8cpp}{spawneyeicon.\+cpp}\end{DoxyCompactItemize}

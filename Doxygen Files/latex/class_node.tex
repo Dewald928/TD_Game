@@ -1,0 +1,187 @@
+\hypertarget{class_node}{}\section{Node Class Reference}
+\label{class_node}\index{Node@{Node}}
+
+
+{\ttfamily \#include $<$node.\+h$>$}
+
+Inheritance diagram for Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_node}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_node_a99ae3b67742635b847aff323ddd29b62}{Node} (Q\+Graphics\+Item $\ast$\hyperlink{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent}=0)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Label $\ast$ \hyperlink{class_node_a95d9b57b8efb3807c994314c3ff444b7}{label}
+\item 
+\hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1}{Tile\+Type} \hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile}
+\item 
+int \hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost}
+\item 
+int \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}
+\item 
+int \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}
+\item 
+int \hyperlink{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}{f}
+\item 
+int \hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g}
+\item 
+int \hyperlink{class_node_afb5a7ac7536a9e09488bb685420cd78a}{h}
+\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent}
+\item 
+bool \hyperlink{class_node_a2bb1959485873369ea2504c1dece3f33}{path}
+\item 
+Q\+PointF \hyperlink{class_node_a77faa088c74e20a361a181b58e8a4c7f}{point}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 15 of file node.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_node_a99ae3b67742635b847aff323ddd29b62}\label{class_node_a99ae3b67742635b847aff323ddd29b62}} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\subsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 4 of file node.\+cpp.
+
+
+\begin{DoxyCode}
+5 \{
+6     setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/grass.png"}));
+7 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_node_aae24f318bd4b6d14270084cec3fc98b5}\label{class_node_aae24f318bd4b6d14270084cec3fc98b5}} 
+\index{Node@{Node}!cost@{cost}}
+\index{cost@{cost}!Node@{Node}}
+\subsubsection{\texorpdfstring{cost}{cost}}
+{\footnotesize\ttfamily int Node\+::cost}
+
+
+
+Definition at line 21 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}\label{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}} 
+\index{Node@{Node}!f@{f}}
+\index{f@{f}!Node@{Node}}
+\subsubsection{\texorpdfstring{f}{f}}
+{\footnotesize\ttfamily int Node\+::f}
+
+
+
+Definition at line 24 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_a0b249888eacdec6c623ec8c58b230c48}\label{class_node_a0b249888eacdec6c623ec8c58b230c48}} 
+\index{Node@{Node}!g@{g}}
+\index{g@{g}!Node@{Node}}
+\subsubsection{\texorpdfstring{g}{g}}
+{\footnotesize\ttfamily int Node\+::g}
+
+
+
+Definition at line 25 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_afb5a7ac7536a9e09488bb685420cd78a}\label{class_node_afb5a7ac7536a9e09488bb685420cd78a}} 
+\index{Node@{Node}!h@{h}}
+\index{h@{h}!Node@{Node}}
+\subsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily int Node\+::h}
+
+
+
+Definition at line 26 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_a95d9b57b8efb3807c994314c3ff444b7}\label{class_node_a95d9b57b8efb3807c994314c3ff444b7}} 
+\index{Node@{Node}!label@{label}}
+\index{label@{label}!Node@{Node}}
+\subsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily Q\+Label$\ast$ Node\+::label}
+
+
+
+Definition at line 19 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}\label{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}} 
+\index{Node@{Node}!parent@{parent}}
+\index{parent@{parent}!Node@{Node}}
+\subsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node}$\ast$ Node\+::parent}
+
+
+
+Definition at line 27 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_a2bb1959485873369ea2504c1dece3f33}\label{class_node_a2bb1959485873369ea2504c1dece3f33}} 
+\index{Node@{Node}!path@{path}}
+\index{path@{path}!Node@{Node}}
+\subsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily bool Node\+::path}
+
+
+
+Definition at line 28 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_a77faa088c74e20a361a181b58e8a4c7f}\label{class_node_a77faa088c74e20a361a181b58e8a4c7f}} 
+\index{Node@{Node}!point@{point}}
+\index{point@{point}!Node@{Node}}
+\subsubsection{\texorpdfstring{point}{point}}
+{\footnotesize\ttfamily Q\+PointF Node\+::point}
+
+
+
+Definition at line 29 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_a2250e2c1710fb19f15f236ac69563613}\label{class_node_a2250e2c1710fb19f15f236ac69563613}} 
+\index{Node@{Node}!tile@{tile}}
+\index{tile@{tile}!Node@{Node}}
+\subsubsection{\texorpdfstring{tile}{tile}}
+{\footnotesize\ttfamily \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1}{Tile\+Type} Node\+::tile}
+
+
+
+Definition at line 20 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_aff1029a518bdc2651007b8856f958364}\label{class_node_aff1029a518bdc2651007b8856f958364}} 
+\index{Node@{Node}!x@{x}}
+\index{x@{x}!Node@{Node}}
+\subsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily int Node\+::x}
+
+
+
+Definition at line 22 of file node.\+h.
+
+\mbox{\Hypertarget{class_node_aa3e5b5240023b4528ae85057b3324202}\label{class_node_aa3e5b5240023b4528ae85057b3324202}} 
+\index{Node@{Node}!y@{y}}
+\index{y@{y}!Node@{Node}}
+\subsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily int Node\+::y}
+
+
+
+Definition at line 23 of file node.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{node_8h}{node.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{node_8cpp}{node.\+cpp}\end{DoxyCompactItemize}

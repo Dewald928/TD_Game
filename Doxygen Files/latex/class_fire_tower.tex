@@ -1,0 +1,266 @@
+\hypertarget{class_fire_tower}{}\section{Fire\+Tower Class Reference}
+\label{class_fire_tower}\index{Fire\+Tower@{Fire\+Tower}}
+
+
+{\ttfamily \#include $<$firetower.\+h$>$}
+
+Inheritance diagram for Fire\+Tower\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_fire_tower}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_fire_tower_a4a3c1e246ed66479aabff4ab5d187636}{aquire\+\_\+target} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_fire_tower_ad375e5ef0c469832741f6a541f3caae1}{Fire\+Tower} (Q\+Graphics\+Item $\ast$parent=0)
+\item 
+void \hyperlink{class_fire_tower_a9a0b13fcb0bc204194d953c5494afbe3}{fire} ()
+\item 
+int \hyperlink{class_fire_tower_a74be102e9bb0871f19fb55b434e2b6d7}{get\+Cost\+Of\+Tower} ()
+\item 
+void \hyperlink{class_fire_tower_a1768ca309eccef5f7f093f37741ba572}{mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\item 
+void \hyperlink{class_fire_tower_a4deed164ccfbabcd7fc67e3973015f9f}{mouse\+Double\+Click\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\item 
+void \hyperlink{class_fire_tower_adc1bcb15312eac1dd9788be48e55baad}{sell\+Tower} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{class_fire_tower_ae05eab1ea0a68b5109ee91771d3c8569}{cost\+Of\+Tower} = 300
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_fire_tower_a59a01cc273823ea5451179dbc1f4aded}{tower\+Damage}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 7 of file firetower.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_fire_tower_ad375e5ef0c469832741f6a541f3caae1}\label{class_fire_tower_ad375e5ef0c469832741f6a541f3caae1}} 
+\index{Fire\+Tower@{Fire\+Tower}!Fire\+Tower@{Fire\+Tower}}
+\index{Fire\+Tower@{Fire\+Tower}!Fire\+Tower@{Fire\+Tower}}
+\subsubsection{\texorpdfstring{Fire\+Tower()}{FireTower()}}
+{\footnotesize\ttfamily Fire\+Tower\+::\+Fire\+Tower (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 9 of file firetower.\+cpp.
+
+
+\begin{DoxyCode}
+10 \{
+11     \textcolor{comment}{//set graphics}
+12     setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/Tower\_Fire.png"}));
+13     \textcolor{keywordtype}{int} w = pixmap().width();
+14     \textcolor{keywordtype}{int} h = pixmap().height();
+15     setOffset(-w/2,-h/1.25);
+16 
+17 
+18     \textcolor{comment}{//connect timer to aaquire target}
+19     QTimer * timer = \textcolor{keyword}{new} QTimer();
+20     connect(timer,SIGNAL(timeout()),\textcolor{keyword}{this},SLOT(\hyperlink{class_fire_tower_a4a3c1e246ed66479aabff4ab5d187636}{aquire\_target}()));
+21     timer->start(1000);
+22 
+23 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_fire_tower_a4a3c1e246ed66479aabff4ab5d187636}\label{class_fire_tower_a4a3c1e246ed66479aabff4ab5d187636}} 
+\index{Fire\+Tower@{Fire\+Tower}!aquire\+\_\+target@{aquire\+\_\+target}}
+\index{aquire\+\_\+target@{aquire\+\_\+target}!Fire\+Tower@{Fire\+Tower}}
+\subsubsection{\texorpdfstring{aquire\+\_\+target}{aquire\_target}}
+{\footnotesize\ttfamily void Fire\+Tower\+::aquire\+\_\+target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 55 of file firetower.\+cpp.
+
+
+\begin{DoxyCode}
+56 \{
+57     \hyperlink{class_tower_a6e0df1e43e746622967918aaf6f42dce}{Tower::aquire\_target}();
+58 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_fire_tower_a9a0b13fcb0bc204194d953c5494afbe3}\label{class_fire_tower_a9a0b13fcb0bc204194d953c5494afbe3}} 
+\index{Fire\+Tower@{Fire\+Tower}!fire@{fire}}
+\index{fire@{fire}!Fire\+Tower@{Fire\+Tower}}
+\subsubsection{\texorpdfstring{fire()}{fire()}}
+{\footnotesize\ttfamily void Fire\+Tower\+::fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_tower_aa0c9c780f48cffacd3da6877f5d4fdc2}{Tower}.
+
+
+
+Definition at line 25 of file firetower.\+cpp.
+
+
+\begin{DoxyCode}
+26 \{
+27     \textcolor{comment}{//create the bullets}
+28     \hyperlink{class_bullet}{Bullet} *bullet = \textcolor{keyword}{new} \hyperlink{class_bullet}{Bullet}();
+29 
+30     \textcolor{comment}{//set the graphics}
+31     bullet->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/Projectile\_Fire-min.png"}));
+32     \textcolor{comment}{//bullet->setScale(game->scalingfactor\_bullets);}
+33 
+34     \textcolor{comment}{//set the damage}
+35     bullet->\hyperlink{class_bullet_a733d2ebbf9143c9ca68d3eb7e14121d0}{damage} = 40;
+36 
+37     \textcolor{keywordtype}{int} y\_pos = pixmap().height()*\hyperlink{firetower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a6c1ca48f17f6934432d01bfa7f762a04}{scalingfactor\_towers}/1.25; \textcolor{comment}{//make it shoot
+       from top of tower}
+38 
+39     bullet->setPos(x(), y()-y\_pos);
+40 
+41     QLineF ln(QPointF(x(), y()-y\_pos),\hyperlink{class_tower_a2b3e8ab90ccceed1fa3a667db80c2c06}{attack\_dest});
+42     \textcolor{keywordtype}{int} angle = -1*ln.angle();
+43 
+44     bullet->setRotation(angle);
+45 
+46     \hyperlink{firetower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(bullet);
+47 
+48 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_fire_tower_a74be102e9bb0871f19fb55b434e2b6d7}\label{class_fire_tower_a74be102e9bb0871f19fb55b434e2b6d7}} 
+\index{Fire\+Tower@{Fire\+Tower}!get\+Cost\+Of\+Tower@{get\+Cost\+Of\+Tower}}
+\index{get\+Cost\+Of\+Tower@{get\+Cost\+Of\+Tower}!Fire\+Tower@{Fire\+Tower}}
+\subsubsection{\texorpdfstring{get\+Cost\+Of\+Tower()}{getCostOfTower()}}
+{\footnotesize\ttfamily int Fire\+Tower\+::get\+Cost\+Of\+Tower (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_tower_ae1d3f44d0149c8146ccf6b262a52ddad}{Tower}.
+
+
+
+Definition at line 50 of file firetower.\+cpp.
+
+
+\begin{DoxyCode}
+51 \{
+52     \textcolor{keywordflow}{return} \hyperlink{class_fire_tower_ae05eab1ea0a68b5109ee91771d3c8569}{costOfTower};
+53 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_fire_tower_a4deed164ccfbabcd7fc67e3973015f9f}\label{class_fire_tower_a4deed164ccfbabcd7fc67e3973015f9f}} 
+\index{Fire\+Tower@{Fire\+Tower}!mouse\+Double\+Click\+Event@{mouse\+Double\+Click\+Event}}
+\index{mouse\+Double\+Click\+Event@{mouse\+Double\+Click\+Event}!Fire\+Tower@{Fire\+Tower}}
+\subsubsection{\texorpdfstring{mouse\+Double\+Click\+Event()}{mouseDoubleClickEvent()}}
+{\footnotesize\ttfamily void Fire\+Tower\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 78 of file firetower.\+cpp.
+
+
+\begin{DoxyCode}
+79 \{
+80     \textcolor{comment}{//upgrade tower}
+81     setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/Tower\_Fire\_2.png"}));
+82     \textcolor{keywordtype}{int} w = pixmap().width();
+83     \textcolor{keywordtype}{int} h = pixmap().height();
+84     setOffset(-w/2,-h/1.25);
+85 
+86     \textcolor{comment}{//upgrade damage}
+87     \hyperlink{class_fire_tower_a59a01cc273823ea5451179dbc1f4aded}{towerDamage} = 70;
+88 
+89     \textcolor{comment}{//update gold}
+90     \hyperlink{firetower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} += -\hyperlink{class_fire_tower_ae05eab1ea0a68b5109ee91771d3c8569}{costOfTower}/2;
+91     \hyperlink{firetower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a065998f7609f63e2987ede928359595a}{updateGold}();
+92 
+93 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_fire_tower_a1768ca309eccef5f7f093f37741ba572}\label{class_fire_tower_a1768ca309eccef5f7f093f37741ba572}} 
+\index{Fire\+Tower@{Fire\+Tower}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Fire\+Tower@{Fire\+Tower}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Fire\+Tower\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 61 of file firetower.\+cpp.
+
+
+\begin{DoxyCode}
+62 \{
+63 
+64    qDebug() << \textcolor{stringliteral}{"Clicked Tower"};
+65 
+66    \textcolor{comment}{//right mouse sell}
+67     \textcolor{keywordflow}{if} (event->button() == Qt::RightButton) \{
+68         \hyperlink{class_fire_tower_adc1bcb15312eac1dd9788be48e55baad}{sellTower}();
+69     \}
+70     \textcolor{keywordflow}{else}
+71     \{
+72         \textcolor{comment}{//        QGraphicsView::mousePressEvent(event);}
+73         \textcolor{keywordflow}{return};
+74     \}
+75 
+76 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_fire_tower_adc1bcb15312eac1dd9788be48e55baad}\label{class_fire_tower_adc1bcb15312eac1dd9788be48e55baad}} 
+\index{Fire\+Tower@{Fire\+Tower}!sell\+Tower@{sell\+Tower}}
+\index{sell\+Tower@{sell\+Tower}!Fire\+Tower@{Fire\+Tower}}
+\subsubsection{\texorpdfstring{sell\+Tower()}{sellTower()}}
+{\footnotesize\ttfamily void Fire\+Tower\+::sell\+Tower (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_tower_a7736b1132e64e14a977e9e8c91c3338f}{Tower}.
+
+
+
+Definition at line 95 of file firetower.\+cpp.
+
+
+\begin{DoxyCode}
+96 \{
+97     qDebug() << \textcolor{stringliteral}{"sold arrow"};
+98     \textcolor{comment}{//meh}
+99 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_fire_tower_ae05eab1ea0a68b5109ee91771d3c8569}\label{class_fire_tower_ae05eab1ea0a68b5109ee91771d3c8569}} 
+\index{Fire\+Tower@{Fire\+Tower}!cost\+Of\+Tower@{cost\+Of\+Tower}}
+\index{cost\+Of\+Tower@{cost\+Of\+Tower}!Fire\+Tower@{Fire\+Tower}}
+\subsubsection{\texorpdfstring{cost\+Of\+Tower}{costOfTower}}
+{\footnotesize\ttfamily const int Fire\+Tower\+::cost\+Of\+Tower = 300}
+
+
+
+Definition at line 17 of file firetower.\+h.
+
+\mbox{\Hypertarget{class_fire_tower_a59a01cc273823ea5451179dbc1f4aded}\label{class_fire_tower_a59a01cc273823ea5451179dbc1f4aded}} 
+\index{Fire\+Tower@{Fire\+Tower}!tower\+Damage@{tower\+Damage}}
+\index{tower\+Damage@{tower\+Damage}!Fire\+Tower@{Fire\+Tower}}
+\subsubsection{\texorpdfstring{tower\+Damage}{towerDamage}}
+{\footnotesize\ttfamily int Fire\+Tower\+::tower\+Damage\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 21 of file firetower.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{firetower_8h}{firetower.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{firetower_8cpp}{firetower.\+cpp}\end{DoxyCompactItemize}

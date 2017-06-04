@@ -1,0 +1,1745 @@
+\hypertarget{class_game}{}\section{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
+Inheritance diagram for Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_game_a2c06f08e42cb8ef918596edd11ee00d1}{spawn\+Enemy} (int enemy\+Num)
+\item 
+void \hyperlink{class_game_ad7a4181414089729ddea00c053f822c4}{spawn\+Enemy} ()
+\item 
+void \hyperlink{class_game_ae8638ccdb0ef3bf39a6affa30aa1258f}{start\+Game} ()
+\item 
+void \hyperlink{class_game_a89ee6bc4da77b30b9ab09d6148944cda}{update\+Timer} ()
+\item 
+void \hyperlink{class_game_a771253a0edc9a31ff64352eb0a4367cb}{wait\+Connection} ()
+\item 
+void \hyperlink{class_game_a480aa57ccdd02118f7716b4870a2b47c}{connection\+Established} ()
+\item 
+void \hyperlink{class_game_ae95e1d94393a35f3d4edda97ebfc3358}{join} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game_ad59df6562a58a614fda24622d3715b65}{Game} ()
+\item 
+\hyperlink{class_game_ae3d112ca6e0e55150d2fdbc704474530}{$\sim$\+Game} ()
+\item 
+void \hyperlink{class_game_af74fd203e3b31917ca9d4769fa608c48}{display\+Main\+Menu} ()
+\item 
+void \hyperlink{class_game_a7272e282812b8af0be83044db196dc6c}{set\+Cursor} (Q\+String filename)
+\item 
+void \hyperlink{class_game_ad761e49ff42758930e76b477d08ba068}{mouse\+Move\+Event} (Q\+Mouse\+Event $\ast$event)
+\item 
+void \hyperlink{class_game_a704ba119948eebd1b6dfc547de967796}{mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$event)
+\item 
+void \hyperlink{class_game_a622303239641db82911ea67bde3ba1a0}{create\+Enemies} (int number\+Of\+Enemies)
+\item 
+void \hyperlink{class_game_a838e89640d4cfbd7d7b7ee105135d4b8}{G\+A\+M\+E\+O\+V\+ER} ()
+\item 
+void \hyperlink{class_game_af310eb8cf154b512e2ae488267495c96}{Victory} ()
+\item 
+Q\+PointF \hyperlink{class_game_ae0adfbcc271a45a2c3ede2c6b948beda}{closest\+Node} (int x, int y)
+\item 
+void \hyperlink{class_game_a4e2cc66ce5004779048a6d8de19f0cdc}{snap\+To\+Grid} ()
+\item 
+void \hyperlink{class_game_a07ca125130662de9c8f3bdd2f61db9c9}{printmap} ()
+\item 
+void \hyperlink{class_game_aa3d45b075393d6751f77db3ce31ab9ba}{a\+\_\+star} ()
+\item 
+void \hyperlink{class_game_a06f5d66abdaae753db91ce7884c4e57d}{clear\+Path} ()
+\item 
+void \hyperlink{class_game_a065998f7609f63e2987ede928359595a}{update\+Gold} ()
+\item 
+void \hyperlink{class_game_aa5e4edca458d1a1378d035a138d69635}{update\+Lives} ()
+\item 
+void \hyperlink{class_game_a5a6924497d779286af09f339d4c7a598}{update\+Income} ()
+\item 
+void \hyperlink{class_game_a108f0ed818f5d32e3e5b350497edc481}{update\+Wave} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_game_ad08e48fb0fbd89fe67ccb42ff8e8fff1}{Game\+Over} = false
+\item 
+Q\+Timer $\ast$ \hyperlink{class_game_a8feee9081542b15a9f2d889a6f1c8257}{gametimer}
+\item 
+Q\+Timer $\ast$ \hyperlink{class_game_a4774e6e02e372dabcba313802800df5d}{bullet\+Timer}
+\item 
+Q\+PointF \hyperlink{class_game_a861bf240380d110b285659d8af3f0406}{closest\+Node\+Pos}
+\item 
+Q\+Graphics\+Scene $\ast$ \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor}
+\item 
+\hyperlink{class_tower}{Tower} $\ast$ \hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building}
+\item 
+Q\+Timer $\ast$ \hyperlink{class_game_a4a8895723160ca3585fe140e476aea1f}{spawntimer}
+\item 
+Q\+List$<$ \hyperlink{class_enemy}{Enemy} $\ast$ $>$ \hyperlink{class_game_ab96914bfc1e59035233105abfb0787fe}{list\+Of\+Enemies}
+\item 
+Q\+List$<$ \hyperlink{class_tower}{Tower} $\ast$ $>$ \hyperlink{class_game_aa0614c45667257e5be61685c33a2bec6}{list\+Of\+Towers}
+\item 
+int \hyperlink{class_game_a6ac18c388eda83ceb3212e099b3b8473}{enemies\+Spawned}
+\item 
+int \hyperlink{class_game_aaee1756450bae685777ee86c45ef4f78}{max\+Number\+Of\+Enemies}
+\item 
+int \hyperlink{class_game_ac0038cbbcfbd5d8b32600cd9f42cd09b}{enemy\+Health\+Increase} = 0
+\item 
+Q\+List$<$ Q\+PointF $>$ \hyperlink{class_game_abe95b23433c0353887099928a5573c59}{points\+To\+Follow}
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{stats\+Frame}
+\item 
+\hyperlink{class_map}{Map} $\ast$ \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}
+\item 
+bool \hyperlink{class_game_a06579845b7a93d8bf40efe5e7592b601}{validplacement} = false
+\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_game_a12f4bf2a7c8503c39b3102c4cc9dd40a}{clicked\+Node}
+\item 
+\hyperlink{class_player1}{Player1} $\ast$ \hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}
+\item 
+Q\+Graphics\+Text\+Item $\ast$ \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{gold\+Text}
+\item 
+Q\+Graphics\+Text\+Item $\ast$ \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{lives\+Text}
+\item 
+Q\+Graphics\+Text\+Item $\ast$ \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timer\+Text}
+\item 
+Q\+Graphics\+Text\+Item $\ast$ \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{income\+Text}
+\item 
+Q\+Graphics\+Text\+Item $\ast$ \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{wave\+Text}
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}{gold\+Icon}
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}{lives\+Icon}
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_a5853a185c9981da12d5a6330c5f121c7}{timer\+Icon}
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_a54671774169c28677974ee423a147c39}{income\+Icon}
+\item 
+Q\+Graphics\+Pixmap\+Item $\ast$ \hyperlink{class_game_ade75481ee579a63670f6d7358919634a}{wave\+Icon}
+\item 
+\hyperlink{class_waves}{Waves} $\ast$ \hyperlink{class_game_af9a4b49ad573785e961b29758c84fdd0}{wave}
+\item 
+Q\+Timer $\ast$ \hyperlink{class_game_a06a7795cf068aa5cc3b1debbea3f82ef}{wave\+Timer}
+\item 
+int \hyperlink{class_game_aef6faf2c7e350578fea82f340353fa6b}{timer\+Value}
+\item 
+\hyperlink{class_u_d_p_socket}{U\+D\+P\+Socket} $\ast$ \hyperlink{class_game_aa7fd8508fad68c550129f2be61c37467}{Client}
+\item 
+bool \hyperlink{class_game_aec6408b42da34f430bffb649653de96b}{connected} = false
+\item 
+Q\+Timer $\ast$ \hyperlink{class_game_a266d51c575b09c22aac86e20487802f4}{con\+Timer}
+\item 
+int \hyperlink{class_game_ab1ca40d8527bb09e773bb97030b7a5cc}{screen\+Width} = 1200
+\item 
+int \hyperlink{class_game_a329351d67993953391a6a65db536c017}{screen\+Height} = 1000
+\item 
+int \hyperlink{class_game_ad83fa5ba7b6421882d874704c7416033}{number\+Of\+Towers} = 3
+\item 
+int \hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{number\+Of\+Stats} = 5
+\item 
+const double \hyperlink{class_game_a6c1ca48f17f6934432d01bfa7f762a04}{scalingfactor\+\_\+towers} = 0.\+28
+\item 
+const double \hyperlink{class_game_aeec547aa25329dcd9d52bfc1c8fa8bb3}{scalingfactor\+\_\+bullets} = 0.\+2
+\item 
+const double \hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\+\_\+icons} = 0.\+5
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file game.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_ad59df6562a58a614fda24622d3715b65}\label{class_game_ad59df6562a58a614fda24622d3715b65}} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\subsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 28 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+29 \{
+30     \textcolor{comment}{//create a scene}
+31     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene} = \textcolor{keyword}{new} QGraphicsScene(\textcolor{keyword}{this});
+32     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->setSceneRect(0,0,\hyperlink{class_game_ab1ca40d8527bb09e773bb97030b7a5cc}{screenWidth},\hyperlink{class_game_a329351d67993953391a6a65db536c017}{screenHeight});
+33     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->setBackgroundBrush(QBrush(QColor(213,173,81),Qt::Dense3Pattern));
+34 
+35     \textcolor{comment}{//set the scene}
+36     setScene(\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene});
+37 \textcolor{comment}{//    setDragMode(QGraphicsView::ScrollHandDrag);}
+38 
+39     \textcolor{comment}{//alter window}
+40     setMinimumSize(\hyperlink{class_game_ab1ca40d8527bb09e773bb97030b7a5cc}{screenWidth},\hyperlink{class_game_a329351d67993953391a6a65db536c017}{screenHeight});
+41     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+42     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+43 
+44     \textcolor{comment}{//set cursor}
+45     \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor} = \textcolor{keyword}{nullptr};
+46     \hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building} = \textcolor{keyword}{nullptr};
+47     setMouseTracking(\textcolor{keyword}{true});
+48 
+49 
+50     \textcolor{comment}{//create map}
+51     \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map} = \textcolor{keyword}{new} \hyperlink{class_map}{Map}();
+52     \hyperlink{class_game_af9a4b49ad573785e961b29758c84fdd0}{wave} = \textcolor{keyword}{new} \hyperlink{class_waves}{Waves}();
+53 
+54     \textcolor{comment}{//make game timer}
+55     \hyperlink{class_game_a8feee9081542b15a9f2d889a6f1c8257}{gametimer} = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});
+56     \hyperlink{class_game_a8feee9081542b15a9f2d889a6f1c8257}{gametimer}->start(150);
+57 
+58     \textcolor{comment}{//make bullet timer}
+59     \hyperlink{class_game_a4774e6e02e372dabcba313802800df5d}{bulletTimer} = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});
+60     \hyperlink{class_game_a4774e6e02e372dabcba313802800df5d}{bulletTimer}->start(50);
+61 
+62 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_ae3d112ca6e0e55150d2fdbc704474530}\label{class_game_ae3d112ca6e0e55150d2fdbc704474530}} 
+\index{Game@{Game}!````~Game@{$\sim$\+Game}}
+\index{````~Game@{$\sim$\+Game}!Game@{Game}}
+\subsubsection{\texorpdfstring{$\sim$\+Game()}{~Game()}}
+{\footnotesize\ttfamily Game\+::$\sim$\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 64 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+65 \{
+66 
+67 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_aa3d45b075393d6751f77db3ce31ab9ba}\label{class_game_aa3d45b075393d6751f77db3ce31ab9ba}} 
+\index{Game@{Game}!a\+\_\+star@{a\+\_\+star}}
+\index{a\+\_\+star@{a\+\_\+star}!Game@{Game}}
+\subsubsection{\texorpdfstring{a\+\_\+star()}{a\_star()}}
+{\footnotesize\ttfamily void Game\+::a\+\_\+star (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 459 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+460 \{
+461     \hyperlink{class_game_abe95b23433c0353887099928a5573c59}{pointsToFollow}.clear();
+462     \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}{openList}.clear();
+463     \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae1ced58b787598940bb444659bacd7d3}{closedList}.clear();
+464 
+465     \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae1ced58b787598940bb444659bacd7d3}{closedList}.append(\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_aafcbf6f458eb48f4945f3d0b58d2ef85}{start});
+466     \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_adac9fc32a2c840b40e1417292e846fe2}{calcNeighbours}(\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_aafcbf6f458eb48f4945f3d0b58d2ef85}{start});
+467 
+468     \textcolor{keywordflow}{while} (\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}{openList}.length() > 0)
+469     \{
+470         \hyperlink{class_node}{Node} *t = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a19461c64e6da374e8022d210a6930867}{smallestF}();
+471         \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae1ced58b787598940bb444659bacd7d3}{closedList}.append(t);
+472         \textcolor{keywordflow}{if} (t == \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_abdb357cb53c27be3b6e3c2b54bfde669}{finish})
+473         \{
+474             \textcolor{keywordflow}{while} (t->\hyperlink{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent})
+475             \{
+476                 t->\hyperlink{class_node_a2bb1959485873369ea2504c1dece3f33}{path} = \textcolor{keyword}{true};
+477                 t = t->\hyperlink{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent};
+478                 t->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a064af96be640396afe6970cc3cffba4c}{Path};
+479                 \hyperlink{class_game_abe95b23433c0353887099928a5573c59}{pointsToFollow}.prepend(t->\hyperlink{class_node_a77faa088c74e20a361a181b58e8a4c7f}{point});
+480                 \hyperlink{class_game_abe95b23433c0353887099928a5573c59}{pointsToFollow}.append(\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_abdb357cb53c27be3b6e3c2b54bfde669}{finish}->\hyperlink{class_node_a77faa088c74e20a361a181b58e8a4c7f}{point});
+481                 \hyperlink{class_game_a06579845b7a93d8bf40efe5e7592b601}{validplacement} = \textcolor{keyword}{true};
+482             \}
+483 
+484         \}
+485         \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_adac9fc32a2c840b40e1417292e846fe2}{calcNeighbours}(t);
+486     \}
+487 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a06f5d66abdaae753db91ce7884c4e57d}\label{class_game_a06f5d66abdaae753db91ce7884c4e57d}} 
+\index{Game@{Game}!clear\+Path@{clear\+Path}}
+\index{clear\+Path@{clear\+Path}!Game@{Game}}
+\subsubsection{\texorpdfstring{clear\+Path()}{clearPath()}}
+{\footnotesize\ttfamily void Game\+::clear\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 489 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+490 \{
+491     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}; ++i) \{
+492         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY} -1; j >= 0; --j) \{
+493             \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} = i;
+494             \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = j;
+495             \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}{f} = 0;
+496             \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g} = 0;
+497             \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_afb5a7ac7536a9e09488bb685420cd78a}{h} = 0;
+498             \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent} = 0;
+499             \textcolor{keywordflow}{if} (\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} == \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a064af96be640396afe6970cc3cffba4c}{Path}) \{
+500                 \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a283b79b5e51a79e202e0702f189485ad}{Grass};
+501             \}
+502             \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_a2bb1959485873369ea2504c1dece3f33}{path} = \textcolor{keyword}{false};
+503         \}
+504     \}
+505 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_ae0adfbcc271a45a2c3ede2c6b948beda}\label{class_game_ae0adfbcc271a45a2c3ede2c6b948beda}} 
+\index{Game@{Game}!closest\+Node@{closest\+Node}}
+\index{closest\+Node@{closest\+Node}!Game@{Game}}
+\subsubsection{\texorpdfstring{closest\+Node()}{closestNode()}}
+{\footnotesize\ttfamily Q\+PointF Game\+::closest\+Node (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 292 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+293 \{
+294     QList<QPointF> nodelist = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a07f51de84c133707fedaeffd04aff2d5}{nodepoints};
+295     \textcolor{keywordtype}{double} distance\_old = 10000;
+296     QPointF closestPoint;
+297 
+298     QListIterator<QPointF> i(nodelist);
+299     \textcolor{keywordflow}{while} (i.hasNext()) \{
+300         QPointF nextpoint = i.next();
+301         QLineF ln(QPointF(x,y),nextpoint);
+302         \textcolor{keywordtype}{double} distance\_new = ln.length();
+303         \textcolor{keywordflow}{if} (distance\_new<=distance\_old) \{
+304             distance\_old = distance\_new;
+305             \hyperlink{class_game_a861bf240380d110b285659d8af3f0406}{closestNodePos} = nextpoint;
+306 
+307         \}
+308     \}
+309     \textcolor{keywordflow}{return} closestPoint;
+310 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a480aa57ccdd02118f7716b4870a2b47c}\label{class_game_a480aa57ccdd02118f7716b4870a2b47c}} 
+\index{Game@{Game}!connection\+Established@{connection\+Established}}
+\index{connection\+Established@{connection\+Established}!Game@{Game}}
+\subsubsection{\texorpdfstring{connection\+Established}{connectionEstablished}}
+{\footnotesize\ttfamily void Game\+::connection\+Established (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 582 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+583 \{  
+584     \textcolor{keywordflow}{if} (\hyperlink{class_game_aec6408b42da34f430bffb649653de96b}{connected} == \textcolor{keyword}{true}) \{
+585         \textcolor{comment}{//qDebug() << Host->hostAdress;}
+586         \hyperlink{class_game_ae8638ccdb0ef3bf39a6affa30aa1258f}{startGame}();
+587         \hyperlink{class_game_aec6408b42da34f430bffb649653de96b}{connected} = \textcolor{keyword}{false};
+588         \hyperlink{class_game_a266d51c575b09c22aac86e20487802f4}{conTimer}->disconnect();
+589     \}
+590 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a622303239641db82911ea67bde3ba1a0}\label{class_game_a622303239641db82911ea67bde3ba1a0}} 
+\index{Game@{Game}!create\+Enemies@{create\+Enemies}}
+\index{create\+Enemies@{create\+Enemies}!Game@{Game}}
+\subsubsection{\texorpdfstring{create\+Enemies()}{createEnemies()}}
+{\footnotesize\ttfamily void Game\+::create\+Enemies (\begin{DoxyParamCaption}\item[{int}]{number\+Of\+Enemies }\end{DoxyParamCaption})}
+
+
+
+Definition at line 179 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+180 \{
+181     \hyperlink{class_game_a6ac18c388eda83ceb3212e099b3b8473}{enemiesSpawned} = 0;
+182     \hyperlink{class_game_aaee1756450bae685777ee86c45ef4f78}{maxNumberOfEnemies} = numberOfEnemies;
+183     connect(\hyperlink{class_game_a4a8895723160ca3585fe140e476aea1f}{spawntimer}, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_game_ad7a4181414089729ddea00c053f822c4}{spawnEnemy}()));
+184     \hyperlink{class_game_a4a8895723160ca3585fe140e476aea1f}{spawntimer}->start(1000);
+185 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_af74fd203e3b31917ca9d4769fa608c48}\label{class_game_af74fd203e3b31917ca9d4769fa608c48}} 
+\index{Game@{Game}!display\+Main\+Menu@{display\+Main\+Menu}}
+\index{display\+Main\+Menu@{display\+Main\+Menu}!Game@{Game}}
+\subsubsection{\texorpdfstring{display\+Main\+Menu()}{displayMainMenu()}}
+{\footnotesize\ttfamily void Game\+::display\+Main\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 69 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+70 \{
+71     \textcolor{comment}{//create brackground}
+72     QGraphicsPixmapItem *backgroundImage = \textcolor{keyword}{new} QGraphicsPixmapItem;
+73     backgroundImage->setPixmap(QString(\textcolor{stringliteral}{":/images/images/test.png"}));
+74     backgroundImage->setScale(1);
+75     backgroundImage->setPos(-375,-200);
+76     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(backgroundImage);
+77 
+78     \textcolor{comment}{//create the title text}
+79     QGraphicsTextItem *titleText = \textcolor{keyword}{new} QGraphicsTextItem(QString(\textcolor{stringliteral}{"Element Tower Defense"}));
+80     QFont titleFont(\textcolor{stringliteral}{"Pixel Emulator"}, 40);
+81     titleText->setFont(titleFont);
+82     titleText->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+83     \textcolor{keywordtype}{int} txpos = this->width()/2 - titleText->boundingRect().width()/2;
+84     \textcolor{keywordtype}{int} typos = 200;
+85     titleText->setPos(txpos,typos);
+86     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(titleText);
+87 
+88     \textcolor{comment}{//create play button}
+89     \hyperlink{class_button}{Button} *playbutton = \textcolor{keyword}{new} \hyperlink{class_button}{Button}(QString(\textcolor{stringliteral}{"Play"}));
+90     \textcolor{keywordtype}{int} bxPos = this->width()/2 - playbutton->boundingRect().width()/2;
+91     \textcolor{keywordtype}{int} byPos = 500;
+92     playbutton->setPos(bxPos,byPos);
+93     connect(playbutton,SIGNAL(clicked()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_game_ae8638ccdb0ef3bf39a6affa30aa1258f}{startGame}()));
+94     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(playbutton);
+95 
+96     \textcolor{comment}{//create host button}
+97     \hyperlink{class_button}{Button} *hostbutton = \textcolor{keyword}{new} \hyperlink{class_button}{Button}(QString(\textcolor{stringliteral}{"Host"}));
+98     \textcolor{keywordtype}{int} hxPos = this->width()/3 - playbutton->boundingRect().width()/2;
+99     \textcolor{keywordtype}{int} hyPos = 650;
+100     hostbutton->setPos(hxPos,hyPos);
+101     connect(hostbutton,SIGNAL(clicked()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_game_a771253a0edc9a31ff64352eb0a4367cb}{waitConnection}()));
+102     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(hostbutton);
+103 
+104     \textcolor{comment}{//create join button}
+105     \hyperlink{class_button}{Button} *joinbutton = \textcolor{keyword}{new} \hyperlink{class_button}{Button}(QString(\textcolor{stringliteral}{"Join"}));
+106     \textcolor{keywordtype}{int} jxPos = this->width()/3*2 - playbutton->boundingRect().width()/2;
+107     \textcolor{keywordtype}{int} jyPos = 650;
+108     joinbutton->setPos(jxPos,jyPos);
+109     connect(joinbutton,SIGNAL(clicked()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_game_ae95e1d94393a35f3d4edda97ebfc3358}{join}()));
+110     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(joinbutton);
+111 
+112     \textcolor{comment}{//create quit button}
+113     \hyperlink{class_button}{Button} *quitbutton = \textcolor{keyword}{new} \hyperlink{class_button}{Button}(QString(\textcolor{stringliteral}{"Quit"}));
+114     \textcolor{keywordtype}{int} qxPos = this->width()/2 - quitbutton->boundingRect().width()/2;
+115     \textcolor{keywordtype}{int} qyPos = 800;
+116     quitbutton->setPos(qxPos,qyPos);
+117     connect(quitbutton, SIGNAL(clicked()), \textcolor{keyword}{this}, SLOT(close()));
+118     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(quitbutton);
+119 
+120 
+121     \textcolor{comment}{//setup network test code}
+122     \textcolor{comment}{//Host = new UDPSocket(this);}
+123     \hyperlink{class_game_aa7fd8508fad68c550129f2be61c37467}{Client} = \textcolor{keyword}{new} \hyperlink{class_u_d_p_socket}{UDPSocket}(\textcolor{keyword}{this});
+124     \hyperlink{class_game_aa7fd8508fad68c550129f2be61c37467}{Client}->\hyperlink{class_u_d_p_socket_a5bdac3040e57d37c503fdd3293b6d053}{setHostAdress}(QHostAddress::LocalHost); \textcolor{comment}{//default is loopback address}
+125     \textcolor{comment}{//Host->setHostAdress(QHostAddress::LocalHost); //default is loopback address}
+126 
+127 
+128 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a838e89640d4cfbd7d7b7ee105135d4b8}\label{class_game_a838e89640d4cfbd7d7b7ee105135d4b8}} 
+\index{Game@{Game}!G\+A\+M\+E\+O\+V\+ER@{G\+A\+M\+E\+O\+V\+ER}}
+\index{G\+A\+M\+E\+O\+V\+ER@{G\+A\+M\+E\+O\+V\+ER}!Game@{Game}}
+\subsubsection{\texorpdfstring{G\+A\+M\+E\+O\+V\+E\+R()}{GAMEOVER()}}
+{\footnotesize\ttfamily void Game\+::\+G\+A\+M\+E\+O\+V\+ER (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 187 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+188 \{  
+189     \textcolor{comment}{//stuur Game over oor netwerk}
+190     \hyperlink{class_game_aa7fd8508fad68c550129f2be61c37467}{Client}->\hyperlink{class_u_d_p_socket_a66a6c4663cc3084cb4d76583e8039083}{send}(\textcolor{stringliteral}{"GO"});
+191 
+192 
+193     \textcolor{comment}{//disconnects timer}
+194     \hyperlink{class_game_a06a7795cf068aa5cc3b1debbea3f82ef}{waveTimer}->disconnect();
+195     \hyperlink{class_game_a8feee9081542b15a9f2d889a6f1c8257}{gametimer}->disconnect();
+196 
+197 
+198 
+199     QListIterator<Enemy *> i(\hyperlink{class_game_ab96914bfc1e59035233105abfb0787fe}{listOfEnemies});
+200     \textcolor{keywordflow}{while} (i.hasNext()) \{
+201         \hyperlink{class_enemy}{Enemy} *thisEnemy = i.next();
+202         \textcolor{comment}{//thisEnemy->timer->disconnect(); //gee crash}
+203         thisEnemy->deleteLater();
+204     \}
+205 
+206 
+207     \textcolor{comment}{//delete towers}
+208     QListIterator<Tower*> j(\hyperlink{class_game_aa0614c45667257e5be61685c33a2bec6}{listOfTowers});
+209     \textcolor{keywordflow}{while} (j.hasNext()) \{
+210         \hyperlink{class_tower}{Tower} *thisTower = j.next();
+211         thisTower->deleteLater();
+212     \}
+213 
+214     qDebug() << \textcolor{stringliteral}{"wup wup wup!"};
+215     QMessageBox msgBox;
+216     msgBox.setText(\textcolor{stringliteral}{"Defeat!"});
+217     msgBox.setInformativeText(\textcolor{stringliteral}{"Restart?"});
+218     msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Close);
+219     msgBox.setDefaultButton(QMessageBox::Ok);
+220     \textcolor{keywordtype}{int} ret = msgBox.exec();
+221 
+222     \textcolor{keywordflow}{switch} (ret) \{
+223     \textcolor{keywordflow}{case} QMessageBox::Ok:
+224         \textcolor{comment}{// restart clicked}
+225 
+226 
+227         \hyperlink{class_game_af74fd203e3b31917ca9d4769fa608c48}{displayMainMenu}();
+228         \textcolor{keywordflow}{break};
+229     \textcolor{keywordflow}{case} QMessageBox::Close:
+230         \textcolor{comment}{// close clicked}
+231         close();
+232         \textcolor{keywordflow}{break};
+233 
+234     \textcolor{keywordflow}{default}:
+235         \textcolor{comment}{// should never be reached}
+236         close();
+237         \textcolor{keywordflow}{break};
+238     \}
+239 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_ae95e1d94393a35f3d4edda97ebfc3358}\label{class_game_ae95e1d94393a35f3d4edda97ebfc3358}} 
+\index{Game@{Game}!join@{join}}
+\index{join@{join}!Game@{Game}}
+\subsubsection{\texorpdfstring{join}{join}}
+{\footnotesize\ttfamily void Game\+::join (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 592 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+593 \{
+594     \textcolor{keywordtype}{bool} ok;
+595     QString text = QInputDialog::getText(\textcolor{keyword}{this}, tr(\textcolor{stringliteral}{"Join"}),
+596                                          tr(\textcolor{stringliteral}{"Host IP Address: "}), QLineEdit::Normal, \textcolor{stringliteral}{"127.0.0.1"} , &ok);
+597     \textcolor{keywordflow}{if} (ok) \{
+598         \hyperlink{class_game_aa7fd8508fad68c550129f2be61c37467}{Client}->\hyperlink{class_u_d_p_socket_aacd808913633488ab008e8aa7ff8d9cf}{hostAdress} = QHostAddress(text);
+599         \hyperlink{class_game_aa7fd8508fad68c550129f2be61c37467}{Client}->\hyperlink{class_u_d_p_socket_a66a6c4663cc3084cb4d76583e8039083}{send}(\textcolor{stringliteral}{"ACK"});
+600         \hyperlink{class_game_ae8638ccdb0ef3bf39a6affa30aa1258f}{startGame}();
+601     \}
+602 
+603 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_ad761e49ff42758930e76b477d08ba068}\label{class_game_ad761e49ff42758930e76b477d08ba068}} 
+\index{Game@{Game}!mouse\+Move\+Event@{mouse\+Move\+Event}}
+\index{mouse\+Move\+Event@{mouse\+Move\+Event}!Game@{Game}}
+\subsubsection{\texorpdfstring{mouse\+Move\+Event()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily void Game\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 148 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+149 \{
+150     \textcolor{keywordflow}{if} (\hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor}) \{
+151         \textcolor{keywordtype}{int} pos\_mouse\_x = \textcolor{keyword}{event}->pos().x();
+152         \textcolor{keywordtype}{int} pos\_mouse\_y = \textcolor{keyword}{event}->pos().y();
+153         \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor}->setPos(pos\_mouse\_x,pos\_mouse\_y);
+154     \}
+155 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a704ba119948eebd1b6dfc547de967796}\label{class_game_a704ba119948eebd1b6dfc547de967796}} 
+\index{Game@{Game}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Game@{Game}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Game\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 157 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+158 \{
+159     \textcolor{comment}{//if we are building}
+160     \textcolor{keywordflow}{if} (\hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building}) \{
+161 
+162         \hyperlink{class_game_a06f5d66abdaae753db91ce7884c4e57d}{clearPath}();
+163         \hyperlink{class_game_ae0adfbcc271a45a2c3ede2c6b948beda}{closestNode}(event->pos().x(),\textcolor{keyword}{event}->pos().y());
+164         \hyperlink{class_game_a4e2cc66ce5004779048a6d8de19f0cdc}{snapToGrid}();
+165 
+166         \textcolor{comment}{//re initialize variables}
+167         \textcolor{keyword}{delete} \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor};
+168         \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor} = \textcolor{keyword}{nullptr};
+169         \hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building} = \textcolor{keyword}{nullptr};
+170         \hyperlink{class_game_a06579845b7a93d8bf40efe5e7592b601}{validplacement} = \textcolor{keyword}{false};
+171 
+172     \}
+173     \textcolor{keywordflow}{else}
+174     \{
+175         QGraphicsView::mousePressEvent(event);
+176     \}
+177 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a07ca125130662de9c8f3bdd2f61db9c9}\label{class_game_a07ca125130662de9c8f3bdd2f61db9c9}} 
+\index{Game@{Game}!printmap@{printmap}}
+\index{printmap@{printmap}!Game@{Game}}
+\subsubsection{\texorpdfstring{printmap()}{printmap()}}
+{\footnotesize\ttfamily void Game\+::printmap (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 381 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+382 \{
+383     \textcolor{comment}{//print map}
+384     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}; ++i)
+385     \{
+386         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY} -1; j >= 0; --j)
+387         \{
+388             \hyperlink{class_node}{Node} *l = \textcolor{keyword}{new} \hyperlink{class_node}{Node}();
+389             \textcolor{keywordflow}{switch}(\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[i][j]->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile})
+390             \{
+391             \textcolor{keywordflow}{case} \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a283b79b5e51a79e202e0702f189485ad}{Grass}:\textcolor{comment}{//or portal}
+392                 \textcolor{keywordflow}{if} (((i==\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}/2)&&(j==0))||((i==\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}/2)&&(j==
+      \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}-1))) \{
+393                     l->setPixmap(*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a4dafaf125d6014a97e98168e41492cd5}{portal});
+394                 \}
+395                 \textcolor{keywordflow}{else}
+396                 \{
+397                     l->setPixmap(*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a322ef8e3f55269ef565a58f20190d148}{grass});
+398                 \}
+399                 \textcolor{keywordflow}{break};
+400             \textcolor{keywordflow}{case} \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a064af96be640396afe6970cc3cffba4c}{Path}:
+401                 l->setPixmap(*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a99d78bd384bf091660dbc6e1123419b0}{path});
+402                 \textcolor{keywordflow}{break};
+403             \textcolor{keywordflow}{case} \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1ae4afc87ae4a7816fdef8d05002e6dce4}{Obstruction}:\textcolor{comment}{//or edges}
+404                 \textcolor{comment}{//if top edge}
+405                 \textcolor{keywordflow}{if} ((i>0)&&(i<map->mapX-1)&&(j==0)) \{
+406                     l->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_007.png"}));
+407                 \}
+408                 \textcolor{comment}{//if bottom edge}
+409                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((i>0)&&(i<map->mapX-1)&&(j==\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}-1)) \{
+410                     l->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_052.png"}));
+411                 \}
+412                 \textcolor{comment}{//if left edge}
+413                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((i==0)&&(j>0)&&(j<map->mapY-1)) \{
+414                     l->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_021.png"}));
+415                 \}
+416                 \textcolor{comment}{//if right edge}
+417                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((i==\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}-1)&&(j>0)&&(j<map->mapY-1)) \{
+418                     l->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_023.png"}));
+419                 \}
+420                 \textcolor{comment}{//if top left corner}
+421                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((i==0)&&(j==0))
+422                 \{
+423                     l->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_006.png"}));
+424                 \}
+425                 \textcolor{comment}{//if top right corner}
+426                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((i==\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}-1)&&(j==0))
+427                 \{
+428                     l->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_008.png"}));
+429                 \}
+430 
+431                 \textcolor{comment}{//if bottom left corner}
+432                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((i==0)&&(j==\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}-1))
+433                 \{
+434                     l->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_051.png"}));
+435                 \}
+436 
+437                 \textcolor{comment}{//if bottom right corner}
+438                 \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} ((i==\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}-1)&&(j==\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}-1))
+439                 \{
+440                     l->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_053.png"}));
+441                 \}
+442                 \textcolor{keywordflow}{else}
+443                 \{
+444                     l->setPixmap(*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af0167137084000cfb58a33df8474bcbe}{obstruction});
+445                 \}
+446                 \textcolor{keywordflow}{break};
+447             \}
+448             \textcolor{keywordtype}{int} x = i * \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX};
+449             \textcolor{keywordtype}{int} y = j * \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY};
+450             \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(l);
+451             l->setPos(x,y);
+452             l->setZValue(-1);
+453 
+454 
+455         \}
+456     \}
+457 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a7272e282812b8af0be83044db196dc6c}\label{class_game_a7272e282812b8af0be83044db196dc6c}} 
+\index{Game@{Game}!set\+Cursor@{set\+Cursor}}
+\index{set\+Cursor@{set\+Cursor}!Game@{Game}}
+\subsubsection{\texorpdfstring{set\+Cursor()}{setCursor()}}
+{\footnotesize\ttfamily void Game\+::set\+Cursor (\begin{DoxyParamCaption}\item[{Q\+String}]{filename }\end{DoxyParamCaption})}
+
+
+
+Definition at line 130 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+131 \{
+132     \textcolor{comment}{//creates the building before placing}
+133     \textcolor{keywordflow}{if} (\hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor}) \{
+134         \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->removeItem(\hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor});
+135         \textcolor{comment}{//delete cursor; //remove die?}
+136     \}
+137     \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor} = \textcolor{keyword}{new} QGraphicsPixmapItem();
+138     \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor}->setPixmap(QPixmap(filename));
+139 
+140     \textcolor{keywordtype}{int} w = \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor}->pixmap().width();
+141     \textcolor{keywordtype}{int} h = \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor}->pixmap().height();
+142     \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor}->setOffset(-w/2,-h/1.25);
+143     \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor}->setScale(\hyperlink{class_game_a6c1ca48f17f6934432d01bfa7f762a04}{scalingfactor\_towers});
+144 
+145     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor});
+146 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a4e2cc66ce5004779048a6d8de19f0cdc}\label{class_game_a4e2cc66ce5004779048a6d8de19f0cdc}} 
+\index{Game@{Game}!snap\+To\+Grid@{snap\+To\+Grid}}
+\index{snap\+To\+Grid@{snap\+To\+Grid}!Game@{Game}}
+\subsubsection{\texorpdfstring{snap\+To\+Grid()}{snapToGrid()}}
+{\footnotesize\ttfamily void Game\+::snap\+To\+Grid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 314 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+315 \{
+316 
+317     \hyperlink{class_game_a06579845b7a93d8bf40efe5e7592b601}{validplacement} = \textcolor{keyword}{false};
+318 
+319     \textcolor{comment}{//clicked node}
+320     \textcolor{keywordtype}{int} x\_map = (\hyperlink{class_game_a861bf240380d110b285659d8af3f0406}{closestNodePos}.x() -\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}/2)/\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->
+      \hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX};
+321     \textcolor{keywordtype}{int} y\_map = (\hyperlink{class_game_a861bf240380d110b285659d8af3f0406}{closestNodePos}.y() -\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY}/2)/\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->
+      \hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY};
+322     \hyperlink{class_game_a12f4bf2a7c8503c39b3102c4cc9dd40a}{clickedNode} = \textcolor{keyword}{new} \hyperlink{class_node}{Node}();
+323     \hyperlink{class_game_a12f4bf2a7c8503c39b3102c4cc9dd40a}{clickedNode} = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a9500f43b02ce38b5e89248bd6e257858}{getNode}(x\_map,y\_map);
+324 
+325 
+326     \textcolor{comment}{//if it is already a obstruction return}
+327     \textcolor{keywordflow}{if} (\hyperlink{class_game_a12f4bf2a7c8503c39b3102c4cc9dd40a}{clickedNode}->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} == \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1ae4afc87ae4a7816fdef8d05002e6dce4}{Obstruction}) \{
+328         \textcolor{keywordflow}{return};
+329     \}
+330     \textcolor{keywordflow}{else}
+331     \{
+332 
+333         \hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} += -\hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building}->\hyperlink{class_tower_ae1d3f44d0149c8146ccf6b262a52ddad}{getCostOfTower}();
+334         \textcolor{comment}{//if enough gold place tower}
+335         \textcolor{keywordflow}{if} (\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_a9395a16fecb7b96395455f096ac1b60b}{getGold}() >= 0) \{
+336             \textcolor{comment}{// otherwise, build at the clicked location}
+337             \hyperlink{class_game_a065998f7609f63e2987ede928359595a}{updateGold}();
+338 
+339 
+340             \hyperlink{class_game_a12f4bf2a7c8503c39b3102c4cc9dd40a}{clickedNode}->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1ae4afc87ae4a7816fdef8d05002e6dce4}{Obstruction};
+341             \textcolor{comment}{//set map node here}
+342             \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[x\_map][y\_map]->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1ae4afc87ae4a7816fdef8d05002e6dce4}{Obstruction};
+343             \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[x\_map][y\_map]->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} = 100;
+344 
+345             \textcolor{comment}{//run pathfinding}
+346             \hyperlink{class_game_aa3d45b075393d6751f77db3ce31ab9ba}{a\_star}();
+347             \textcolor{keywordflow}{if} (\hyperlink{class_game_a06579845b7a93d8bf40efe5e7592b601}{validplacement} == \textcolor{keyword}{true}) \{
+348                 \hyperlink{class_game_aa3d45b075393d6751f77db3ce31ab9ba}{a\_star}();
+349                 \hyperlink{class_game_a07ca125130662de9c8f3bdd2f61db9c9}{printmap}();
+350                 \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building});
+351                 \hyperlink{class_game_aa0614c45667257e5be61685c33a2bec6}{listOfTowers}.append(\hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building});
+352                 \hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building}->setPos(\hyperlink{class_game_a861bf240380d110b285659d8af3f0406}{closestNodePos});
+353                 \hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building}->setScale(\hyperlink{class_game_a6c1ca48f17f6934432d01bfa7f762a04}{scalingfactor\_towers});
+354                 \hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building}->setZValue(y\_map);
+355             \}
+356             \textcolor{keywordflow}{else}
+357             \{
+358                 \hyperlink{class_game_a12f4bf2a7c8503c39b3102c4cc9dd40a}{clickedNode}->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a283b79b5e51a79e202e0702f189485ad}{Grass};
+359                 \textcolor{comment}{//set map node here}
+360                 \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[x\_map][y\_map]->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a283b79b5e51a79e202e0702f189485ad}{Grass};
+361                 \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[x\_map][y\_map]->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} = 1;
+362                 \hyperlink{class_game_aa3d45b075393d6751f77db3ce31ab9ba}{a\_star}();
+363                 \hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} += \hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building}->\hyperlink{class_tower_ae1d3f44d0149c8146ccf6b262a52ddad}{getCostOfTower}();
+364                 \hyperlink{class_game_a065998f7609f63e2987ede928359595a}{updateGold}();
+365                 \textcolor{keywordflow}{return};
+366 
+367             \}
+368         \}
+369         \textcolor{keywordflow}{else}
+370         \{
+371             \hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} += \hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building}->\hyperlink{class_tower_ae1d3f44d0149c8146ccf6b262a52ddad}{getCostOfTower}();
+372             \hyperlink{class_game_a065998f7609f63e2987ede928359595a}{updateGold}();
+373             \textcolor{keywordflow}{return};
+374         \}
+375     \}
+376 
+377 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a2c06f08e42cb8ef918596edd11ee00d1}\label{class_game_a2c06f08e42cb8ef918596edd11ee00d1}} 
+\index{Game@{Game}!spawn\+Enemy@{spawn\+Enemy}}
+\index{spawn\+Enemy@{spawn\+Enemy}!Game@{Game}}
+\subsubsection{\texorpdfstring{spawn\+Enemy}{spawnEnemy}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Game\+::spawn\+Enemy (\begin{DoxyParamCaption}\item[{int}]{enemy\+Num }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 621 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+622 \{
+623     \textcolor{comment}{//spawn and enemy}
+624     \hyperlink{class_enemy}{Enemy} *enemy = \textcolor{keyword}{new} \hyperlink{class_enemy}{Enemy}(\hyperlink{class_game_abe95b23433c0353887099928a5573c59}{pointsToFollow}, enemyNum);
+625     enemy->\hyperlink{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}{health} += \hyperlink{class_game_ac0038cbbcfbd5d8b32600cd9f42cd09b}{enemyHealthIncrease};
+626     \hyperlink{class_game_ab96914bfc1e59035233105abfb0787fe}{listOfEnemies} << enemy;
+627     enemy->setPos(\hyperlink{class_game_abe95b23433c0353887099928a5573c59}{pointsToFollow}[0]);
+628     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(enemy);
+629     \hyperlink{class_game_a6ac18c388eda83ceb3212e099b3b8473}{enemiesSpawned} += 1;
+630 
+631     \textcolor{keywordflow}{if} (\hyperlink{class_game_a6ac18c388eda83ceb3212e099b3b8473}{enemiesSpawned} >= \hyperlink{class_game_aaee1756450bae685777ee86c45ef4f78}{maxNumberOfEnemies}) \{
+632         \hyperlink{class_game_a4a8895723160ca3585fe140e476aea1f}{spawntimer}->disconnect();
+633     \}
+634 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_ad7a4181414089729ddea00c053f822c4}\label{class_game_ad7a4181414089729ddea00c053f822c4}} 
+\index{Game@{Game}!spawn\+Enemy@{spawn\+Enemy}}
+\index{spawn\+Enemy@{spawn\+Enemy}!Game@{Game}}
+\subsubsection{\texorpdfstring{spawn\+Enemy}{spawnEnemy}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Game\+::spawn\+Enemy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 606 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+607 \{
+608     \textcolor{comment}{//spawn and enemy}
+609     \hyperlink{class_enemy}{Enemy} *enemy = \textcolor{keyword}{new} \hyperlink{class_enemy}{Enemy}(\hyperlink{class_game_abe95b23433c0353887099928a5573c59}{pointsToFollow}, 1);
+610     enemy->\hyperlink{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}{health} += \hyperlink{class_game_ac0038cbbcfbd5d8b32600cd9f42cd09b}{enemyHealthIncrease};
+611     \hyperlink{class_game_ab96914bfc1e59035233105abfb0787fe}{listOfEnemies} << enemy;
+612     enemy->setPos(\hyperlink{class_game_abe95b23433c0353887099928a5573c59}{pointsToFollow}[0]);
+613     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(enemy);
+614     \hyperlink{class_game_a6ac18c388eda83ceb3212e099b3b8473}{enemiesSpawned} += 1;
+615 
+616     \textcolor{keywordflow}{if} (\hyperlink{class_game_a6ac18c388eda83ceb3212e099b3b8473}{enemiesSpawned} >= \hyperlink{class_game_aaee1756450bae685777ee86c45ef4f78}{maxNumberOfEnemies}) \{
+617         \hyperlink{class_game_a4a8895723160ca3585fe140e476aea1f}{spawntimer}->disconnect();
+618     \}
+619 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_ae8638ccdb0ef3bf39a6affa30aa1258f}\label{class_game_ae8638ccdb0ef3bf39a6affa30aa1258f}} 
+\index{Game@{Game}!start\+Game@{start\+Game}}
+\index{start\+Game@{start\+Game}!Game@{Game}}
+\subsubsection{\texorpdfstring{start\+Game}{startGame}}
+{\footnotesize\ttfamily void Game\+::start\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+{\itshape add building frame}/ 
+
+Definition at line 637 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+638 \{
+639     \textcolor{comment}{//clear the screen}
+640     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->clear();
+641 
+642     \textcolor{comment}{/*create game instance*/}
+643     \textcolor{comment}{//set cursor}
+644     \hyperlink{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}{cursor} = \textcolor{keyword}{nullptr};
+645     \hyperlink{class_game_a5917b4e021a93be7666ebc2ef4529401}{building} = \textcolor{keyword}{nullptr};
+646     setMouseTracking(\textcolor{keyword}{true});
+647 
+648     \textcolor{comment}{//create map}
+649     \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map} = \textcolor{keyword}{new} \hyperlink{class_map}{Map}();
+650     \hyperlink{class_game_a06579845b7a93d8bf40efe5e7592b601}{validplacement} = \textcolor{keyword}{false};
+651     \hyperlink{class_game_aa3d45b075393d6751f77db3ce31ab9ba}{a\_star}();
+652     \hyperlink{class_game_a07ca125130662de9c8f3bdd2f61db9c9}{printmap}();
+653 
+654     \textcolor{comment}{//initialize player1}
+655     \hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1} = \textcolor{keyword}{new} \hyperlink{class_player1}{Player1};
+656 
+657 
+658     \textcolor{comment}{//create enemy initialize}
+659     \hyperlink{class_game_a4a8895723160ca3585fe140e476aea1f}{spawntimer} = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});
+660     \hyperlink{class_game_a6ac18c388eda83ceb3212e099b3b8473}{enemiesSpawned} = 0;
+661     \hyperlink{class_game_aaee1756450bae685777ee86c45ef4f78}{maxNumberOfEnemies} = 0;
+662 
+663     \textcolor{comment}{//add stats bar}
+664     \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame} = \textcolor{keyword}{new} QGraphicsPixmapItem();
+665     \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->setPixmap(QString(\textcolor{stringliteral}{":/images/images/frame3.png"}));
+666     \textcolor{keywordtype}{double} framescale = 0.72;
+667     \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->setScale(framescale);
+668     \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->setPos(\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+15,50);
+669     \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->setZValue(-1);
+670     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame});
+671 
+672     \textcolor{comment}{/*add stats*/}
+673     \textcolor{comment}{//gold frame}
+674     \hyperlink{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}{goldIcon} = \textcolor{keyword}{new} QGraphicsPixmapItem();
+675     \hyperlink{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}{goldIcon}->setPixmap(QString(\textcolor{stringliteral}{":/images/images/gold.png"}));
+676     \textcolor{keywordtype}{int} xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+677     \textcolor{keywordtype}{int} ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*framescale/(
+      \hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1) +10;
+678     \textcolor{keywordtype}{double} goldscale = 0.45;
+679     \hyperlink{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}{goldIcon}->setPos(xgoldPos,ygoldPos);
+680     \hyperlink{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}{goldIcon}->setScale(goldscale);
+681     \hyperlink{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}{goldIcon}->setZValue(0);
+682     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}{goldIcon});
+683     \textcolor{comment}{//add text info}
+684     \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->
+      \hyperlink{class_player1_a9395a16fecb7b96395455f096ac1b60b}{getGold}()));
+685     QFont goldFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+686     \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText}->setFont(goldFont);
+687     \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+688     \textcolor{keywordtype}{int} txgpos = xgoldPos + \hyperlink{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}{goldIcon}->pixmap().width()/3*goldscale + 5;
+689     \textcolor{keywordtype}{int} tygpos = ygoldPos +10;
+690     \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText}->setPos(txgpos,tygpos);
+691     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText});
+692 
+693 
+694     \textcolor{comment}{//lives}
+695     \hyperlink{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}{livesIcon} = \textcolor{keyword}{new} QGraphicsPixmapItem();
+696     \hyperlink{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}{livesIcon}->setPixmap(QString(\textcolor{stringliteral}{":/images/images/lives.png"}));
+697     xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+698     ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*framescale/(\hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1)*2 +10;
+699     \hyperlink{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}{livesIcon}->setPos(xgoldPos,ygoldPos);
+700     \hyperlink{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}{livesIcon}->setScale(0.45);
+701     \hyperlink{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}{livesIcon}->setZValue(0);
+702     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}{livesIcon});
+703     \textcolor{comment}{//add lives info}
+704     \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->
+      \hyperlink{class_player1_afb2adc7bd83c6380fbb85a832e083f4d}{getLives}()));
+705     QFont livesFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+706     \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText}->setFont(livesFont);
+707     \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+708     \textcolor{keywordtype}{int} txlpos = xgoldPos + \hyperlink{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}{livesIcon}->pixmap().width()/3*0.55 + 5;
+709     \textcolor{keywordtype}{int} tylpos = ygoldPos +10;
+710     \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText}->setPos(txlpos,tylpos);
+711     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText});
+712 
+713     \textcolor{comment}{//start timer}
+714     \hyperlink{class_game_a06a7795cf068aa5cc3b1debbea3f82ef}{waveTimer} = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});
+715     connect(\hyperlink{class_game_a06a7795cf068aa5cc3b1debbea3f82ef}{waveTimer}, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(\hyperlink{class_game_a89ee6bc4da77b30b9ab09d6148944cda}{updateTimer}()));
+716     \hyperlink{class_game_a06a7795cf068aa5cc3b1debbea3f82ef}{waveTimer}->start(1000);
+717 
+718     \textcolor{comment}{//wave timers}
+719     \hyperlink{class_game_a5853a185c9981da12d5a6330c5f121c7}{timerIcon} = \textcolor{keyword}{new} QGraphicsPixmapItem();
+720     \hyperlink{class_game_a5853a185c9981da12d5a6330c5f121c7}{timerIcon}->setPixmap(QString(\textcolor{stringliteral}{":/images/images/timer.png"}));
+721     xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+722     ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*framescale/(\hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1)*3 +10;
+723     \hyperlink{class_game_a5853a185c9981da12d5a6330c5f121c7}{timerIcon}->setPos(xgoldPos,ygoldPos);
+724     \hyperlink{class_game_a5853a185c9981da12d5a6330c5f121c7}{timerIcon}->setScale(0.45);
+725     \hyperlink{class_game_a5853a185c9981da12d5a6330c5f121c7}{timerIcon}->setZValue(0);
+726     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a5853a185c9981da12d5a6330c5f121c7}{timerIcon});
+727     \textcolor{comment}{//add timer info}
+728     \hyperlink{class_game_aef6faf2c7e350578fea82f340353fa6b}{timerValue} = 45;
+729     \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_aef6faf2c7e350578fea82f340353fa6b}{timerValue}));
+730     QFont timerFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+731     \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText}->setFont(timerFont);
+732     \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+733     \textcolor{keywordtype}{int} txtpos = xgoldPos + \hyperlink{class_game_a5853a185c9981da12d5a6330c5f121c7}{timerIcon}->pixmap().width()*0.6*0.55 + 5;
+734     \textcolor{keywordtype}{int} tytpos = ygoldPos +10;
+735     \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText}->setPos(txtpos,tytpos);
+736     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText});
+737 
+738     \textcolor{comment}{//income}
+739     \hyperlink{class_game_a54671774169c28677974ee423a147c39}{incomeIcon} = \textcolor{keyword}{new} QGraphicsPixmapItem();
+740     \hyperlink{class_game_a54671774169c28677974ee423a147c39}{incomeIcon}->setPixmap(QString(\textcolor{stringliteral}{":/images/images/income.png"}));
+741     xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+742     ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*framescale/(\hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1)*4 +10;
+743     \hyperlink{class_game_a54671774169c28677974ee423a147c39}{incomeIcon}->setPos(xgoldPos,ygoldPos);
+744     \textcolor{keywordtype}{double} incomeScale = 0.42;
+745     \hyperlink{class_game_a54671774169c28677974ee423a147c39}{incomeIcon}->setScale(incomeScale);
+746     \hyperlink{class_game_a54671774169c28677974ee423a147c39}{incomeIcon}->setZValue(0);
+747     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a54671774169c28677974ee423a147c39}{incomeIcon});
+748     \textcolor{comment}{//add income info}
+749     \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->
+      \hyperlink{class_player1_a1bc2927827b94667b6f2d115ae95fb75}{getIncome}()));
+750     QFont incomeFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+751     \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText}->setFont(incomeFont);
+752     \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+753     \textcolor{keywordtype}{int} txipos = xgoldPos + \hyperlink{class_game_a54671774169c28677974ee423a147c39}{incomeIcon}->pixmap().width()*framescale*incomeScale ;
+754     \textcolor{keywordtype}{int} tyipos = ygoldPos +7;
+755     \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText}->setPos(txipos,tyipos);
+756     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText});
+757 
+758     \textcolor{comment}{//wave}
+759     \hyperlink{class_game_ade75481ee579a63670f6d7358919634a}{waveIcon} = \textcolor{keyword}{new} QGraphicsPixmapItem();
+760     \hyperlink{class_game_ade75481ee579a63670f6d7358919634a}{waveIcon}->setPixmap(QString(\textcolor{stringliteral}{":/images/images/wave.png"}));
+761     xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+762     ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*framescale/(\hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1)*5 +10;
+763     \hyperlink{class_game_ade75481ee579a63670f6d7358919634a}{waveIcon}->setPos(xgoldPos,ygoldPos);
+764     incomeScale = 0.42;
+765     \hyperlink{class_game_ade75481ee579a63670f6d7358919634a}{waveIcon}->setScale(incomeScale);
+766     \hyperlink{class_game_ade75481ee579a63670f6d7358919634a}{waveIcon}->setZValue(0);
+767     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_ade75481ee579a63670f6d7358919634a}{waveIcon});
+768     \textcolor{comment}{//wave info}
+769     \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_af9a4b49ad573785e961b29758c84fdd0}{wave}->\hyperlink{class_waves_abfdc18a5f2f185285173797c1c67c6f9}{waveLevel}));
+770     QFont waveFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+771     \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText}->setFont(waveFont);
+772     \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+773     \textcolor{keywordtype}{int} txwpos = xgoldPos + \hyperlink{class_game_ade75481ee579a63670f6d7358919634a}{waveIcon}->pixmap().width()*framescale*incomeScale + 7;
+774     \textcolor{keywordtype}{int} tywpos = ygoldPos + 7;
+775     \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText}->setPos(txwpos,tywpos);
+776     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText});
+777 
+778 
+779 
+780 
+782     QGraphicsPixmapItem *buildingsFrame = \textcolor{keyword}{new} QGraphicsPixmapItem();
+783     buildingsFrame->setPixmap(QString(\textcolor{stringliteral}{":/images/images/buildings.png"}));
+784     \textcolor{keywordtype}{int} ybfrPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*framescale;
+785     buildingsFrame->setPos(\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}/2 , ybfrPos +50);
+786     buildingsFrame->setScale(0.7);
+787     buildingsFrame->setZValue(-1);
+788     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(buildingsFrame);
+789 
+790 
+791     \textcolor{comment}{//add building icons}
+792     \hyperlink{class_build_arrow_tower_icon}{BuildArrowTowerIcon} * at = \textcolor{keyword}{new} \hyperlink{class_build_arrow_tower_icon}{BuildArrowTowerIcon}();
+793     \hyperlink{class_build_canon_tower_icon}{BuildCanonTowerIcon} * ct = \textcolor{keyword}{new} \hyperlink{class_build_canon_tower_icon}{BuildCanonTowerIcon}();
+794     \hyperlink{class_build_fire_tower_icon}{BuildFireTowerIcon} * ft = \textcolor{keyword}{new} \hyperlink{class_build_fire_tower_icon}{BuildFireTowerIcon}();
+795     \textcolor{keywordtype}{int} xIconPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().width()/2*
+      framescale + 15;
+796     \textcolor{keywordtype}{int} yIconPos = (\hyperlink{class_game_a329351d67993953391a6a65db536c017}{screenHeight} -150 - \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*framescale)/
+      \hyperlink{class_game_ad83fa5ba7b6421882d874704c7416033}{numberOfTowers};
+797     \textcolor{keywordtype}{int} offset = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*framescale;
+798 
+799     at->setPos(xIconPos,yIconPos + offset);
+800     ct->setPos(xIconPos,(yIconPos*2 + offset)*0.9);
+801     ft->setPos(xIconPos,(yIconPos*3 + offset)*0.9);
+802 
+803     at->setScale(\hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\_icons});
+804     ct->setScale(\hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\_icons});
+805     ft->setScale(\hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\_icons});
+806 
+807     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(at);
+808     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(ct);
+809     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(ft);
+810 
+811     \textcolor{comment}{//add reset button}
+812     \hyperlink{class_reset_button}{ResetButton} *rb = \textcolor{keyword}{new} \hyperlink{class_reset_button}{ResetButton}();
+813     \textcolor{keywordtype}{int} rbx = \hyperlink{class_game_ab1ca40d8527bb09e773bb97030b7a5cc}{screenWidth} - rb->pixmap().width()*0.5;
+814     \textcolor{keywordtype}{int} rby = \hyperlink{class_game_a329351d67993953391a6a65db536c017}{screenHeight} - rb->pixmap().height()*0.5;
+815     rb->setScale(0.5);
+816     rb->setPos(rbx-10, rby-20);
+817     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(rb);
+818 
+819     \textcolor{comment}{//add sound mute}
+820     \hyperlink{class_sound}{Sound} *sb = \textcolor{keyword}{new} \hyperlink{class_sound}{Sound}();
+821     \textcolor{keywordtype}{int} sbx = \hyperlink{class_game_ab1ca40d8527bb09e773bb97030b7a5cc}{screenWidth} - sb->pixmap().width()/3;
+822     \textcolor{keywordtype}{int} sby = 10;
+823     sb->setScale(0.25);
+824     sb->setPos(sbx,sby);
+825     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(sb);
+826 
+827 
+828 
+829 
+830     \textcolor{comment}{//add evenmy icons}
+831     \hyperlink{class_spawn_eye_icon}{SpawnEyeIcon} *eyeIcon = \textcolor{keyword}{new} \hyperlink{class_spawn_eye_icon}{SpawnEyeIcon}();
+832     eyeIcon->setPos(x(),y()+\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY});
+833     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(eyeIcon);
+834 
+835 
+836     \textcolor{comment}{//add arrowtower cost info}
+837     QGraphicsTextItem *atCost = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(100) + \textcolor{stringliteral}{"g"});
+838     QFont atFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+839     atCost->setFont(atFont);
+840     atCost->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+841     \textcolor{keywordtype}{int} attposx = at->pos().x() + at->pixmap().width()*\hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\_icons}/2;
+842     \textcolor{keywordtype}{int} attposy = at->pos().y() + at->pixmap().height()*\hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\_icons};
+843     atCost->setPos(attposx,attposy);
+844     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(atCost);
+845 
+846     \textcolor{comment}{//add canontower cost info}
+847     QGraphicsTextItem *ctCost = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(200) + \textcolor{stringliteral}{"g"});
+848     QFont ctFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+849     ctCost->setFont(ctFont);
+850     ctCost->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+851     \textcolor{keywordtype}{int} cttposx = ct->pos().x() + ct->pixmap().width()*\hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\_icons}/2 + 10;
+852     \textcolor{keywordtype}{int} cttposy = ct->pos().y() + ct->pixmap().height()*\hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\_icons}/2;
+853     ctCost->setPos(cttposx,cttposy);
+854     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(ctCost);
+855 
+856     \textcolor{comment}{//add firetower cost info}
+857     QGraphicsTextItem *ftCost = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(300) + \textcolor{stringliteral}{"g"});
+858     QFont ftFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+859     ftCost->setFont(ftFont);
+860     ftCost->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+861     \textcolor{keywordtype}{int} fttposx = ft->pos().x() + ft->pixmap().width()*\hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\_icons}/3;
+862     \textcolor{keywordtype}{int} fttposy = ft->pos().y() + ft->pixmap().height()*\hyperlink{class_game_a50835e7c47a3e5d6fc919ce3a163be88}{scalingfactor\_icons}/2.5;
+863     ftCost->setPos(fttposx,fttposy);
+864     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(ftCost);
+865 
+866 
+867 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a065998f7609f63e2987ede928359595a}\label{class_game_a065998f7609f63e2987ede928359595a}} 
+\index{Game@{Game}!update\+Gold@{update\+Gold}}
+\index{update\+Gold@{update\+Gold}!Game@{Game}}
+\subsubsection{\texorpdfstring{update\+Gold()}{updateGold()}}
+{\footnotesize\ttfamily void Game\+::update\+Gold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 507 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+508 \{
+509     \textcolor{comment}{//update gold}
+510     \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText}->deleteLater();
+511     \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->
+      \hyperlink{class_player1_a9395a16fecb7b96395455f096ac1b60b}{getGold}()));
+512     QFont goldFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+513     \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText}->setFont(goldFont);
+514     \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+515     \textcolor{keywordtype}{int} xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+516     \textcolor{keywordtype}{int} ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*0.72/(\hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1)*1 +10;
+517     \textcolor{keywordtype}{int} txgpos = xgoldPos + \hyperlink{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}{goldIcon}->pixmap().width()/3*0.55 + 5;
+518     \textcolor{keywordtype}{int} tygpos = ygoldPos +10;
+519     \hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText}->setPos(txgpos,tygpos);
+520     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a744c42428dc6293af83752027f9cbfde}{goldText});
+521 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a5a6924497d779286af09f339d4c7a598}\label{class_game_a5a6924497d779286af09f339d4c7a598}} 
+\index{Game@{Game}!update\+Income@{update\+Income}}
+\index{update\+Income@{update\+Income}!Game@{Game}}
+\subsubsection{\texorpdfstring{update\+Income()}{updateIncome()}}
+{\footnotesize\ttfamily void Game\+::update\+Income (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 539 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+540 \{
+541     \textcolor{comment}{//update income}
+542     \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText}->deleteLater();
+543     \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->
+      \hyperlink{class_player1_a1bc2927827b94667b6f2d115ae95fb75}{getIncome}()));
+544     QFont incomeFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+545     \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText}->setFont(incomeFont);
+546     \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+547     \textcolor{keywordtype}{double} incomeScale = 0.42;
+548     \textcolor{keywordtype}{int} xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+549     \textcolor{keywordtype}{int} ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*0.72/(\hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1)*4 +10;
+550     \textcolor{keywordtype}{int} txipos = xgoldPos + \hyperlink{class_game_a54671774169c28677974ee423a147c39}{incomeIcon}->pixmap().width()*0.72*incomeScale + 5;
+551     \textcolor{keywordtype}{int} tyipos = ygoldPos +12;
+552     \hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText}->setPos(txipos,tyipos);
+553     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a7d139b0ba0ef2a94966b138d5e77a034}{incomeText});
+554 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_aa5e4edca458d1a1378d035a138d69635}\label{class_game_aa5e4edca458d1a1378d035a138d69635}} 
+\index{Game@{Game}!update\+Lives@{update\+Lives}}
+\index{update\+Lives@{update\+Lives}!Game@{Game}}
+\subsubsection{\texorpdfstring{update\+Lives()}{updateLives()}}
+{\footnotesize\ttfamily void Game\+::update\+Lives (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 523 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+524 \{
+525     \textcolor{comment}{//update lives}
+526     \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText}->deleteLater();
+527     \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->
+      \hyperlink{class_player1_afb2adc7bd83c6380fbb85a832e083f4d}{getLives}()));
+528     QFont livesFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+529     \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText}->setFont(livesFont);
+530     \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+531     \textcolor{keywordtype}{int} xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+532     \textcolor{keywordtype}{int} ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*0.72/(\hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1)*2 +10;
+533     \textcolor{keywordtype}{int} txlpos = xgoldPos + \hyperlink{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}{livesIcon}->pixmap().width()/3*0.55 + 5;
+534     \textcolor{keywordtype}{int} tylpos = ygoldPos +10;
+535     \hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText}->setPos(txlpos,tylpos);
+536     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_ab83806346d49346a645bc850c51e331c}{livesText});
+537 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a89ee6bc4da77b30b9ab09d6148944cda}\label{class_game_a89ee6bc4da77b30b9ab09d6148944cda}} 
+\index{Game@{Game}!update\+Timer@{update\+Timer}}
+\index{update\+Timer@{update\+Timer}!Game@{Game}}
+\subsubsection{\texorpdfstring{update\+Timer}{updateTimer}}
+{\footnotesize\ttfamily void Game\+::update\+Timer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 869 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+870 \{
+871     \hyperlink{class_game_aef6faf2c7e350578fea82f340353fa6b}{timerValue} -= 1;
+872 
+873     \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText}->deleteLater();
+874     \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_aef6faf2c7e350578fea82f340353fa6b}{timerValue}));
+875     QFont timerFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+876     \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText}->setFont(timerFont);
+877     \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+878     \textcolor{keywordtype}{int} xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+879     \textcolor{keywordtype}{int} ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*0.72/(\hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1)*3 +10;
+880     \textcolor{keywordtype}{int} txtpos = xgoldPos + \hyperlink{class_game_a5853a185c9981da12d5a6330c5f121c7}{timerIcon}->pixmap().width()*0.6*0.55 + 5;
+881     \textcolor{keywordtype}{int} tytpos = ygoldPos +10;
+882     \hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText}->setPos(txtpos,tytpos);
+883     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_a21d038c2747c61d3b5a2a3d8f1764086}{timerText});
+884 
+885     \textcolor{keywordflow}{if} (\hyperlink{class_game_aef6faf2c7e350578fea82f340353fa6b}{timerValue} <= 0) \{
+886         \hyperlink{class_game_aef6faf2c7e350578fea82f340353fa6b}{timerValue} = 45;
+887         \textcolor{comment}{//send next wave and update info}
+888         \hyperlink{class_game_af9a4b49ad573785e961b29758c84fdd0}{wave}->\hyperlink{class_waves_a1f686101089cb63743c8f50047b28716}{nextWave}();
+889         \hyperlink{class_game_a108f0ed818f5d32e3e5b350497edc481}{updateWave}();
+890 
+891         \textcolor{comment}{//get income}
+892         \hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} += \hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_a414fae948c79246f6a98554718f0cd99}{Income};
+893         \hyperlink{class_game_a065998f7609f63e2987ede928359595a}{updateGold}();
+894     \}
+895 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a108f0ed818f5d32e3e5b350497edc481}\label{class_game_a108f0ed818f5d32e3e5b350497edc481}} 
+\index{Game@{Game}!update\+Wave@{update\+Wave}}
+\index{update\+Wave@{update\+Wave}!Game@{Game}}
+\subsubsection{\texorpdfstring{update\+Wave()}{updateWave()}}
+{\footnotesize\ttfamily void Game\+::update\+Wave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 556 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+557 \{
+558     \textcolor{comment}{//wave update}
+559     \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText}->deleteLater();
+560     \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText} = \textcolor{keyword}{new} QGraphicsTextItem(QString::number(\hyperlink{class_game_af9a4b49ad573785e961b29758c84fdd0}{wave}->\hyperlink{class_waves_abfdc18a5f2f185285173797c1c67c6f9}{waveLevel}));
+561     QFont waveFont(\textcolor{stringliteral}{"Pixel Emulator"}, 14);
+562     \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText}->setFont(waveFont);
+563     \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText}->setDefaultTextColor(QColor(\textcolor{stringliteral}{"white"}));
+564     \textcolor{keywordtype}{double} incomeScale = 0.42;
+565     \textcolor{keywordtype}{int} xgoldPos = \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}*\hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} + \hyperlink{class_game_acef3a39fdf14be2c980b0dc11e7be402}{map}->\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}+ 15;
+566     \textcolor{keywordtype}{int} ygoldPos = \hyperlink{class_game_a3b40718d348c0f12af63a3f428924ab4}{statsFrame}->pixmap().height()*0.7/(\hyperlink{class_game_af041d097dc2350360c7951e5a41bc48a}{numberOfStats}+1)*5 +10;
+567     \textcolor{keywordtype}{int} txwpos = xgoldPos + \hyperlink{class_game_ade75481ee579a63670f6d7358919634a}{waveIcon}->pixmap().width()*0.72*incomeScale + 10;
+568     \textcolor{keywordtype}{int} tywpos = ygoldPos + 15;
+569     \hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText}->setPos(txwpos,tywpos);
+570     \hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(\hyperlink{class_game_ac33d078835536f2dc1af85ddbabd3a20}{waveText});
+571 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_af310eb8cf154b512e2ae488267495c96}\label{class_game_af310eb8cf154b512e2ae488267495c96}} 
+\index{Game@{Game}!Victory@{Victory}}
+\index{Victory@{Victory}!Game@{Game}}
+\subsubsection{\texorpdfstring{Victory()}{Victory()}}
+{\footnotesize\ttfamily void Game\+::\+Victory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 241 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+242 \{
+243     \textcolor{comment}{//disconnects timer}
+244     \hyperlink{class_game_a06a7795cf068aa5cc3b1debbea3f82ef}{waveTimer}->disconnect();
+245     \hyperlink{class_game_a8feee9081542b15a9f2d889a6f1c8257}{gametimer}->disconnect();
+246 
+247 
+248 
+249     QListIterator<Enemy *> i(\hyperlink{class_game_ab96914bfc1e59035233105abfb0787fe}{listOfEnemies});
+250     \textcolor{keywordflow}{while} (i.hasNext()) \{
+251         \hyperlink{class_enemy}{Enemy} *thisEnemy = i.next();
+252         \textcolor{comment}{//thisEnemy->timer->disconnect(); //gee crash}
+253         thisEnemy->deleteLater();
+254     \}
+255 
+256 
+257     \textcolor{comment}{//delete towers}
+258     QListIterator<Tower*> j(\hyperlink{class_game_aa0614c45667257e5be61685c33a2bec6}{listOfTowers});
+259     \textcolor{keywordflow}{while} (j.hasNext()) \{
+260         \hyperlink{class_tower}{Tower} *thisTower = j.next();
+261         thisTower->deleteLater();
+262     \}
+263 
+264     qDebug() << \textcolor{stringliteral}{"You are real man!"};
+265     QMessageBox msgBox;
+266     msgBox.setText(\textcolor{stringliteral}{"Victory!"});
+267     msgBox.setInformativeText(\textcolor{stringliteral}{"Restart?"});
+268     msgBox.setStandardButtons(QMessageBox::Ok | QMessageBox::Close);
+269     msgBox.setDefaultButton(QMessageBox::Ok);
+270     \textcolor{keywordtype}{int} ret = msgBox.exec();
+271 
+272     \textcolor{keywordflow}{switch} (ret) \{
+273     \textcolor{keywordflow}{case} QMessageBox::Ok:
+274         \textcolor{comment}{// restart clicked}
+275 
+276 
+277         \hyperlink{class_game_af74fd203e3b31917ca9d4769fa608c48}{displayMainMenu}();
+278         \textcolor{keywordflow}{break};
+279     \textcolor{keywordflow}{case} QMessageBox::Close:
+280         \textcolor{comment}{// close clicked}
+281         close();
+282         \textcolor{keywordflow}{break};
+283 
+284     \textcolor{keywordflow}{default}:
+285         \textcolor{comment}{// should never be reached}
+286         close();
+287         \textcolor{keywordflow}{break};
+288     \}
+289 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a771253a0edc9a31ff64352eb0a4367cb}\label{class_game_a771253a0edc9a31ff64352eb0a4367cb}} 
+\index{Game@{Game}!wait\+Connection@{wait\+Connection}}
+\index{wait\+Connection@{wait\+Connection}!Game@{Game}}
+\subsubsection{\texorpdfstring{wait\+Connection}{waitConnection}}
+{\footnotesize\ttfamily void Game\+::wait\+Connection (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 574 of file game.\+cpp.
+
+
+\begin{DoxyCode}
+575 \{
+576     \hyperlink{class_game_a266d51c575b09c22aac86e20487802f4}{conTimer} = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});
+577     connect(\hyperlink{class_game_a266d51c575b09c22aac86e20487802f4}{conTimer}, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_game_a480aa57ccdd02118f7716b4870a2b47c}{connectionEstablished}()));
+578     \hyperlink{class_game_a266d51c575b09c22aac86e20487802f4}{conTimer}->start(500);
+579     qDebug() << \textcolor{stringliteral}{"Hosting..."};
+580 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_a5917b4e021a93be7666ebc2ef4529401}\label{class_game_a5917b4e021a93be7666ebc2ef4529401}} 
+\index{Game@{Game}!building@{building}}
+\index{building@{building}!Game@{Game}}
+\subsubsection{\texorpdfstring{building}{building}}
+{\footnotesize\ttfamily \hyperlink{class_tower}{Tower}$\ast$ Game\+::building}
+
+
+
+Definition at line 46 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a4774e6e02e372dabcba313802800df5d}\label{class_game_a4774e6e02e372dabcba313802800df5d}} 
+\index{Game@{Game}!bullet\+Timer@{bullet\+Timer}}
+\index{bullet\+Timer@{bullet\+Timer}!Game@{Game}}
+\subsubsection{\texorpdfstring{bullet\+Timer}{bulletTimer}}
+{\footnotesize\ttfamily Q\+Timer$\ast$ Game\+::bullet\+Timer}
+
+
+
+Definition at line 35 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a12f4bf2a7c8503c39b3102c4cc9dd40a}\label{class_game_a12f4bf2a7c8503c39b3102c4cc9dd40a}} 
+\index{Game@{Game}!clicked\+Node@{clicked\+Node}}
+\index{clicked\+Node@{clicked\+Node}!Game@{Game}}
+\subsubsection{\texorpdfstring{clicked\+Node}{clickedNode}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node}$\ast$ Game\+::clicked\+Node}
+
+
+
+Definition at line 62 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_aa7fd8508fad68c550129f2be61c37467}\label{class_game_aa7fd8508fad68c550129f2be61c37467}} 
+\index{Game@{Game}!Client@{Client}}
+\index{Client@{Client}!Game@{Game}}
+\subsubsection{\texorpdfstring{Client}{Client}}
+{\footnotesize\ttfamily \hyperlink{class_u_d_p_socket}{U\+D\+P\+Socket}$\ast$ Game\+::\+Client}
+
+
+
+Definition at line 90 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a861bf240380d110b285659d8af3f0406}\label{class_game_a861bf240380d110b285659d8af3f0406}} 
+\index{Game@{Game}!closest\+Node\+Pos@{closest\+Node\+Pos}}
+\index{closest\+Node\+Pos@{closest\+Node\+Pos}!Game@{Game}}
+\subsubsection{\texorpdfstring{closest\+Node\+Pos}{closestNodePos}}
+{\footnotesize\ttfamily Q\+PointF Game\+::closest\+Node\+Pos}
+
+
+
+Definition at line 39 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_aec6408b42da34f430bffb649653de96b}\label{class_game_aec6408b42da34f430bffb649653de96b}} 
+\index{Game@{Game}!connected@{connected}}
+\index{connected@{connected}!Game@{Game}}
+\subsubsection{\texorpdfstring{connected}{connected}}
+{\footnotesize\ttfamily bool Game\+::connected = false}
+
+
+
+Definition at line 91 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a266d51c575b09c22aac86e20487802f4}\label{class_game_a266d51c575b09c22aac86e20487802f4}} 
+\index{Game@{Game}!con\+Timer@{con\+Timer}}
+\index{con\+Timer@{con\+Timer}!Game@{Game}}
+\subsubsection{\texorpdfstring{con\+Timer}{conTimer}}
+{\footnotesize\ttfamily Q\+Timer$\ast$ Game\+::con\+Timer}
+
+
+
+Definition at line 92 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}\label{class_game_ac8bde3bd16f503846f66bbb866c3b7b9}} 
+\index{Game@{Game}!cursor@{cursor}}
+\index{cursor@{cursor}!Game@{Game}}
+\subsubsection{\texorpdfstring{cursor}{cursor}}
+{\footnotesize\ttfamily Q\+Graphics\+Pixmap\+Item$\ast$ Game\+::cursor}
+
+
+
+Definition at line 45 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a6ac18c388eda83ceb3212e099b3b8473}\label{class_game_a6ac18c388eda83ceb3212e099b3b8473}} 
+\index{Game@{Game}!enemies\+Spawned@{enemies\+Spawned}}
+\index{enemies\+Spawned@{enemies\+Spawned}!Game@{Game}}
+\subsubsection{\texorpdfstring{enemies\+Spawned}{enemiesSpawned}}
+{\footnotesize\ttfamily int Game\+::enemies\+Spawned}
+
+
+
+Definition at line 50 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ac0038cbbcfbd5d8b32600cd9f42cd09b}\label{class_game_ac0038cbbcfbd5d8b32600cd9f42cd09b}} 
+\index{Game@{Game}!enemy\+Health\+Increase@{enemy\+Health\+Increase}}
+\index{enemy\+Health\+Increase@{enemy\+Health\+Increase}!Game@{Game}}
+\subsubsection{\texorpdfstring{enemy\+Health\+Increase}{enemyHealthIncrease}}
+{\footnotesize\ttfamily int Game\+::enemy\+Health\+Increase = 0}
+
+
+
+Definition at line 52 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ad08e48fb0fbd89fe67ccb42ff8e8fff1}\label{class_game_ad08e48fb0fbd89fe67ccb42ff8e8fff1}} 
+\index{Game@{Game}!Game\+Over@{Game\+Over}}
+\index{Game\+Over@{Game\+Over}!Game@{Game}}
+\subsubsection{\texorpdfstring{Game\+Over}{GameOver}}
+{\footnotesize\ttfamily bool Game\+::\+Game\+Over = false}
+
+
+
+Definition at line 33 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a8feee9081542b15a9f2d889a6f1c8257}\label{class_game_a8feee9081542b15a9f2d889a6f1c8257}} 
+\index{Game@{Game}!gametimer@{gametimer}}
+\index{gametimer@{gametimer}!Game@{Game}}
+\subsubsection{\texorpdfstring{gametimer}{gametimer}}
+{\footnotesize\ttfamily Q\+Timer$\ast$ Game\+::gametimer}
+
+
+
+Definition at line 34 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}\label{class_game_a1ac5cae6ba58ec5fe157b138d6c41eac}} 
+\index{Game@{Game}!gold\+Icon@{gold\+Icon}}
+\index{gold\+Icon@{gold\+Icon}!Game@{Game}}
+\subsubsection{\texorpdfstring{gold\+Icon}{goldIcon}}
+{\footnotesize\ttfamily Q\+Graphics\+Pixmap\+Item$\ast$ Game\+::gold\+Icon}
+
+
+
+Definition at line 73 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a744c42428dc6293af83752027f9cbfde}\label{class_game_a744c42428dc6293af83752027f9cbfde}} 
+\index{Game@{Game}!gold\+Text@{gold\+Text}}
+\index{gold\+Text@{gold\+Text}!Game@{Game}}
+\subsubsection{\texorpdfstring{gold\+Text}{goldText}}
+{\footnotesize\ttfamily Q\+Graphics\+Text\+Item$\ast$ Game\+::gold\+Text}
+
+
+
+Definition at line 68 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a54671774169c28677974ee423a147c39}\label{class_game_a54671774169c28677974ee423a147c39}} 
+\index{Game@{Game}!income\+Icon@{income\+Icon}}
+\index{income\+Icon@{income\+Icon}!Game@{Game}}
+\subsubsection{\texorpdfstring{income\+Icon}{incomeIcon}}
+{\footnotesize\ttfamily Q\+Graphics\+Pixmap\+Item$\ast$ Game\+::income\+Icon}
+
+
+
+Definition at line 76 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a7d139b0ba0ef2a94966b138d5e77a034}\label{class_game_a7d139b0ba0ef2a94966b138d5e77a034}} 
+\index{Game@{Game}!income\+Text@{income\+Text}}
+\index{income\+Text@{income\+Text}!Game@{Game}}
+\subsubsection{\texorpdfstring{income\+Text}{incomeText}}
+{\footnotesize\ttfamily Q\+Graphics\+Text\+Item$\ast$ Game\+::income\+Text}
+
+
+
+Definition at line 71 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ab96914bfc1e59035233105abfb0787fe}\label{class_game_ab96914bfc1e59035233105abfb0787fe}} 
+\index{Game@{Game}!list\+Of\+Enemies@{list\+Of\+Enemies}}
+\index{list\+Of\+Enemies@{list\+Of\+Enemies}!Game@{Game}}
+\subsubsection{\texorpdfstring{list\+Of\+Enemies}{listOfEnemies}}
+{\footnotesize\ttfamily Q\+List$<$\hyperlink{class_enemy}{Enemy}$\ast$$>$ Game\+::list\+Of\+Enemies}
+
+
+
+Definition at line 48 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_aa0614c45667257e5be61685c33a2bec6}\label{class_game_aa0614c45667257e5be61685c33a2bec6}} 
+\index{Game@{Game}!list\+Of\+Towers@{list\+Of\+Towers}}
+\index{list\+Of\+Towers@{list\+Of\+Towers}!Game@{Game}}
+\subsubsection{\texorpdfstring{list\+Of\+Towers}{listOfTowers}}
+{\footnotesize\ttfamily Q\+List$<$\hyperlink{class_tower}{Tower}$\ast$$>$ Game\+::list\+Of\+Towers}
+
+
+
+Definition at line 49 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}\label{class_game_acd6dae5d8f0c5670fa81433f5b329e0f}} 
+\index{Game@{Game}!lives\+Icon@{lives\+Icon}}
+\index{lives\+Icon@{lives\+Icon}!Game@{Game}}
+\subsubsection{\texorpdfstring{lives\+Icon}{livesIcon}}
+{\footnotesize\ttfamily Q\+Graphics\+Pixmap\+Item$\ast$ Game\+::lives\+Icon}
+
+
+
+Definition at line 74 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ab83806346d49346a645bc850c51e331c}\label{class_game_ab83806346d49346a645bc850c51e331c}} 
+\index{Game@{Game}!lives\+Text@{lives\+Text}}
+\index{lives\+Text@{lives\+Text}!Game@{Game}}
+\subsubsection{\texorpdfstring{lives\+Text}{livesText}}
+{\footnotesize\ttfamily Q\+Graphics\+Text\+Item$\ast$ Game\+::lives\+Text}
+
+
+
+Definition at line 69 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_acef3a39fdf14be2c980b0dc11e7be402}\label{class_game_acef3a39fdf14be2c980b0dc11e7be402}} 
+\index{Game@{Game}!map@{map}}
+\index{map@{map}!Game@{Game}}
+\subsubsection{\texorpdfstring{map}{map}}
+{\footnotesize\ttfamily \hyperlink{class_map}{Map}$\ast$ Game\+::map}
+
+
+
+Definition at line 57 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_aaee1756450bae685777ee86c45ef4f78}\label{class_game_aaee1756450bae685777ee86c45ef4f78}} 
+\index{Game@{Game}!max\+Number\+Of\+Enemies@{max\+Number\+Of\+Enemies}}
+\index{max\+Number\+Of\+Enemies@{max\+Number\+Of\+Enemies}!Game@{Game}}
+\subsubsection{\texorpdfstring{max\+Number\+Of\+Enemies}{maxNumberOfEnemies}}
+{\footnotesize\ttfamily int Game\+::max\+Number\+Of\+Enemies}
+
+
+
+Definition at line 51 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_af041d097dc2350360c7951e5a41bc48a}\label{class_game_af041d097dc2350360c7951e5a41bc48a}} 
+\index{Game@{Game}!number\+Of\+Stats@{number\+Of\+Stats}}
+\index{number\+Of\+Stats@{number\+Of\+Stats}!Game@{Game}}
+\subsubsection{\texorpdfstring{number\+Of\+Stats}{numberOfStats}}
+{\footnotesize\ttfamily int Game\+::number\+Of\+Stats = 5}
+
+
+
+Definition at line 99 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ad83fa5ba7b6421882d874704c7416033}\label{class_game_ad83fa5ba7b6421882d874704c7416033}} 
+\index{Game@{Game}!number\+Of\+Towers@{number\+Of\+Towers}}
+\index{number\+Of\+Towers@{number\+Of\+Towers}!Game@{Game}}
+\subsubsection{\texorpdfstring{number\+Of\+Towers}{numberOfTowers}}
+{\footnotesize\ttfamily int Game\+::number\+Of\+Towers = 3}
+
+
+
+Definition at line 98 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}\label{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}} 
+\index{Game@{Game}!player1@{player1}}
+\index{player1@{player1}!Game@{Game}}
+\subsubsection{\texorpdfstring{player1}{player1}}
+{\footnotesize\ttfamily \hyperlink{class_player1}{Player1}$\ast$ Game\+::player1}
+
+
+
+Definition at line 65 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_abe95b23433c0353887099928a5573c59}\label{class_game_abe95b23433c0353887099928a5573c59}} 
+\index{Game@{Game}!points\+To\+Follow@{points\+To\+Follow}}
+\index{points\+To\+Follow@{points\+To\+Follow}!Game@{Game}}
+\subsubsection{\texorpdfstring{points\+To\+Follow}{pointsToFollow}}
+{\footnotesize\ttfamily Q\+List$<$Q\+PointF$>$ Game\+::points\+To\+Follow}
+
+
+
+Definition at line 53 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_aeec547aa25329dcd9d52bfc1c8fa8bb3}\label{class_game_aeec547aa25329dcd9d52bfc1c8fa8bb3}} 
+\index{Game@{Game}!scalingfactor\+\_\+bullets@{scalingfactor\+\_\+bullets}}
+\index{scalingfactor\+\_\+bullets@{scalingfactor\+\_\+bullets}!Game@{Game}}
+\subsubsection{\texorpdfstring{scalingfactor\+\_\+bullets}{scalingfactor\_bullets}}
+{\footnotesize\ttfamily const double Game\+::scalingfactor\+\_\+bullets = 0.\+2}
+
+
+
+Definition at line 101 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a50835e7c47a3e5d6fc919ce3a163be88}\label{class_game_a50835e7c47a3e5d6fc919ce3a163be88}} 
+\index{Game@{Game}!scalingfactor\+\_\+icons@{scalingfactor\+\_\+icons}}
+\index{scalingfactor\+\_\+icons@{scalingfactor\+\_\+icons}!Game@{Game}}
+\subsubsection{\texorpdfstring{scalingfactor\+\_\+icons}{scalingfactor\_icons}}
+{\footnotesize\ttfamily const double Game\+::scalingfactor\+\_\+icons = 0.\+5}
+
+
+
+Definition at line 102 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a6c1ca48f17f6934432d01bfa7f762a04}\label{class_game_a6c1ca48f17f6934432d01bfa7f762a04}} 
+\index{Game@{Game}!scalingfactor\+\_\+towers@{scalingfactor\+\_\+towers}}
+\index{scalingfactor\+\_\+towers@{scalingfactor\+\_\+towers}!Game@{Game}}
+\subsubsection{\texorpdfstring{scalingfactor\+\_\+towers}{scalingfactor\_towers}}
+{\footnotesize\ttfamily const double Game\+::scalingfactor\+\_\+towers = 0.\+28}
+
+
+
+Definition at line 100 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a8119e3b9a632906c6808fa294b46a92a}\label{class_game_a8119e3b9a632906c6808fa294b46a92a}} 
+\index{Game@{Game}!scene@{scene}}
+\index{scene@{scene}!Game@{Game}}
+\subsubsection{\texorpdfstring{scene}{scene}}
+{\footnotesize\ttfamily Q\+Graphics\+Scene$\ast$ Game\+::scene}
+
+
+
+Definition at line 44 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a329351d67993953391a6a65db536c017}\label{class_game_a329351d67993953391a6a65db536c017}} 
+\index{Game@{Game}!screen\+Height@{screen\+Height}}
+\index{screen\+Height@{screen\+Height}!Game@{Game}}
+\subsubsection{\texorpdfstring{screen\+Height}{screenHeight}}
+{\footnotesize\ttfamily int Game\+::screen\+Height = 1000}
+
+
+
+Definition at line 97 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ab1ca40d8527bb09e773bb97030b7a5cc}\label{class_game_ab1ca40d8527bb09e773bb97030b7a5cc}} 
+\index{Game@{Game}!screen\+Width@{screen\+Width}}
+\index{screen\+Width@{screen\+Width}!Game@{Game}}
+\subsubsection{\texorpdfstring{screen\+Width}{screenWidth}}
+{\footnotesize\ttfamily int Game\+::screen\+Width = 1200}
+
+
+
+Definition at line 96 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a4a8895723160ca3585fe140e476aea1f}\label{class_game_a4a8895723160ca3585fe140e476aea1f}} 
+\index{Game@{Game}!spawntimer@{spawntimer}}
+\index{spawntimer@{spawntimer}!Game@{Game}}
+\subsubsection{\texorpdfstring{spawntimer}{spawntimer}}
+{\footnotesize\ttfamily Q\+Timer$\ast$ Game\+::spawntimer}
+
+
+
+Definition at line 47 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a3b40718d348c0f12af63a3f428924ab4}\label{class_game_a3b40718d348c0f12af63a3f428924ab4}} 
+\index{Game@{Game}!stats\+Frame@{stats\+Frame}}
+\index{stats\+Frame@{stats\+Frame}!Game@{Game}}
+\subsubsection{\texorpdfstring{stats\+Frame}{statsFrame}}
+{\footnotesize\ttfamily Q\+Graphics\+Pixmap\+Item$\ast$ Game\+::stats\+Frame}
+
+
+
+Definition at line 54 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a5853a185c9981da12d5a6330c5f121c7}\label{class_game_a5853a185c9981da12d5a6330c5f121c7}} 
+\index{Game@{Game}!timer\+Icon@{timer\+Icon}}
+\index{timer\+Icon@{timer\+Icon}!Game@{Game}}
+\subsubsection{\texorpdfstring{timer\+Icon}{timerIcon}}
+{\footnotesize\ttfamily Q\+Graphics\+Pixmap\+Item$\ast$ Game\+::timer\+Icon}
+
+
+
+Definition at line 75 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a21d038c2747c61d3b5a2a3d8f1764086}\label{class_game_a21d038c2747c61d3b5a2a3d8f1764086}} 
+\index{Game@{Game}!timer\+Text@{timer\+Text}}
+\index{timer\+Text@{timer\+Text}!Game@{Game}}
+\subsubsection{\texorpdfstring{timer\+Text}{timerText}}
+{\footnotesize\ttfamily Q\+Graphics\+Text\+Item$\ast$ Game\+::timer\+Text}
+
+
+
+Definition at line 70 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_aef6faf2c7e350578fea82f340353fa6b}\label{class_game_aef6faf2c7e350578fea82f340353fa6b}} 
+\index{Game@{Game}!timer\+Value@{timer\+Value}}
+\index{timer\+Value@{timer\+Value}!Game@{Game}}
+\subsubsection{\texorpdfstring{timer\+Value}{timerValue}}
+{\footnotesize\ttfamily int Game\+::timer\+Value}
+
+
+
+Definition at line 86 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a06579845b7a93d8bf40efe5e7592b601}\label{class_game_a06579845b7a93d8bf40efe5e7592b601}} 
+\index{Game@{Game}!validplacement@{validplacement}}
+\index{validplacement@{validplacement}!Game@{Game}}
+\subsubsection{\texorpdfstring{validplacement}{validplacement}}
+{\footnotesize\ttfamily bool Game\+::validplacement = false}
+
+
+
+Definition at line 61 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_af9a4b49ad573785e961b29758c84fdd0}\label{class_game_af9a4b49ad573785e961b29758c84fdd0}} 
+\index{Game@{Game}!wave@{wave}}
+\index{wave@{wave}!Game@{Game}}
+\subsubsection{\texorpdfstring{wave}{wave}}
+{\footnotesize\ttfamily \hyperlink{class_waves}{Waves}$\ast$ Game\+::wave}
+
+
+
+Definition at line 84 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ade75481ee579a63670f6d7358919634a}\label{class_game_ade75481ee579a63670f6d7358919634a}} 
+\index{Game@{Game}!wave\+Icon@{wave\+Icon}}
+\index{wave\+Icon@{wave\+Icon}!Game@{Game}}
+\subsubsection{\texorpdfstring{wave\+Icon}{waveIcon}}
+{\footnotesize\ttfamily Q\+Graphics\+Pixmap\+Item$\ast$ Game\+::wave\+Icon}
+
+
+
+Definition at line 77 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ac33d078835536f2dc1af85ddbabd3a20}\label{class_game_ac33d078835536f2dc1af85ddbabd3a20}} 
+\index{Game@{Game}!wave\+Text@{wave\+Text}}
+\index{wave\+Text@{wave\+Text}!Game@{Game}}
+\subsubsection{\texorpdfstring{wave\+Text}{waveText}}
+{\footnotesize\ttfamily Q\+Graphics\+Text\+Item$\ast$ Game\+::wave\+Text}
+
+
+
+Definition at line 72 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a06a7795cf068aa5cc3b1debbea3f82ef}\label{class_game_a06a7795cf068aa5cc3b1debbea3f82ef}} 
+\index{Game@{Game}!wave\+Timer@{wave\+Timer}}
+\index{wave\+Timer@{wave\+Timer}!Game@{Game}}
+\subsubsection{\texorpdfstring{wave\+Timer}{waveTimer}}
+{\footnotesize\ttfamily Q\+Timer$\ast$ Game\+::wave\+Timer}
+
+
+
+Definition at line 85 of file game.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{game_8h}{game.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{game_8cpp}{game.\+cpp}\end{DoxyCompactItemize}

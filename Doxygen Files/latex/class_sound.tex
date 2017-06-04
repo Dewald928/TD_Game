@@ -1,0 +1,122 @@
+\hypertarget{class_sound}{}\section{Sound Class Reference}
+\label{class_sound}\index{Sound@{Sound}}
+
+
+{\ttfamily \#include $<$sound.\+h$>$}
+
+Inheritance diagram for Sound\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_sound}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_sound_a7a36c00590d59181138f371c4cfbe988}{Sound} (Q\+Graphics\+Item $\ast$parent=0)
+\item 
+void \hyperlink{class_sound_aa145fbdd386c6614d0713802b5c03e07}{mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_sound_a8651994f1462748b66bb224e4404c1c0}{playing}
+\item 
+Q\+Sound $\ast$ \hyperlink{class_sound_a65c0e423d9a706534ed44f4383b5abc1}{theme}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 9 of file sound.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sound_a7a36c00590d59181138f371c4cfbe988}\label{class_sound_a7a36c00590d59181138f371c4cfbe988}} 
+\index{Sound@{Sound}!Sound@{Sound}}
+\index{Sound@{Sound}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{Sound()}{Sound()}}
+{\footnotesize\ttfamily Sound\+::\+Sound (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 4 of file sound.\+cpp.
+
+
+\begin{DoxyCode}
+5 \{
+6     setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/sound.png"}));
+7 
+8     \textcolor{comment}{//play music}
+9     \hyperlink{class_sound_a65c0e423d9a706534ed44f4383b5abc1}{theme} = \textcolor{keyword}{new} QSound(\textcolor{stringliteral}{":/images/sounds/Marimba.wav"});
+10     \hyperlink{class_sound_a65c0e423d9a706534ed44f4383b5abc1}{theme}->play();
+11     \hyperlink{class_sound_a65c0e423d9a706534ed44f4383b5abc1}{theme}->setLoops(QSound::Infinite);
+12     \hyperlink{class_sound_a8651994f1462748b66bb224e4404c1c0}{playing} = \textcolor{keyword}{true};
+13 
+14 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sound_aa145fbdd386c6614d0713802b5c03e07}\label{class_sound_aa145fbdd386c6614d0713802b5c03e07}} 
+\index{Sound@{Sound}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Sound\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 16 of file sound.\+cpp.
+
+
+\begin{DoxyCode}
+17 \{
+18     \textcolor{keywordflow}{if} (\hyperlink{class_sound_a8651994f1462748b66bb224e4404c1c0}{playing} == \textcolor{keyword}{true}) \{
+19         \hyperlink{class_sound_a65c0e423d9a706534ed44f4383b5abc1}{theme}->stop();
+20         \hyperlink{class_sound_a8651994f1462748b66bb224e4404c1c0}{playing} = \textcolor{keyword}{false};
+21     \}
+22     \textcolor{keywordflow}{else}
+23     \{
+24         \textcolor{comment}{//play music}
+25         \hyperlink{class_sound_a65c0e423d9a706534ed44f4383b5abc1}{theme} = \textcolor{keyword}{new} QSound(\textcolor{stringliteral}{":/images/sounds/Marimba.wav"});
+26         \hyperlink{class_sound_a65c0e423d9a706534ed44f4383b5abc1}{theme}->play();
+27         \hyperlink{class_sound_a65c0e423d9a706534ed44f4383b5abc1}{theme}->setLoops(QSound::Infinite);
+28         \hyperlink{class_sound_a8651994f1462748b66bb224e4404c1c0}{playing} = \textcolor{keyword}{true};
+29     \}
+30 
+31 
+32 
+33 
+34 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_sound_a8651994f1462748b66bb224e4404c1c0}\label{class_sound_a8651994f1462748b66bb224e4404c1c0}} 
+\index{Sound@{Sound}!playing@{playing}}
+\index{playing@{playing}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{playing}{playing}}
+{\footnotesize\ttfamily bool Sound\+::playing\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 16 of file sound.\+h.
+
+\mbox{\Hypertarget{class_sound_a65c0e423d9a706534ed44f4383b5abc1}\label{class_sound_a65c0e423d9a706534ed44f4383b5abc1}} 
+\index{Sound@{Sound}!theme@{theme}}
+\index{theme@{theme}!Sound@{Sound}}
+\subsubsection{\texorpdfstring{theme}{theme}}
+{\footnotesize\ttfamily Q\+Sound$\ast$ Sound\+::theme\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 17 of file sound.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{sound_8h}{sound.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{sound_8cpp}{sound.\+cpp}\end{DoxyCompactItemize}

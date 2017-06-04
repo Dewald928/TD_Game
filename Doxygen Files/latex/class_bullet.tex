@@ -1,0 +1,262 @@
+\hypertarget{class_bullet}{}\section{Bullet Class Reference}
+\label{class_bullet}\index{Bullet@{Bullet}}
+
+
+{\ttfamily \#include $<$bullet.\+h$>$}
+
+Inheritance diagram for Bullet\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_bullet}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_bullet_a6140db968c42c05e829e142f74f20b16}{move} ()
+\item 
+double \hyperlink{class_bullet_ada7a5f48649b2dc81ab1952cff51b6d9}{get\+Max\+Range} ()
+\item 
+double \hyperlink{class_bullet_ade9a9d09e42c002c7d30b65299194588}{get\+Distance\+Travelled} ()
+\item 
+void \hyperlink{class_bullet_a070852a34b912c9379338df18e32cf91}{set\+Max\+Range} (double rng)
+\item 
+void \hyperlink{class_bullet_ac1037d7a9f775b28bf1bc2727c018707}{set\+Distance\+Travelled} (double dist)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_bullet_a3d9f64399991ef430df460cac893b731}{Bullet} (Q\+Graphics\+Item $\ast$parent=0)
+\item 
+int \hyperlink{class_bullet_a682701fa7f9d4a9564dbcd6ed3f73588}{get\+Damage} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_bullet_a733d2ebbf9143c9ca68d3eb7e14121d0}{damage}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{class_bullet_ae7c4fadfcc22643cb271622fe8bb2eb0}{max\+Range}
+\item 
+double \hyperlink{class_bullet_afe194c1b7e495d0c17492396595202e1}{distance\+Travelled}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 8 of file bullet.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_bullet_a3d9f64399991ef430df460cac893b731}\label{class_bullet_a3d9f64399991ef430df460cac893b731}} 
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\index{Bullet@{Bullet}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{Bullet()}{Bullet()}}
+{\footnotesize\ttfamily Bullet\+::\+Bullet (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file bullet.\+cpp.
+
+
+\begin{DoxyCode}
+14 \{
+15     \textcolor{comment}{//set graphics}
+16     setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/Projectile\_Arrow.png"}));
+17 
+18 
+19     \textcolor{comment}{//connect timer to move}
+20     \textcolor{comment}{//QTimer * move\_timer = new QTimer(this);}
+21     connect(\hyperlink{bullet_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a4774e6e02e372dabcba313802800df5d}{bulletTimer}, SIGNAL(timeout()),\textcolor{keyword}{this},SLOT(\hyperlink{class_bullet_a6140db968c42c05e829e142f74f20b16}{move}()));
+22     \textcolor{comment}{//move\_timer->start(50);}
+23 
+24     \textcolor{comment}{//initialize values}
+25     \hyperlink{class_bullet_ae7c4fadfcc22643cb271622fe8bb2eb0}{maxRange} =250;
+26     \hyperlink{class_bullet_afe194c1b7e495d0c17492396595202e1}{distanceTravelled} = 0;
+27     \hyperlink{class_bullet_a733d2ebbf9143c9ca68d3eb7e14121d0}{damage} = 1;
+28 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_bullet_a682701fa7f9d4a9564dbcd6ed3f73588}\label{class_bullet_a682701fa7f9d4a9564dbcd6ed3f73588}} 
+\index{Bullet@{Bullet}!get\+Damage@{get\+Damage}}
+\index{get\+Damage@{get\+Damage}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{get\+Damage()}{getDamage()}}
+{\footnotesize\ttfamily int Bullet\+::get\+Damage (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file bullet.\+cpp.
+
+
+\begin{DoxyCode}
+31 \{
+32     \textcolor{keywordflow}{return} \hyperlink{class_bullet_a733d2ebbf9143c9ca68d3eb7e14121d0}{damage};
+33 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bullet_ade9a9d09e42c002c7d30b65299194588}\label{class_bullet_ade9a9d09e42c002c7d30b65299194588}} 
+\index{Bullet@{Bullet}!get\+Distance\+Travelled@{get\+Distance\+Travelled}}
+\index{get\+Distance\+Travelled@{get\+Distance\+Travelled}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{get\+Distance\+Travelled}{getDistanceTravelled}}
+{\footnotesize\ttfamily double Bullet\+::get\+Distance\+Travelled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 86 of file bullet.\+cpp.
+
+
+\begin{DoxyCode}
+86                                    \{
+87     \textcolor{keywordflow}{return} \hyperlink{class_bullet_afe194c1b7e495d0c17492396595202e1}{distanceTravelled};
+88 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bullet_ada7a5f48649b2dc81ab1952cff51b6d9}\label{class_bullet_ada7a5f48649b2dc81ab1952cff51b6d9}} 
+\index{Bullet@{Bullet}!get\+Max\+Range@{get\+Max\+Range}}
+\index{get\+Max\+Range@{get\+Max\+Range}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{get\+Max\+Range}{getMaxRange}}
+{\footnotesize\ttfamily double Bullet\+::get\+Max\+Range (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 82 of file bullet.\+cpp.
+
+
+\begin{DoxyCode}
+82                           \{
+83     \textcolor{keywordflow}{return} \hyperlink{class_bullet_ae7c4fadfcc22643cb271622fe8bb2eb0}{maxRange};
+84 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bullet_a6140db968c42c05e829e142f74f20b16}\label{class_bullet_a6140db968c42c05e829e142f74f20b16}} 
+\index{Bullet@{Bullet}!move@{move}}
+\index{move@{move}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{move}{move}}
+{\footnotesize\ttfamily void Bullet\+::move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 35 of file bullet.\+cpp.
+
+
+\begin{DoxyCode}
+36 \{
+37     \textcolor{keywordtype}{int} STEP\_SIZE = 30;
+38     \textcolor{keywordtype}{double} theta = rotation(); \textcolor{comment}{//degrees}
+39 
+40     \textcolor{keywordtype}{double} dy = STEP\_SIZE * qSin(qDegreesToRadians(theta));
+41     \textcolor{keywordtype}{double} dx = STEP\_SIZE * qCos(qDegreesToRadians(theta));
+42 
+43     setPos(x()+dx, y()+dy);
+44 
+45     \hyperlink{class_bullet_afe194c1b7e495d0c17492396595202e1}{distanceTravelled} += STEP\_SIZE;
+46 
+47     \textcolor{comment}{//if collides with enemy}
+48     QList<QGraphicsItem*> colliding\_items = collidingItems();
+49         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i=0, n=colliding\_items.size(); i<n; i++)\{
+50             \textcolor{keywordflow}{if}(\textcolor{keyword}{typeid}(*(colliding\_items[i]))==\textcolor{keyword}{typeid}(\hyperlink{class_enemy}{Enemy}))
+51             \{
+52              \hyperlink{class_enemy}{Enemy}* asEnemy = \textcolor{keyword}{dynamic\_cast<}\hyperlink{class_enemy}{Enemy}*\textcolor{keyword}{>}(colliding\_items[i]);
+53              asEnemy->\hyperlink{class_enemy_ac7a5e3a071bcc4d67300cfae9446e0bd}{addDamage}(\hyperlink{class_bullet_a733d2ebbf9143c9ca68d3eb7e14121d0}{damage}); \textcolor{comment}{// CREATE addDamage function in Enemy}
+54 
+55              \textcolor{keywordflow}{if} (asEnemy->\hyperlink{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}{health} <= 0) \{
+56              \textcolor{comment}{//scene()->removeItem(asEnemy);}
+57              \hyperlink{bullet_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} += asEnemy->\hyperlink{class_enemy_a8f007e72b954c077e5433a111def78c3}{loot};
+58              \hyperlink{bullet_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a065998f7609f63e2987ede928359595a}{updateGold}();
+59              qDebug() << \textcolor{stringliteral}{"You be dead son!"};
+60              deleteLater();
+61              \textcolor{comment}{//delete this;}
+62              \textcolor{comment}{//delete asEnemy;}
+63              asEnemy->deleteLater();
+64              \hyperlink{bullet_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ab96914bfc1e59035233105abfb0787fe}{listOfEnemies}.removeOne(asEnemy);
+65              \textcolor{keywordflow}{return};
+66            \}
+67 \textcolor{comment}{//             deleteLater();}
+68 \textcolor{comment}{//             delete this;}
+69         \}
+70         \}
+71 
+72 
+73     \textcolor{comment}{//if over max range}
+74     \textcolor{keywordflow}{if} (\hyperlink{class_bullet_afe194c1b7e495d0c17492396595202e1}{distanceTravelled} >= \hyperlink{class_bullet_ae7c4fadfcc22643cb271622fe8bb2eb0}{maxRange}) \{
+75         deleteLater();
+76         \textcolor{comment}{//delete this;}
+77     \}
+78 
+79 
+80 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bullet_ac1037d7a9f775b28bf1bc2727c018707}\label{class_bullet_ac1037d7a9f775b28bf1bc2727c018707}} 
+\index{Bullet@{Bullet}!set\+Distance\+Travelled@{set\+Distance\+Travelled}}
+\index{set\+Distance\+Travelled@{set\+Distance\+Travelled}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{set\+Distance\+Travelled}{setDistanceTravelled}}
+{\footnotesize\ttfamily void Bullet\+::set\+Distance\+Travelled (\begin{DoxyParamCaption}\item[{double}]{dist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 94 of file bullet.\+cpp.
+
+
+\begin{DoxyCode}
+94                                             \{
+95     \hyperlink{class_bullet_afe194c1b7e495d0c17492396595202e1}{distanceTravelled} = dist;
+96 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_bullet_a070852a34b912c9379338df18e32cf91}\label{class_bullet_a070852a34b912c9379338df18e32cf91}} 
+\index{Bullet@{Bullet}!set\+Max\+Range@{set\+Max\+Range}}
+\index{set\+Max\+Range@{set\+Max\+Range}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{set\+Max\+Range}{setMaxRange}}
+{\footnotesize\ttfamily void Bullet\+::set\+Max\+Range (\begin{DoxyParamCaption}\item[{double}]{rng }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 90 of file bullet.\+cpp.
+
+
+\begin{DoxyCode}
+90                                   \{
+91     \hyperlink{class_bullet_ae7c4fadfcc22643cb271622fe8bb2eb0}{maxRange} = rng;
+92 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_bullet_a733d2ebbf9143c9ca68d3eb7e14121d0}\label{class_bullet_a733d2ebbf9143c9ca68d3eb7e14121d0}} 
+\index{Bullet@{Bullet}!damage@{damage}}
+\index{damage@{damage}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{damage}{damage}}
+{\footnotesize\ttfamily int Bullet\+::damage}
+
+
+
+Definition at line 12 of file bullet.\+h.
+
+\mbox{\Hypertarget{class_bullet_afe194c1b7e495d0c17492396595202e1}\label{class_bullet_afe194c1b7e495d0c17492396595202e1}} 
+\index{Bullet@{Bullet}!distance\+Travelled@{distance\+Travelled}}
+\index{distance\+Travelled@{distance\+Travelled}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{distance\+Travelled}{distanceTravelled}}
+{\footnotesize\ttfamily double Bullet\+::distance\+Travelled\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 25 of file bullet.\+h.
+
+\mbox{\Hypertarget{class_bullet_ae7c4fadfcc22643cb271622fe8bb2eb0}\label{class_bullet_ae7c4fadfcc22643cb271622fe8bb2eb0}} 
+\index{Bullet@{Bullet}!max\+Range@{max\+Range}}
+\index{max\+Range@{max\+Range}!Bullet@{Bullet}}
+\subsubsection{\texorpdfstring{max\+Range}{maxRange}}
+{\footnotesize\ttfamily double Bullet\+::max\+Range\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 24 of file bullet.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{bullet_8h}{bullet.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{bullet_8cpp}{bullet.\+cpp}\end{DoxyCompactItemize}

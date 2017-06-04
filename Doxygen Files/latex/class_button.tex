@@ -1,0 +1,160 @@
+\hypertarget{class_button}{}\section{Button Class Reference}
+\label{class_button}\index{Button@{Button}}
+
+
+{\ttfamily \#include $<$button.\+h$>$}
+
+Inheritance diagram for Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_button}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_button_a9e7ab4152cb1e7e3beb7f2842f32670c}{clicked} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_button_a69976e5c00874a3807b642f249c1c776}{Button} (Q\+String name, Q\+Graphics\+Item $\ast$parent=N\+U\+LL)
+\item 
+void \hyperlink{class_button_a17d8eb0c904605b223bbc00c75655315}{mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\item 
+void \hyperlink{class_button_a633a9684818bc5d300a622a00064f09c}{hover\+Enter\+Event} (Q\+Graphics\+Scene\+Hover\+Event $\ast$event)
+\item 
+void \hyperlink{class_button_ac7902a801be3eb542ce86e9c4cf4740d}{hoverleave\+Event} (Q\+Graphics\+Scene\+Hover\+Event $\ast$event)
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Graphics\+Text\+Item $\ast$ \hyperlink{class_button_a0d566bacc8c1befef9d09b839b6e76e6}{text}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 7 of file button.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_button_a69976e5c00874a3807b642f249c1c776}\label{class_button_a69976e5c00874a3807b642f249c1c776}} 
+\index{Button@{Button}!Button@{Button}}
+\index{Button@{Button}!Button@{Button}}
+\subsubsection{\texorpdfstring{Button()}{Button()}}
+{\footnotesize\ttfamily Button\+::\+Button (\begin{DoxyParamCaption}\item[{Q\+String}]{name,  }\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily NULL} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file button.\+cpp.
+
+
+\begin{DoxyCode}
+6                                                  : QGraphicsRectItem(parent)
+7 \{
+8     \textcolor{comment}{//draw the rect}
+9     setRect(0,0,200,50);
+10     QBrush brush;
+11     brush.setStyle(Qt::SolidPattern);
+12     brush.setColor(Qt::darkCyan);
+13     setBrush(brush);
+14 
+15     \textcolor{comment}{//draw the text}
+16     \hyperlink{class_button_a0d566bacc8c1befef9d09b839b6e76e6}{text} = \textcolor{keyword}{new} QGraphicsTextItem(name, \textcolor{keyword}{this});
+17     \textcolor{keywordtype}{int} xPos = rect().width()/2 - \hyperlink{class_button_a0d566bacc8c1befef9d09b839b6e76e6}{text}->boundingRect().width()/2;
+18     \textcolor{keywordtype}{int} yPos = rect().height()/2 - \hyperlink{class_button_a0d566bacc8c1befef9d09b839b6e76e6}{text}->boundingRect().height()/2;
+19     \hyperlink{class_button_a0d566bacc8c1befef9d09b839b6e76e6}{text}->setPos(xPos,yPos);
+20 
+21     \textcolor{comment}{//allow hover events}
+22     setAcceptHoverEvents(\textcolor{keyword}{true});
+23 
+24 
+25 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_button_a9e7ab4152cb1e7e3beb7f2842f32670c}\label{class_button_a9e7ab4152cb1e7e3beb7f2842f32670c}} 
+\index{Button@{Button}!clicked@{clicked}}
+\index{clicked@{clicked}!Button@{Button}}
+\subsubsection{\texorpdfstring{clicked}{clicked}}
+{\footnotesize\ttfamily void Button\+::clicked (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\mbox{\Hypertarget{class_button_a633a9684818bc5d300a622a00064f09c}\label{class_button_a633a9684818bc5d300a622a00064f09c}} 
+\index{Button@{Button}!hover\+Enter\+Event@{hover\+Enter\+Event}}
+\index{hover\+Enter\+Event@{hover\+Enter\+Event}!Button@{Button}}
+\subsubsection{\texorpdfstring{hover\+Enter\+Event()}{hoverEnterEvent()}}
+{\footnotesize\ttfamily void Button\+::hover\+Enter\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Hover\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 32 of file button.\+cpp.
+
+
+\begin{DoxyCode}
+33 \{
+34     \textcolor{comment}{//change colour}
+35     QBrush brush;
+36     brush.setStyle(Qt::SolidPattern);
+37     brush.setColor(Qt::cyan);
+38     setBrush(brush);
+39 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_button_ac7902a801be3eb542ce86e9c4cf4740d}\label{class_button_ac7902a801be3eb542ce86e9c4cf4740d}} 
+\index{Button@{Button}!hoverleave\+Event@{hoverleave\+Event}}
+\index{hoverleave\+Event@{hoverleave\+Event}!Button@{Button}}
+\subsubsection{\texorpdfstring{hoverleave\+Event()}{hoverleaveEvent()}}
+{\footnotesize\ttfamily void Button\+::hoverleave\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Hover\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 41 of file button.\+cpp.
+
+
+\begin{DoxyCode}
+42 \{
+43     \textcolor{comment}{//change colour back}
+44     QBrush brush;
+45     brush.setStyle(Qt::SolidPattern);
+46     brush.setColor(Qt::darkCyan);
+47     setBrush(brush);
+48 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_button_a17d8eb0c904605b223bbc00c75655315}\label{class_button_a17d8eb0c904605b223bbc00c75655315}} 
+\index{Button@{Button}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Button@{Button}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Button\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 27 of file button.\+cpp.
+
+
+\begin{DoxyCode}
+28 \{
+29     emit \hyperlink{class_button_a9e7ab4152cb1e7e3beb7f2842f32670c}{clicked}();
+30 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_button_a0d566bacc8c1befef9d09b839b6e76e6}\label{class_button_a0d566bacc8c1befef9d09b839b6e76e6}} 
+\index{Button@{Button}!text@{text}}
+\index{text@{text}!Button@{Button}}
+\subsubsection{\texorpdfstring{text}{text}}
+{\footnotesize\ttfamily Q\+Graphics\+Text\+Item$\ast$ Button\+::text\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 23 of file button.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{button_8h}{button.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{button_8cpp}{button.\+cpp}\end{DoxyCompactItemize}

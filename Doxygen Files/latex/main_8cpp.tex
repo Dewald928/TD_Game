@@ -1,0 +1,63 @@
+\hypertarget{main_8cpp}{}\section{C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/main.cpp File Reference}
+\label{main_8cpp}\index{C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/main.\+cpp@{C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/main.\+cpp}}
+{\ttfamily \#include \char`\"{}mainwindow.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Q\+Application$>$}\newline
+{\ttfamily \#include $<$game.\+h$>$}\newline
+{\ttfamily \#include $<$udpsocket.\+h$>$}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_game}{Game} $\ast$ \hyperlink{main_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 8 of file main.\+cpp.
+
+
+\begin{DoxyCode}
+9 \{
+10     QApplication a(argc, argv);
+11 
+12 \textcolor{comment}{//    MainWindow w;}
+13 \textcolor{comment}{//    w.show();}
+14 
+15     \hyperlink{main_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game} = \textcolor{keyword}{new} \hyperlink{class_game}{Game}();
+16     \hyperlink{main_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->show();
+17     \hyperlink{main_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_af74fd203e3b31917ca9d4769fa608c48}{displayMainMenu}();
+18 
+19     \hyperlink{class_u_d_p_socket}{UDPSocket} Host;
+20     \hyperlink{class_u_d_p_socket}{UDPSocket} Client;
+21 
+22     Client.\hyperlink{class_u_d_p_socket_a991e20366ed560c24402d7a6404daea7}{sayHello}();
+23 
+24 
+25     \textcolor{keywordflow}{return} a.exec();
+26 \}
+\end{DoxyCode}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{main_8cpp_a58bdb5643d0814ac4e697a1564b79b70}\label{main_8cpp_a58bdb5643d0814ac4e697a1564b79b70}} 
+\index{main.\+cpp@{main.\+cpp}!game@{game}}
+\index{game@{game}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{game}{game}}
+{\footnotesize\ttfamily \hyperlink{class_game}{Game}$\ast$ game}
+
+
+
+Definition at line 6 of file main.\+cpp.
+

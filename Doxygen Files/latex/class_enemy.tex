@@ -1,0 +1,460 @@
+\hypertarget{class_enemy}{}\section{Enemy Class Reference}
+\label{class_enemy}\index{Enemy@{Enemy}}
+
+
+{\ttfamily \#include $<$enemy.\+h$>$}
+
+Inheritance diagram for Enemy\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_enemy}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_enemy_afa4cb14cbeaf872456d223cb8a314928}{move\+\_\+forward} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_enemy_abfd2025e0660f920746f930d59b38bf0}{Enemy} (Q\+List$<$ Q\+PointF $>$ points\+To\+Follow, int enemy\+Number, Q\+Graphics\+Item $\ast$parent=0)
+\item 
+void \hyperlink{class_enemy_aed33c099d6ec54e1c6cfb676ac38de5b}{rotate\+To\+Point} (Q\+PointF p)
+\item 
+void \hyperlink{class_enemy_ac7a5e3a071bcc4d67300cfae9446e0bd}{add\+Damage} (int dam)
+\item 
+int \hyperlink{class_enemy_ab680828a4c84c33a66bea01178cdf3e3}{get\+Loot} () const
+\item 
+void \hyperlink{class_enemy_ad4139e522aa32c491271155adfb053f0}{set\+Loot} (int value)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}{health}
+\item 
+int \hyperlink{class_enemy_a8f007e72b954c077e5433a111def78c3}{loot}
+\item 
+int \hyperlink{class_enemy_aa949fdeff0f2f52bc9e779e69dfc27e0}{S\+T\+E\+P\+\_\+\+S\+I\+ZE}
+\item 
+Q\+Timer $\ast$ \hyperlink{class_enemy_a70012228edd80bdbf5d71374f0b7ef9e}{timer}
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+List$<$ Q\+PointF $>$ \hyperlink{class_enemy_ae8af9f207c5285b56f7cb190c66994c8}{points}
+\item 
+Q\+PointF \hyperlink{class_enemy_a50c844f66858b84fc8ebdfccf7e2c535}{dest}
+\item 
+int \hyperlink{class_enemy_a7291ad5563a976b78fbf6731b353f1c9}{point\+\_\+index}
+\item 
+Q\+Graphics\+Rect\+Item $\ast$ \hyperlink{class_enemy_ae2613608ff6c6d090a714874e722c340}{healthbar}
+\item 
+int \hyperlink{class_enemy_a259bfaab0f0d06c9ec2cb15c787e0b3a}{w}
+\item 
+int \hyperlink{class_enemy_adcb5512e63e735485cbb83f763acce75}{h}
+\item 
+int \hyperlink{class_enemy_aa5350ac40894832de19d669f0f65af4d}{healthwidth}
+\item 
+Q\+List$<$ Q\+Pixmap $>$ \hyperlink{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}{sprites}
+\item 
+double \hyperlink{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}{scale}
+\item 
+int \hyperlink{class_enemy_ad36955113c7ac1218b7435d7a87cb846}{sprite\+\_\+counter}
+\item 
+int \hyperlink{class_enemy_a5e1ff7cda54fcc5ae02925b0ecdbe1bc}{enemy\+Counter}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file enemy.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_enemy_abfd2025e0660f920746f930d59b38bf0}\label{class_enemy_abfd2025e0660f920746f930d59b38bf0}} 
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\index{Enemy@{Enemy}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{Enemy()}{Enemy()}}
+{\footnotesize\ttfamily Enemy\+::\+Enemy (\begin{DoxyParamCaption}\item[{Q\+List$<$ Q\+PointF $>$}]{points\+To\+Follow,  }\item[{int}]{enemy\+Number,  }\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file enemy.\+cpp.
+
+
+\begin{DoxyCode}
+14 \{
+15     \textcolor{comment}{//create enemy sprites}
+16     \hyperlink{class_enemy_a5e1ff7cda54fcc5ae02925b0ecdbe1bc}{enemyCounter} = enemyNumber;
+17     \textcolor{comment}{//add if parameter for enemy type}
+18     QPixmap p(\textcolor{stringliteral}{":/images/images/sprites.png"});
+19     QPixmap ouBill(\textcolor{stringliteral}{":/images/images/OuBill.png"});
+20     \hyperlink{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}{sprites}.append(ouBill);
+21 
+22     \textcolor{keywordflow}{if} (enemyNumber == 1) \{
+23         QPixmap eye1 = p.copy(234, 0, 39, 32);
+24         \hyperlink{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}{sprites}.append(eye1);
+25         QPixmap eye2 = p.copy(273, 0, 39, 32);
+26         \hyperlink{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}{sprites}.append(eye2);
+27         \hyperlink{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}{scale} = 3;
+28         \hyperlink{class_enemy_ad36955113c7ac1218b7435d7a87cb846}{sprite\_counter} = enemyNumber;
+29     \}
+30     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (enemyNumber == 0) \{
+31         \hyperlink{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}{scale} = 0.8;
+32         \hyperlink{class_enemy_ad36955113c7ac1218b7435d7a87cb846}{sprite\_counter} = 0;
+33     \} \textcolor{keywordflow}{else} \{
+34         \textcolor{keywordflow}{return};
+35     \}
+36 
+37 
+38 
+39 
+40     \textcolor{comment}{//set the graphics}
+41     setPixmap(\hyperlink{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}{sprites}[\hyperlink{class_enemy_ad36955113c7ac1218b7435d7a87cb846}{sprite\_counter}]);
+42     setScale(\hyperlink{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}{scale});
+43     \hyperlink{class_enemy_a259bfaab0f0d06c9ec2cb15c787e0b3a}{w} = pixmap().width();
+44     \hyperlink{class_enemy_adcb5512e63e735485cbb83f763acce75}{h} = pixmap().height();
+45     setOffset(-\hyperlink{class_enemy_a259bfaab0f0d06c9ec2cb15c787e0b3a}{w}/2,-\hyperlink{class_enemy_adcb5512e63e735485cbb83f763acce75}{h}/2);
+46 
+47     \textcolor{comment}{//set points}
+48     \hyperlink{class_enemy_ae8af9f207c5285b56f7cb190c66994c8}{points} << pointsToFollow;
+49     \hyperlink{class_enemy_a7291ad5563a976b78fbf6731b353f1c9}{point\_index} = 0;
+50     \hyperlink{class_enemy_a50c844f66858b84fc8ebdfccf7e2c535}{dest} = \hyperlink{class_enemy_ae8af9f207c5285b56f7cb190c66994c8}{points}[0];
+51     \hyperlink{class_enemy_aed33c099d6ec54e1c6cfb676ac38de5b}{rotateToPoint}(\hyperlink{class_enemy_a50c844f66858b84fc8ebdfccf7e2c535}{dest});
+52 
+53     \textcolor{comment}{//connect time to move}
+54     connect(\hyperlink{enemy_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a8feee9081542b15a9f2d889a6f1c8257}{gametimer}, SIGNAL(timeout()), \textcolor{keyword}{this}, SLOT(
+      \hyperlink{class_enemy_afa4cb14cbeaf872456d223cb8a314928}{move\_forward}()));
+55 
+56     \textcolor{comment}{//enemy default stats}
+57     \hyperlink{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}{health} = 2500;
+58     \hyperlink{class_enemy_a8f007e72b954c077e5433a111def78c3}{loot} = 50;
+59 
+60     \textcolor{comment}{//make health bar}
+61     \hyperlink{class_enemy_aa5350ac40894832de19d669f0f65af4d}{healthwidth} = \hyperlink{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}{health}/50+\hyperlink{enemy_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_af9a4b49ad573785e961b29758c84fdd0}{wave}->\hyperlink{class_waves_abfdc18a5f2f185285173797c1c67c6f9}{waveLevel};
+62     \hyperlink{class_enemy_ae2613608ff6c6d090a714874e722c340}{healthbar} = \textcolor{keyword}{new} QGraphicsRectItem(\textcolor{keyword}{this});
+63     \hyperlink{class_enemy_ae2613608ff6c6d090a714874e722c340}{healthbar}->setRect(-\hyperlink{class_enemy_a259bfaab0f0d06c9ec2cb15c787e0b3a}{w}/4,-\hyperlink{class_enemy_adcb5512e63e735485cbb83f763acce75}{h}/1.8, \hyperlink{class_enemy_aa5350ac40894832de19d669f0f65af4d}{healthwidth}/\hyperlink{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}{scale},10/
+      \hyperlink{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}{scale});
+64     QBrush brush;
+65     brush.setStyle(Qt::SolidPattern);
+66     brush.setColor(QColor(255,50,20));
+67     \hyperlink{class_enemy_ae2613608ff6c6d090a714874e722c340}{healthbar}->setBrush(brush);
+68 
+69 
+70 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_enemy_ac7a5e3a071bcc4d67300cfae9446e0bd}\label{class_enemy_ac7a5e3a071bcc4d67300cfae9446e0bd}} 
+\index{Enemy@{Enemy}!add\+Damage@{add\+Damage}}
+\index{add\+Damage@{add\+Damage}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{add\+Damage()}{addDamage()}}
+{\footnotesize\ttfamily void Enemy\+::add\+Damage (\begin{DoxyParamCaption}\item[{int}]{dam }\end{DoxyParamCaption})}
+
+
+
+Definition at line 88 of file enemy.\+cpp.
+
+
+\begin{DoxyCode}
+89 \{
+90     \hyperlink{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}{health} += -dam;
+91     \textcolor{comment}{//healthwidth = health/50+game->wave->waveLevel;}
+92     \hyperlink{class_enemy_ae2613608ff6c6d090a714874e722c340}{healthbar}->setRect(-\hyperlink{class_enemy_a259bfaab0f0d06c9ec2cb15c787e0b3a}{w}/4, -\hyperlink{class_enemy_adcb5512e63e735485cbb83f763acce75}{h}/1.8, (\hyperlink{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}{health}-dam)/\hyperlink{class_enemy_aa5350ac40894832de19d669f0f65af4d}{healthwidth}/
+      \hyperlink{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}{scale}, 10/\hyperlink{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}{scale});
+93 
+94 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_enemy_ab680828a4c84c33a66bea01178cdf3e3}\label{class_enemy_ab680828a4c84c33a66bea01178cdf3e3}} 
+\index{Enemy@{Enemy}!get\+Loot@{get\+Loot}}
+\index{get\+Loot@{get\+Loot}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{get\+Loot()}{getLoot()}}
+{\footnotesize\ttfamily int Enemy\+::get\+Loot (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Definition at line 78 of file enemy.\+cpp.
+
+
+\begin{DoxyCode}
+79 \{
+80     \textcolor{keywordflow}{return} \hyperlink{class_enemy_a8f007e72b954c077e5433a111def78c3}{loot};
+81 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_enemy_afa4cb14cbeaf872456d223cb8a314928}\label{class_enemy_afa4cb14cbeaf872456d223cb8a314928}} 
+\index{Enemy@{Enemy}!move\+\_\+forward@{move\+\_\+forward}}
+\index{move\+\_\+forward@{move\+\_\+forward}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{move\+\_\+forward}{move\_forward}}
+{\footnotesize\ttfamily void Enemy\+::move\+\_\+forward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 96 of file enemy.\+cpp.
+
+
+\begin{DoxyCode}
+97 \{
+98     \textcolor{comment}{//swap pixmap}
+99     \textcolor{keywordflow}{switch} (\hyperlink{class_enemy_ad36955113c7ac1218b7435d7a87cb846}{sprite\_counter}) \{
+100     \textcolor{keywordflow}{case} 0:
+101         setPixmap(\hyperlink{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}{sprites}[0]);
+102         \textcolor{keywordflow}{break};
+103     \textcolor{keywordflow}{case} 1:
+104         setPixmap(\hyperlink{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}{sprites}[1]);
+105         \hyperlink{class_enemy_ad36955113c7ac1218b7435d7a87cb846}{sprite\_counter}++;
+106         \textcolor{keywordflow}{break};
+107     \textcolor{keywordflow}{case} 2:
+108         setPixmap(\hyperlink{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}{sprites}[2]);
+109         \hyperlink{class_enemy_ad36955113c7ac1218b7435d7a87cb846}{sprite\_counter}--;
+110         \textcolor{keywordflow}{break};
+111     \textcolor{keywordflow}{default}:
+112         \textcolor{keywordflow}{break};
+113     \}
+114 
+115 
+116 
+117     \textcolor{comment}{//if close to dest, rotate to next dest}
+118     QLineF ln(pos(),\hyperlink{class_enemy_a50c844f66858b84fc8ebdfccf7e2c535}{dest});
+119     \textcolor{keywordflow}{if} ((ln.length() <5))
+120     \{
+121         \hyperlink{class_enemy_a7291ad5563a976b78fbf6731b353f1c9}{point\_index}++;
+122         \textcolor{keywordflow}{if} (\hyperlink{class_enemy_a7291ad5563a976b78fbf6731b353f1c9}{point\_index} >= \hyperlink{class_enemy_ae8af9f207c5285b56f7cb190c66994c8}{points}.size())\{
+123             \textcolor{keywordflow}{return};
+124         \}
+125         \hyperlink{class_enemy_a50c844f66858b84fc8ebdfccf7e2c535}{dest} = \hyperlink{class_enemy_ae8af9f207c5285b56f7cb190c66994c8}{points}[\hyperlink{class_enemy_a7291ad5563a976b78fbf6731b353f1c9}{point\_index}];
+126         \hyperlink{class_enemy_aed33c099d6ec54e1c6cfb676ac38de5b}{rotateToPoint}(\hyperlink{class_enemy_a50c844f66858b84fc8ebdfccf7e2c535}{dest});
+127     \}
+128 
+129     \textcolor{comment}{//move enemy at current angle}
+130     \hyperlink{class_enemy_aa949fdeff0f2f52bc9e779e69dfc27e0}{STEP\_SIZE} = 5;
+131     \textcolor{keywordtype}{double} theta = rotation(); \textcolor{comment}{//degrees}
+132 
+133     \textcolor{keywordtype}{double} dy = \hyperlink{class_enemy_aa949fdeff0f2f52bc9e779e69dfc27e0}{STEP\_SIZE} * qSin(qDegreesToRadians(theta));
+134     \textcolor{keywordtype}{double} dx = \hyperlink{class_enemy_aa949fdeff0f2f52bc9e779e69dfc27e0}{STEP\_SIZE} * qCos(qDegreesToRadians(theta));
+135 
+136     setPos(x()+dx, y()+dy);
+137 
+138     \hyperlink{enemy_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ae0adfbcc271a45a2c3ede2c6b948beda}{closestNode}(x(),y());
+139     \textcolor{keywordtype}{int} y\_map = (\hyperlink{enemy_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a861bf240380d110b285659d8af3f0406}{closestNodePos}.y() -\hyperlink{enemy_8cpp_a7bdaf8655b48f0d7994eb54ec1da4981}{map}->\hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY}/2)/
+      \hyperlink{enemy_8cpp_a7bdaf8655b48f0d7994eb54ec1da4981}{map}->\hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY};
+140     setZValue(y\_map);
+141 
+142     \textcolor{comment}{//if position at end node deconstruct enemy and take life}
+143     \textcolor{keywordflow}{if} (y()>= \hyperlink{enemy_8cpp_a7bdaf8655b48f0d7994eb54ec1da4981}{map}->\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}*\hyperlink{enemy_8cpp_a7bdaf8655b48f0d7994eb54ec1da4981}{map}->\hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY} - \hyperlink{enemy_8cpp_a7bdaf8655b48f0d7994eb54ec1da4981}{map}->\hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY}) \{
+144         \textcolor{comment}{//remove a live}
+145         \hyperlink{enemy_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_aacba034528d5c9fdefa4f246fe526a38}{Lives} += -1;
+146         \hyperlink{enemy_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_aa5e4edca458d1a1378d035a138d69635}{updateLives}();
+147 
+148         \textcolor{comment}{//play quack}
+149         QSound *quack = \textcolor{keyword}{new} QSound(\textcolor{stringliteral}{":/images/sounds/quack.wav"});
+150         quack->play();
+151 
+152         \textcolor{comment}{//if all lives are gone}
+153         \textcolor{keywordflow}{if} (\hyperlink{enemy_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_aacba034528d5c9fdefa4f246fe526a38}{Lives} <= 0) \{
+154             \hyperlink{enemy_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a838e89640d4cfbd7d7b7ee105135d4b8}{GAMEOVER}();
+155             \textcolor{keywordflow}{return};
+156         \}
+157 
+158         deleteLater();
+159         \hyperlink{enemy_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ab96914bfc1e59035233105abfb0787fe}{listOfEnemies}.removeOne(\textcolor{keyword}{this});
+160         \textcolor{comment}{//delete this;}
+161         \textcolor{keywordflow}{return};
+162     \}
+163 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_enemy_aed33c099d6ec54e1c6cfb676ac38de5b}\label{class_enemy_aed33c099d6ec54e1c6cfb676ac38de5b}} 
+\index{Enemy@{Enemy}!rotate\+To\+Point@{rotate\+To\+Point}}
+\index{rotate\+To\+Point@{rotate\+To\+Point}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{rotate\+To\+Point()}{rotateToPoint()}}
+{\footnotesize\ttfamily void Enemy\+::rotate\+To\+Point (\begin{DoxyParamCaption}\item[{Q\+PointF}]{p }\end{DoxyParamCaption})}
+
+
+
+Definition at line 72 of file enemy.\+cpp.
+
+
+\begin{DoxyCode}
+73 \{
+74     QLineF ln(pos(),p);
+75     setRotation(-1 * ln.angle());
+76 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_enemy_ad4139e522aa32c491271155adfb053f0}\label{class_enemy_ad4139e522aa32c491271155adfb053f0}} 
+\index{Enemy@{Enemy}!set\+Loot@{set\+Loot}}
+\index{set\+Loot@{set\+Loot}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{set\+Loot()}{setLoot()}}
+{\footnotesize\ttfamily void Enemy\+::set\+Loot (\begin{DoxyParamCaption}\item[{int}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line 83 of file enemy.\+cpp.
+
+
+\begin{DoxyCode}
+84 \{
+85     \hyperlink{class_enemy_a8f007e72b954c077e5433a111def78c3}{loot} = value;
+86 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_enemy_a50c844f66858b84fc8ebdfccf7e2c535}\label{class_enemy_a50c844f66858b84fc8ebdfccf7e2c535}} 
+\index{Enemy@{Enemy}!dest@{dest}}
+\index{dest@{dest}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{dest}{dest}}
+{\footnotesize\ttfamily Q\+PointF Enemy\+::dest\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 32 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_a5e1ff7cda54fcc5ae02925b0ecdbe1bc}\label{class_enemy_a5e1ff7cda54fcc5ae02925b0ecdbe1bc}} 
+\index{Enemy@{Enemy}!enemy\+Counter@{enemy\+Counter}}
+\index{enemy\+Counter@{enemy\+Counter}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{enemy\+Counter}{enemyCounter}}
+{\footnotesize\ttfamily int Enemy\+::enemy\+Counter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 41 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_adcb5512e63e735485cbb83f763acce75}\label{class_enemy_adcb5512e63e735485cbb83f763acce75}} 
+\index{Enemy@{Enemy}!h@{h}}
+\index{h@{h}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily int Enemy\+::h\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 36 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}\label{class_enemy_aedd5e7bf8ef07ee97be433c853a10d8d}} 
+\index{Enemy@{Enemy}!health@{health}}
+\index{health@{health}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{health}{health}}
+{\footnotesize\ttfamily int Enemy\+::health}
+
+
+
+Definition at line 18 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_ae2613608ff6c6d090a714874e722c340}\label{class_enemy_ae2613608ff6c6d090a714874e722c340}} 
+\index{Enemy@{Enemy}!healthbar@{healthbar}}
+\index{healthbar@{healthbar}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{healthbar}{healthbar}}
+{\footnotesize\ttfamily Q\+Graphics\+Rect\+Item$\ast$ Enemy\+::healthbar\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 34 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_aa5350ac40894832de19d669f0f65af4d}\label{class_enemy_aa5350ac40894832de19d669f0f65af4d}} 
+\index{Enemy@{Enemy}!healthwidth@{healthwidth}}
+\index{healthwidth@{healthwidth}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{healthwidth}{healthwidth}}
+{\footnotesize\ttfamily int Enemy\+::healthwidth\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 37 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_a8f007e72b954c077e5433a111def78c3}\label{class_enemy_a8f007e72b954c077e5433a111def78c3}} 
+\index{Enemy@{Enemy}!loot@{loot}}
+\index{loot@{loot}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{loot}{loot}}
+{\footnotesize\ttfamily int Enemy\+::loot}
+
+
+
+Definition at line 19 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_a7291ad5563a976b78fbf6731b353f1c9}\label{class_enemy_a7291ad5563a976b78fbf6731b353f1c9}} 
+\index{Enemy@{Enemy}!point\+\_\+index@{point\+\_\+index}}
+\index{point\+\_\+index@{point\+\_\+index}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{point\+\_\+index}{point\_index}}
+{\footnotesize\ttfamily int Enemy\+::point\+\_\+index\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 33 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_ae8af9f207c5285b56f7cb190c66994c8}\label{class_enemy_ae8af9f207c5285b56f7cb190c66994c8}} 
+\index{Enemy@{Enemy}!points@{points}}
+\index{points@{points}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{points}{points}}
+{\footnotesize\ttfamily Q\+List$<$Q\+PointF$>$ Enemy\+::points\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 31 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}\label{class_enemy_a5c11ea6afd7998cf74a6a73dc05d0a63}} 
+\index{Enemy@{Enemy}!scale@{scale}}
+\index{scale@{scale}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{scale}{scale}}
+{\footnotesize\ttfamily double Enemy\+::scale\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 39 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_ad36955113c7ac1218b7435d7a87cb846}\label{class_enemy_ad36955113c7ac1218b7435d7a87cb846}} 
+\index{Enemy@{Enemy}!sprite\+\_\+counter@{sprite\+\_\+counter}}
+\index{sprite\+\_\+counter@{sprite\+\_\+counter}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{sprite\+\_\+counter}{sprite\_counter}}
+{\footnotesize\ttfamily int Enemy\+::sprite\+\_\+counter\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 40 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}\label{class_enemy_ae65aa5ab482bb5eae5c0329c821e5827}} 
+\index{Enemy@{Enemy}!sprites@{sprites}}
+\index{sprites@{sprites}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{sprites}{sprites}}
+{\footnotesize\ttfamily Q\+List$<$Q\+Pixmap$>$ Enemy\+::sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 38 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_aa949fdeff0f2f52bc9e779e69dfc27e0}\label{class_enemy_aa949fdeff0f2f52bc9e779e69dfc27e0}} 
+\index{Enemy@{Enemy}!S\+T\+E\+P\+\_\+\+S\+I\+ZE@{S\+T\+E\+P\+\_\+\+S\+I\+ZE}}
+\index{S\+T\+E\+P\+\_\+\+S\+I\+ZE@{S\+T\+E\+P\+\_\+\+S\+I\+ZE}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{S\+T\+E\+P\+\_\+\+S\+I\+ZE}{STEP\_SIZE}}
+{\footnotesize\ttfamily int Enemy\+::\+S\+T\+E\+P\+\_\+\+S\+I\+ZE}
+
+
+
+Definition at line 21 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_a70012228edd80bdbf5d71374f0b7ef9e}\label{class_enemy_a70012228edd80bdbf5d71374f0b7ef9e}} 
+\index{Enemy@{Enemy}!timer@{timer}}
+\index{timer@{timer}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily Q\+Timer$\ast$ Enemy\+::timer}
+
+
+
+Definition at line 22 of file enemy.\+h.
+
+\mbox{\Hypertarget{class_enemy_a259bfaab0f0d06c9ec2cb15c787e0b3a}\label{class_enemy_a259bfaab0f0d06c9ec2cb15c787e0b3a}} 
+\index{Enemy@{Enemy}!w@{w}}
+\index{w@{w}!Enemy@{Enemy}}
+\subsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily int Enemy\+::w\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 35 of file enemy.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{enemy_8h}{enemy.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{enemy_8cpp}{enemy.\+cpp}\end{DoxyCompactItemize}

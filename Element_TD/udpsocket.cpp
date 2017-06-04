@@ -40,7 +40,7 @@ void UDPSocket::processTheDatagram(QNetworkDatagram datagram)
     sData = datagram.data();
 
     if (sData == "spwn") {
-        game->spawnEnemy(1);
+        game->spawnEnemy(0);
     }
 
     if (sData == "ACK") {

@@ -1,0 +1,263 @@
+\hypertarget{class_canon_tower}{}\section{Canon\+Tower Class Reference}
+\label{class_canon_tower}\index{Canon\+Tower@{Canon\+Tower}}
+
+
+{\ttfamily \#include $<$canontower.\+h$>$}
+
+Inheritance diagram for Canon\+Tower\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_canon_tower}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_canon_tower_a02bacc0ba6efc6252b15c0daffbf87a9}{aquire\+\_\+target} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_canon_tower_a52a7edf2351dcf8646f25ff97c97cdf3}{Canon\+Tower} (Q\+Graphics\+Item $\ast$parent=0)
+\item 
+void \hyperlink{class_canon_tower_aa8d13cf8b8d530256b95746620e16234}{fire} ()
+\item 
+int \hyperlink{class_canon_tower_ac0e57d350da509e89e926afe950ab291}{get\+Cost\+Of\+Tower} ()
+\item 
+void \hyperlink{class_canon_tower_a15edd7ff8846e44faaca6ab5e7b183dc}{mouse\+Press\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\item 
+void \hyperlink{class_canon_tower_ac4956cf0bb621db0874403551eaf1eb1}{mouse\+Double\+Click\+Event} (Q\+Graphics\+Scene\+Mouse\+Event $\ast$event)
+\item 
+void \hyperlink{class_canon_tower_a5bfc0567c8907e8a6ddf4722f6783cd0}{sell\+Tower} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{class_canon_tower_a545089ae31859c4bf0e46316c637383b}{cost\+Of\+Tower} = 200
+\end{DoxyCompactItemize}
+\subsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_canon_tower_a26ea42f5a200246080dfba01340f057b}{tower\+Damage}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 7 of file canontower.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_canon_tower_a52a7edf2351dcf8646f25ff97c97cdf3}\label{class_canon_tower_a52a7edf2351dcf8646f25ff97c97cdf3}} 
+\index{Canon\+Tower@{Canon\+Tower}!Canon\+Tower@{Canon\+Tower}}
+\index{Canon\+Tower@{Canon\+Tower}!Canon\+Tower@{Canon\+Tower}}
+\subsubsection{\texorpdfstring{Canon\+Tower()}{CanonTower()}}
+{\footnotesize\ttfamily Canon\+Tower\+::\+Canon\+Tower (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 9 of file canontower.\+cpp.
+
+
+\begin{DoxyCode}
+10 \{
+11     \textcolor{comment}{//set graphics}
+12     setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/Tower\_Canon.png"}));
+13     \textcolor{keywordtype}{int} w = pixmap().width();
+14     \textcolor{keywordtype}{int} h = pixmap().height();
+15     setOffset(-w/2,-h/1.25);
+16 
+17     \textcolor{comment}{//connect timer to aaquire target}
+18     QTimer * timer = \textcolor{keyword}{new} QTimer();
+19     connect(timer,SIGNAL(timeout()),\textcolor{keyword}{this},SLOT(\hyperlink{class_canon_tower_a02bacc0ba6efc6252b15c0daffbf87a9}{aquire\_target}()));
+20     timer->start(2000);
+21 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_canon_tower_a02bacc0ba6efc6252b15c0daffbf87a9}\label{class_canon_tower_a02bacc0ba6efc6252b15c0daffbf87a9}} 
+\index{Canon\+Tower@{Canon\+Tower}!aquire\+\_\+target@{aquire\+\_\+target}}
+\index{aquire\+\_\+target@{aquire\+\_\+target}!Canon\+Tower@{Canon\+Tower}}
+\subsubsection{\texorpdfstring{aquire\+\_\+target}{aquire\_target}}
+{\footnotesize\ttfamily void Canon\+Tower\+::aquire\+\_\+target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 53 of file canontower.\+cpp.
+
+
+\begin{DoxyCode}
+54 \{
+55     \hyperlink{class_tower_a6e0df1e43e746622967918aaf6f42dce}{Tower::aquire\_target}();
+56 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_canon_tower_aa8d13cf8b8d530256b95746620e16234}\label{class_canon_tower_aa8d13cf8b8d530256b95746620e16234}} 
+\index{Canon\+Tower@{Canon\+Tower}!fire@{fire}}
+\index{fire@{fire}!Canon\+Tower@{Canon\+Tower}}
+\subsubsection{\texorpdfstring{fire()}{fire()}}
+{\footnotesize\ttfamily void Canon\+Tower\+::fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_tower_aa0c9c780f48cffacd3da6877f5d4fdc2}{Tower}.
+
+
+
+Definition at line 23 of file canontower.\+cpp.
+
+
+\begin{DoxyCode}
+24 \{
+25     \textcolor{comment}{//create the bullets}
+26     \hyperlink{class_bullet}{Bullet} *bullet = \textcolor{keyword}{new} \hyperlink{class_bullet}{Bullet}();
+27 
+28     \textcolor{comment}{//set the graphics}
+29     bullet->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/Projectile\_Canon-min.png"}));
+30     \textcolor{comment}{//bullet->setScale(game->scalingfactor\_bullets);}
+31 
+32     \textcolor{comment}{//set the damage}
+33     bullet->\hyperlink{class_bullet_a733d2ebbf9143c9ca68d3eb7e14121d0}{damage} = 30;
+34 
+35     \textcolor{keywordtype}{int} y\_pos = pixmap().height()*\hyperlink{canontower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a6c1ca48f17f6934432d01bfa7f762a04}{scalingfactor\_towers}/1.25;
+36 
+37     bullet->setPos(x(), y()-y\_pos);
+38 
+39     QLineF ln(QPointF(x(), y()-y\_pos),\hyperlink{class_tower_a2b3e8ab90ccceed1fa3a667db80c2c06}{attack\_dest});
+40     \textcolor{keywordtype}{int} angle = -1*ln.angle();
+41 
+42     bullet->setRotation(angle);
+43 
+44     \hyperlink{canontower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(bullet);
+45 
+46 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_canon_tower_ac0e57d350da509e89e926afe950ab291}\label{class_canon_tower_ac0e57d350da509e89e926afe950ab291}} 
+\index{Canon\+Tower@{Canon\+Tower}!get\+Cost\+Of\+Tower@{get\+Cost\+Of\+Tower}}
+\index{get\+Cost\+Of\+Tower@{get\+Cost\+Of\+Tower}!Canon\+Tower@{Canon\+Tower}}
+\subsubsection{\texorpdfstring{get\+Cost\+Of\+Tower()}{getCostOfTower()}}
+{\footnotesize\ttfamily int Canon\+Tower\+::get\+Cost\+Of\+Tower (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_tower_ae1d3f44d0149c8146ccf6b262a52ddad}{Tower}.
+
+
+
+Definition at line 48 of file canontower.\+cpp.
+
+
+\begin{DoxyCode}
+49 \{
+50     \textcolor{keywordflow}{return} \hyperlink{class_canon_tower_a545089ae31859c4bf0e46316c637383b}{costOfTower};
+51 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_canon_tower_ac4956cf0bb621db0874403551eaf1eb1}\label{class_canon_tower_ac4956cf0bb621db0874403551eaf1eb1}} 
+\index{Canon\+Tower@{Canon\+Tower}!mouse\+Double\+Click\+Event@{mouse\+Double\+Click\+Event}}
+\index{mouse\+Double\+Click\+Event@{mouse\+Double\+Click\+Event}!Canon\+Tower@{Canon\+Tower}}
+\subsubsection{\texorpdfstring{mouse\+Double\+Click\+Event()}{mouseDoubleClickEvent()}}
+{\footnotesize\ttfamily void Canon\+Tower\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 75 of file canontower.\+cpp.
+
+
+\begin{DoxyCode}
+76 \{
+77     \textcolor{comment}{//upgrade tower}
+78     setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/Tower\_Canon\_2.png"}));
+79     \textcolor{keywordtype}{int} w = pixmap().width();
+80     \textcolor{keywordtype}{int} h = pixmap().height();
+81     setOffset(-w/2,-h/1.25);
+82 
+83     \textcolor{comment}{//upgrade damage}
+84     \hyperlink{class_canon_tower_a26ea42f5a200246080dfba01340f057b}{towerDamage} = 60;
+85 
+86     \textcolor{comment}{//update gold}
+87     \hyperlink{canontower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_ad8a7cc146f99c7ec5b7c3c25d73f118c}{player1}->\hyperlink{class_player1_ab390478b345e443398bac442a04b675c}{Gold} += -\hyperlink{class_canon_tower_a545089ae31859c4bf0e46316c637383b}{costOfTower}/2;
+88     \hyperlink{canontower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a065998f7609f63e2987ede928359595a}{updateGold}();
+89 
+90 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_canon_tower_a15edd7ff8846e44faaca6ab5e7b183dc}\label{class_canon_tower_a15edd7ff8846e44faaca6ab5e7b183dc}} 
+\index{Canon\+Tower@{Canon\+Tower}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Canon\+Tower@{Canon\+Tower}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Canon\+Tower\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+Definition at line 58 of file canontower.\+cpp.
+
+
+\begin{DoxyCode}
+59 \{
+60 
+61    qDebug() << \textcolor{stringliteral}{"Clicked Tower"};
+62 
+63    \textcolor{comment}{//right mouse sell}
+64     \textcolor{keywordflow}{if} (event->button() == Qt::RightButton) \{
+65         \hyperlink{class_canon_tower_a5bfc0567c8907e8a6ddf4722f6783cd0}{sellTower}();
+66     \}
+67     \textcolor{keywordflow}{else}
+68     \{
+69         \textcolor{comment}{//        QGraphicsView::mousePressEvent(event);}
+70         \textcolor{keywordflow}{return};
+71     \}
+72 
+73 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_canon_tower_a5bfc0567c8907e8a6ddf4722f6783cd0}\label{class_canon_tower_a5bfc0567c8907e8a6ddf4722f6783cd0}} 
+\index{Canon\+Tower@{Canon\+Tower}!sell\+Tower@{sell\+Tower}}
+\index{sell\+Tower@{sell\+Tower}!Canon\+Tower@{Canon\+Tower}}
+\subsubsection{\texorpdfstring{sell\+Tower()}{sellTower()}}
+{\footnotesize\ttfamily void Canon\+Tower\+::sell\+Tower (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented from \hyperlink{class_tower_a7736b1132e64e14a977e9e8c91c3338f}{Tower}.
+
+
+
+Definition at line 92 of file canontower.\+cpp.
+
+
+\begin{DoxyCode}
+93 \{
+94     qDebug() << \textcolor{stringliteral}{"sold arrow"};
+95     \textcolor{comment}{//meh}
+96 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_canon_tower_a545089ae31859c4bf0e46316c637383b}\label{class_canon_tower_a545089ae31859c4bf0e46316c637383b}} 
+\index{Canon\+Tower@{Canon\+Tower}!cost\+Of\+Tower@{cost\+Of\+Tower}}
+\index{cost\+Of\+Tower@{cost\+Of\+Tower}!Canon\+Tower@{Canon\+Tower}}
+\subsubsection{\texorpdfstring{cost\+Of\+Tower}{costOfTower}}
+{\footnotesize\ttfamily const int Canon\+Tower\+::cost\+Of\+Tower = 200}
+
+
+
+Definition at line 17 of file canontower.\+h.
+
+\mbox{\Hypertarget{class_canon_tower_a26ea42f5a200246080dfba01340f057b}\label{class_canon_tower_a26ea42f5a200246080dfba01340f057b}} 
+\index{Canon\+Tower@{Canon\+Tower}!tower\+Damage@{tower\+Damage}}
+\index{tower\+Damage@{tower\+Damage}!Canon\+Tower@{Canon\+Tower}}
+\subsubsection{\texorpdfstring{tower\+Damage}{towerDamage}}
+{\footnotesize\ttfamily int Canon\+Tower\+::tower\+Damage\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Definition at line 22 of file canontower.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{canontower_8h}{canontower.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{canontower_8cpp}{canontower.\+cpp}\end{DoxyCompactItemize}

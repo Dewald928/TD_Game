@@ -1,0 +1,489 @@
+\hypertarget{class_map}{}\section{Map Class Reference}
+\label{class_map}\index{Map@{Map}}
+
+
+{\ttfamily \#include $<$map.\+h$>$}
+
+Inheritance diagram for Map\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_map}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_map_a0f5ad0fd4563497b4214038cbca8b582}{Map} ()
+\item 
+int \hyperlink{class_map_a0c1055f7616a6779a7f5f1d561a8ccb2}{calcH} (\hyperlink{class_node}{Node} $\ast$a, \hyperlink{class_node}{Node} $\ast$b)
+\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_map_a19461c64e6da374e8022d210a6930867}{smallestF} ()
+\item 
+void \hyperlink{class_map_adac9fc32a2c840b40e1417292e846fe2}{calc\+Neighbours} (\hyperlink{class_node}{Node} $\ast$n)
+\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_map_a9500f43b02ce38b5e89248bd6e257858}{get\+Node} (int \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}, int \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y})
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+List$<$ Q\+PointF $>$ \hyperlink{class_map_a07f51de84c133707fedaeffd04aff2d5}{nodepoints}
+\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map} \mbox{[}\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}\mbox{]}\mbox{[}\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}\mbox{]}
+\item 
+Q\+Pixmap $\ast$ \hyperlink{class_map_af0167137084000cfb58a33df8474bcbe}{obstruction}
+\item 
+Q\+Pixmap $\ast$ \hyperlink{class_map_a99d78bd384bf091660dbc6e1123419b0}{path}
+\item 
+Q\+Pixmap $\ast$ \hyperlink{class_map_a322ef8e3f55269ef565a58f20190d148}{grass}
+\item 
+Q\+Pixmap $\ast$ \hyperlink{class_map_a4dafaf125d6014a97e98168e41492cd5}{portal}
+\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_map_aafcbf6f458eb48f4945f3d0b58d2ef85}{start}
+\item 
+\hyperlink{class_node}{Node} $\ast$ \hyperlink{class_map_abdb357cb53c27be3b6e3c2b54bfde669}{finish}
+\item 
+Q\+List$<$ \hyperlink{class_node}{Node} $\ast$ $>$ \hyperlink{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}{open\+List}
+\item 
+Q\+List$<$ \hyperlink{class_node}{Node} $\ast$ $>$ \hyperlink{class_map_ae1ced58b787598940bb444659bacd7d3}{closed\+List}
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static const int \hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX} = 11
+\item 
+static const int \hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY} = 14
+\item 
+static const int \hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX} = 64
+\item 
+static const int \hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY} = 64
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 9 of file map.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_map_a0f5ad0fd4563497b4214038cbca8b582}\label{class_map_a0f5ad0fd4563497b4214038cbca8b582}} 
+\index{Map@{Map}!Map@{Map}}
+\index{Map@{Map}!Map@{Map}}
+\subsubsection{\texorpdfstring{Map()}{Map()}}
+{\footnotesize\ttfamily Map\+::\+Map (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file map.\+cpp.
+
+
+\begin{DoxyCode}
+13 \{
+14     \textcolor{comment}{//initialize tiles}
+15     \hyperlink{class_map_a322ef8e3f55269ef565a58f20190d148}{grass} = \textcolor{keyword}{new} QPixmap(\textcolor{stringliteral}{":/images/images/grass.png"});
+16     \hyperlink{class_map_a99d78bd384bf091660dbc6e1123419b0}{path} = \textcolor{keyword}{new} QPixmap(\textcolor{stringliteral}{":/images/images/path.png"});
+17     \hyperlink{class_map_af0167137084000cfb58a33df8474bcbe}{obstruction} = \textcolor{keyword}{new} QPixmap(\textcolor{stringliteral}{":/images/images/obstruction.png"});
+18     \hyperlink{class_map_a4dafaf125d6014a97e98168e41492cd5}{portal} = \textcolor{keyword}{new} QPixmap(\textcolor{stringliteral}{":/images/images/portal.png"});
+19 
+20     \textcolor{comment}{//populate map}
+21     \textcolor{comment}{//cout << "Start: " << clock() << " "  << endl;}
+22     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}  = 0; \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} < \hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}; ++\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}) \{
+23         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = 0; \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} < \hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}; ++\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}) \{
+24             \hyperlink{class_node}{Node} *t = \textcolor{keyword}{new} \hyperlink{class_node_a99ae3b67742635b847aff323ddd29b62}{Node};
+25             t->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} = 1;
+26             t->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} = \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x};
+27             t->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y};
+28             t->\hyperlink{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}{f} = 0;
+29             t->\hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g} = 0;
+30             t->\hyperlink{class_node_afb5a7ac7536a9e09488bb685420cd78a}{h} = 0;
+31             t->\hyperlink{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent} = 0;
+32             t->\hyperlink{class_node_a2bb1959485873369ea2504c1dece3f33}{path} = \textcolor{keyword}{false};
+33             t->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a283b79b5e51a79e202e0702f189485ad}{Grass};
+34             \textcolor{keywordtype}{int} x\_pos = \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}*pixmap().width() + pixmap().width()/2;
+35             \textcolor{keywordtype}{int} y\_pos = \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}*pixmap().height() + pixmap().height()/2;
+36             t->\hyperlink{class_node_a77faa088c74e20a361a181b58e8a4c7f}{point} = QPointF(x\_pos,y\_pos);
+37             \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}] = t;
+38             \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}]->setPos(\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x},\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y});
+39             \hyperlink{class_map_a07f51de84c133707fedaeffd04aff2d5}{nodepoints} << QPointF(x\_pos, y\_pos);
+40 
+41         \}
+42     \}
+43 
+44     \textcolor{comment}{//EDGES //add die cost}
+45     \textcolor{comment}{/*top row*/}
+46     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}  = 0; \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} < \hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}; ++\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}) \{
+47         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = 0; \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} < 1; ++\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}) \{
+48             \hyperlink{class_node}{Node} *t = \textcolor{keyword}{new} \hyperlink{class_node_a99ae3b67742635b847aff323ddd29b62}{Node};
+49             t->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1ae4afc87ae4a7816fdef8d05002e6dce4}{Obstruction};
+50             t->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} = 100;
+51             \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}] = t;
+52             t->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_007.png"}));
+53         \}
+54     \}
+55     \textcolor{comment}{/*bottom row*/}
+56     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}  = 0; \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} < \hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}; ++\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}) \{
+57         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = mapY-1; \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} < \hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}; ++\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}) \{
+58             \hyperlink{class_node}{Node} *t = \textcolor{keyword}{new} \hyperlink{class_node_a99ae3b67742635b847aff323ddd29b62}{Node};
+59             t->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1ae4afc87ae4a7816fdef8d05002e6dce4}{Obstruction};
+60             t->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} = 100;
+61             \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}] = t;
+62             t->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_052.png"}));
+63         \}
+64     \}
+65 
+66     \textcolor{comment}{/*left coloum*/}
+67     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}  = 0; \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} < 1; ++\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}) \{
+68         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = 0; \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} < \hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}; ++\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}) \{
+69             \hyperlink{class_node}{Node} *t = \textcolor{keyword}{new} \hyperlink{class_node_a99ae3b67742635b847aff323ddd29b62}{Node};
+70             t->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1ae4afc87ae4a7816fdef8d05002e6dce4}{Obstruction};
+71             t->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} = 100;
+72             \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}] = t;
+73             t->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_021.png"}));
+74         \}
+75     \}
+76 
+77     \textcolor{comment}{/*right coloum*/}
+78     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}  = mapX-1; \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} < \hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}; ++\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}) \{
+79         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = 0; \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} < \hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}; ++\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}) \{
+80             \hyperlink{class_node}{Node} *t = \textcolor{keyword}{new} \hyperlink{class_node_a99ae3b67742635b847aff323ddd29b62}{Node};
+81             t->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1ae4afc87ae4a7816fdef8d05002e6dce4}{Obstruction};
+82             t->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} = 100;
+83             \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}] = t;
+84             t->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/mapTile\_023.png"}));
+85         \}
+86     \}
+87 
+88 
+89 
+90     \textcolor{comment}{//portals}
+91     \textcolor{comment}{/*Top portal*/}
+92     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}  = mapX/2; \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} < mapX/2+1; ++\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}) \{
+93         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = 0; \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} < 1; ++\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}) \{
+94             \hyperlink{class_node}{Node} *t = \textcolor{keyword}{new} \hyperlink{class_node_a99ae3b67742635b847aff323ddd29b62}{Node};
+95             t->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} = 1;
+96             t->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} = \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x};
+97             t->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y};
+98             t->\hyperlink{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}{f} = 0;
+99             t->\hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g} = 0;
+100             t->\hyperlink{class_node_afb5a7ac7536a9e09488bb685420cd78a}{h} = 0;
+101             t->\hyperlink{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent} = 0;
+102             t->\hyperlink{class_node_a2bb1959485873369ea2504c1dece3f33}{path} = \textcolor{keyword}{false};
+103             t->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a283b79b5e51a79e202e0702f189485ad}{Grass};
+104             \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}] = t;
+105             t->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/portal.png"}));
+106         \}
+107     \}
+108 
+109     \textcolor{comment}{/*Bottom portal*/}
+110     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}  = mapX/2; \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} < mapX/2+1; ++\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}) \{
+111         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = mapY-1; \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} < \hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}; ++\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}) \{
+112             \hyperlink{class_node}{Node} *t = \textcolor{keyword}{new} \hyperlink{class_node_a99ae3b67742635b847aff323ddd29b62}{Node};
+113             t->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} = 1;
+114             t->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} = \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x};
+115             t->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y};
+116             t->\hyperlink{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}{f} = 0;
+117             t->\hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g} = 0;
+118             t->\hyperlink{class_node_afb5a7ac7536a9e09488bb685420cd78a}{h} = 0;
+119             t->\hyperlink{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent} = 0;
+120             t->\hyperlink{class_node_a2bb1959485873369ea2504c1dece3f33}{path} = \textcolor{keyword}{false};
+121             t->\hyperlink{class_node_a2250e2c1710fb19f15f236ac69563613}{tile} = \hyperlink{node_8h_ac9e486ec80ccfdb28a4f4837d419c9f1a283b79b5e51a79e202e0702f189485ad}{Grass};
+122             \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}] = t;
+123             t->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/portal.png"}));
+124         \}
+125     \}
+126 
+127 
+128     \textcolor{comment}{//set beginning and en points}
+129     \hyperlink{class_map_aafcbf6f458eb48f4945f3d0b58d2ef85}{start} = \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[mapX/2][0];
+130     \hyperlink{class_map_abdb357cb53c27be3b6e3c2b54bfde669}{finish} = \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[mapX/2][mapY-1];
+131     \hyperlink{class_map_aafcbf6f458eb48f4945f3d0b58d2ef85}{start}->\hyperlink{class_node_a77faa088c74e20a361a181b58e8a4c7f}{point} = QPointF(mapX*\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}/2, \hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY}/2);
+132     \hyperlink{class_map_abdb357cb53c27be3b6e3c2b54bfde669}{finish}->\hyperlink{class_node_a77faa088c74e20a361a181b58e8a4c7f}{point} = QPointF(mapX*\hyperlink{class_map_af2aa425dd22aba483ae973c4a15fe934}{tileX}/2, mapY*\hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY} - 
+      \hyperlink{class_map_a483dfba507cee9d2fa60a074992b1fcf}{tileY}/2);
+133 
+134     \textcolor{comment}{//sets start node to closed list and calculate neighbors}
+135     \hyperlink{class_map_ae1ced58b787598940bb444659bacd7d3}{closedList}.append(\hyperlink{class_map_aafcbf6f458eb48f4945f3d0b58d2ef85}{start});
+136     \hyperlink{class_map_adac9fc32a2c840b40e1417292e846fe2}{calcNeighbours}(\hyperlink{class_map_aafcbf6f458eb48f4945f3d0b58d2ef85}{start});
+137 
+138     \textcolor{comment}{//start A*}
+139     \textcolor{comment}{//cout << "InitMap" << clock() << endl;}
+140 
+141 \textcolor{comment}{//    while (openList.length() > 0)}
+142 \textcolor{comment}{//    \{}
+143 \textcolor{comment}{//        Node *t = smallestF();}
+144 \textcolor{comment}{//        closedList.append(t);}
+145 \textcolor{comment}{//        if (t == finish)}
+146 \textcolor{comment}{//        \{}
+147 \textcolor{comment}{//            while (t->parent)}
+148 \textcolor{comment}{//            \{}
+149 \textcolor{comment}{//                t->path = true;}
+150 \textcolor{comment}{//                t = t->parent;}
+151 \textcolor{comment}{//                t->tile = Path;}
+152 \textcolor{comment}{//                game->pointsToFollow << point;}
+153 \textcolor{comment}{//            \}}
+154 
+155 \textcolor{comment}{//        \}}
+156 \textcolor{comment}{//        calcNeighbours(t);}
+157 \textcolor{comment}{//    \}}
+158 
+159     \textcolor{comment}{//cout << "Path found: " << clock() << endl;}
+160 
+161     \textcolor{comment}{//cout << " Map printed: " << clock() << endl;}
+162 
+163 
+164 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_map_a0c1055f7616a6779a7f5f1d561a8ccb2}\label{class_map_a0c1055f7616a6779a7f5f1d561a8ccb2}} 
+\index{Map@{Map}!calcH@{calcH}}
+\index{calcH@{calcH}!Map@{Map}}
+\subsubsection{\texorpdfstring{calc\+H()}{calcH()}}
+{\footnotesize\ttfamily int Map\+::calcH (\begin{DoxyParamCaption}\item[{\hyperlink{class_node}{Node} $\ast$}]{a,  }\item[{\hyperlink{class_node}{Node} $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line 166 of file map.\+cpp.
+
+
+\begin{DoxyCode}
+167 \{
+168     \textcolor{keywordtype}{int} \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}, \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y};
+169     a->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} - b->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} >= 0 ? x = a->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} - b->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} : x = b->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}; \textcolor{comment}{//weti of kla}
+170     a->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} - b->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} >= 0 ? y = a->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} - b->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} : y = b->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}; \textcolor{comment}{//weti of kla}
+171     \textcolor{keywordflow}{return} x >= y ? x * 10 : y * 10;
+172 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_map_adac9fc32a2c840b40e1417292e846fe2}\label{class_map_adac9fc32a2c840b40e1417292e846fe2}} 
+\index{Map@{Map}!calc\+Neighbours@{calc\+Neighbours}}
+\index{calc\+Neighbours@{calc\+Neighbours}!Map@{Map}}
+\subsubsection{\texorpdfstring{calc\+Neighbours()}{calcNeighbours()}}
+{\footnotesize\ttfamily void Map\+::calc\+Neighbours (\begin{DoxyParamCaption}\item[{\hyperlink{class_node}{Node} $\ast$}]{n }\end{DoxyParamCaption})}
+
+
+
+Definition at line 188 of file map.\+cpp.
+
+
+\begin{DoxyCode}
+189 \{
+190     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} dy = -1; dy <= 1; ++dy)
+191     \{
+192         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} dx = -1; dx <= 1; ++dx)
+193         \{
+194             \textcolor{keywordtype}{int} \hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x} = dx + n->\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x};
+195             \textcolor{keywordtype}{int} \hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y} = dy + n->\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y};
+196             \textcolor{keywordflow}{if} ((x>=0) && (x < \hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}) && (y>=0) && (y < \hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}) &&
+197                 (!\hyperlink{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}{openList}.contains(\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[x][y])) && (!\hyperlink{class_map_ae1ced58b787598940bb444659bacd7d3}{closedList}.contains(
+      \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[x][y])) &&
+198                 (\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[x][y]->\hyperlink{class_node_aae24f318bd4b6d14270084cec3fc98b5}{cost} < 100) && ((dx*dx) || (dy*dy)) && ((dy*dy) != (dx*dx))) \textcolor{comment}{//haal
+       laaste uit vir nei diag}
+199             \{
+200                 \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}]->\hyperlink{class_node_ad8184598cdea70e4bbdfd76f2b0f9e85}{parent} = n;
+201                 \textcolor{keywordflow}{if} ((dx*dx) && (dy*dy))
+202                 \{
+203                     \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}]->\hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g} = n->\hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g} + 14;
+204                 \}
+205                 \textcolor{keywordflow}{else}
+206                 \{
+207                     \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}]->\hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g} = n->\hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g} + 10;
+208                 \}
+209                 \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}]->\hyperlink{class_node_afb5a7ac7536a9e09488bb685420cd78a}{h} = \hyperlink{class_map_a0c1055f7616a6779a7f5f1d561a8ccb2}{calcH}(\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[x][y], \hyperlink{class_map_abdb357cb53c27be3b6e3c2b54bfde669}{finish});
+210                 \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}]->\hyperlink{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}{f} = \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}]->\hyperlink{class_node_a0b249888eacdec6c623ec8c58b230c48}{g} + \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}]->\hyperlink{class_node_afb5a7ac7536a9e09488bb685420cd78a}{h};
+211                 \hyperlink{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}{openList}.append(\hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[x][y]);
+212             \}
+213         \}
+214     \}
+215 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_map_a9500f43b02ce38b5e89248bd6e257858}\label{class_map_a9500f43b02ce38b5e89248bd6e257858}} 
+\index{Map@{Map}!get\+Node@{get\+Node}}
+\index{get\+Node@{get\+Node}!Map@{Map}}
+\subsubsection{\texorpdfstring{get\+Node()}{getNode()}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node} $\ast$ Map\+::get\+Node (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Definition at line 217 of file map.\+cpp.
+
+
+\begin{DoxyCode}
+218 \{
+219     \textcolor{keywordflow}{return} \hyperlink{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}{map}[\hyperlink{class_node_aff1029a518bdc2651007b8856f958364}{x}][\hyperlink{class_node_aa3e5b5240023b4528ae85057b3324202}{y}];
+220 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_map_a19461c64e6da374e8022d210a6930867}\label{class_map_a19461c64e6da374e8022d210a6930867}} 
+\index{Map@{Map}!smallestF@{smallestF}}
+\index{smallestF@{smallestF}!Map@{Map}}
+\subsubsection{\texorpdfstring{smallest\+F()}{smallestF()}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node} $\ast$ Map\+::smallestF (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 174 of file map.\+cpp.
+
+
+\begin{DoxyCode}
+175 \{
+176     \hyperlink{class_node}{Node} *r = \hyperlink{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}{openList}.first();
+177     QListIterator<Node*> i(\hyperlink{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}{openList});
+178     \textcolor{keywordflow}{while} (i.hasNext())
+179     \{
+180         \hyperlink{class_node}{Node} *t = i.next();
+181         \textcolor{keywordflow}{if} (t->\hyperlink{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}{f} < r->\hyperlink{class_node_a32fbe9e0f4fc9e9d1845ce808738d7ab}{f})
+182             r = t;
+183     \}
+184     \hyperlink{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}{openList}.removeOne(r);
+185     \textcolor{keywordflow}{return} r;
+186 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_map_ae1ced58b787598940bb444659bacd7d3}\label{class_map_ae1ced58b787598940bb444659bacd7d3}} 
+\index{Map@{Map}!closed\+List@{closed\+List}}
+\index{closed\+List@{closed\+List}!Map@{Map}}
+\subsubsection{\texorpdfstring{closed\+List}{closedList}}
+{\footnotesize\ttfamily Q\+List$<$\hyperlink{class_node}{Node}$\ast$$>$ Map\+::closed\+List}
+
+
+
+Definition at line 30 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_abdb357cb53c27be3b6e3c2b54bfde669}\label{class_map_abdb357cb53c27be3b6e3c2b54bfde669}} 
+\index{Map@{Map}!finish@{finish}}
+\index{finish@{finish}!Map@{Map}}
+\subsubsection{\texorpdfstring{finish}{finish}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node}$\ast$ Map\+::finish}
+
+
+
+Definition at line 28 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_a322ef8e3f55269ef565a58f20190d148}\label{class_map_a322ef8e3f55269ef565a58f20190d148}} 
+\index{Map@{Map}!grass@{grass}}
+\index{grass@{grass}!Map@{Map}}
+\subsubsection{\texorpdfstring{grass}{grass}}
+{\footnotesize\ttfamily Q\+Pixmap $\ast$ Map\+::grass}
+
+
+
+Definition at line 26 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}\label{class_map_a7298e7a7b5dbdc642c49ded9a2c754a5}} 
+\index{Map@{Map}!map@{map}}
+\index{map@{map}!Map@{Map}}
+\subsubsection{\texorpdfstring{map}{map}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node}$\ast$ Map\+::map\mbox{[}\hyperlink{class_map_acfd20721da29a2e353598555e23e12f0}{mapX}\mbox{]}\mbox{[}\hyperlink{class_map_ae08efae9ac1453b2690985c627aca358}{mapY}\mbox{]}}
+
+
+
+Definition at line 25 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_acfd20721da29a2e353598555e23e12f0}\label{class_map_acfd20721da29a2e353598555e23e12f0}} 
+\index{Map@{Map}!mapX@{mapX}}
+\index{mapX@{mapX}!Map@{Map}}
+\subsubsection{\texorpdfstring{mapX}{mapX}}
+{\footnotesize\ttfamily const int Map\+::mapX = 11\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 21 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_ae08efae9ac1453b2690985c627aca358}\label{class_map_ae08efae9ac1453b2690985c627aca358}} 
+\index{Map@{Map}!mapY@{mapY}}
+\index{mapY@{mapY}!Map@{Map}}
+\subsubsection{\texorpdfstring{mapY}{mapY}}
+{\footnotesize\ttfamily const int Map\+::mapY = 14\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 22 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_a07f51de84c133707fedaeffd04aff2d5}\label{class_map_a07f51de84c133707fedaeffd04aff2d5}} 
+\index{Map@{Map}!nodepoints@{nodepoints}}
+\index{nodepoints@{nodepoints}!Map@{Map}}
+\subsubsection{\texorpdfstring{nodepoints}{nodepoints}}
+{\footnotesize\ttfamily Q\+List$<$Q\+PointF$>$ Map\+::nodepoints}
+
+
+
+Definition at line 19 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_af0167137084000cfb58a33df8474bcbe}\label{class_map_af0167137084000cfb58a33df8474bcbe}} 
+\index{Map@{Map}!obstruction@{obstruction}}
+\index{obstruction@{obstruction}!Map@{Map}}
+\subsubsection{\texorpdfstring{obstruction}{obstruction}}
+{\footnotesize\ttfamily Q\+Pixmap$\ast$ Map\+::obstruction}
+
+
+
+Definition at line 26 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}\label{class_map_ab19ca30427e7257d713f5fcfa0ac1a10}} 
+\index{Map@{Map}!open\+List@{open\+List}}
+\index{open\+List@{open\+List}!Map@{Map}}
+\subsubsection{\texorpdfstring{open\+List}{openList}}
+{\footnotesize\ttfamily Q\+List$<$\hyperlink{class_node}{Node}$\ast$$>$ Map\+::open\+List}
+
+
+
+Definition at line 29 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_a99d78bd384bf091660dbc6e1123419b0}\label{class_map_a99d78bd384bf091660dbc6e1123419b0}} 
+\index{Map@{Map}!path@{path}}
+\index{path@{path}!Map@{Map}}
+\subsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily Q\+Pixmap $\ast$ Map\+::path}
+
+
+
+Definition at line 26 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_a4dafaf125d6014a97e98168e41492cd5}\label{class_map_a4dafaf125d6014a97e98168e41492cd5}} 
+\index{Map@{Map}!portal@{portal}}
+\index{portal@{portal}!Map@{Map}}
+\subsubsection{\texorpdfstring{portal}{portal}}
+{\footnotesize\ttfamily Q\+Pixmap $\ast$ Map\+::portal}
+
+
+
+Definition at line 26 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_aafcbf6f458eb48f4945f3d0b58d2ef85}\label{class_map_aafcbf6f458eb48f4945f3d0b58d2ef85}} 
+\index{Map@{Map}!start@{start}}
+\index{start@{start}!Map@{Map}}
+\subsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily \hyperlink{class_node}{Node}$\ast$ Map\+::start}
+
+
+
+Definition at line 27 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_af2aa425dd22aba483ae973c4a15fe934}\label{class_map_af2aa425dd22aba483ae973c4a15fe934}} 
+\index{Map@{Map}!tileX@{tileX}}
+\index{tileX@{tileX}!Map@{Map}}
+\subsubsection{\texorpdfstring{tileX}{tileX}}
+{\footnotesize\ttfamily const int Map\+::tileX = 64\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 23 of file map.\+h.
+
+\mbox{\Hypertarget{class_map_a483dfba507cee9d2fa60a074992b1fcf}\label{class_map_a483dfba507cee9d2fa60a074992b1fcf}} 
+\index{Map@{Map}!tileY@{tileY}}
+\index{tileY@{tileY}!Map@{Map}}
+\subsubsection{\texorpdfstring{tileY}{tileY}}
+{\footnotesize\ttfamily const int Map\+::tileY = 64\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line 24 of file map.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{map_8h}{map.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{map_8cpp}{map.\+cpp}\end{DoxyCompactItemize}

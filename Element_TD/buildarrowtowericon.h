@@ -9,7 +9,7 @@ class BuildArrowTowerIcon: public QGraphicsPixmapItem
 public:
     BuildArrowTowerIcon(QGraphicsItem *parent =0);
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
-    virtual void hoverEnterEvent(QGraphicsSceneMouseEvent *event);
+    void hoverEnterEvent(QGraphicsSceneMouseEvent *event);
 };
 
 #endif // BUILDARROWTOWERICON_H

@@ -13,7 +13,6 @@
 #include <enemy.h>
 #include <waves.h>
 #include <udpsocket.h>
-#include <QSound>
 
 
 

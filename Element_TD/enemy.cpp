@@ -20,9 +20,9 @@ Enemy::Enemy(QList<QPointF> pointsToFollow, int enemyNumber, QGraphicsItem *pare
     sprites.append(ouBill);
 
     if (enemyNumber == 1) {
-        QPixmap eye1 = p.copy(234, 0, 32, 32);
+        QPixmap eye1 = p.copy(234, 0, 39, 32);
         sprites.append(eye1);
-        QPixmap eye2 = p.copy(273, 0, 32, 32);
+        QPixmap eye2 = p.copy(273, 0, 39, 32);
         sprites.append(eye2);
         scale = 3;
         sprite_counter = enemyNumber;

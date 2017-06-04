@@ -1,0 +1,417 @@
+\hypertarget{class_tower}{}\section{Tower Class Reference}
+\label{class_tower}\index{Tower@{Tower}}
+
+
+{\ttfamily \#include $<$tower.\+h$>$}
+
+Inheritance diagram for Tower\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_tower}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_tower_a6e0df1e43e746622967918aaf6f42dce}{aquire\+\_\+target} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_tower_aa3ff2c932ed113a80a122dbe2e3e0176}{Tower} (Q\+Graphics\+Item $\ast$parent=0)
+\item 
+double \hyperlink{class_tower_a1b04543304dcd92cee3c0909362a9a3f}{distance\+To} (Q\+Graphics\+Item $\ast$item)
+\item 
+virtual void \hyperlink{class_tower_a11d4b8069b148e8587b2e7bc2d68b55d}{mouse\+Press\+Event} (Q\+Mouse\+Event $\ast$event)
+\item 
+virtual void \hyperlink{class_tower_aa0c9c780f48cffacd3da6877f5d4fdc2}{fire} ()
+\item 
+virtual int \hyperlink{class_tower_ae1d3f44d0149c8146ccf6b262a52ddad}{get\+Cost\+Of\+Tower} ()
+\item 
+virtual void \hyperlink{class_tower_a7736b1132e64e14a977e9e8c91c3338f}{sell\+Tower} ()
+\item 
+bool \hyperlink{class_tower_a7632139d282286858bcf80fa0044e19b}{get\+Is\+Placed} ()
+\item 
+Q\+String \hyperlink{class_tower_a36d5430c311d9e0509c1c078ca1876dc}{get\+Owner} ()
+\item 
+void \hyperlink{class_tower_aaab33d438ff21a9628534b0e027fe4f7}{set\+Is\+Placed} (bool b)
+\item 
+void \hyperlink{class_tower_a2c56faabb6910f6dadddf61b1decdbf9}{set\+Owner} (Q\+String player)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{class_tower_ac97e0d44e295399c5cac3cc6e2060df6}{cost\+Of\+Tower} = 50
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_tower_a1317cf5400c63351e0d66b17df5c0417}{is\+Placed} = false
+\item 
+Q\+String \hyperlink{class_tower_abff7e8aaf637c17bcba08f9097db38df}{owner}
+\item 
+Q\+Graphics\+Polygon\+Item $\ast$ \hyperlink{class_tower_a628af042db1aa134f2ab18b1f2b0eeb9}{attack\+\_\+area}
+\item 
+bool \hyperlink{class_tower_a568b9b12bc604fb245a79476b71d6557}{has\+\_\+target}
+\item 
+Q\+PointF \hyperlink{class_tower_a2b3e8ab90ccceed1fa3a667db80c2c06}{attack\+\_\+dest}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 11 of file tower.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_tower_aa3ff2c932ed113a80a122dbe2e3e0176}\label{class_tower_aa3ff2c932ed113a80a122dbe2e3e0176}} 
+\index{Tower@{Tower}!Tower@{Tower}}
+\index{Tower@{Tower}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{Tower()}{Tower()}}
+{\footnotesize\ttfamily Tower\+::\+Tower (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 18 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+18                                  :QObject(), QGraphicsPixmapItem(parent)
+19 \{
+20     \textcolor{comment}{//set the graphics}
+21     setPixmap(QPixmap(\textcolor{stringliteral}{":/images/images/Tower\_Arrow.png"}));
+22     \textcolor{keywordtype}{int} w = pixmap().width();
+23     \textcolor{keywordtype}{int} h = pixmap().height();
+24     setOffset(-w/2,-h/1.25);
+25 
+26     \textcolor{comment}{//create points vector}
+27     QVector<QPointF> points;
+28     points << QPoint(1,0) << QPoint(2,0) << QPoint(3,1) << QPoint(3,2) << QPoint(2,3) << QPoint(1,3)
+29            << QPoint(0,2) << QPoint(0,1);
+30 
+31     \textcolor{comment}{//scale points}
+32     \textcolor{keywordtype}{int} SCALE\_FACTOR = pixmap().width();
+33     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i=0 , n = points.size() ;i<n ; i++)
+34     \{
+35         points[i] *= SCALE\_FACTOR;
+36     \}
+37 
+38     \textcolor{comment}{//create polygon from these points}
+39     QPolygonF polygon(points);
+40 
+41     \textcolor{comment}{//create the polyitem}
+42     \hyperlink{class_tower_a628af042db1aa134f2ab18b1f2b0eeb9}{attack\_area} = \textcolor{keyword}{new} QGraphicsPolygonItem(polygon,\textcolor{keyword}{this});
+43     \hyperlink{class_tower_a628af042db1aa134f2ab18b1f2b0eeb9}{attack\_area}->setPen(QPen(Qt::DotLine));
+44 
+45     \textcolor{comment}{//move the polygon}
+46     QPointF poly\_center(1.5,1.5);
+47     poly\_center *= SCALE\_FACTOR;
+48     poly\_center = mapToScene(poly\_center);
+49     QPointF tower\_center(x(),y());
+50     QLineF ln(poly\_center,tower\_center);
+51     \hyperlink{class_tower_a628af042db1aa134f2ab18b1f2b0eeb9}{attack\_area}->setPos(x()+ln.dx(),y()+ln.dy());
+52 
+53     \textcolor{comment}{//set attack dest}
+54     \hyperlink{class_tower_a2b3e8ab90ccceed1fa3a667db80c2c06}{attack\_dest} = QPointF(0,0);
+55     \hyperlink{class_tower_a568b9b12bc604fb245a79476b71d6557}{has\_target} = \textcolor{keyword}{false};
+56 
+57 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_tower_a6e0df1e43e746622967918aaf6f42dce}\label{class_tower_a6e0df1e43e746622967918aaf6f42dce}} 
+\index{Tower@{Tower}!aquire\+\_\+target@{aquire\+\_\+target}}
+\index{aquire\+\_\+target@{aquire\+\_\+target}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{aquire\+\_\+target}{aquire\_target}}
+{\footnotesize\ttfamily void Tower\+::aquire\+\_\+target (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 123 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+124 \{
+125     \textcolor{comment}{// get a list of all enemies that collide with attack\_area, find the closest one}
+126     \textcolor{comment}{// and set it's position as the attack\_dest}
+127 
+128     \textcolor{comment}{// get a list of all enemies within attack\_area}
+129     QList<QGraphicsItem *> colliding\_items = \hyperlink{class_tower_a628af042db1aa134f2ab18b1f2b0eeb9}{attack\_area}->collidingItems();
+130 
+131     \textcolor{comment}{// assume tower does not have a target, unless we find one}
+132     \hyperlink{class_tower_a568b9b12bc604fb245a79476b71d6557}{has\_target} = \textcolor{keyword}{false};
+133 
+134     \textcolor{comment}{//find the closest enemy}
+135     \textcolor{keywordtype}{double} closest\_dist = 300;
+136     QPointF closest\_pt(0,0);
+137     \textcolor{keywordflow}{for} ( \textcolor{keywordtype}{size\_t} i = 0, n = colliding\_items.size(); i <n ; i++)
+138     \{
+139         \textcolor{comment}{//make sure it is an enemy}
+140         \hyperlink{class_enemy}{Enemy} * enemy = \textcolor{keyword}{dynamic\_cast<}\hyperlink{class_enemy}{Enemy} *\textcolor{keyword}{>}(colliding\_items[i]);
+141 
+142         \textcolor{comment}{//see if distance is closer}
+143         \textcolor{keywordflow}{if} (enemy) \{
+144             \textcolor{keywordtype}{double} this\_dist = \hyperlink{class_tower_a1b04543304dcd92cee3c0909362a9a3f}{distanceTo}(colliding\_items[i]);
+145             \textcolor{keywordflow}{if} (this\_dist < closest\_dist) \{
+146                 closest\_dist = this\_dist;
+147                 closest\_pt = colliding\_items[i]->pos();\textcolor{comment}{//speel met die pos om center van enemy te kry}
+148                 \hyperlink{class_tower_a568b9b12bc604fb245a79476b71d6557}{has\_target} = \textcolor{keyword}{true};
+149             \}
+150         \}
+151     \}
+152 
+153     \textcolor{comment}{//if has target, set the closest enemy as the attack\_dest, and fire}
+154     \textcolor{keywordflow}{if} (\hyperlink{class_tower_a568b9b12bc604fb245a79476b71d6557}{has\_target} == \textcolor{keyword}{true})
+155     \{
+156         \hyperlink{class_tower_a2b3e8ab90ccceed1fa3a667db80c2c06}{attack\_dest} = closest\_pt;
+157         \hyperlink{class_tower_aa0c9c780f48cffacd3da6877f5d4fdc2}{fire}();
+158     \}
+159 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tower_a1b04543304dcd92cee3c0909362a9a3f}\label{class_tower_a1b04543304dcd92cee3c0909362a9a3f}} 
+\index{Tower@{Tower}!distance\+To@{distance\+To}}
+\index{distance\+To@{distance\+To}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{distance\+To()}{distanceTo()}}
+{\footnotesize\ttfamily double Tower\+::distance\+To (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{item }\end{DoxyParamCaption})}
+
+
+
+Definition at line 59 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+60 \{
+61     QLineF ln(pos(), item->pos());
+62     \textcolor{keywordflow}{return} ln.length();
+63 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tower_aa0c9c780f48cffacd3da6877f5d4fdc2}\label{class_tower_aa0c9c780f48cffacd3da6877f5d4fdc2}} 
+\index{Tower@{Tower}!fire@{fire}}
+\index{fire@{fire}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{fire()}{fire()}}
+{\footnotesize\ttfamily void Tower\+::fire (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_arrow_tower_ab4ed87128b5037a98640ab05e8721d88}{Arrow\+Tower}, \hyperlink{class_canon_tower_aa8d13cf8b8d530256b95746620e16234}{Canon\+Tower}, and \hyperlink{class_fire_tower_a9a0b13fcb0bc204194d953c5494afbe3}{Fire\+Tower}.
+
+
+
+Definition at line 78 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+79 \{
+80     \hyperlink{class_bullet}{Bullet} *bullet = \textcolor{keyword}{new} \hyperlink{class_bullet}{Bullet}();
+81     \textcolor{keywordtype}{int} y\_pos = pixmap().height()*\hyperlink{tower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a6c1ca48f17f6934432d01bfa7f762a04}{scalingfactor\_towers}/1.25;
+82 
+83     bullet->setPos(x(), y()-y\_pos);
+84 
+85     QLineF ln(QPointF(x(), y()-y\_pos),\hyperlink{class_tower_a2b3e8ab90ccceed1fa3a667db80c2c06}{attack\_dest});
+86     \textcolor{keywordtype}{int} angle = -1*ln.angle();
+87 
+88     bullet->setRotation(angle);
+89     \hyperlink{tower_8cpp_a58bdb5643d0814ac4e697a1564b79b70}{game}->\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}->addItem(bullet);
+90 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tower_ae1d3f44d0149c8146ccf6b262a52ddad}\label{class_tower_ae1d3f44d0149c8146ccf6b262a52ddad}} 
+\index{Tower@{Tower}!get\+Cost\+Of\+Tower@{get\+Cost\+Of\+Tower}}
+\index{get\+Cost\+Of\+Tower@{get\+Cost\+Of\+Tower}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{get\+Cost\+Of\+Tower()}{getCostOfTower()}}
+{\footnotesize\ttfamily int Tower\+::get\+Cost\+Of\+Tower (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_arrow_tower_a1ef82141056a39071f89d1c360728116}{Arrow\+Tower}, \hyperlink{class_canon_tower_ac0e57d350da509e89e926afe950ab291}{Canon\+Tower}, and \hyperlink{class_fire_tower_a74be102e9bb0871f19fb55b434e2b6d7}{Fire\+Tower}.
+
+
+
+Definition at line 92 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+93 \{
+94     \textcolor{keywordflow}{return} \hyperlink{class_tower_ac97e0d44e295399c5cac3cc6e2060df6}{costOfTower};
+95 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tower_a7632139d282286858bcf80fa0044e19b}\label{class_tower_a7632139d282286858bcf80fa0044e19b}} 
+\index{Tower@{Tower}!get\+Is\+Placed@{get\+Is\+Placed}}
+\index{get\+Is\+Placed@{get\+Is\+Placed}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{get\+Is\+Placed()}{getIsPlaced()}}
+{\footnotesize\ttfamily bool Tower\+::get\+Is\+Placed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 103 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+104 \{
+105     \textcolor{keywordflow}{return} \hyperlink{class_tower_a1317cf5400c63351e0d66b17df5c0417}{isPlaced};
+106 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tower_a36d5430c311d9e0509c1c078ca1876dc}\label{class_tower_a36d5430c311d9e0509c1c078ca1876dc}} 
+\index{Tower@{Tower}!get\+Owner@{get\+Owner}}
+\index{get\+Owner@{get\+Owner}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{get\+Owner()}{getOwner()}}
+{\footnotesize\ttfamily Q\+String Tower\+::get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 108 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+109 \{
+110     \textcolor{keywordflow}{return} \hyperlink{class_tower_abff7e8aaf637c17bcba08f9097db38df}{owner};
+111 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tower_a11d4b8069b148e8587b2e7bc2d68b55d}\label{class_tower_a11d4b8069b148e8587b2e7bc2d68b55d}} 
+\index{Tower@{Tower}!mouse\+Press\+Event@{mouse\+Press\+Event}}
+\index{mouse\+Press\+Event@{mouse\+Press\+Event}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{mouse\+Press\+Event()}{mousePressEvent()}}
+{\footnotesize\ttfamily void Tower\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 65 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+66 \{
+67     qDebug() << \textcolor{stringliteral}{"Tower Clicked"};
+68     \textcolor{keywordflow}{if} (event->button() == Qt::RightButton) \{
+69         \hyperlink{class_tower_a7736b1132e64e14a977e9e8c91c3338f}{sellTower}();
+70     \}
+71     \textcolor{keywordflow}{else}
+72     \{
+73 \textcolor{comment}{//        QGraphicsView::mousePressEvent(event);}
+74         \textcolor{keywordflow}{return};
+75     \}
+76 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tower_a7736b1132e64e14a977e9e8c91c3338f}\label{class_tower_a7736b1132e64e14a977e9e8c91c3338f}} 
+\index{Tower@{Tower}!sell\+Tower@{sell\+Tower}}
+\index{sell\+Tower@{sell\+Tower}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{sell\+Tower()}{sellTower()}}
+{\footnotesize\ttfamily void Tower\+::sell\+Tower (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Reimplemented in \hyperlink{class_arrow_tower_a7ac5bf2863d8a4c461d26a3a60dc62ab}{Arrow\+Tower}, \hyperlink{class_canon_tower_a5bfc0567c8907e8a6ddf4722f6783cd0}{Canon\+Tower}, and \hyperlink{class_fire_tower_adc1bcb15312eac1dd9788be48e55baad}{Fire\+Tower}.
+
+
+
+Definition at line 97 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+98 \{
+99     \textcolor{comment}{//sell hier?}
+100     qDebug() << \textcolor{stringliteral}{"Sold!"};
+101 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tower_aaab33d438ff21a9628534b0e027fe4f7}\label{class_tower_aaab33d438ff21a9628534b0e027fe4f7}} 
+\index{Tower@{Tower}!set\+Is\+Placed@{set\+Is\+Placed}}
+\index{set\+Is\+Placed@{set\+Is\+Placed}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{set\+Is\+Placed()}{setIsPlaced()}}
+{\footnotesize\ttfamily void Tower\+::set\+Is\+Placed (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line 113 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+114 \{
+115     \hyperlink{class_tower_a1317cf5400c63351e0d66b17df5c0417}{isPlaced} = b;
+116 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{class_tower_a2c56faabb6910f6dadddf61b1decdbf9}\label{class_tower_a2c56faabb6910f6dadddf61b1decdbf9}} 
+\index{Tower@{Tower}!set\+Owner@{set\+Owner}}
+\index{set\+Owner@{set\+Owner}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{set\+Owner()}{setOwner()}}
+{\footnotesize\ttfamily void Tower\+::set\+Owner (\begin{DoxyParamCaption}\item[{Q\+String}]{player }\end{DoxyParamCaption})}
+
+
+
+Definition at line 118 of file tower.\+cpp.
+
+
+\begin{DoxyCode}
+119 \{
+120     \hyperlink{class_tower_abff7e8aaf637c17bcba08f9097db38df}{owner} = player;
+121 \}
+\end{DoxyCode}
+
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{class_tower_a628af042db1aa134f2ab18b1f2b0eeb9}\label{class_tower_a628af042db1aa134f2ab18b1f2b0eeb9}} 
+\index{Tower@{Tower}!attack\+\_\+area@{attack\+\_\+area}}
+\index{attack\+\_\+area@{attack\+\_\+area}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{attack\+\_\+area}{attack\_area}}
+{\footnotesize\ttfamily Q\+Graphics\+Polygon\+Item$\ast$ Tower\+::attack\+\_\+area\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 43 of file tower.\+h.
+
+\mbox{\Hypertarget{class_tower_a2b3e8ab90ccceed1fa3a667db80c2c06}\label{class_tower_a2b3e8ab90ccceed1fa3a667db80c2c06}} 
+\index{Tower@{Tower}!attack\+\_\+dest@{attack\+\_\+dest}}
+\index{attack\+\_\+dest@{attack\+\_\+dest}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{attack\+\_\+dest}{attack\_dest}}
+{\footnotesize\ttfamily Q\+PointF Tower\+::attack\+\_\+dest\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 45 of file tower.\+h.
+
+\mbox{\Hypertarget{class_tower_ac97e0d44e295399c5cac3cc6e2060df6}\label{class_tower_ac97e0d44e295399c5cac3cc6e2060df6}} 
+\index{Tower@{Tower}!cost\+Of\+Tower@{cost\+Of\+Tower}}
+\index{cost\+Of\+Tower@{cost\+Of\+Tower}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{cost\+Of\+Tower}{costOfTower}}
+{\footnotesize\ttfamily const int Tower\+::cost\+Of\+Tower = 50}
+
+
+
+Definition at line 21 of file tower.\+h.
+
+\mbox{\Hypertarget{class_tower_a568b9b12bc604fb245a79476b71d6557}\label{class_tower_a568b9b12bc604fb245a79476b71d6557}} 
+\index{Tower@{Tower}!has\+\_\+target@{has\+\_\+target}}
+\index{has\+\_\+target@{has\+\_\+target}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{has\+\_\+target}{has\_target}}
+{\footnotesize\ttfamily bool Tower\+::has\+\_\+target\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 44 of file tower.\+h.
+
+\mbox{\Hypertarget{class_tower_a1317cf5400c63351e0d66b17df5c0417}\label{class_tower_a1317cf5400c63351e0d66b17df5c0417}} 
+\index{Tower@{Tower}!is\+Placed@{is\+Placed}}
+\index{is\+Placed@{is\+Placed}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{is\+Placed}{isPlaced}}
+{\footnotesize\ttfamily bool Tower\+::is\+Placed = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 38 of file tower.\+h.
+
+\mbox{\Hypertarget{class_tower_abff7e8aaf637c17bcba08f9097db38df}\label{class_tower_abff7e8aaf637c17bcba08f9097db38df}} 
+\index{Tower@{Tower}!owner@{owner}}
+\index{owner@{owner}!Tower@{Tower}}
+\subsubsection{\texorpdfstring{owner}{owner}}
+{\footnotesize\ttfamily Q\+String Tower\+::owner\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Definition at line 39 of file tower.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{tower_8h}{tower.\+h}\item 
+C\+:/\+Users/\+Fu\+Zzy/\+Dropbox/3de Jaar/\+Sem 1/\+R\+E\+I\+I313-\/\+C++ O\+O\+P/\+T\+D\+\_\+\+Game/\+Element\+\_\+\+T\+D/\hyperlink{tower_8cpp}{tower.\+cpp}\end{DoxyCompactItemize}
