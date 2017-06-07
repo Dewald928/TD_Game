@@ -5,11 +5,11 @@ Sound::Sound(QGraphicsItem *parent)
 {
     setPixmap(QPixmap(":/images/images/sound.png"));
 
-    //play music
-    theme = new QSound(":/images/sounds/Marimba.wav");
-    theme->play();
-    theme->setLoops(QSound::Infinite);
-    playing = true;
+//    //play music
+//    theme = new QSound(":/images/sounds/Marimba.wav");
+//    theme->play();
+//    theme->setLoops(QSound::Infinite);
+//    playing = true;
 
 }
 
